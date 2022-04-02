@@ -4,7 +4,7 @@
 
 **rails作成**
 
-docker-compose run web rails new . --force --database=mysql
+docker-compose run web rails new . --webpack=react -T --force --database=mysql
 
 **docker image更新**
 
