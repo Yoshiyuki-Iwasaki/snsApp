@@ -1,4 +1,4 @@
-# docker-rails
+# rails-todo
 
 ## コマンド
 
