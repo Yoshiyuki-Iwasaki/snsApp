@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: redirect('/todos')
+  root to: redirect('/todos') # todosにリダイレクトさせる
 
   get 'todos', to: 'site#index'
   get 'todos/new', to: 'site#index'
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      delete '/todos/destory_all', to: 'todo#destory_all'
+      delete '/todos/destory_all', to: 'todos#destory_all'
       resources :todos, only: %i[index show create update destory]
     end
   end
