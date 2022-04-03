@@ -31,7 +31,7 @@ class Api::V1::TodosController < ApplicationController
         if Todo.destory(params[:id])
             head :no_content
         else
-            render json: {error: "Failed to destory"}, status: 402
+            render json: {error: "Failed to destory"}, status: 422
         end
     end
 
@@ -39,7 +39,7 @@ class Api::V1::TodosController < ApplicationController
         if Todo.destory_all
             head :no_content
         else
-            render json: {error: "Failed to destory"}, status: 402
+            render json: {error: "Failed to destory"}, status: 422
         end
     end
 
