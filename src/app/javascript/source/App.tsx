@@ -3,7 +3,7 @@ import "ress";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddTodo from "./components/AddTodo";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/todolist/";
 import EditTodo from "./components/EditTodo";
 import Layout from "./components/layout";
 
