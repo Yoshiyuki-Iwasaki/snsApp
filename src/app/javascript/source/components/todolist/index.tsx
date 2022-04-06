@@ -98,7 +98,7 @@ const TodoList: FC = () => {
                   </Uncheckedbox>
                 )}
                 {val.name}
-                <Link to={"/todos/" + val.id + "/edit"}>
+                <Link to={"/" + val.id + "/edit"}>
                   <EditButton>
                     <AiFillEdit />
                   </EditButton>
