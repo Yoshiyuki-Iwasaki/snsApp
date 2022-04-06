@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavBar = styled.nav``;
+export const Logo = styled.h1``;
 export const Inner = styled.div`
   margin: 0 auto;
   padding: 15px 0;
@@ -8,7 +8,7 @@ export const Inner = styled.div`
   justify-content: space-between;
   width: 1000px;
 `;
-export const Logo = styled.div``;
+export const NavBar = styled.nav``;
 export const NavItems = styled.ul`
   display: flex;
 `;
