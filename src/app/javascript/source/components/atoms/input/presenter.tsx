@@ -2,9 +2,16 @@ import React, { FC } from "react";
 import { FormInput } from "./style";
 import { InputType } from "./type";
 
-const Presenter: FC<InputType> = ({ onChange, placeholder }) => {
+const Presenter: FC<InputType> = ({ onChange, placeholder, value }) => {
   return (
-    <FormInput type="text" onChange={onChange} placeholder={placeholder} />
+    <FormInput
+      required
+      type="text"
+      name="name"
+      onChange={onChange}
+      placeholder={placeholder}
+      value={value}
+    />
   );
 };
 
