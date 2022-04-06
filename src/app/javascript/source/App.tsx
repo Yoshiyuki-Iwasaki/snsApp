@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import "ress";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AddTodo from "./components/AddTodo";
+import AddTodo from "./components/addTodo/";
 import TodoList from "./components/todolist/";
 import EditTodo from "./components/EditTodo";
 import Layout from "./components/layout";
