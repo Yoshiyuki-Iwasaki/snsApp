@@ -7,7 +7,7 @@ const Header: FC = () => {
     <NavBar>
       <Inner>
         <Link to="/todos">
-          <Logo>TODO</Logo>
+          <Logo>TODO LIST</Logo>
         </Link>
         <NavItems>
           <NavItem>

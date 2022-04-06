@@ -3,7 +3,6 @@ import axios from "axios";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { AiFillEdit } from "react-icons/ai";
 import {
-  Title,
   List,
   ListItem,
   SearchArea,
@@ -61,7 +60,6 @@ const TodoList: FC = () => {
 
   return (
     <>
-      <Title>TodoList</Title>
       <SearchArea>
         <SearchInput
           type="text"
