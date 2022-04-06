@@ -49,7 +49,7 @@ const AddTodo: FC = () => {
 
   return (
     <>
-      <Title>AddTodo</Title>
+      <Title>新規投稿</Title>
       <InputAndButton>
         <Input
           type="text"
