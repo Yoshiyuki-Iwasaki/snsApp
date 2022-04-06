@@ -6,7 +6,7 @@ export const Inner = styled.div`
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
-  width: 1000px;
+  width: 600px;
 `;
 export const NavBar = styled.nav``;
 export const NavItems = styled.ul`
