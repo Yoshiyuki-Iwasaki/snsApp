@@ -2,7 +2,18 @@ import React, { useState, useEffect, FC } from "react";
 import axios from "axios";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { AiFillEdit } from "react-icons/ai";
-import { Title, Content, SearchForm, RemoveButton } from "./style";
+import {
+  Title,
+  List,
+  ListItem,
+  SearchArea,
+  SearchInput,
+  RemoveButton,
+  Checkedbox,
+  Uncheckedbox,
+  EditButton,
+} from "./style";
+import { Link } from "react-router-dom";
 
 const TodoList: FC = () => {
   const [todos, setTodos] = useState([]);
@@ -24,7 +35,7 @@ const TodoList: FC = () => {
     const sure = window.confirm("Are you sure?");
     if (sure) {
       axios
-        .delete("/api/v1/todos/destory_all")
+        .delete("/api/v1/todos/destroy_all")
         .then(res => {
           setTodos([]);
         })
@@ -41,7 +52,7 @@ const TodoList: FC = () => {
       is_completed: !val.is_completed,
     };
 
-    axios.patch(`api/v1/todos${val.id}`, data).then(res => {
+    axios.patch(`api/v1/todos/${val.id}`, data).then(res => {
       const newTodos: any = [...todos];
       newTodos[index].is_completed = res.data.is_completed;
       setTodos(newTodos);
@@ -51,15 +62,17 @@ const TodoList: FC = () => {
   return (
     <>
       <Title>TodoList</Title>
-      <SearchForm
-        type="text"
-        placeholder="Search todo."
-        onChange={e => {
-          setSearchName(e.target.value);
-        }}
-      ></SearchForm>
-      <RemoveButton onClick={removeAllTodos}>Remove All</RemoveButton>
-      <Content>
+      <SearchArea>
+        <SearchInput
+          type="text"
+          placeholder="Search todo."
+          onChange={e => {
+            setSearchName(e.target.value);
+          }}
+        />
+        <RemoveButton onClick={removeAllTodos}>Remove All</RemoveButton>
+      </SearchArea>
+      <List>
         {todos
           .filter(val => {
             if (searchName === "") {
@@ -71,9 +84,31 @@ const TodoList: FC = () => {
             }
           })
           .map((val, index) => {
-            return <div key={index}>{val.name}</div>;
+            return (
+              <ListItem key={index}>
+                {val.is_completed ? (
+                  <Checkedbox>
+                    <ImCheckboxChecked
+                      onClick={() => updateIsCompleted(index, val)}
+                    />
+                  </Checkedbox>
+                ) : (
+                  <Uncheckedbox>
+                    <ImCheckboxUnchecked
+                      onClick={() => updateIsCompleted(index, val)}
+                    />
+                  </Uncheckedbox>
+                )}
+                {val.name}
+                <Link to={"/todos/" + val.id + "/edit"}>
+                  <EditButton>
+                    <AiFillEdit />
+                  </EditButton>
+                </Link>
+              </ListItem>
+            );
           })}
-      </Content>
+      </List>
     </>
   );
 };
