@@ -4,8 +4,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddTodo from "./components/addTodo/";
 import TodoList from "./components/todolist/";
-import EditTodo from "./components/EditTodo";
-import Layout from "./components/layout";
+import EditTodo from "./components/editTodo/";
+import Layout from "./components/layout/";
 
 const App: FC = () => {
   return (
