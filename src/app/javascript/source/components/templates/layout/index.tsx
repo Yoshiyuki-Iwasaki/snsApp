@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Header from "../header";
+import Header from "../../organisms/header";
 import { LayoutType } from "./type";
 import { Content } from "./style";
 
