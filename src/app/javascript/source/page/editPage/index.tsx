@@ -4,13 +4,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import {
-  InputName,
-  CurrentStatus,
-  IsCompletedButton,
-  EditButton,
-  DeleteButton,
-} from "./style";
+import { InputName, CurrentStatus } from "./style";
+import Button from "../../components/atoms/button";
 
 toast.configure();
 
@@ -103,11 +98,11 @@ const EditTodo: FC = props => {
       <CurrentStatus>
         {currentTodo.is_completed ? "Completed" : "unCompleted"}
       </CurrentStatus>
-      <IsCompletedButton onClick={() => updateIsCompleted(currentTodo)}>
+      <Button onClick={() => updateIsCompleted(currentTodo)}>
         {currentTodo.is_completed ? "unCompleted" : "Completed"}
-      </IsCompletedButton>
-      <EditButton onClick={updateTodo}>Update</EditButton>
-      <DeleteButton onClick={deleteTodo}>Delete</DeleteButton>
+      </Button>
+      <Button onClick={updateTodo}>Update</Button>
+      <Button onClick={deleteTodo}>Delete</Button>
     </>
   );
 };
