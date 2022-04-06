@@ -4,7 +4,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiSend } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { Title, InputAndButton, Input, Button, Icon } from "./style";
+import { Title, InputAndButton, Icon } from "./style";
+import Button from "../../components/atoms/button";
+import Input from "../../components/atoms/input";
 
 toast.configure();
 
@@ -51,13 +53,7 @@ const AddTodo: FC = () => {
     <>
       <Title>新規投稿</Title>
       <InputAndButton>
-        <Input
-          type="text"
-          required
-          value={todo.name}
-          name="name"
-          onChange={handleInputChange}
-        />
+        <Input value={todo.name} onChange={handleInputChange} />
         <Button
           onClick={saveTodo}
           disabled={!todo.name || /^\s*$/.test(todo.name)}
