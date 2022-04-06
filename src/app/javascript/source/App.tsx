@@ -12,9 +12,9 @@ const App: FC = () => {
     <Router>
       <Layout>
         <Routes>
-          <Route path={"/todos"} element={<TodoList />} />
-          <Route path={"/todos/new"} element={<AddTodo />} />
-          <Route path={"/todos/:id/edit"} element={<EditTodo />} />
+          <Route path={"/"} element={<TodoList />} />
+          <Route path={"/new"} element={<AddTodo />} />
+          <Route path={"/:id/edit"} element={<EditTodo />} />
         </Routes>
       </Layout>
     </Router>

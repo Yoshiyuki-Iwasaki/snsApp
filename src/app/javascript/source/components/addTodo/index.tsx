@@ -40,7 +40,7 @@ const AddTodo: FC = () => {
           is_completed: res.data.is_completed,
         });
         notify();
-        navigate("/todos");
+        navigate("/");
       })
       .catch(e => {
         console.log(e);

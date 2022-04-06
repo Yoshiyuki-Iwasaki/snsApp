@@ -6,12 +6,12 @@ const Header: FC = () => {
   return (
     <NavBar>
       <Inner>
-        <Link to="/todos">
+        <Link to="/">
           <Logo>TODO LIST</Logo>
         </Link>
         <NavItems>
           <NavItem>
-            <Link to="/todos/new">新規投稿</Link>
+            <Link to="/new">新規投稿</Link>
           </NavItem>
         </NavItems>
       </Inner>

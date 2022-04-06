@@ -63,7 +63,7 @@ const EditTodo: FC = props => {
       .patch(`/api/v1/todos/${currentTodo.id}`, currentTodo)
       .then(res => {
         notify();
-        navigate("/todos");
+        navigate("/");
       })
       .catch(e => {
         console.log(e);
@@ -77,7 +77,7 @@ const EditTodo: FC = props => {
         .delete(`/api/v1/todos/${currentTodo.id}`)
         .then(res => {
           notify();
-          navigate("/todos");
+          navigate("/");
         })
         .catch(e => {
           console.log(e);
