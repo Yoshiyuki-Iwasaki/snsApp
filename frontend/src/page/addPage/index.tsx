@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Title, InputAndButton, Icon } from "./style";
 import Button from "../../components/atoms/button";
 import Input from "../../components/atoms/input";
+import TodoApi from "../../api/Todo/api";
 
 toast.configure();
 
@@ -29,24 +30,18 @@ const AddTodo: FC = () => {
       hideProgressBar: true,
     });
   };
-  const saveTodo = () => {
+  const addTodo = async () => {
     const data = {
       name: todo.name,
     };
-    axios
-      .post("/api/v1/todos", data)
-      .then(res => {
-        setTodo({
-          id: res.data.id,
-          name: res.data.name,
-          is_completed: res.data.is_completed,
-        });
-        notify();
-        navigate("/");
-      })
-      .catch(e => {
-        console.log(e);
-      });
+    const todoRes = await TodoApi.create(data);
+    setTodo({
+      id: todoRes.data.id,
+      name: todoRes.data.name,
+      is_completed: todoRes.data.is_completed,
+    });
+    notify();
+    navigate("/");
   };
 
   return (
@@ -55,7 +50,7 @@ const AddTodo: FC = () => {
       <InputAndButton>
         <Input value={todo.name} onChange={handleInputChange} />
         <Button
-          onClick={saveTodo}
+          onClick={addTodo}
           disabled={!todo.name || /^\s*$/.test(todo.name)}
         >
           <Icon>
