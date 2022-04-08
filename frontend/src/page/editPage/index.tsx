@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { InputName, CurrentStatus } from "./style";
 import Button from "../../components/atoms/button";
+import TodoApi from "../../api/Todo/api";
 
 toast.configure();
 
@@ -26,15 +27,10 @@ const EditTodo: FC = props => {
     });
   };
 
-  const fetchTodoData = id => {
-    axios
-      .get(`/api/v1/todos/${id}`)
-      .then(res => {
-        setCurrentTodo(res.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  const fetchTodoData = async id => {
+    const todoRes = await TodoApi.fetch_detail(id);
+    setCurrentTodo(todoRes.data);
+    console.log("currentTodo", todoRes.data);
   };
 
   const handleInputChange = event => {
