@@ -3,21 +3,19 @@ import axios from "axios";
 import { List } from "./style";
 import ListItem from "../../molecules/listItem";
 import SearchArea from "../../molecules/searchArea";
+import TodoApi from "../../../api/Todo/api";
 
 const TodoApp: FC = () => {
   const [todos, setTodos] = useState([]);
   const [searchName, setSearchName] = useState("");
 
+  const fetchTodo = async () => {
+    const todoRes = await TodoApi.fetch();
+    setTodos(todoRes.data);
+  };
+
   useEffect(() => {
-    axios
-      .get("/api/v1/todos.json")
-      .then(res => {
-        console.log(res.data);
-        setTodos(res.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+    fetchTodo();
   }, []);
 
   const removeAllTodos = () => {
