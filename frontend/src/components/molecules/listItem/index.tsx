@@ -17,7 +17,7 @@ const ListItem = ({ key, index, val, updateIsCompleted }) => {
           <ImCheckboxUnchecked onClick={() => updateIsCompleted(index, val)} />
         </Uncheckedbox>
       )}
-      {formatDate(val.created_at)}
+      {formatDate(val.createdAt)}
       {val.name}
       <Link to={"/" + val.id + "/edit"}>
         <EditButton>
