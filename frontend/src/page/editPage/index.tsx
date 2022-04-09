@@ -49,16 +49,11 @@ const EditTodo: FC = props => {
     });
   };
 
-  const updateTodo = () => {
-    axios
-      .patch(`/api/v1/todos/${currentTodo.id}`, currentTodo)
-      .then(res => {
-        notify();
-        navigate("/");
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  const updateTodo = async () => {
+    const todoRes = await TodoApi.update(currentTodo.id, currentTodo);
+    setCurrentTodo(todoRes.data);
+    notify();
+    navigate("/");
   };
 
   const deleteTodo = () => {
