@@ -19,7 +19,7 @@ const TodoApp: FC = () => {
   }, []);
 
   const removeAllTodos = async () => {
-    const sure = window.confirm("Are you sure?");
+    const sure = window.confirm("本当に投稿を削除して問題ないでしょうか?");
     if (sure) {
       await TodoApi.remove_all();
       setTodos([]);

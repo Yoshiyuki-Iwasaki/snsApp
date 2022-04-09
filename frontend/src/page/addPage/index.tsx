@@ -24,7 +24,7 @@ const AddTodo: FC = () => {
     setTodo({ ...todo, [name]: value });
   };
   const notify = () => {
-    toast.success("Todo successfully create.", {
+    toast.success("正常に投稿が完了しました。", {
       position: toast.POSITION.TOP_RIGHT,
       hideProgressBar: true,
     });

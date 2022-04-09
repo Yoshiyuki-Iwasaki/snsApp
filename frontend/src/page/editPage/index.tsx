@@ -20,7 +20,7 @@ const EditTodo: FC = props => {
   const navigate = useNavigate();
 
   const notify = () => {
-    toast.success("Todo successfully updated.", {
+    toast.success("正常に投稿の編集が完了しました。", {
       position: toast.POSITION.TOP_RIGHT,
       hideProgressBar: true,
     });
