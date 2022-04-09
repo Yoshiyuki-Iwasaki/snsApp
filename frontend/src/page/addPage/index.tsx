@@ -8,7 +8,7 @@ import Input from "../../components/atoms/input";
 import TodoApi from "../../api/Todo/api";
 import { notify } from "../../util/notify";
 
-const AddTodo: FC = () => {
+const AddPage: FC = () => {
   const initialTodoState = {
     id: null,
     name: "",
@@ -53,4 +53,4 @@ const AddTodo: FC = () => {
   );
 };
 
-export default AddTodo;
+export default AddPage;

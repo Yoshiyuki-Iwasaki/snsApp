@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import TodoApp from "../../components/organisms/todoApp";
 
-const Toppage: FC = () => {
+const TopPage: FC = () => {
   return <TodoApp />;
 };
 
-export default Toppage;
+export default TopPage;

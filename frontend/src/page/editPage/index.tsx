@@ -7,7 +7,7 @@ import Button from "../../components/atoms/button";
 import TodoApi from "../../api/Todo/api";
 import { notify } from "../../util/notify";
 
-const EditTodo: FC = props => {
+const EditPage: FC = () => {
   const params = useParams();
   const initialTodoState = {
     id: null,
@@ -84,4 +84,4 @@ const EditTodo: FC = props => {
   );
 };
 
-export default EditTodo;
+export default EditPage;
