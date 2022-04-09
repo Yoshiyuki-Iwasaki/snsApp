@@ -1,9 +1,9 @@
 import React, { useState, useEffect, FC } from "react";
-import axios from "axios";
 import { List } from "./style";
 import ListItem from "../../molecules/listItem";
 import SearchArea from "../../molecules/searchArea";
 import TodoApi from "../../../api/Todo/api";
+import { todoType } from "../../../api/Todo/type";
 
 const TodoApp: FC = () => {
   const [todos, setTodos] = useState([]);
@@ -26,18 +26,20 @@ const TodoApp: FC = () => {
     }
   };
 
-  const updateIsCompleted = (index, val) => {
-    const data = {
+  const updateIsCompleted = async (index, val: todoType) => {
+    const data: todoType = {
       id: val.id,
       name: val.name,
-      is_completed: !val.is_completed,
+      completed: val.completed ? false : true,
     };
-
-    axios.patch(`api/v1/todos/${val.id}`, data).then(res => {
-      const newTodos: any = [...todos];
-      newTodos[index].is_completed = res.data.is_completed;
+    try {
+      const todoRes = await TodoApi.update(val.id, data);
+      const newTodos: todoType[] = [...todos];
+      newTodos[index].completed = todoRes.data.completed;
       setTodos(newTodos);
-    });
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   return (
@@ -57,15 +59,15 @@ const TodoApp: FC = () => {
               return val;
             }
           })
-          .sort((a, b) => {
-            if (a.id < b.id) {
-              return 1;
-            }
-            if (a.id > b.id) {
-              return -1;
-            }
-            return 0;
-          })
+          // .sort((a, b) => {
+          //   if (a.id < b.id) {
+          //     return 1;
+          //   }
+          //   if (a.id > b.id) {
+          //     return -1;
+          //   }
+          //   return 0;
+          // })
           .map((val, index) => {
             return (
               <ListItem

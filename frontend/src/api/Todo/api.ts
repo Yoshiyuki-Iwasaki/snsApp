@@ -1,4 +1,5 @@
 import api from "../api";
+import { todoType } from "./type";
 
 const ENDPOINT = "/api/v1/todos";
 
@@ -14,7 +15,7 @@ async function create(todo: any) {
   return api.post(ENDPOINT, todo);
 }
 
-async function update(id: number, todo: any) {
+async function update(id: number, todo: todoType) {
   return api.patch(ENDPOINT + `/` + id, todo);
 }
 

@@ -37,15 +37,17 @@ const EditTodo: FC = props => {
     setCurrentTodo({ ...currentTodo, [name]: value });
   };
 
-  const updateIsCompleted = val => {
+  const updateIsCompleted = async val => {
     const data = {
       id: val.id,
       name: val.name,
-      is_completed: !val.is_completed,
+      completed: val.completed ? false : true,
     };
-    axios.patch(`/api/v1/todos/${val.id}`, data).then(res => {
-      setCurrentTodo(res.data);
-    });
+    console.log("data", data);
+    const todoRes = await TodoApi.update(val.id, data);
+    console.log("todoRes.data", todoRes.data);
+    setCurrentTodo(todoRes.data);
+    notify();
   };
 
   const updateTodo = async () => {
