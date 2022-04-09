@@ -22,8 +22,8 @@ async function remove(id: number) {
   return api.delete(ENDPOINT + `/` + id);
 }
 
-async function remove_all(id: number) {
-  return api.delete(ENDPOINT + `/` + id);
+async function remove_all() {
+  return api.delete(ENDPOINT + "/destroy_all");
 }
 
 const TodoApi = {

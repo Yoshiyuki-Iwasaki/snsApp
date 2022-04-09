@@ -18,17 +18,11 @@ const TodoApp: FC = () => {
     fetchTodo();
   }, []);
 
-  const removeAllTodos = () => {
+  const removeAllTodos = async () => {
     const sure = window.confirm("Are you sure?");
     if (sure) {
-      axios
-        .delete("/api/v1/todos/destroy_all")
-        .then(res => {
-          setTodos([]);
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      await TodoApi.remove_all();
+      setTodos([]);
     }
   };
 
