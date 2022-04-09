@@ -6,6 +6,7 @@ import { InputName, CurrentStatus } from "./style";
 import Button from "../../components/atoms/button";
 import TodoApi from "../../api/Todo/api";
 import { notify } from "../../util/notify";
+import { formatDate } from "../../util/data";
 
 const EditPage: FC = () => {
   const params = useParams();
@@ -13,6 +14,7 @@ const EditPage: FC = () => {
     id: null,
     name: "",
     completed: false,
+    createdAt: "",
   };
   const [currentTodo, setCurrentTodo] = useState(initialTodoState);
   const navigate = useNavigate();
@@ -20,7 +22,6 @@ const EditPage: FC = () => {
   const fetchTodoData = async id => {
     const todoRes = await TodoApi.fetch_detail(id);
     setCurrentTodo(todoRes.data);
-    console.log("currentTodo", todoRes.data);
   };
 
   const handleInputChange = event => {
@@ -34,9 +35,7 @@ const EditPage: FC = () => {
       name: val.name,
       completed: val.completed ? false : true,
     };
-    console.log("data", data);
     const todoRes = await TodoApi.update(val.id, data);
-    console.log("todoRes.data", todoRes.data);
     setCurrentTodo(todoRes.data);
     notify("正常に投稿の編集が完了しました。");
   };
@@ -64,6 +63,7 @@ const EditPage: FC = () => {
   return (
     <>
       <h1>Edit Todo</h1>
+      <p>{formatDate(currentTodo.createdAt)}</p>
       <label htmlFor="name">Current Name</label>
       <InputName
         type="text"
