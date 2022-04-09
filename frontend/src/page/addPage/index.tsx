@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiSend } from "react-icons/fi";
@@ -15,7 +14,7 @@ const AddTodo: FC = () => {
   const initialTodoState = {
     id: null,
     name: "",
-    is_completed: false,
+    completed: false,
   };
   const [todo, setTodo] = useState(initialTodoState);
   const navigate = useNavigate();
@@ -38,7 +37,7 @@ const AddTodo: FC = () => {
     setTodo({
       id: todoRes.data.id,
       name: todoRes.data.name,
-      is_completed: todoRes.data.is_completed,
+      completed: false,
     });
     notify();
     navigate("/");

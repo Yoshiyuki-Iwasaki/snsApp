@@ -8,7 +8,7 @@ import { formatDate } from "../../../util/data";
 const ListItem = ({ key, index, val, updateIsCompleted }) => {
   return (
     <Main key={key}>
-      {val.is_completed ? (
+      {val.completed ? (
         <Checkedbox>
           <ImCheckboxChecked onClick={() => updateIsCompleted(index, val)} />
         </Checkedbox>

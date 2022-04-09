@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
@@ -15,7 +14,7 @@ const EditTodo: FC = props => {
   const initialTodoState = {
     id: null,
     name: "",
-    is_completed: false,
+    completed: false,
   };
   const [currentTodo, setCurrentTodo] = useState(initialTodoState);
   const navigate = useNavigate();
@@ -81,10 +80,10 @@ const EditTodo: FC = props => {
       />
       <p>CurrentStatus</p>
       <CurrentStatus>
-        {currentTodo.is_completed ? "Completed" : "unCompleted"}
+        {currentTodo.completed ? "Completed" : "unCompleted"}
       </CurrentStatus>
       <Button onClick={() => updateIsCompleted(currentTodo)}>
-        {currentTodo.is_completed ? "unCompleted" : "Completed"}
+        {currentTodo.completed ? "unCompleted" : "Completed"}
       </Button>
       <Button onClick={updateTodo}>Update</Button>
       <Button onClick={deleteTodo}>Delete</Button>
