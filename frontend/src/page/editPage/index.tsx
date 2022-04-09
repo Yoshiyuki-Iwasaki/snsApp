@@ -56,18 +56,12 @@ const EditTodo: FC = props => {
     navigate("/");
   };
 
-  const deleteTodo = () => {
+  const deleteTodo = async () => {
     const sure = window.confirm("Are you sure?");
     if (sure) {
-      axios
-        .delete(`/api/v1/todos/${currentTodo.id}`)
-        .then(res => {
-          notify();
-          navigate("/");
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      await TodoApi.remove(currentTodo.id);
+      notify();
+      navigate("/");
     }
   };
 
