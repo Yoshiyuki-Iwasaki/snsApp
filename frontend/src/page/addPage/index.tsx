@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiSend } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -7,8 +6,7 @@ import { Title, InputAndButton, Icon } from "./style";
 import Button from "../../components/atoms/button";
 import Input from "../../components/atoms/input";
 import TodoApi from "../../api/Todo/api";
-
-toast.configure();
+import { notify } from "../../util/notify";
 
 const AddTodo: FC = () => {
   const initialTodoState = {
@@ -23,12 +21,6 @@ const AddTodo: FC = () => {
     const { name, value } = event.target;
     setTodo({ ...todo, [name]: value });
   };
-  const notify = () => {
-    toast.success("正常に投稿が完了しました。", {
-      position: toast.POSITION.TOP_RIGHT,
-      hideProgressBar: true,
-    });
-  };
   const addTodo = async () => {
     const data = {
       name: todo.name,
@@ -39,7 +31,7 @@ const AddTodo: FC = () => {
       name: todoRes.data.name,
       completed: false,
     });
-    notify();
+    notify("正常に投稿が完了しました。");
     navigate("/");
   };
 

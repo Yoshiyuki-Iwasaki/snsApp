@@ -4,6 +4,7 @@ import ListItem from "../../molecules/listItem";
 import SearchArea from "../../molecules/searchArea";
 import TodoApi from "../../../api/Todo/api";
 import { todoType } from "../../../api/Todo/type";
+import { notify } from "../../../util/notify";
 
 const TodoApp: FC = () => {
   const [todos, setTodos] = useState([]);
@@ -33,6 +34,7 @@ const TodoApp: FC = () => {
     if (sure) {
       await TodoApi.remove_all();
       setTodos([]);
+      notify("正常に投稿が削除されました。");
     }
   };
 
@@ -47,6 +49,7 @@ const TodoApp: FC = () => {
       const newTodos: todoType[] = [...todos];
       newTodos[index].completed = todoRes.data.completed;
       setTodos(newTodos);
+      notify("正常に投稿が完了しました。");
     } catch (e: any) {
       console.log(e);
     }

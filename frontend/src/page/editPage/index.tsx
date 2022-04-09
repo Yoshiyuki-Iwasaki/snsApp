@@ -1,13 +1,11 @@
 import React, { FC, useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { InputName, CurrentStatus } from "./style";
 import Button from "../../components/atoms/button";
 import TodoApi from "../../api/Todo/api";
-
-toast.configure();
+import { notify } from "../../util/notify";
 
 const EditTodo: FC = props => {
   const params = useParams();
@@ -18,13 +16,6 @@ const EditTodo: FC = props => {
   };
   const [currentTodo, setCurrentTodo] = useState(initialTodoState);
   const navigate = useNavigate();
-
-  const notify = () => {
-    toast.success("正常に投稿の編集が完了しました。", {
-      position: toast.POSITION.TOP_RIGHT,
-      hideProgressBar: true,
-    });
-  };
 
   const fetchTodoData = async id => {
     const todoRes = await TodoApi.fetch_detail(id);
@@ -47,13 +38,13 @@ const EditTodo: FC = props => {
     const todoRes = await TodoApi.update(val.id, data);
     console.log("todoRes.data", todoRes.data);
     setCurrentTodo(todoRes.data);
-    notify();
+    notify("正常に投稿の編集が完了しました。");
   };
 
   const updateTodo = async () => {
     const todoRes = await TodoApi.update(currentTodo.id, currentTodo);
     setCurrentTodo(todoRes.data);
-    notify();
+    notify("正常に投稿の編集が完了しました。");
     navigate("/");
   };
 
@@ -61,7 +52,7 @@ const EditTodo: FC = props => {
     const sure = window.confirm("Are you sure?");
     if (sure) {
       await TodoApi.remove(currentTodo.id);
-      notify();
+      notify("正常に投稿の編集が完了しました。");
       navigate("/");
     }
   };
