@@ -7,6 +7,7 @@ import Button from "../../components/atoms/button";
 import Input from "../../components/atoms/input";
 import TodoApi from "../../api/Todo/api";
 import { notify } from "../../util/notify";
+import Label from "../../components/atoms/label";
 
 const AddPage: FC = () => {
   const initialTodoState = {
@@ -37,7 +38,7 @@ const AddPage: FC = () => {
 
   return (
     <>
-      <Title>新規投稿</Title>
+      <Label>新規投稿</Label>
       <InputAndButton>
         <Input value={todo.name} onChange={handleInputChange} />
         <Button

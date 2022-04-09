@@ -5,6 +5,7 @@ import { EditButton } from "./style";
 import { useParams } from "react-router-dom";
 import TodoApi from "../../api/Todo/api";
 import { formatDate } from "../../util/data";
+import Label from "../../components/atoms/label";
 
 const DetailPage = () => {
   const params = useParams();
@@ -25,9 +26,9 @@ const DetailPage = () => {
   }, [params.id]);
   return (
     <div>
-      <p>DetailPage</p>
-      <p>{formatDate(currentTodo.createdAt)}</p>
-      <p>{currentTodo.name}</p>
+      <Label>DetailPage</Label>
+      <Label>{formatDate(currentTodo.createdAt)}</Label>
+      <Label>{currentTodo.name}</Label>
       <Link to={"/" + params.id + "/edit"}>
         <EditButton>
           <AiFillEdit />

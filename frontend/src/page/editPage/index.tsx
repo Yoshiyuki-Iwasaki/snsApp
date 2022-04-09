@@ -7,6 +7,7 @@ import Button from "../../components/atoms/button";
 import TodoApi from "../../api/Todo/api";
 import { notify } from "../../util/notify";
 import { formatDate } from "../../util/data";
+import Label from "../../components/atoms/label";
 
 const EditPage: FC = () => {
   const params = useParams();
@@ -62,8 +63,8 @@ const EditPage: FC = () => {
 
   return (
     <>
-      <h1>Edit Todo</h1>
-      <p>{formatDate(currentTodo.createdAt)}</p>
+      <Label>Edit Todo</Label>
+      <Label>{formatDate(currentTodo.createdAt)}</Label>
       <label htmlFor="name">Current Name</label>
       <InputName
         type="text"
@@ -71,7 +72,7 @@ const EditPage: FC = () => {
         value={currentTodo.name}
         onChange={handleInputChange}
       />
-      <p>CurrentStatus</p>
+      <Label>CurrentStatus</Label>
       <CurrentStatus>
         {currentTodo.completed ? "Completed" : "unCompleted"}
       </CurrentStatus>
