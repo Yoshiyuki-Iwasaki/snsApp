@@ -11,7 +11,17 @@ const TodoApp: FC = () => {
 
   const fetchTodo = async () => {
     const todoRes = await TodoApi.fetch();
-    setTodos(todoRes.data);
+    setTodos(
+      todoRes.data.sort((a, b) => {
+        if (a.id < b.id) {
+          return 1;
+        }
+        if (a.id > b.id) {
+          return -1;
+        }
+        return 0;
+      })
+    );
   };
 
   useEffect(() => {
@@ -59,15 +69,6 @@ const TodoApp: FC = () => {
               return val;
             }
           })
-          // .sort((a, b) => {
-          //   if (a.id < b.id) {
-          //     return 1;
-          //   }
-          //   if (a.id > b.id) {
-          //     return -1;
-          //   }
-          //   return 0;
-          // })
           .map((val, index) => {
             return (
               <ListItem
