@@ -6,6 +6,7 @@ import AddTodo from "./page/addPage";
 import TodoList from "./page/topPage";
 import EditTodo from "./page/editPage";
 import Layout from "./components/templates/layout";
+import DetailPage from "./page/detailPage";
 
 const App: FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: FC = () => {
         <Routes>
           <Route path={"/"} element={<TodoList />} />
           <Route path={"/new"} element={<AddTodo />} />
+          <Route path={"/:id"} element={<DetailPage />} />
           <Route path={"/:id/edit"} element={<EditTodo />} />
         </Routes>
       </Layout>

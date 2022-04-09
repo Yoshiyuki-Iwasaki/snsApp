@@ -1,28 +1,26 @@
 import React from "react";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
-import { AiFillEdit } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { Main, Checkedbox, Uncheckedbox, EditButton } from "./style";
+import { Main, Checkedbox, Uncheckedbox } from "./style";
 import { formatDate } from "../../../util/data";
+import { Link } from "react-router-dom";
 
 const ListItem = ({ key, index, val, updateIsCompleted }) => {
   return (
     <Main key={key}>
-      {val.completed ? (
-        <Checkedbox>
-          <ImCheckboxChecked onClick={() => updateIsCompleted(index, val)} />
-        </Checkedbox>
-      ) : (
-        <Uncheckedbox>
-          <ImCheckboxUnchecked onClick={() => updateIsCompleted(index, val)} />
-        </Uncheckedbox>
-      )}
-      {formatDate(val.createdAt)}
-      {val.name}
-      <Link to={"/" + val.id + "/edit"}>
-        <EditButton>
-          <AiFillEdit />
-        </EditButton>
+      <Link to={"/" + val.id}>
+        {val.completed ? (
+          <Checkedbox>
+            <ImCheckboxChecked onClick={() => updateIsCompleted(index, val)} />
+          </Checkedbox>
+        ) : (
+          <Uncheckedbox>
+            <ImCheckboxUnchecked
+              onClick={() => updateIsCompleted(index, val)}
+            />
+          </Uncheckedbox>
+        )}
+        {formatDate(val.createdAt)}
+        {val.name}
       </Link>
     </Main>
   );
