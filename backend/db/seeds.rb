@@ -8,16 +8,25 @@
 
 SAMPLE_TODOS = [
     {
-        name: "Going around the world.",
+        name: "sampleTarou01",
+        email: "tarou01@example.com",
+        password: "hogehoge",
+        password_confirmation: "hogehoge"
     },
     {
-        name: "Graduating from college.",
+        name: "sampleTarou02",
+        email: "tarou02@example.com",
+        password: "hogehoge",
+        password_confirmation: "hogehoge"
     },
     {
-        name: "publishing a book.",
+        name: "sampleTarou03",
+        email: "tarou03@example.com",
+        password: "hogehoge",
+        password_confirmation: "hogehoge"
     },
 ]
 
 SAMPLE_TODOS.each do |todo|
-    Todo.create(todo)
+    User.create(todo)
 end
