@@ -1,7 +1,8 @@
 import React, { FC } from "react";
+import Presenter from "./presenter";
 
-const Presenter: FC = () => {
+const TodoApp: FC = () => {
   return <Presenter />;
 };
 
-export default Presenter;
+export default TodoApp;
