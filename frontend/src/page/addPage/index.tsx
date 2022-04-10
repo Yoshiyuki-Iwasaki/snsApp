@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FiSend } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { Title, InputAndButton, Icon } from "./style";
+import { InputAndButton, Icon } from "./style";
 import Button from "../../components/atoms/button";
 import Input from "../../components/atoms/input";
 import TodoApi from "../../api/Todo/api";
@@ -39,7 +39,7 @@ const AddPage: FC = () => {
   return (
     <>
       <Label>新規投稿</Label>
-      <InputAndButton>
+      <InputAndButton onSubmit={addTodo}>
         <Input value={todo.name} onChange={handleInputChange} />
         <Button
           onClick={addTodo}
