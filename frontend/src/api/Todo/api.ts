@@ -11,7 +11,7 @@ async function fetch_detail(id: number) {
   return api.get(ENDPOINT + `/` + id);
 }
 
-async function create(todo: any) {
+async function create(todo: todoType) {
   return api.post(ENDPOINT, todo);
 }
 

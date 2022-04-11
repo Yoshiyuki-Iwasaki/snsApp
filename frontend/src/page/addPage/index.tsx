@@ -40,7 +40,7 @@ const AddPage: FC = () => {
     <>
       <Label>新規投稿</Label>
       <InputAndButton onSubmit={addTodo}>
-        <Input value={todo.name} onChange={handleInputChange} />
+        <Input name={"name"} value={todo.name} onChange={handleInputChange} />
         <Button
           onClick={addTodo}
           disabled={!todo.name || /^\s*$/.test(todo.name)}

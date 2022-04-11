@@ -1,15 +1,14 @@
-class SessionsController < ApplicationController
+class Api::V1::SessionsController < ApplicationController
   def new
   end
 
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      redirect_to user_path, notice: "success."
-    else
-      flash.now[:alert] = "email or password id invalid."
-      render :new
-    end
+          render json: user
+      else
+          render json: user.errors, status: 422
+      end
   end
 
   def destroy
