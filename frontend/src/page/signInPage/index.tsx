@@ -25,8 +25,8 @@ const SigninPage = () => {
       const userRes = await UserApi.create(data);
       notify("正常に投稿が完了しました。");
       navigate("/");
-      storageUtils.saveTokens("userId", JSON.stringify(userRes.data.user));
-      console.log(userRes.data.user);
+      storageUtils.saveTokens("userId", userRes.data.user.id);
+      console.log(userRes.data.user.id);
     } catch (e: any) {
       console.log(e);
     }

@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UserApi from "../api/User/api";
-import storageUtils from "../util/storage";
 
-const useFetchUser = () => {
-  const users = JSON.parse(localStorage.getItem("userId"));
-  return { users };
+const useFetchUser = async key => {
+  const [user, setUser] = useState<any>();
+  const fetchTodo = async () => {
+    const userId = localStorage.getItem(key);
+    const userRes = await UserApi.show(userId);
+    setUser(userRes.data);
+  };
+  useEffect(() => {
+    fetchTodo();
+  });
+
+  return { user };
 };
 
 export default useFetchUser;

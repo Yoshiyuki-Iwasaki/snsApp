@@ -1,18 +1,26 @@
-import React, { useEffect, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { Link } from "react-router-dom";
-import useFetchUser from "../../../hooks/useFetchUser";
 import { NavBar, Inner, Logo, NavItems, NavItem } from "./style";
+import UserApi from "../../../api/User/api";
 
 const Presenter: FC = () => {
-  const { users } = useFetchUser();
+  const [user, setUser] = useState<any>();
+
+  const fetchTodo = async () => {
+    const userId = localStorage.getItem("userId");
+    const userRes = await UserApi.show(userId);
+    setUser(userRes.data);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("userId");
     setUser("");
   };
 
   useEffect(() => {
-    console.log("users", users);
+    fetchTodo();
   }, []);
+
   return (
     <NavBar>
       <Inner>
@@ -36,7 +44,6 @@ const Presenter: FC = () => {
             </NavItem>
           )}
         </NavItems>
-        )}
       </Inner>
     </NavBar>
   );

@@ -10,6 +10,10 @@ async function remove() {
   return api.delete(ENDPOINT + `/logout`);
 }
 
+async function show(id: any) {
+  return api.get(ENDPOINT + `/users/` + id);
+}
+
 async function logged_in() {
   return api.get(ENDPOINT + `/logged_in`);
 }
@@ -17,6 +21,7 @@ async function logged_in() {
 const UserApi = {
   create,
   remove,
+  show,
   logged_in,
 };
 
