@@ -14,4 +14,6 @@ export const NavItems = styled.ul`
 `;
 export const NavItem = styled.li`
   padding: 0 10px;
+  display: flex;
+  align-items: center;
 `;
