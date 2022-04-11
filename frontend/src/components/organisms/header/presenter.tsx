@@ -5,6 +5,10 @@ import { NavBar, Inner, Logo, NavItems, NavItem } from "./style";
 
 const Presenter: FC = () => {
   const { users } = useFetchUser();
+  const handleLogout = () => {
+    localStorage.removeItem("userId");
+    setUser("");
+  };
 
   useEffect(() => {
     console.log("users", users);
@@ -16,17 +20,22 @@ const Presenter: FC = () => {
           <Logo>TODO LIST</Logo>
         </Link>
         <NavItems>
-          <NavItem>
-            <Link to="/new">新規投稿</Link>
-          </NavItem>
+          {user ? (
+            <NavItem>
+              <NavItem>{user.name}</NavItem>
+              <NavItem onClick={handleLogout}>ログアウト</NavItem>
+            </NavItem>
+          ) : (
+            <NavItem>
+              <NavItem>
+                <Link to="/signin">ログイン</Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/signup">新規登録</Link>
+              </NavItem>
+            </NavItem>
+          )}
         </NavItems>
-        {users ? (
-          <p>{users.name}</p>
-        ) : (
-          <>
-            <p>ログイン</p>
-            <p>新規登録</p>
-          </>
         )}
       </Inner>
     </NavBar>
