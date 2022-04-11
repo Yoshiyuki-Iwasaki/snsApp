@@ -3,22 +3,14 @@ import { Link } from "react-router-dom";
 import { NavBar, Inner, Logo, NavItems, NavItem } from "./style";
 import UserApi from "../../../api/User/api";
 
-const Presenter: FC = () => {
-  const [user, setUser] = useState<any>();
-
-  const fetchTodo = async () => {
-    const userId = localStorage.getItem("userId");
-    const userRes = await UserApi.show(userId);
-    setUser(userRes.data);
-  };
-
+const Presenter: FC<any> = ({ user, setUser, fetchUser }) => {
   const handleLogout = () => {
     localStorage.removeItem("userId");
     setUser("");
   };
 
   useEffect(() => {
-    fetchTodo();
+    fetchUser();
   }, []);
 
   return (

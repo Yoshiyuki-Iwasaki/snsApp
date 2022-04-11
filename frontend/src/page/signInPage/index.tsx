@@ -5,7 +5,7 @@ import { notify } from "../../util/notify";
 import Input from "../../components/atoms/input";
 import storageUtils from "../../util/storage";
 
-const SigninPage = () => {
+const SigninPage = ({ fetchUser }) => {
   const initialTodoState = {
     email: "",
     password: "",
@@ -27,6 +27,7 @@ const SigninPage = () => {
       navigate("/");
       storageUtils.saveTokens("userId", userRes.data.user.id);
       console.log(userRes.data.user.id);
+      fetchUser();
     } catch (e: any) {
       console.log(e);
     }
