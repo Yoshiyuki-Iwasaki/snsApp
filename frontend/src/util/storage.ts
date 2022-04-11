@@ -19,6 +19,15 @@ const getSavedToken = (): TokenType => {
   } as TokenType;
 };
 
+// const saveTokens = (accessToken: any, expiry?: number) => {
+//   if (accessToken) {
+//     window.localStorage.setItem("accessToken", accessToken);
+//   }
+//   if (expiry) {
+//     window.localStorage.setItem("expiry", expiry.toString());
+//   }
+// };
+
 const saveTokensObj = (token: TokenType) => {
   if (token.accessToken)
     window.localStorage.setItem("accessToken", token.accessToken);
@@ -28,13 +37,8 @@ const saveTokensObj = (token: TokenType) => {
   cashedToken.expiry = token.expiry;
 };
 
-const saveTokens = (accessToken: string, expiry?: number) => {
-  if (accessToken) {
-    window.localStorage.setItem("accessToken", accessToken);
-  }
-  if (expiry) {
-    window.localStorage.setItem("expiry", expiry.toString());
-  }
+const saveTokens = (name: any, value?: any) => {
+  window.localStorage.setItem(name, value);
 };
 
 const getLocal = () => {

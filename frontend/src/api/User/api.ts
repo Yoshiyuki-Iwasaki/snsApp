@@ -10,9 +10,14 @@ async function remove() {
   return api.delete(ENDPOINT + `/logout`);
 }
 
+async function logged_in() {
+  return api.get(ENDPOINT + `/logged_in`);
+}
+
 const UserApi = {
   create,
   remove,
+  logged_in,
 };
 
 export default UserApi;

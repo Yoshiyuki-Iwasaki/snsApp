@@ -3,6 +3,7 @@ import UserApi from "../../api/User/api";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../util/notify";
 import Input from "../../components/atoms/input";
+import storageUtils from "../../util/storage";
 
 const SigninPage = () => {
   const initialTodoState = {
@@ -24,7 +25,8 @@ const SigninPage = () => {
       const userRes = await UserApi.create(data);
       notify("正常に投稿が完了しました。");
       navigate("/");
-      console.log(userRes);
+      storageUtils.saveTokens("userId", JSON.stringify(userRes.data.user));
+      console.log(userRes.data.user);
     } catch (e: any) {
       console.log(e);
     }
