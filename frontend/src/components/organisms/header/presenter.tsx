@@ -2,11 +2,15 @@ import React, { useState, useEffect, FC } from "react";
 import { Link } from "react-router-dom";
 import { NavBar, Inner, Logo, NavItems, NavItem } from "./style";
 import UserApi from "../../../api/User/api";
+import { useNavigate } from "react-router-dom";
 
 const Presenter: FC<any> = ({ user, setUser, fetchUser }) => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("userId");
     setUser("");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -23,6 +27,9 @@ const Presenter: FC<any> = ({ user, setUser, fetchUser }) => {
           {user ? (
             <NavItem>
               <NavItem>{user.name}</NavItem>
+              <NavItem>
+                <Link to="/new">新規投稿</Link>
+              </NavItem>
               <NavItem onClick={handleLogout}>ログアウト</NavItem>
             </NavItem>
           ) : (
