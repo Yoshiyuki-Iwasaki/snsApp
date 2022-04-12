@@ -26,12 +26,7 @@ const AddPage: FC = () => {
     const data = {
       name: todo.name,
     };
-    const todoRes = await TodoApi.create(data);
-    setTodo({
-      id: todoRes.data.id,
-      name: todoRes.data.name,
-      completed: false,
-    });
+    await TodoApi.create(data);
     notify("正常に投稿が完了しました。");
     navigate("/");
   };
@@ -39,17 +34,17 @@ const AddPage: FC = () => {
   return (
     <>
       <Label>新規投稿</Label>
-      <InputAndButton onSubmit={addTodo}>
-        <Input name={"name"} value={todo.name} onChange={handleInputChange} />
-        <Button
-          onClick={addTodo}
-          disabled={!todo.name || /^\s*$/.test(todo.name)}
-        >
-          <Icon>
-            <FiSend />
-          </Icon>
-        </Button>
-      </InputAndButton>
+      {/* <InputAndButton onSubmit={e => addTodo(e)}> */}
+      <Input name={"name"} value={todo.name} onChange={handleInputChange} />
+      <Button
+        onClick={addTodo}
+        disabled={!todo.name || /^\s*$/.test(todo.name)}
+      >
+        <Icon>
+          <FiSend />
+        </Icon>
+      </Button>
+      {/* </InputAndButton> */}
     </>
   );
 };
