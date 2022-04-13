@@ -22,8 +22,8 @@ const SigninPage = ({ fetchUser }) => {
       password: todo.password,
     };
     try {
-      const userRes = await UserApi.create(data);
-      notify("正常に投稿が完了しました。");
+      const userRes = await UserApi.login(data);
+      notify("正常にログインが完了しました。");
       navigate("/");
       storageUtils.saveTokens("userId", userRes.data.user.id);
       console.log(userRes.data.user.id);
