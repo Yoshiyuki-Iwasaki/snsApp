@@ -9,11 +9,13 @@ import TodoApi from "../../api/Todo/api";
 import { notify } from "../../util/notify";
 import Label from "../../components/atoms/label";
 
-const AddPage: FC = () => {
+const AddPage: FC<any> = ({ user }) => {
+  user && console.log(user.id);
   const initialTodoState = {
     id: null,
     name: "",
     completed: false,
+    user_id: "",
   };
   const [todo, setTodo] = useState(initialTodoState);
   const navigate = useNavigate();
@@ -25,7 +27,9 @@ const AddPage: FC = () => {
   const addTodo = async () => {
     const data = {
       name: todo.name,
+      user_id: user.id,
     };
+    console.log("data", data);
     await TodoApi.create(data);
     notify("正常に投稿が完了しました。");
     navigate("/");
