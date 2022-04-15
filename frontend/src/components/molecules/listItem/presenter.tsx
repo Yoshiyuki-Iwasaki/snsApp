@@ -20,6 +20,7 @@ const Presenter = ({ key, index, val, updateIsCompleted }) => {
       <Link to={"/" + val.id}>
         <Label>{formatDate(val.createdAt)}</Label>
         <Label>{val.name}</Label>
+        <Label>投稿者: {val.user.name}</Label>
       </Link>
     </Main>
   );
