@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import UserApi from "../../api/User/api";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../util/notify";
-import Input from "../../components/atoms/input";
 import storageUtils from "../../util/storage";
+import Presenter from "./presenter";
+import { SigninPageType } from "./type";
 
-const SigninPage = ({ fetchUser }) => {
+const SigninPage: FC<SigninPageType> = ({ fetchUser }) => {
   const initialTodoState = {
     email: "",
     password: "",
@@ -33,19 +34,11 @@ const SigninPage = ({ fetchUser }) => {
     }
   };
   return (
-    <>
-      <label htmlFor="email">email</label>
-      <Input name="email" value={todo.email} onChange={handleInputChange} />
-
-      <label htmlFor="password">password</label>
-      <Input
-        name="password"
-        value={todo.password}
-        onChange={handleInputChange}
-      />
-
-      <button onClick={handleLogin}>button</button>
-    </>
+    <Presenter
+      todo={todo}
+      handleInputChange={handleInputChange}
+      handleLogin={handleLogin}
+    />
   );
 };
 

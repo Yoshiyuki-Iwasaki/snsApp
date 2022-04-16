@@ -1,7 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import Presenter from "./presenter";
+import { SearchAreaType } from "./type";
 
-const SearchArea = ({ setSearchName, removeAllTodos }) => {
+const SearchArea: FC<SearchAreaType> = ({ setSearchName, removeAllTodos }) => {
   return (
     <Presenter setSearchName={setSearchName} removeAllTodos={removeAllTodos} />
   );

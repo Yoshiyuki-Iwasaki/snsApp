@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { NavBar, Inner, Logo, NavItems, NavItem } from "./style";
+import { PresenterType } from "./type";
 
-const Presenter: FC<any> = ({ user, handleLogout }) => {
+const Presenter: FC<PresenterType> = ({ user, handleLogout }) => {
   return (
     <NavBar>
       <Inner>

@@ -1,11 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { Main, Checkedbox, Uncheckedbox } from "./style";
 import { formatDate } from "../../../util/data";
 import { Link } from "react-router-dom";
 import Label from "../../atoms/label";
+import { ListItemType } from "./type";
 
-const Presenter = ({ key, index, val, updateIsCompleted }) => {
+const Presenter: FC<ListItemType> = ({
+  key,
+  index,
+  val,
+  updateIsCompleted,
+}) => {
   return (
     <Main key={key}>
       {val.completed ? (

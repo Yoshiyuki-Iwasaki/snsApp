@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { AiFillEdit } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { EditButton } from "./style";
-import { useParams } from "react-router-dom";
 import TodoApi from "../../api/Todo/api";
-import { formatDate } from "../../util/data";
-import Label from "../../components/atoms/label";
+import Presenter from "./presenter";
+import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
   const params = useParams();
@@ -24,17 +20,7 @@ const DetailPage = () => {
   useEffect(() => {
     fetchTodoData(params.id);
   }, [params.id]);
-  return (
-    <div>
-      <Label>{formatDate(currentTodo.createdAt)}</Label>
-      <Label>{currentTodo.name}</Label>
-      <Link to={"/" + params.id + "/edit"}>
-        <EditButton>
-          <AiFillEdit />
-        </EditButton>
-      </Link>
-    </div>
-  );
+  return <Presenter params={params} currentTodo={currentTodo} />;
 };
 
 export default DetailPage;

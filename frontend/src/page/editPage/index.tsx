@@ -2,12 +2,9 @@ import React, { FC, useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { InputName, CurrentStatus } from "./style";
-import Button from "../../components/atoms/button";
 import TodoApi from "../../api/Todo/api";
 import { notify } from "../../util/notify";
-import { formatDate } from "../../util/data";
-import Label from "../../components/atoms/label";
+import Presenter from "./presenter";
 
 const EditPage: FC = () => {
   const params = useParams();
@@ -62,26 +59,13 @@ const EditPage: FC = () => {
   }, [params.id]);
 
   return (
-    <>
-      <Label>Edit Todo</Label>
-      <Label>{formatDate(currentTodo.createdAt)}</Label>
-      <label htmlFor="name">Current Name</label>
-      <InputName
-        type="text"
-        name="name"
-        value={currentTodo.name}
-        onChange={handleInputChange}
-      />
-      <Label>CurrentStatus</Label>
-      <CurrentStatus>
-        {currentTodo.completed ? "Completed" : "unCompleted"}
-      </CurrentStatus>
-      <Button onClick={() => updateIsCompleted(currentTodo)}>
-        {currentTodo.completed ? "unCompleted" : "Completed"}
-      </Button>
-      <Button onClick={updateTodo}>Update</Button>
-      <Button onClick={deleteTodo}>Delete</Button>
-    </>
+    <Presenter
+      currentTodo={currentTodo}
+      handleInputChange={handleInputChange}
+      updateIsCompleted={updateIsCompleted}
+      updateTodo={updateTodo}
+      deleteTodo={deleteTodo}
+    />
   );
 };
 

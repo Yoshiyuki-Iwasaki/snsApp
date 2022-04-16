@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import TodoApi from "../../api/Todo/api";
 import { notify } from "../../util/notify";
 import Presenter from "./presenter";
+import { AddPageType } from "./type";
 
-const AddPage: FC<any> = ({ user }) => {
+const AddPage: FC<AddPageType> = ({ user }) => {
   user && console.log(user.id);
   const initialTodoState = {
     id: null,

@@ -5,8 +5,9 @@ import Button from "../../components/atoms/button";
 import Input from "../../components/atoms/input";
 import "react-toastify/dist/ReactToastify.css";
 import { FiSend } from "react-icons/fi";
+import { PresenterType } from "./type";
 
-const Presenter: FC<any> = ({ todo, addTodo, handleInputChange }) => {
+const Presenter: FC<PresenterType> = ({ todo, addTodo, handleInputChange }) => {
   return (
     <>
       <Label>新規投稿</Label>

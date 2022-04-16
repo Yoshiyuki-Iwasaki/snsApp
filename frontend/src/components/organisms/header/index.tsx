@@ -1,8 +1,9 @@
 import React, { useEffect, FC } from "react";
 import Presenter from "./presenter";
 import { useNavigate } from "react-router-dom";
+import { HeaderType } from "./type";
 
-const Header: FC<any> = ({ user, setUser, fetchUser }) => {
+const Header: FC<HeaderType> = ({ user, setUser, fetchUser }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -15,14 +16,7 @@ const Header: FC<any> = ({ user, setUser, fetchUser }) => {
     fetchUser();
   }, []);
 
-  return (
-    <Presenter
-      user={user}
-      setUser={setUser}
-      fetchUser={fetchUser}
-      handleLogout={handleLogout}
-    />
-  );
+  return <Presenter user={user} handleLogout={handleLogout} />;
 };
 
 export default Header;
