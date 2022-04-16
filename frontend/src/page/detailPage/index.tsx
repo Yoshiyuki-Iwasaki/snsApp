@@ -26,7 +26,6 @@ const DetailPage = () => {
   }, [params.id]);
   return (
     <div>
-      <Label>DetailPage</Label>
       <Label>{formatDate(currentTodo.createdAt)}</Label>
       <Label>{currentTodo.name}</Label>
       <Link to={"/" + params.id + "/edit"}>
