@@ -14,20 +14,11 @@ async function login(todo: any) {
   return api.post(ENDPOINT + `/login`, todo);
 }
 
-async function logout() {
-  return api.delete(ENDPOINT + `/logout`);
-}
-
-async function logged_in() {
-  return api.get(ENDPOINT + `/logged_in`);
-}
-
 const UserApi = {
+  fetch,
   create,
-  logout,
   show,
   login,
-  logged_in,
 };
 
 export default UserApi;
