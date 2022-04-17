@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import "ress";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -10,21 +10,28 @@ import DetailPage from "./page/detailPage";
 import SignUpPage from "./page/signUpPage";
 import SignInPage from "./page/signInPage";
 import UserApi from "./api/User/api";
+import UserPage from "./page/userPage";
 
 const App: FC = () => {
-  const [user, setUser] = useState<any>();
+  const [myuser, setMyuser] = useState<any>();
 
   const fetchUser = async () => {
     const userId = localStorage.getItem("userId");
     const userRes = await UserApi.show(userId);
-    setUser(userRes.data);
+    setMyuser(userRes.data);
   };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   return (
     <Router>
-      <Layout user={user} setUser={setUser} fetchUser={fetchUser}>
+      <Layout user={myuser} setUser={setMyuser}>
         <Routes>
-          <Route path={"/"} element={<TodoList user={user} />} />
-          <Route path={"/new"} element={<AddTodo user={user} />} />
+          <Route path={"/"} element={<TodoList user={myuser} />} />
+          <Route path={"/new"} element={<AddTodo user={myuser} />} />
+          <Route path={"/user/:id"} element={<UserPage myUser={myuser} />} />
           <Route path={"/:id"} element={<DetailPage />} />
           <Route path={"/:id/edit"} element={<EditTodo />} />
           <Route path={"/signup"} element={<SignUpPage />} />

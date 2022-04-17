@@ -3,7 +3,6 @@ import { notify } from "../../util/notify";
 import Button from "../../components/atoms/button";
 import UserApi from "../../api/User/api";
 import { useParams } from "react-router-dom";
-import { isNumber } from "util";
 
 const UserPage: FC<any> = ({ myUser }) => {
   const params = useParams();
@@ -37,13 +36,10 @@ const UserPage: FC<any> = ({ myUser }) => {
     fetchFollow();
   }, []);
 
-  myUser && console.log(myUser.id);
-  console.log(parseInt(params.id));
-
   return (
     <>
-      UserPage
       <p>{user && user.name}</p>
+      {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
       {myUser && myUser.id !== parseInt(params.id) ? (
         <>
           {follow ? (
