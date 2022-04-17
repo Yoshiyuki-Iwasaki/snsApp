@@ -17,9 +17,11 @@ const DetailPage = () => {
     const todoRes = await TodoApi.fetch_detail(id);
     setCurrentTodo(todoRes.data);
   };
+
   useEffect(() => {
     fetchTodoData(params.id);
-  }, [params.id]);
+  }, []);
+
   return <Presenter params={params} currentTodo={currentTodo} />;
 };
 
