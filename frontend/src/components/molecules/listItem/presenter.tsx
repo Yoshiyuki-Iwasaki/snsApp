@@ -4,13 +4,17 @@ import { Main, Checkedbox, Uncheckedbox } from "./style";
 import { formatDate } from "../../../util/data";
 import { Link } from "react-router-dom";
 import Label from "../../atoms/label";
-import { ListItemType } from "./type";
+import { PresenterType } from "./type";
+import Button from "../../atoms/button";
 
-const Presenter: FC<ListItemType> = ({
+const Presenter: FC<PresenterType> = ({
   key,
   index,
   val,
   updateIsCompleted,
+  favorite,
+  handleLike,
+  handleUnlike,
 }) => {
   return (
     <Main key={key}>
@@ -28,6 +32,11 @@ const Presenter: FC<ListItemType> = ({
         <Label>{val.name}</Label>
         <Label>投稿者: {val.user.name}</Label>
       </Link>
+      {favorite && favorite.data.length ? (
+        <Button onClick={handleUnlike}>いいね削除</Button>
+      ) : (
+        <Button onClick={handleLike}>いいね</Button>
+      )}
     </Main>
   );
 };
