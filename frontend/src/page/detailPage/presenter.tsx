@@ -10,7 +10,11 @@ const Presenter: FC<DetailPageType> = ({ params, currentTodo }) => {
   return (
     <>
       <Label>{formatDate(currentTodo.createdAt)}</Label>
-      <Label>{currentTodo.user && currentTodo.user.name}</Label>
+      {currentTodo.user && (
+        <Link to={"/user/" + currentTodo.user.id}>
+          <Label>{currentTodo.user && currentTodo.user.name}</Label>
+        </Link>
+      )}
       <Label>{currentTodo.name}</Label>
       <Link to={"/" + params.id + "/edit"}>
         <EditButton>
