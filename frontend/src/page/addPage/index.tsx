@@ -25,7 +25,6 @@ const AddPage: FC<AddPageType> = ({ user }) => {
       name: todo.name,
       user_id: user.id,
     };
-    console.log("data", data);
     await TodoApi.create(data);
     notify("正常に投稿が完了しました。");
     navigate("/");
