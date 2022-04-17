@@ -14,7 +14,6 @@ const Presenter: FC<EditPage> = ({
 }) => {
   return (
     <>
-      <Label>Edit Todo</Label>
       <Label>{formatDate(currentTodo.createdAt)}</Label>
       <label htmlFor="name">Current Name</label>
       <InputName
