@@ -23,7 +23,7 @@ const App: FC = () => {
     <Router>
       <Layout user={user} setUser={setUser} fetchUser={fetchUser}>
         <Routes>
-          <Route path={"/"} element={<TodoList />} />
+          <Route path={"/"} element={<TodoList user={user} />} />
           <Route path={"/new"} element={<AddTodo user={user} />} />
           <Route path={"/:id"} element={<DetailPage />} />
           <Route path={"/:id/edit"} element={<EditTodo />} />

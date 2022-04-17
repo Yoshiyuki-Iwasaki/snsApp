@@ -2,8 +2,10 @@ import React, { FC } from "react";
 import { List } from "./style";
 import ListItem from "../../components/molecules/listItem";
 import SearchArea from "../../components/molecules/searchArea";
+import { TopPageType } from "./type";
 
 const Presenter: FC<any> = ({
+  user,
   todos,
   searchName,
   setSearchName,
@@ -32,6 +34,7 @@ const Presenter: FC<any> = ({
               <ListItem
                 key={index}
                 index={index}
+                user={user}
                 val={val}
                 updateIsCompleted={updateIsCompleted}
               />
