@@ -9,15 +9,11 @@ const Presenter: FC<any> = ({
   todos,
   searchName,
   setSearchName,
-  removeAllTodos,
   updateIsCompleted,
 }) => {
   return (
     <>
-      <SearchArea
-        setSearchName={setSearchName}
-        removeAllTodos={removeAllTodos}
-      />
+      <SearchArea setSearchName={setSearchName} />
       <List>
         {todos
           .filter(val => {

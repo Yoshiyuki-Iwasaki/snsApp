@@ -4,7 +4,7 @@ import { Main } from "./style";
 import Input from "../../atoms/input";
 import { SearchAreaType } from "./type";
 
-const Presenter: FC<SearchAreaType> = ({ setSearchName, removeAllTodos }) => {
+const Presenter: FC<SearchAreaType> = ({ setSearchName }) => {
   return (
     <Main>
       <Input
@@ -13,7 +13,6 @@ const Presenter: FC<SearchAreaType> = ({ setSearchName, removeAllTodos }) => {
           setSearchName(e.target.value);
         }}
       />
-      <Button onClick={removeAllTodos}>Remove All</Button>
     </Main>
   );
 };

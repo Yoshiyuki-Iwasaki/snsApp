@@ -23,17 +23,12 @@ async function remove(id: number) {
   return api.delete(ENDPOINT + `/` + id);
 }
 
-async function remove_all() {
-  return api.delete(ENDPOINT + "/destroy_all");
-}
-
 const TodoApi = {
   fetch,
   fetch_detail,
   create,
   update,
   remove,
-  remove_all,
 };
 
 export default TodoApi;

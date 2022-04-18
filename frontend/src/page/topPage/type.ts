@@ -3,6 +3,5 @@ export type TopPageType = {
   todos: any;
   searchName: any;
   setSearchName: any;
-  removeAllTodos: any;
   updateIsCompleted: any;
 };

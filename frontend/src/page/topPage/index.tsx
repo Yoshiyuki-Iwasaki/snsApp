@@ -17,15 +17,6 @@ const TopPage: FC<any> = ({ user }) => {
     fetchTodo();
   }, []);
 
-  const removeAllTodos = async () => {
-    const sure = window.confirm("本当に投稿を削除して問題ないでしょうか?");
-    if (sure) {
-      await TodoApi.remove_all();
-      setTodos([]);
-      notify("正常に投稿が削除されました。");
-    }
-  };
-
   const updateIsCompleted = async (index, val: todoType) => {
     const data: todoType = {
       id: val.id,
@@ -49,7 +40,6 @@ const TopPage: FC<any> = ({ user }) => {
       user={user}
       searchName={searchName}
       setSearchName={setSearchName}
-      removeAllTodos={removeAllTodos}
       updateIsCompleted={updateIsCompleted}
     />
   );
