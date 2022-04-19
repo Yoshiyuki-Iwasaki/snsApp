@@ -6,8 +6,12 @@ async function create(user: userType) {
   return api.post(ENDPOINT + `/users`, user);
 }
 
-async function show(id: any) {
+async function show(id: string) {
   return api.get(ENDPOINT + `/users/` + id);
+}
+
+async function follow(id: string, user: any) {
+  return api.post(ENDPOINT + `/users/` + id + "/follow", user);
 }
 
 async function login(todo: any) {
@@ -18,6 +22,7 @@ const UserApi = {
   fetch,
   create,
   show,
+  follow,
   login,
 };
 

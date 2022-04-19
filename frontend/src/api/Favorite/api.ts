@@ -18,10 +18,10 @@ async function remove(id: number) {
   return api.delete(ENDPOINT + `/favorites/` + id);
 }
 
-const UserApi = {
+const FavoriteApi = {
   fetch,
   create,
   remove,
 };
 
-export default UserApi;
+export default FavoriteApi;
