@@ -14,6 +14,15 @@ class Api::V1::UsersController < ApplicationController
         render json: user
     end
 
+    def follow
+        user = User.find(params[:id])
+        if user.save
+            render json: user
+        else
+            render json: user.errors, status: 422
+        end
+    end
+
     private
     def user_params
         params.permit(:name, :email, :password, :password_confirmation)

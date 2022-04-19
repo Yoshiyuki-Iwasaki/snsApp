@@ -4,11 +4,14 @@ Rails.application.routes.draw do
       resources :todos, only: %i[index show create update destroy]
       resources :users, only: %i[create show]
       resources :favorites, only: %i[destroy]
+      resources :relationships, only: %i[destroy]
       resources :todos do
         resources :users do
           resources :favorites, only: %i[index create]
         end
       end
+      get '/users/:id/follower/:follower_id/relationships', to: "relationships#index"
+      post '/users/:id/relationships', to: "relationships#create", as: "follow_user"
       post 'login', to: 'sessions#create'
       delete 'logout', to: 'sessions#destroy'
       get 'logged_in', to: 'sessions#logged_in?'
