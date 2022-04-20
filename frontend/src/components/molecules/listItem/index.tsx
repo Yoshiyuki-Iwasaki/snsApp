@@ -8,8 +8,8 @@ const ListItem: FC<ListItemType> = ({ key, index, user, val }) => {
   const [favorite, setFavorite] = useState<any>();
 
   const fetchFavorite = async () => {
-    const todoRes = await FavoriteApi.fetch(user.id, val.id);
-    setFavorite(todoRes);
+    const FavoriteRes = await FavoriteApi.fetch(user.id, val.id);
+    setFavorite(FavoriteRes);
   };
 
   const handleLike = async () => {
@@ -23,7 +23,7 @@ const ListItem: FC<ListItemType> = ({ key, index, user, val }) => {
   };
 
   const handleUnlike = async () => {
-    await FavoriteApi.remove(favorite.data[0].id);
+    await FavoriteApi.remove(favorite.data.favorite[0].id);
     notify("正常にいいね削除完了しました。");
     fetchFavorite();
   };
