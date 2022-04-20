@@ -8,7 +8,6 @@ import { EditPage } from "./type";
 const Presenter: FC<EditPage> = ({
   currentTodo,
   handleInputChange,
-  updateIsCompleted,
   updateTodo,
   deleteTodo,
 }) => {
@@ -23,12 +22,6 @@ const Presenter: FC<EditPage> = ({
         onChange={handleInputChange}
       />
       <Label>CurrentStatus</Label>
-      <CurrentStatus>
-        {currentTodo.completed ? "Completed" : "unCompleted"}
-      </CurrentStatus>
-      <Button onClick={() => updateIsCompleted(currentTodo)}>
-        {currentTodo.completed ? "unCompleted" : "Completed"}
-      </Button>
       <Button onClick={updateTodo}>Update</Button>
       <Button onClick={deleteTodo}>Delete</Button>
     </>

@@ -8,7 +8,6 @@ const DetailPage = () => {
   const initialTodoState = {
     id: null,
     name: "",
-    completed: false,
     createdAt: "",
   };
   const [currentTodo, setCurrentTodo] = useState(initialTodoState);

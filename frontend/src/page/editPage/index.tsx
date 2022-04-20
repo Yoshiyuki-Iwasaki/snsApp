@@ -11,7 +11,6 @@ const EditPage: FC = () => {
   const initialTodoState = {
     id: null,
     name: "",
-    completed: false,
     createdAt: "",
   };
   const [currentTodo, setCurrentTodo] = useState(initialTodoState);
@@ -25,17 +24,6 @@ const EditPage: FC = () => {
   const handleInputChange = event => {
     const { name, value } = event.target;
     setCurrentTodo({ ...currentTodo, [name]: value });
-  };
-
-  const updateIsCompleted = async val => {
-    const data = {
-      id: val.id,
-      name: val.name,
-      completed: val.completed ? false : true,
-    };
-    const todoRes = await TodoApi.update(val.id, data);
-    setCurrentTodo(todoRes.data);
-    notify("正常に投稿の編集が完了しました。");
   };
 
   const updateTodo = async () => {
@@ -62,7 +50,6 @@ const EditPage: FC = () => {
     <Presenter
       currentTodo={currentTodo}
       handleInputChange={handleInputChange}
-      updateIsCompleted={updateIsCompleted}
       updateTodo={updateTodo}
       deleteTodo={deleteTodo}
     />
