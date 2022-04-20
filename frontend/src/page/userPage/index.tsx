@@ -4,6 +4,7 @@ import Button from "../../components/atoms/button";
 import UserApi from "../../api/User/api";
 import RelationshipApi from "../../api/Relationship/api";
 import { useParams } from "react-router-dom";
+import Label from "../../components/atoms/label";
 
 const UserPage: FC<any> = ({ myUser }) => {
   const params = useParams();
@@ -39,18 +40,23 @@ const UserPage: FC<any> = ({ myUser }) => {
   };
 
   const handleUnfollow = async () => {
-    await RelationshipApi.remove(follow.data[0].id);
+    await RelationshipApi.remove(follow.data.relationship[0].id);
     notify("正常にフォロー削除完了しました。");
     fetchFollow();
   };
 
   return (
     <>
-      <p>{user && user.name}</p>
+      <Label>ユーザー名</Label>
+      <Label>{user && user.name}</Label>
+      <Label>フォロー数</Label>
+      <Label>{follow && follow.data.isRelationshipFollowing.length}</Label>
+      <Label>フォロワー数</Label>
+      <Label>{follow && follow.data.isRelationshipFollowed.length}</Label>
       {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
       {myUser && myUser.id !== parseInt(params.id) ? (
         <>
-          {follow && follow.data.length ? (
+          {follow && follow.data.relationship.length ? (
             <Button onClick={handleUnfollow}>フォロー削除</Button>
           ) : (
             <Button onClick={handleFollow}>フォロー</Button>

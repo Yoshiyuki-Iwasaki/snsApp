@@ -1,8 +1,13 @@
 class Api::V1::RelationshipsController < ApplicationController
 
     def index
+        # フォローしているかどうかをチェック
         relationship = Relationship.where(follow_id: params[:id], follower_id: params[:follower_id])
-        render json: relationship
+        # 特定のユーザーをフォローしているかチェック
+        isRelationship_following = Relationship.where(follow_id: params[:follower_id]);
+        # 特定のユーザーがフォローされているかチェック
+        isRelationship_followed = Relationship.where(follower_id: params[:follower_id]);
+        render json: {relationship: relationship, isRelationship_following: isRelationship_following, isRelationship_followed: isRelationship_followed}
     end
 
     def create
