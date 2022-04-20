@@ -1,12 +1,12 @@
 import React, { FC, useEffect, useState } from "react";
 import { notify } from "../../util/notify";
-import Button from "../../components/atoms/button";
 import UserApi from "../../api/User/api";
 import RelationshipApi from "../../api/Relationship/api";
 import { useParams } from "react-router-dom";
-import Label from "../../components/atoms/label";
+import Presenter from "./presenter";
+import { UserPageType } from "./type";
 
-const UserPage: FC<any> = ({ myUser }) => {
+const UserPage: FC<UserPageType> = ({ myUser }) => {
   const params = useParams();
   const [follow, setFollow] = useState<any>();
   const [user, setUser] = useState<any>();
@@ -46,26 +46,14 @@ const UserPage: FC<any> = ({ myUser }) => {
   };
 
   return (
-    <>
-      <Label>ユーザー名</Label>
-      <Label>{user && user.name}</Label>
-      <Label>フォロー数</Label>
-      <Label>{follow && follow.data.isRelationshipFollowing.length}</Label>
-      <Label>フォロワー数</Label>
-      <Label>{follow && follow.data.isRelationshipFollowed.length}</Label>
-      {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
-      {myUser && myUser.id !== parseInt(params.id) ? (
-        <>
-          {follow && follow.data.relationship.length ? (
-            <Button onClick={handleUnfollow}>フォロー削除</Button>
-          ) : (
-            <Button onClick={handleFollow}>フォロー</Button>
-          )}
-        </>
-      ) : (
-        ""
-      )}
-    </>
+    <Presenter
+      user={user}
+      follow={follow}
+      myUser={myUser}
+      params={params}
+      handleUnfollow={handleUnfollow}
+      handleFollow={handleFollow}
+    />
   );
 };
 
