@@ -8,7 +8,6 @@ import { useParams } from "react-router-dom";
 const UserPage: FC<any> = ({ myUser }) => {
   const params = useParams();
   const [follow, setFollow] = useState<any>();
-  const [followFlag, setFollowFlag] = useState<boolean>(false);
   const [user, setUser] = useState<any>();
 
   const fetchFollow = async () => {

@@ -2,14 +2,13 @@ import React, { FC } from "react";
 import { List } from "./style";
 import ListItem from "../../components/molecules/listItem";
 import SearchArea from "../../components/molecules/searchArea";
-import { TopPageType } from "./type";
+import { PresenterType } from "./type";
 
-const Presenter: FC<any> = ({
+const Presenter: FC<PresenterType> = ({
   user,
   todos,
   searchName,
   setSearchName,
-  updateIsCompleted,
 }) => {
   return (
     <>
@@ -26,15 +25,7 @@ const Presenter: FC<any> = ({
             }
           })
           .map((val, index) => {
-            return (
-              <ListItem
-                key={index}
-                index={index}
-                user={user}
-                val={val}
-                updateIsCompleted={updateIsCompleted}
-              />
-            );
+            return <ListItem key={index} index={index} user={user} val={val} />;
           })}
       </List>
     </>
