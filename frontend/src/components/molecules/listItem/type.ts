@@ -3,7 +3,6 @@ export type ListItemType = {
   index: number;
   user: any;
   val: any;
-  updateIsCompleted: any;
 };
 
 export type PresenterType = {
@@ -11,7 +10,6 @@ export type PresenterType = {
   index: number;
   val: any;
   favorite: any;
-  updateIsCompleted: any;
   handleLike: any;
   handleUnlike: any;
 };
