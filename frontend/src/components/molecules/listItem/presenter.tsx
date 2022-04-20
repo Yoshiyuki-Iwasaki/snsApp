@@ -21,11 +21,12 @@ const Presenter: FC<PresenterType> = ({
         <Label>{val.name}</Label>
         <Label>投稿者: {val.user.name}</Label>
       </Link>
-      {favorite && favorite.data.length ? (
+      {favorite && favorite.data.favorite.length ? (
         <Button onClick={handleUnlike}>いいね削除</Button>
       ) : (
         <Button onClick={handleLike}>いいね</Button>
       )}
+      <Label>{favorite && favorite.data.isFavorite.length}</Label>
     </Main>
   );
 };

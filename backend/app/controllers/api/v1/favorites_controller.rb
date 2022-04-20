@@ -1,8 +1,11 @@
 class Api::V1::FavoritesController < ApplicationController
 
     def index
+        # いいねしているかどうかをチェック
         favorite = Favorite.where(user_id: params[:user_id], todo_id: params[:todo_id])
-        render json: favorite
+        # いいね数をチェック
+        isFavorite = Favorite.where(todo_id: params[:todo_id]);
+        render json: {favorite: favorite, isFavorite: isFavorite}
     end
 
     def create
