@@ -16,7 +16,6 @@ const SignUpPage = () => {
   const handleInputChange = event => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
-    console.log(user);
   };
   const handleCreateUser = async () => {
     await UserApi.create(user);

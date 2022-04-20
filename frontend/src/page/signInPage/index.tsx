@@ -27,7 +27,6 @@ const SigninPage: FC<SigninPageType> = ({ fetchUser }) => {
       notify("正常にログインが完了しました。");
       navigate("/");
       storageUtils.saveTokens("userId", userRes.data.user.id);
-      console.log(userRes.data.user.id);
       fetchUser();
     } catch (e: any) {
       console.log(e);

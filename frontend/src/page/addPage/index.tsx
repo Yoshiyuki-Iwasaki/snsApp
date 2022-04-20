@@ -6,7 +6,6 @@ import Presenter from "./presenter";
 import { AddPageType } from "./type";
 
 const AddPage: FC<AddPageType> = ({ user }) => {
-  user && console.log(user.id);
   const initialTodoState = {
     id: null,
     name: "",

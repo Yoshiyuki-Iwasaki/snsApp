@@ -26,7 +26,6 @@ const UserPage: FC<any> = ({ myUser }) => {
 
   useEffect(() => {
     fetchFollow();
-    console.log(myUser);
   }, []);
 
   const handleFollow = async () => {
