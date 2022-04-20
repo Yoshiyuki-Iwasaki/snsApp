@@ -10,7 +10,6 @@ const AddPage: FC<AddPageType> = ({ user }) => {
   const initialTodoState = {
     id: null,
     name: "",
-    completed: false,
     user_id: "",
   };
   const [todo, setTodo] = useState(initialTodoState);
