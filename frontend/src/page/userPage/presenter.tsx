@@ -1,12 +1,14 @@
 import React, { FC } from "react";
 import Label from "../../components/atoms/label";
 import Button from "../../components/atoms/button";
+import ListItem from "../../components/molecules/listItem";
 import { PresenterType } from "./type";
 
 const Presenter: FC<PresenterType> = ({
   user,
   follow,
   myUser,
+  myPost,
   params,
   handleUnfollow,
   handleFollow,
@@ -31,6 +33,12 @@ const Presenter: FC<PresenterType> = ({
       ) : (
         ""
       )}
+      <Label>投稿一覧</Label>
+      {myPost &&
+        myPost.data.map((val, index) => {
+          return <ListItem key={index} index={index} user={user} val={val} />;
+        })}
+      <Label>いいねした投稿</Label>
     </>
   );
 };

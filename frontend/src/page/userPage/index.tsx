@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { notify } from "../../util/notify";
 import UserApi from "../../api/User/api";
 import RelationshipApi from "../../api/Relationship/api";
+import TodoApi from "../../api/Todo/api";
 import { useParams } from "react-router-dom";
 import Presenter from "./presenter";
 import { UserPageType } from "./type";
@@ -9,6 +10,7 @@ import { UserPageType } from "./type";
 const UserPage: FC<UserPageType> = ({ myUser }) => {
   const params = useParams();
   const [follow, setFollow] = useState<any>();
+  const [myPost, setMyPost] = useState<any>();
   const [user, setUser] = useState<any>();
 
   const fetchFollow = async () => {
@@ -25,8 +27,15 @@ const UserPage: FC<UserPageType> = ({ myUser }) => {
     setFollow(followRes);
   };
 
+  const fetchMypost = async () => {
+    const TodoRes = await TodoApi.fetch_userId(Number(params.id));
+    setMyPost(TodoRes);
+    console.log(TodoRes);
+  };
+
   useEffect(() => {
     fetchFollow();
+    fetchMypost();
   }, []);
 
   const handleFollow = async () => {
@@ -50,6 +59,7 @@ const UserPage: FC<UserPageType> = ({ myUser }) => {
       user={user}
       follow={follow}
       myUser={myUser}
+      myPost={myPost}
       params={params}
       handleUnfollow={handleUnfollow}
       handleFollow={handleFollow}

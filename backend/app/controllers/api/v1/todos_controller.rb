@@ -4,6 +4,11 @@ class Api::V1::TodosController < ApplicationController
         render json: todos
     end
 
+    def userIndex
+        todos = Todo.where(user: params[:id])
+        render json: todos
+    end
+
     def show
         todo = Todo.find(params[:id])
         render json: todo
