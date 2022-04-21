@@ -9,6 +9,7 @@ const Presenter: FC<PresenterType> = ({
   follow,
   myUser,
   myPost,
+  likedPost,
   params,
   handleUnfollow,
   handleFollow,
@@ -36,9 +37,29 @@ const Presenter: FC<PresenterType> = ({
       <Label>投稿一覧</Label>
       {myPost &&
         myPost.data.map((val, index) => {
-          return <ListItem key={index} index={index} user={user} val={val} />;
+          return (
+            <ListItem
+              key={index}
+              index={index}
+              myuser={myUser}
+              user={val.user}
+              val={val}
+            />
+          );
         })}
       <Label>いいねした投稿</Label>
+      {likedPost &&
+        likedPost.data.map((val, index) => {
+          return (
+            <ListItem
+              key={index}
+              index={index}
+              myuser={myUser}
+              user={val.user}
+              val={val.todo}
+            />
+          );
+        })}
     </>
   );
 };

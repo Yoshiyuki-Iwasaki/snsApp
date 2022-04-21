@@ -10,6 +10,7 @@ const Presenter: FC<PresenterType> = ({
   key,
   index,
   val,
+  user,
   favorite,
   handleLike,
   handleUnlike,
@@ -19,7 +20,7 @@ const Presenter: FC<PresenterType> = ({
       <Link to={"/" + val.id}>
         <Label>{formatDate(val.createdAt)}</Label>
         <Label>{val.name}</Label>
-        <Label>投稿者: {val.user.name}</Label>
+        <Label>投稿者: {user.name}</Label>
       </Link>
       {favorite && favorite.data.favorite.length ? (
         <Button onClick={handleUnlike}>いいね削除</Button>

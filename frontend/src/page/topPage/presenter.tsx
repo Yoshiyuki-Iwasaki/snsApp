@@ -25,7 +25,15 @@ const Presenter: FC<PresenterType> = ({
             }
           })
           .map((val, index) => {
-            return <ListItem key={index} index={index} user={user} val={val} />;
+            return (
+              <ListItem
+                key={index}
+                index={index}
+                myuser={user}
+                user={val.user}
+                val={val}
+              />
+            );
           })}
       </List>
     </>

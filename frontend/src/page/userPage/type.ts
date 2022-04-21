@@ -6,6 +6,7 @@ export type PresenterType = {
   follow: any;
   myUser: any;
   myPost: any;
+  likedPost: any;
   params: any;
   handleUnfollow: any;
   handleFollow: any;
