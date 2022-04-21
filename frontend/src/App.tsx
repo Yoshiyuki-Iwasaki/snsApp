@@ -29,10 +29,10 @@ const App: FC = () => {
     <Router>
       <Layout user={myuser} setUser={setMyuser}>
         <Routes>
-          <Route path={"/"} element={<TodoList user={myuser} />} />
-          <Route path={"/new"} element={<AddTodo user={myuser} />} />
+          <Route path={"/"} element={<TodoList myuser={myuser} />} />
+          <Route path={"/new"} element={<AddTodo myuser={myuser} />} />
           <Route path={"/user/:id"} element={<UserPage myUser={myuser} />} />
-          <Route path={"/:id"} element={<DetailPage />} />
+          <Route path={"/:id"} element={<DetailPage myuser={myuser} />} />
           <Route path={"/:id/edit"} element={<EditTodo />} />
           <Route path={"/signup"} element={<SignUpPage />} />
           <Route

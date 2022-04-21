@@ -5,7 +5,7 @@ import { notify } from "../../util/notify";
 import Presenter from "./presenter";
 import { AddPageType } from "./type";
 
-const AddPage: FC<AddPageType> = ({ user }) => {
+const AddPage: FC<AddPageType> = ({ myuser }) => {
   const initialTodoState = {
     id: null,
     name: "",
@@ -21,7 +21,7 @@ const AddPage: FC<AddPageType> = ({ user }) => {
   const addTodo = async () => {
     const data = {
       name: todo.name,
-      user_id: user.id,
+      user_id: myuser.id,
     };
     await TodoApi.create(data);
     notify("正常に投稿が完了しました。");

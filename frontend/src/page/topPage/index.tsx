@@ -4,7 +4,7 @@ import TodoApi from "../../api/Todo/api";
 import { todoType } from "../../api/Todo/type";
 import { TopPageType } from "./type";
 
-const TopPage: FC<TopPageType> = ({ user }) => {
+const TopPage: FC<TopPageType> = ({ myuser }) => {
   const [todos, setTodos] = useState([]);
   const [searchName, setSearchName] = useState("");
 
@@ -20,7 +20,7 @@ const TopPage: FC<TopPageType> = ({ user }) => {
   return (
     <Presenter
       todos={todos}
-      user={user}
+      user={myuser}
       searchName={searchName}
       setSearchName={setSearchName}
     />

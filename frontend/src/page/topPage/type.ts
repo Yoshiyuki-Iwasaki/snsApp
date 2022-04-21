@@ -1,5 +1,5 @@
 export type TopPageType = {
-  user: any;
+  myuser: any;
 };
 export type PresenterType = {
   user: any;
