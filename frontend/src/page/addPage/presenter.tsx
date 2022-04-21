@@ -3,8 +3,8 @@ import { InputAndButton, Icon } from "./style";
 import Label from "../../components/atoms/label";
 import Button from "../../components/atoms/button";
 import Input from "../../components/atoms/input";
-import "react-toastify/dist/ReactToastify.css";
 import { FiSend } from "react-icons/fi";
+import "react-toastify/dist/ReactToastify.css";
 import { PresenterType } from "./type";
 
 const Presenter: FC<PresenterType> = ({ todo, addTodo, handleInputChange }) => {
