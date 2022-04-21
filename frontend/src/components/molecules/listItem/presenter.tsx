@@ -7,8 +7,6 @@ import { PresenterType } from "./type";
 import Button from "../../atoms/button";
 
 const Presenter: FC<PresenterType> = ({
-  key,
-  index,
   val,
   user,
   favorite,
@@ -16,7 +14,7 @@ const Presenter: FC<PresenterType> = ({
   handleUnlike,
 }) => {
   return (
-    <Main key={key}>
+    <Main>
       <Link to={"/" + val.id}>
         <Label>{formatDate(val.createdAt)}</Label>
         <Label>{val.name}</Label>

@@ -4,7 +4,7 @@ import FavoriteApi from "../../../api/Favorite/api";
 import { ListItemType } from "./type";
 import { notify } from "../../../util/notify";
 
-const ListItem: FC<ListItemType> = ({ key, index, myuser, user, val }) => {
+const ListItem: FC<ListItemType> = ({ myuser, user, val }) => {
   const [favorite, setFavorite] = useState<any>();
 
   const fetchFavorite = async () => {
@@ -34,8 +34,6 @@ const ListItem: FC<ListItemType> = ({ key, index, myuser, user, val }) => {
 
   return (
     <Presenter
-      key={key}
-      index={index}
       val={val}
       user={user}
       favorite={favorite}

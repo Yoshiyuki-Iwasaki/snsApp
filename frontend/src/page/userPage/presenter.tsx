@@ -36,24 +36,17 @@ const Presenter: FC<PresenterType> = ({
       )}
       <Label>投稿一覧</Label>
       {myPost &&
-        myPost.data.map((val, index) => {
+        myPost.data.map(val => {
           return (
-            <ListItem
-              key={index}
-              index={index}
-              myuser={myUser}
-              user={val.user}
-              val={val}
-            />
+            <ListItem key={val.id} myuser={myUser} user={val.user} val={val} />
           );
         })}
       <Label>いいねした投稿</Label>
       {likedPost &&
-        likedPost.data.map((val, index) => {
+        likedPost.data.map(val => {
           return (
             <ListItem
-              key={index}
-              index={index}
+              key={val.id}
               myuser={myUser}
               user={val.user}
               val={val.todo}
