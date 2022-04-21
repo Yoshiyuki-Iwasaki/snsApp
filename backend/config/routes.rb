@@ -10,6 +10,8 @@ Rails.application.routes.draw do
           resources :favorites, only: %i[index create]
         end
       end
+      get '/todos/users/:id/', to: "todos#userIndex"
+      get '/favorites/users/:id', to: "favorites#todoIndex"
       get '/users/:id/follower/:follower_id/relationships', to: "relationships#index"
       post '/users/:id/relationships', to: "relationships#create", as: "follow_user"
       post 'login', to: 'sessions#create'

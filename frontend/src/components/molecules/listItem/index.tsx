@@ -4,20 +4,20 @@ import FavoriteApi from "../../../api/Favorite/api";
 import { ListItemType } from "./type";
 import { notify } from "../../../util/notify";
 
-const ListItem: FC<ListItemType> = ({ key, index, user, val }) => {
+const ListItem: FC<ListItemType> = ({ key, index, myuser, user, val }) => {
   const [favorite, setFavorite] = useState<any>();
 
   const fetchFavorite = async () => {
-    const FavoriteRes = await FavoriteApi.fetch(user.id, val.id);
+    const FavoriteRes = await FavoriteApi.fetch(myuser.id, val.id);
     setFavorite(FavoriteRes);
   };
 
   const handleLike = async () => {
     const data = {
       todo_id: val.id,
-      user_id: user.id,
+      user_id: myuser.id,
     };
-    await FavoriteApi.create(user.id, val.id, data);
+    await FavoriteApi.create(myuser.id, val.id, data);
     notify("正常にいいねが完了しました。");
     fetchFavorite();
   };
@@ -37,6 +37,7 @@ const ListItem: FC<ListItemType> = ({ key, index, user, val }) => {
       key={key}
       index={index}
       val={val}
+      user={user}
       favorite={favorite}
       handleLike={handleLike}
       handleUnlike={handleUnlike}

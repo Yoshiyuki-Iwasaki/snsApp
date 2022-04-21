@@ -11,6 +11,10 @@ async function fetch_detail(id: number) {
   return api.get(ENDPOINT + `/` + id);
 }
 
+async function fetch_userTodo(id: number) {
+  return api.get(ENDPOINT + `/users/` + id);
+}
+
 async function create(todo: todoType) {
   return api.post(ENDPOINT, todo);
 }
@@ -26,6 +30,7 @@ async function remove(id: number) {
 const TodoApi = {
   fetch,
   fetch_detail,
+  fetch_userTodo,
   create,
   update,
   remove,

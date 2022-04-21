@@ -7,6 +7,10 @@ async function fetch(user_id: number, todo_id: number) {
   );
 }
 
+async function fetch_userTodo(user_id: number) {
+  return api.get(ENDPOINT + "/favorites" + `/users/` + user_id);
+}
+
 async function create(user_id: number, todo_id: number, favorite: any) {
   return api.post(
     ENDPOINT + `/todos/` + todo_id + `/users/` + user_id + `/favorites`,
@@ -20,6 +24,7 @@ async function remove(id: number) {
 
 const FavoriteApi = {
   fetch,
+  fetch_userTodo,
   create,
   remove,
 };
