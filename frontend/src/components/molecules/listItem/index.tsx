@@ -17,7 +17,7 @@ const ListItem: FC<ListItemType> = ({ myuser, user, val }) => {
       todo_id: val.id,
       user_id: myuser.id,
     };
-    await FavoriteApi.create(myuser.id, val.id, data);
+    await FavoriteApi.create(data);
     notify("正常にいいねが完了しました。");
     fetchFavorite();
   };

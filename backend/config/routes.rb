@@ -3,11 +3,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :todos, only: %i[index show create update destroy]
       resources :users, only: %i[create show]
-      resources :favorites, only: %i[destroy]
+      resources :favorites, only: %i[create destroy]
       resources :relationships, only: %i[destroy]
       resources :todos do
         resources :users do
-          resources :favorites, only: %i[index create]
+          resources :favorites, only: %i[index]
         end
       end
       get '/todos/users/:id/', to: "todos#userIndex"
