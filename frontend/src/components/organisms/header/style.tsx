@@ -9,9 +9,6 @@ export const Inner = styled.div`
   width: 600px;
 `;
 export const NavBar = styled.nav``;
-export const NavItems = styled.ul`
-  display: flex;
-`;
 export const NavItem = styled.li`
   padding: 0 10px;
   display: flex;

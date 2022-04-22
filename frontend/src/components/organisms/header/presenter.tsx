@@ -1,39 +1,36 @@
+import { Container, Button, Flex, Link, Text, Box } from "@chakra-ui/react";
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
-import { NavBar, Inner, Logo, NavItems, NavItem } from "./style";
 import { PresenterType } from "./type";
 
 const Presenter: FC<PresenterType> = ({ user, handleLogout }) => {
   return (
-    <NavBar>
-      <Inner>
-        <Link to="/">
-          <Logo>TODO LIST</Logo>
+    <Container my={3}>
+      <Flex alignItems={"center"} justifyContent={"space-between"}>
+        <Link href="/">
+          <Text>TODO LIST</Text>
         </Link>
-        <NavItems>
+        <Flex alignItems={"center"}>
           {user ? (
             <>
-              <NavItem>
-                <Link to={`/user/${user.id}`}>{user.name}</Link>
-              </NavItem>
-              <NavItem>
-                <Link to="/new">新規投稿</Link>
-              </NavItem>
-              <NavItem onClick={handleLogout}>ログアウト</NavItem>
+              <Link mr={3} href={`/user/${user.id}`}>
+                {user.name}
+              </Link>
+              <Link mr={3} href="/new">
+                新規投稿
+              </Link>
+              <Button onClick={handleLogout}>ログアウト</Button>
             </>
           ) : (
             <>
-              <NavItem>
-                <Link to="/signin">ログイン</Link>
-              </NavItem>
-              <NavItem>
-                <Link to="/signup">新規登録</Link>
-              </NavItem>
+              <Link mr={3} href="/signin">
+                ログイン
+              </Link>
+              <Link href="/signup">新規登録</Link>
             </>
           )}
-        </NavItems>
-      </Inner>
-    </NavBar>
+        </Flex>
+      </Flex>
+    </Container>
   );
 };
 
