@@ -10,6 +10,7 @@ import Input from "../../components/atoms/input";
 import ListItem from "../../components/molecules/listItem";
 import { FiSend } from "react-icons/fi";
 import { DetailPageType } from "./type";
+import { Box, Flex } from "@chakra-ui/react";
 
 const Presenter: FC<DetailPageType> = ({
   params,
@@ -22,13 +23,19 @@ const Presenter: FC<DetailPageType> = ({
 }) => {
   return (
     <>
-      <Label>{formatDate(currentTodo.createdAt)}</Label>
-      {currentTodo.user && (
-        <Link to={"/user/" + currentTodo.user.id}>
-          <Label>{currentTodo.user && currentTodo.user.name}</Label>
-        </Link>
-      )}
-      <Label>{currentTodo.name}</Label>
+      <Flex>
+        <Box mr={3}>
+          {currentTodo.user && (
+            <Link to={"/user/" + currentTodo.user.id}>
+              <Label>{currentTodo.user && currentTodo.user.name}</Label>
+            </Link>
+          )}
+        </Box>
+        <Label>{formatDate(currentTodo.createdAt)}</Label>
+      </Flex>
+      <Box mt={3}>
+        <Label>{currentTodo.name}</Label>
+      </Box>
       <Link to={"/" + params.id + "/edit"}>
         <EditButton>
           <AiFillEdit />
