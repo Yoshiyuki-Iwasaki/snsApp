@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { InputName, CurrentStatus } from "./style";
+import { InputName } from "./style";
 import Button from "../../components/atoms/button";
 import { formatDate } from "../../util/data";
 import Label from "../../components/atoms/label";

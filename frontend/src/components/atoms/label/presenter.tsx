@@ -1,18 +1,14 @@
-import React, { FC } from 'react';
-import { LabelType } from './type';
-import { Label, LabelLink } from './style';
+import React, { FC } from "react";
+import { LabelType } from "./type";
+import { Text, Link } from "@chakra-ui/react";
 
-const Presenter: FC<LabelType> = ({ fs, cl, fw, lh, href, children }) => {
+const Presenter: FC<LabelType> = ({ href, children }) => {
   return href ? (
     <>
-      <LabelLink to={href} cl={cl} fs={fs} fw={fw} lh={lh}>
-        {children}
-      </LabelLink>
+      <Link href={href}>{children}</Link>
     </>
   ) : (
-    <Label cl={cl} fs={fs} fw={fw} lh={lh}>
-      {children}
-    </Label>
+    <Text>{children}</Text>
   );
 };
 

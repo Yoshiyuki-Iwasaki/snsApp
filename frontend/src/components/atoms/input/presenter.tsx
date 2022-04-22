@@ -1,11 +1,10 @@
 import React, { FC } from "react";
-import { FormInput } from "./style";
 import { InputType } from "./type";
+import { Input } from "@chakra-ui/react";
 
 const Presenter: FC<InputType> = ({ onChange, placeholder, value, name }) => {
   return (
-    <FormInput
-      required
+    <Input
       type="text"
       name={name}
       onChange={onChange}

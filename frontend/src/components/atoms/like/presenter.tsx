@@ -1,16 +1,12 @@
-import React, { FC } from 'react';
-import { LikeButton } from './style';
-import { LikeType } from './type';
+import React, { FC } from "react";
+import { LikeType } from "./type";
+import { Button } from "@chakra-ui/react";
 
 const Presenter: FC<LikeType> = ({ postData, handleLike }) => {
   return (
-    <LikeButton
-      likedFlag={postData.likeState}
-      data-testid="like"
-      onClick={() => handleLike(postData)}
-    >
+    <Button data-testid="like" onClick={() => handleLike(postData)}>
       {postData.likeCount}
-    </LikeButton>
+    </Button>
   );
 };
 
