@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Label from "../../atoms/label";
 import { PresenterType } from "./type";
 import Button from "../../atoms/button";
+import { Flex, Spacer } from "@chakra-ui/react";
+import { StarIcon } from "@chakra-ui/icons";
 
 const Presenter: FC<PresenterType> = ({
   val,
@@ -15,16 +17,24 @@ const Presenter: FC<PresenterType> = ({
   return (
     <>
       <Link to={"/" + val.id}>
-        <Label>{formatDate(val.createdAt)}</Label>
+        <Flex>
+          <Label>{user.name}</Label>
+          <Label>{formatDate(val.createdAt)}</Label>
+        </Flex>
         <Label>{val.name}</Label>
-        <Label>投稿者: {user.name}</Label>
       </Link>
-      {favorite && favorite.data.favorite.length ? (
-        <Button onClick={handleUnlike}>いいね削除</Button>
-      ) : (
-        <Button onClick={handleLike}>いいね</Button>
-      )}
-      <Label>{favorite && favorite.data.isFavorite.length}</Label>
+      <Flex>
+        {favorite && favorite.data.favorite.length ? (
+          <Button onClick={handleUnlike}>
+            <StarIcon />
+          </Button>
+        ) : (
+          <Button colorScheme="gray" onClick={handleLike}>
+            <StarIcon />
+          </Button>
+        )}
+        <Label>{favorite && favorite.data.isFavorite.length}</Label>
+      </Flex>
     </>
   );
 };
