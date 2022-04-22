@@ -1,9 +1,8 @@
 import React, { FC } from "react";
-import { PresenterType } from "./type";
-import { CheckIcon } from "@chakra-ui/icons";
+import { SaveButtonType } from "./type";
 import { Button } from "@chakra-ui/react";
 
-const Presenter: FC<PresenterType> = ({ children, buttonProps }) => {
+const Presenter: FC<SaveButtonType> = ({ children, ...buttonProps }) => {
   return (
     <Button colorScheme="green" {...buttonProps}>
       {children}

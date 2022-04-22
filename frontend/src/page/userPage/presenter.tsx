@@ -20,11 +20,15 @@ const Presenter: FC<PresenterType> = ({
       <Label>{user && user.name}</Label>
       <Flex mt={3}>
         <Flex mr={3}>
-          <Label>フォロー数</Label>
+          <Box mr={2}>
+            <Label>フォロー数</Label>
+          </Box>
           <Label>{follow && follow.data.isRelationshipFollowing.length}</Label>
         </Flex>
         <Flex>
-          <Label>フォロワー数</Label>
+          <Box mr={2}>
+            <Label>フォロワー数</Label>
+          </Box>
           <Label>{follow && follow.data.isRelationshipFollowed.length}</Label>
         </Flex>
       </Flex>
@@ -41,7 +45,7 @@ const Presenter: FC<PresenterType> = ({
         ) : (
           ""
         )}
-        <Flex>
+        <Flex mt={5}>
           <Box w="50%">
             <Label>投稿一覧</Label>
             {myPost &&

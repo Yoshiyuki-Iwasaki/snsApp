@@ -2,13 +2,15 @@ import React, { FC } from "react";
 import { LabelType } from "./type";
 import { Text, Link } from "@chakra-ui/react";
 
-const Presenter: FC<LabelType> = ({ href, children }) => {
+const Presenter: FC<LabelType> = ({ href, children, props }) => {
   return href ? (
     <>
-      <Link href={href}>{children}</Link>
+      <Link href={href} {...props}>
+        {children}
+      </Link>
     </>
   ) : (
-    <Text>{children}</Text>
+    <Text {...props}>{children}</Text>
   );
 };
 

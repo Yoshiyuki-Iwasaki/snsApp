@@ -3,8 +3,8 @@ import { formatDate } from "../../../util/data";
 import { Link } from "react-router-dom";
 import Label from "../../atoms/label";
 import { PresenterType } from "./type";
-import Button from "../../atoms/button";
-import { Box, Center, Flex, Spacer } from "@chakra-ui/react";
+import SaveButton from "../../atoms/button";
+import { Box, Center, Flex, Spacer, Text } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
 const Presenter: FC<PresenterType> = ({
@@ -15,13 +15,13 @@ const Presenter: FC<PresenterType> = ({
   handleUnlike,
 }) => {
   return (
-    <Box my={5}>
+    <Box py={3} borderBottom="1px" borderColor="gray.500">
       <Link to={"/" + val.id}>
         <Flex>
           <Box mr={5}>
             <Label>{user.name}</Label>
           </Box>
-          <Label>{formatDate(val.createdAt)}</Label>
+          <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
         </Flex>
         <Box mt={2} mr={3}>
           <Label>{val.name}</Label>
@@ -29,13 +29,13 @@ const Presenter: FC<PresenterType> = ({
       </Link>
       <Flex mt={4} alignItems="center">
         {favorite && favorite.data.favorite.length ? (
-          <Button onClick={handleUnlike}>
+          <SaveButton onClick={handleUnlike}>
             <StarIcon />
-          </Button>
+          </SaveButton>
         ) : (
-          <Button colorScheme="gray" onClick={handleLike}>
+          <SaveButton colorScheme="gray" onClick={handleLike}>
             <StarIcon />
-          </Button>
+          </SaveButton>
         )}
         <Box ml={3}>
           <Label>{favorite && favorite.data.isFavorite.length}</Label>
