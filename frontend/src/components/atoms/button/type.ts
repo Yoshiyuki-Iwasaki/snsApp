@@ -1,5 +1,7 @@
-export type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
+import { ButtonProps } from "@chakra-ui/react";
 
-export type ButtonType = {
-  disabled?: any;
-} & ButtonProps;
+export interface SaveButtonProps extends ButtonProps {}
+export interface PresenterType {
+  children: any;
+  buttonProps: any;
+}

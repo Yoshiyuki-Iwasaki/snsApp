@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { Main } from "./style";
 import { formatDate } from "../../../util/data";
 import { Link } from "react-router-dom";
 import Label from "../../atoms/label";
@@ -14,7 +13,7 @@ const Presenter: FC<PresenterType> = ({
   handleUnlike,
 }) => {
   return (
-    <Main>
+    <>
       <Link to={"/" + val.id}>
         <Label>{formatDate(val.createdAt)}</Label>
         <Label>{val.name}</Label>
@@ -26,7 +25,7 @@ const Presenter: FC<PresenterType> = ({
         <Button onClick={handleLike}>いいね</Button>
       )}
       <Label>{favorite && favorite.data.isFavorite.length}</Label>
-    </Main>
+    </>
   );
 };
 

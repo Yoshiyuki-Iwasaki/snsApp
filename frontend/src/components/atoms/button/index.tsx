@@ -1,9 +1,10 @@
-import React, { FC } from 'react';
-import { ButtonType } from './type';
-import { ButtonLayout } from './style';
+import React, { FC } from "react";
+import { SaveButtonProps } from "./type";
+import Presenter from "./presenter";
 
-const Button: FC<ButtonType> = ({ children, ...buttonProps }) => {
-  return <ButtonLayout {...buttonProps}>{children}</ButtonLayout>;
+const SaveButton: FC<SaveButtonProps> = props => {
+  const { children, ...buttonProps } = props;
+  return <Presenter children={children} buttonProps={buttonProps} />;
 };
 
-export default Button;
+export default SaveButton;
