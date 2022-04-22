@@ -35,7 +35,6 @@ const Presenter: FC<DetailPageType> = ({
         </EditButton>
       </Link>
 
-      <Label>リプライ</Label>
       <Input name={"name"} value={reply.name} onChange={handleInputChange} />
       <Button
         onClick={addReply}

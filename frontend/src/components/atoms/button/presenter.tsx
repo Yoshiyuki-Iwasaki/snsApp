@@ -5,7 +5,7 @@ import { Button } from "@chakra-ui/react";
 
 const Presenter: FC<PresenterType> = ({ children, buttonProps }) => {
   return (
-    <Button colorScheme="green" leftIcon={<CheckIcon />} {...buttonProps}>
+    <Button colorScheme="green" {...buttonProps}>
       {children}
     </Button>
   );
