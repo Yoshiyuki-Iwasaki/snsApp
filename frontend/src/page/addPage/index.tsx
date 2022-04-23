@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TodoApi from "../../api/Todo/api";
+import useHandleInputChange from "../../hooks/useHandleInputChange";
 import { notify } from "../../util/notify";
 import Presenter from "./presenter";
 import { AddPageType } from "./type";
@@ -11,16 +12,13 @@ const AddPage: FC<AddPageType> = ({ myuser }) => {
     name: "",
     user_id: "",
   };
-  const [todo, setTodo] = useState(initialTodoState);
+  const { inputChange, handleInputChange } =
+    useHandleInputChange(initialTodoState);
   const navigate = useNavigate();
 
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setTodo({ ...todo, [name]: value });
-  };
   const addTodo = async () => {
     const data = {
-      name: todo.name,
+      name: inputChange.name,
       user_id: myuser.id,
     };
     await TodoApi.create(data);
@@ -31,7 +29,7 @@ const AddPage: FC<AddPageType> = ({ myuser }) => {
   return (
     <>
       <Presenter
-        todo={todo}
+        todo={inputChange}
         addTodo={addTodo}
         handleInputChange={handleInputChange}
       />

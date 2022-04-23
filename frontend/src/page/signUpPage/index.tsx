@@ -3,6 +3,7 @@ import UserApi from "../../api/User/api";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../util/notify";
 import Presenter from "./presenter";
+import useHandleInputChange from "../../hooks/useHandleInputChange";
 
 const SignUpPage = () => {
   const initialTodoState = {
@@ -11,20 +12,18 @@ const SignUpPage = () => {
     password: "",
     password_confirmation: "",
   };
-  const [user, setUser] = useState(initialTodoState);
   const navigate = useNavigate();
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setUser({ ...user, [name]: value });
-  };
+  const { inputChange, handleInputChange } =
+    useHandleInputChange(initialTodoState);
+
   const handleCreateUser = async () => {
-    await UserApi.create(user);
+    await UserApi.create(inputChange);
     notify("正常にユーザー作成が完了しました。");
     navigate("/signin");
   };
   return (
     <Presenter
-      user={user}
+      user={inputChange}
       handleInputChange={handleInputChange}
       handleCreateUser={handleCreateUser}
     />

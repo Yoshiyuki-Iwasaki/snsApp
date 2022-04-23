@@ -5,22 +5,21 @@ import { notify } from "../../util/notify";
 import storageUtils from "../../util/storage";
 import Presenter from "./presenter";
 import { SigninPageType } from "./type";
+import useHandleInputChange from "../../hooks/useHandleInputChange";
 
 const SigninPage: FC<SigninPageType> = ({ fetchUser }) => {
   const initialTodoState = {
     email: "",
     password: "",
   };
-  const [todo, setTodo] = useState(initialTodoState);
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setTodo({ ...todo, [name]: value });
-  };
+  const { inputChange, handleInputChange } =
+    useHandleInputChange(initialTodoState);
+
   const navigate = useNavigate();
   const handleLogin = async () => {
     const data = {
-      email: todo.email,
-      password: todo.password,
+      email: inputChange.email,
+      password: inputChange.password,
     };
     try {
       const userRes = await UserApi.login(data);
@@ -34,7 +33,7 @@ const SigninPage: FC<SigninPageType> = ({ fetchUser }) => {
   };
   return (
     <Presenter
-      todo={todo}
+      todo={inputChange}
       handleInputChange={handleInputChange}
       handleLogin={handleLogin}
     />

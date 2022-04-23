@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import TodoApi from "../../api/Todo/api";
 import { notify } from "../../util/notify";
 import Presenter from "./presenter";
+import useHandleInputChange from "../../hooks/useHandleInputChange";
 
 const EditPage: FC = () => {
   const params = useParams();
@@ -13,22 +14,18 @@ const EditPage: FC = () => {
     name: "",
     createdAt: "",
   };
-  const [currentTodo, setCurrentTodo] = useState(initialTodoState);
   const navigate = useNavigate();
+  const { inputChange, setInputChange, handleInputChange } =
+    useHandleInputChange(initialTodoState);
 
   const fetchTodoData = async id => {
     const todoRes = await TodoApi.fetch_detail(id);
-    setCurrentTodo(todoRes.data);
-  };
-
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setCurrentTodo({ ...currentTodo, [name]: value });
+    setInputChange(todoRes.data);
   };
 
   const updateTodo = async () => {
-    const todoRes = await TodoApi.update(currentTodo.id, currentTodo);
-    setCurrentTodo(todoRes.data);
+    const todoRes = await TodoApi.update(inputChange.id, inputChange);
+    setInputChange(todoRes.data);
     notify("正常に投稿の編集が完了しました。");
     navigate("/");
   };
@@ -36,7 +33,7 @@ const EditPage: FC = () => {
   const deleteTodo = async () => {
     const sure = window.confirm("Are you sure?");
     if (sure) {
-      await TodoApi.remove(currentTodo.id);
+      await TodoApi.remove(inputChange.id);
       notify("正常に投稿の編集が完了しました。");
       navigate("/");
     }
@@ -48,7 +45,7 @@ const EditPage: FC = () => {
 
   return (
     <Presenter
-      currentTodo={currentTodo}
+      currentTodo={inputChange}
       handleInputChange={handleInputChange}
       updateTodo={updateTodo}
       deleteTodo={deleteTodo}

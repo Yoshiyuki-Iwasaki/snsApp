@@ -2,18 +2,19 @@ import React, { FC, useEffect, useState } from "react";
 import { notify } from "../../util/notify";
 import UserApi from "../../api/User/api";
 import RelationshipApi from "../../api/Relationship/api";
-import TodoApi from "../../api/Todo/api";
 import FavoriteApi from "../../api/Favorite/api";
 import { useParams } from "react-router-dom";
 import Presenter from "./presenter";
 import { UserPageType } from "./type";
+import useFetchMyPost from "../../hooks/useFetchMyPost";
+import useFetchLikedMyPost from "../../hooks/useFetchLikedMyPost";
 
 const UserPage: FC<UserPageType> = ({ myUser }) => {
   const params = useParams();
   const [follow, setFollow] = useState<any>();
   const [user, setUser] = useState<any>();
-  const [myPost, setMyPost] = useState<any>();
-  const [likedPost, setLikedPost] = useState<any>();
+  const myPost = useFetchMyPost(Number(params.id));
+  const likedPost = useFetchLikedMyPost(Number(params.id));
 
   const fetchFollow = async () => {
     const userRes = await UserApi.show(params.id);
@@ -29,20 +30,8 @@ const UserPage: FC<UserPageType> = ({ myUser }) => {
     setFollow(followRes);
   };
 
-  const fetchMyPost = async () => {
-    const TodoRes = await TodoApi.fetch_userTodo(Number(params.id));
-    setMyPost(TodoRes);
-  };
-
-  const fetchLikedPost = async () => {
-    const FavoriteRes = await FavoriteApi.fetch_userTodo(Number(params.id));
-    setLikedPost(FavoriteRes);
-  };
-
   useEffect(() => {
     fetchFollow();
-    fetchMyPost();
-    fetchLikedPost();
   }, []);
 
   const handleFollow = async () => {

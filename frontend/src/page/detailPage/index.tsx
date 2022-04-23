@@ -4,6 +4,7 @@ import Presenter from "./presenter";
 import ReplyApi from "../../api/Reply/api";
 import { notify } from "../../util/notify";
 import { useParams } from "react-router-dom";
+import useHandleInputChange from "../../hooks/useHandleInputChange";
 
 const DetailPage = ({ myuser }) => {
   const params = useParams();
@@ -20,8 +21,9 @@ const DetailPage = ({ myuser }) => {
     createdAt: "",
   };
   const [currentTodo, setCurrentTodo] = useState(initialTodoState);
-  const [reply, setReply] = useState(initialReplyState);
   const [replies, setReplies] = useState<any>();
+  const { inputChange, handleInputChange } =
+    useHandleInputChange(initialReplyState);
 
   const fetchTodoData = async id => {
     const todoRes = await TodoApi.fetch_detail(id);
@@ -34,20 +36,13 @@ const DetailPage = ({ myuser }) => {
     console.log(ReplyRes);
   };
 
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setReply({ ...reply, [name]: value });
-    console.log(reply);
-  };
-
   const addReply = async () => {
     const data = {
-      name: reply.name,
+      name: inputChange.name,
       user_id: myuser.id,
       todo_id: Number(params.id),
     };
     await ReplyApi.create(data);
-    setReply({ ...reply, name: "" });
     fetchReply();
     notify("正常にリプライが完了しました。");
   };
@@ -62,7 +57,7 @@ const DetailPage = ({ myuser }) => {
       params={params}
       currentTodo={currentTodo}
       myuser={myuser}
-      reply={reply}
+      reply={inputChange}
       replies={replies}
       handleInputChange={handleInputChange}
       addReply={addReply}

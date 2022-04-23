@@ -1,21 +1,11 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, FC } from "react";
 import Presenter from "./presenter";
-import TodoApi from "../../api/Todo/api";
-import { todoType } from "../../api/Todo/type";
 import { TopPageType } from "./type";
+import useFetchAllTodos from "../../hooks/useFetchAllTodos";
 
 const TopPage: FC<TopPageType> = ({ myuser }) => {
-  const [todos, setTodos] = useState([]);
   const [searchName, setSearchName] = useState("");
-
-  const fetchTodo = async () => {
-    const todoRes = await TodoApi.fetch();
-    setTodos(todoRes.data);
-  };
-
-  useEffect(() => {
-    fetchTodo();
-  }, []);
+  const todos = useFetchAllTodos();
 
   return (
     <Presenter
