@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Label from "../../atoms/label";
 import { PresenterType } from "./type";
 import SaveButton from "../../atoms/button";
-import { Box, Center, Flex, Spacer, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
 const Presenter: FC<PresenterType> = ({

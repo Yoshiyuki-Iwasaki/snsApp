@@ -1,4 +1,4 @@
-import { Container, Button, Flex, Link, Text, Box } from "@chakra-ui/react";
+import { Container, Button, Flex, Link, Text } from "@chakra-ui/react";
 import React, { FC } from "react";
 import { PresenterType } from "./type";
 

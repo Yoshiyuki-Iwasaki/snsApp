@@ -1,4 +1,3 @@
-import React from "react";
 import storageUtils from "../util/storage";
 import axios, { AxiosError } from "axios";
 

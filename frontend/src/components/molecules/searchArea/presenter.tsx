@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { Main } from "./style";
 import Input from "../../atoms/input";
 import { SearchAreaType } from "./type";
 
