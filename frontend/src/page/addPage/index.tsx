@@ -7,6 +7,7 @@ import Presenter from "./presenter";
 import { AddPageType } from "./type";
 
 const AddPage: FC<AddPageType> = ({ myuser }) => {
+  const navigate = useNavigate();
   const initialTodoState = {
     id: null,
     name: "",
@@ -14,7 +15,6 @@ const AddPage: FC<AddPageType> = ({ myuser }) => {
   };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialTodoState);
-  const navigate = useNavigate();
 
   const addTodo = async () => {
     const data = {

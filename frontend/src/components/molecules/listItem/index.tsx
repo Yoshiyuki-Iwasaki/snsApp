@@ -1,10 +1,12 @@
-import React, { useEffect, useState, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import Presenter from "./presenter";
 import FavoriteApi from "../../../api/Favorite/api";
 import { ListItemType } from "./type";
 import { notify } from "../../../util/notify";
+import useFetchFavorite from "../../../hooks/useFetchFavorite";
 
 const ListItem: FC<ListItemType> = ({ myuser, user, val }) => {
+  // const { favorite, fetchFavorite } = useFetchFavorite(myuser, val);
   const [favorite, setFavorite] = useState<any>();
 
   const fetchFavorite = async () => {

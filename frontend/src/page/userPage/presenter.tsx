@@ -62,7 +62,7 @@ const Presenter: FC<PresenterType> = ({
           </Box>
           <Box w="50%">
             <Label>いいねした投稿</Label>
-            {likedPost &&
+            {likedPost.data &&
               likedPost.data.map(val => {
                 return (
                   <ListItem
