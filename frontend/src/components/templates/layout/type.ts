@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 export type LayoutType = {
   children: ReactNode;
-  user: any;
+  myUser: any;
   setUser: any;
+  fetchUser: any;
 };

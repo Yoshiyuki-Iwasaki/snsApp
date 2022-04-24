@@ -2,17 +2,18 @@ import React, { FC } from "react";
 import Presenter from "./presenter";
 import { useNavigate } from "react-router-dom";
 import { HeaderType } from "./type";
+import UserApi from "../../../api/User/api";
 
-const Header: FC<HeaderType> = ({ user, setUser }) => {
+const Header: FC<HeaderType> = ({ myUser, setUser }) => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem("userId");
+  const handleLogout = async () => {
+    await UserApi.logout();
     setUser("");
     navigate("/");
   };
 
-  return <Presenter user={user} handleLogout={handleLogout} />;
+  return <Presenter myUser={myUser} handleLogout={handleLogout} />;
 };
 
 export default Header;

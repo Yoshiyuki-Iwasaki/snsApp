@@ -13,12 +13,12 @@ import UserApi from "./api/User/api";
 import UserPage from "./page/userPage";
 
 const App: FC = () => {
-  const [myuser, setMyuser] = useState<any>();
+  const [myUser, setMyUser] = useState<any>();
 
   const fetchUser = async () => {
-    const userId = localStorage.getItem("userId");
-    const userRes = await UserApi.show(userId);
-    setMyuser(userRes.data);
+    const userRes = await UserApi.fetch_loginUser();
+    setMyUser(userRes);
+    console.log("userRes", userRes);
   };
 
   useEffect(() => {
@@ -27,12 +27,12 @@ const App: FC = () => {
 
   return (
     <Router>
-      <Layout user={myuser} setUser={setMyuser}>
+      <Layout myUser={myUser} setUser={setMyUser} fetchUser={fetchUser}>
         <Routes>
-          <Route path={"/"} element={<TodoList myuser={myuser} />} />
-          <Route path={"/new"} element={<AddTodo myuser={myuser} />} />
-          <Route path={"/user/:id"} element={<UserPage myUser={myuser} />} />
-          <Route path={"/:id"} element={<DetailPage myuser={myuser} />} />
+          <Route path={"/"} element={<TodoList myuser={myUser} />} />
+          <Route path={"/new"} element={<AddTodo myuser={myUser} />} />
+          <Route path={"/user/:id"} element={<UserPage myUser={myUser} />} />
+          <Route path={"/:id"} element={<DetailPage myuser={myUser} />} />
           <Route path={"/:id/edit"} element={<EditTodo />} />
           <Route path={"/signup"} element={<SignUpPage />} />
           <Route

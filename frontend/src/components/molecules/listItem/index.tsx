@@ -10,14 +10,14 @@ const ListItem: FC<ListItemType> = ({ myuser, user, val }) => {
   const [favorite, setFavorite] = useState<any>();
 
   const fetchFavorite = async () => {
-    const FavoriteRes = await FavoriteApi.fetch(myuser.id, val.id);
+    const FavoriteRes = await FavoriteApi.fetch(myuser.data.data.id, val.id);
     setFavorite(FavoriteRes);
   };
 
   const handleLike = async () => {
     const data = {
       todo_id: val.id,
-      user_id: myuser.id,
+      user_id: myuser.data.data.id,
     };
     await FavoriteApi.create(data);
     notify("正常にいいねが完了しました。");
@@ -31,7 +31,7 @@ const ListItem: FC<ListItemType> = ({ myuser, user, val }) => {
   };
 
   useEffect(() => {
-    fetchFavorite();
+    // fetchFavorite();
   }, []);
 
   return (
