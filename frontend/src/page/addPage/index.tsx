@@ -1,12 +1,13 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import TodoApi from "../../api/Todo/api";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
 import { notify } from "../../util/notify";
 import Presenter from "./presenter";
-import { AddPageType } from "./type";
+import useFetchUser from "../../hooks/useFetchUser";
 
-const AddPage: FC<AddPageType> = ({ myuser }) => {
+const AddPage: FC = () => {
+  const { myUser } = useFetchUser();
   const navigate = useNavigate();
   const initialTodoState = {
     id: null,
@@ -19,7 +20,7 @@ const AddPage: FC<AddPageType> = ({ myuser }) => {
   const addTodo = async () => {
     const data = {
       name: inputChange.name,
-      user_id: myuser.data.data.id,
+      user_id: myUser.data.id,
     };
     await TodoApi.create(data);
     notify("正常に投稿が完了しました。");

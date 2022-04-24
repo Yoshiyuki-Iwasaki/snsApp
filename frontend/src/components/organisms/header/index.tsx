@@ -3,13 +3,14 @@ import Presenter from "./presenter";
 import { useNavigate } from "react-router-dom";
 import { HeaderType } from "./type";
 import UserApi from "../../../api/User/api";
-
-const Header: FC<HeaderType> = ({ myUser, setUser }) => {
+import useFetchUser from "../../../hooks/useFetchUser";
+const Header: FC<HeaderType> = () => {
   const navigate = useNavigate();
+  const { myUser, setMyUser } = useFetchUser();
 
   const handleLogout = async () => {
     await UserApi.logout();
-    setUser("");
+    setMyUser("");
     navigate("/");
   };
 

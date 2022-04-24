@@ -2,15 +2,21 @@ import React, { FC } from "react";
 import Header from "../../organisms/header";
 import { LayoutType } from "./type";
 import { Content } from "./style";
-import SigninPage from "../../../page/signInPage";
+import SignInPage from "../../../page/signInPage";
+import useFetchUser from "../../../hooks/useFetchUser";
 
-const Layout: FC<LayoutType> = ({ children, myUser, setUser, fetchUser }) => {
+const Layout: FC<LayoutType> = ({ children }) => {
+  const { myUser, setMyUser } = useFetchUser();
+
+  console.log("myUser", myUser);
   return (
     <>
-      <Header myUser={myUser} setUser={setUser} />
-      <Content>
-        {!myUser ? <SigninPage fetchUser={fetchUser} /> : <>{children}</>}
-      </Content>
+      {myUser && (
+        <>
+          <Header myUser={myUser} setUser={setMyUser} />
+          <Content>{myUser.isLogin ? <>{children}</> : <SignInPage />}</Content>
+        </>
+      )}
     </>
   );
 };

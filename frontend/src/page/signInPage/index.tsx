@@ -6,8 +6,10 @@ import Presenter from "./presenter";
 import { SigninPageType } from "./type";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
 import Cookies from "js-cookie";
+import useFetchUser from "../../hooks/useFetchUser";
 
-const SigninPage: FC<SigninPageType> = ({ fetchUser }) => {
+const SigninPage: FC = () => {
+  const { fetchUser } = useFetchUser();
   const initialTodoState = {
     email: "",
     password: "",
@@ -20,7 +22,6 @@ const SigninPage: FC<SigninPageType> = ({ fetchUser }) => {
     const data = {
       email: inputChange.email,
       password: inputChange.password,
-      // confirmed_at: Time.now
     };
     try {
       const res = await UserApi.login(data);
