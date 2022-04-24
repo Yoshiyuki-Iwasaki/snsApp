@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import UserApi from "../../api/User/api";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../util/notify";
 import Presenter from "./presenter";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
+import UserApi from "../../api/User/api";
 
 const SignUpPage = () => {
   const initialTodoState = {

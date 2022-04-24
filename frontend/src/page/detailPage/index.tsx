@@ -39,7 +39,7 @@ const DetailPage = ({ myuser }) => {
   const addReply = async () => {
     const data = {
       name: inputChange.name,
-      user_id: myuser.id,
+      user_id: myuser.data.data.id,
       todo_id: Number(params.id),
     };
     await ReplyApi.create(data);

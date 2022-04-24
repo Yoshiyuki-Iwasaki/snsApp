@@ -2,7 +2,8 @@ import { Container, Button, Flex, Link, Text } from "@chakra-ui/react";
 import React, { FC } from "react";
 import { PresenterType } from "./type";
 
-const Presenter: FC<PresenterType> = ({ user, handleLogout }) => {
+const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
+  console.log("myUser", myUser);
   return (
     <Container my={3}>
       <Flex alignItems={"center"} justifyContent={"space-between"}>
@@ -10,10 +11,10 @@ const Presenter: FC<PresenterType> = ({ user, handleLogout }) => {
           <Text>TODO LIST</Text>
         </Link>
         <Flex alignItems={"center"}>
-          {user ? (
+          {myUser && myUser.data.isLogin ? (
             <>
-              <Link mr={3} href={`/user/${user.id}`}>
-                {user.name}
+              <Link mr={3} href={`/user/${myUser.data.data.id}`}>
+                {myUser.data.data.name}
               </Link>
               <Link mr={3} href="/new">
                 新規投稿

@@ -1,11 +1,11 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import UserApi from "../../api/User/api";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../util/notify";
-import storageUtils from "../../util/storage";
 import Presenter from "./presenter";
 import { SigninPageType } from "./type";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
+import Cookies from "js-cookie";
 
 const SigninPage: FC<SigninPageType> = ({ fetchUser }) => {
   const initialTodoState = {
@@ -20,13 +20,17 @@ const SigninPage: FC<SigninPageType> = ({ fetchUser }) => {
     const data = {
       email: inputChange.email,
       password: inputChange.password,
+      // confirmed_at: Time.now
     };
     try {
-      const userRes = await UserApi.login(data);
+      const res = await UserApi.login(data);
+      Cookies.set("_access_token", res.headers["access-token"]);
+      Cookies.set("_client", res.headers["client"]);
+      Cookies.set("_uid", res.headers["uid"]);
       notify("正常にログインが完了しました。");
       navigate("/");
-      storageUtils.saveTokens("userId", userRes.data.user.id);
       fetchUser();
+      console.log("res", res);
     } catch (e: any) {
       console.log(e);
     }

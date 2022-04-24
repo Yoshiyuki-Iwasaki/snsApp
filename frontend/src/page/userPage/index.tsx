@@ -37,7 +37,7 @@ const UserPage: FC<UserPageType> = ({ myUser }) => {
   const handleFollow = async () => {
     const data = {
       follow_id: user.id,
-      follower_id: myUser.id,
+      follower_id: myUser.data.data.id,
     };
     await RelationshipApi.create(user.id, data);
     notify("正常にフォローが完了しました。");

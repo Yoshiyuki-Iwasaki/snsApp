@@ -1,9 +1,9 @@
 export type HeaderType = {
-  user: any;
+  myUser: any;
   setUser: any;
 };
 
 export type PresenterType = {
-  user: any;
+  myUser: any;
   handleLogout: any;
 };

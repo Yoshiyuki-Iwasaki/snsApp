@@ -19,7 +19,7 @@ const AddPage: FC<AddPageType> = ({ myuser }) => {
   const addTodo = async () => {
     const data = {
       name: inputChange.name,
-      user_id: myuser.id,
+      user_id: myuser.data.data.id,
     };
     await TodoApi.create(data);
     notify("正常に投稿が完了しました。");
