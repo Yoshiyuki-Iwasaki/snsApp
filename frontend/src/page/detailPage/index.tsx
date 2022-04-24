@@ -5,8 +5,10 @@ import ReplyApi from "../../api/Reply/api";
 import { notify } from "../../util/notify";
 import { useParams } from "react-router-dom";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
+import useFetchUser from "../../hooks/useFetchUser";
 
-const DetailPage = ({ myuser }) => {
+const DetailPage = () => {
+  const { myUser } = useFetchUser();
   const params = useParams();
   const initialTodoState = {
     id: null,
@@ -39,7 +41,7 @@ const DetailPage = ({ myuser }) => {
   const addReply = async () => {
     const data = {
       name: inputChange.name,
-      user_id: myuser.data.data.id,
+      user_id: myUser.data.id,
       todo_id: Number(params.id),
     };
     await ReplyApi.create(data);
@@ -56,7 +58,7 @@ const DetailPage = ({ myuser }) => {
     <Presenter
       params={params}
       currentTodo={currentTodo}
-      myuser={myuser}
+      myuser={myUser}
       reply={inputChange}
       replies={replies}
       handleInputChange={handleInputChange}

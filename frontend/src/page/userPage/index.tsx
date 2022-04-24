@@ -2,30 +2,24 @@ import React, { FC, useEffect, useState } from "react";
 import { notify } from "../../util/notify";
 import UserApi from "../../api/User/api";
 import RelationshipApi from "../../api/Relationship/api";
-import FavoriteApi from "../../api/Favorite/api";
 import { useParams } from "react-router-dom";
 import Presenter from "./presenter";
-import { UserPageType } from "./type";
 import useFetchMyPost from "../../hooks/useFetchMyPost";
 import useFetchLikedMyPost from "../../hooks/useFetchLikedMyPost";
+import useFetchUser from "../../hooks/useFetchUser";
 
-const UserPage: FC<UserPageType> = ({ myUser }) => {
+const UserPage: FC = () => {
   const params = useParams();
   const [follow, setFollow] = useState<any>();
   const [user, setUser] = useState<any>();
   const myPost = useFetchMyPost(Number(params.id));
   const likedPost = useFetchLikedMyPost(Number(params.id));
+  const { myUser } = useFetchUser();
 
   const fetchFollow = async () => {
-    const userRes = await UserApi.show(params.id);
-    setUser(userRes.data);
-
-    const myuserId = localStorage.getItem("userId");
-    const myuserRes = await UserApi.show(myuserId);
-
     const followRes = await RelationshipApi.fetch(
-      userRes.data.id,
-      myuserRes.data.id
+      Number(params.id),
+      myUser.data.id
     );
     setFollow(followRes);
   };
@@ -37,7 +31,7 @@ const UserPage: FC<UserPageType> = ({ myUser }) => {
   const handleFollow = async () => {
     const data = {
       follow_id: user.id,
-      follower_id: myUser.data.data.id,
+      follower_id: myUser.data.id,
     };
     await RelationshipApi.create(user.id, data);
     notify("正常にフォローが完了しました。");

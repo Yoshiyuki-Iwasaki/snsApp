@@ -10,6 +10,7 @@ const Presenter: FC<PresenterType> = ({
   searchName,
   setSearchName,
 }) => {
+  console.log("user", user);
   return (
     <>
       <SearchArea setSearchName={setSearchName} />

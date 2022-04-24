@@ -11,10 +11,10 @@ const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
           <Text>TODO LIST</Text>
         </Link>
         <Flex alignItems={"center"}>
-          {myUser && myUser.data.isLogin ? (
+          {myUser && myUser.isLogin ? (
             <>
-              <Link mr={3} href={`/user/${myUser.data.data.id}`}>
-                {myUser.data.data.name}
+              <Link mr={3} href={`/user/${myUser.data.id}`}>
+                {myUser.data.name}
               </Link>
               <Link mr={3} href="/new">
                 新規投稿

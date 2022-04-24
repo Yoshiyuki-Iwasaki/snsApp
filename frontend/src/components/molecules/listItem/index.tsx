@@ -6,18 +6,19 @@ import { notify } from "../../../util/notify";
 import useFetchFavorite from "../../../hooks/useFetchFavorite";
 
 const ListItem: FC<ListItemType> = ({ myuser, user, val }) => {
+  console.log("myuser", myuser);
   // const { favorite, fetchFavorite } = useFetchFavorite(myuser, val);
   const [favorite, setFavorite] = useState<any>();
 
   const fetchFavorite = async () => {
-    const FavoriteRes = await FavoriteApi.fetch(myuser.data.data.id, val.id);
+    const FavoriteRes = await FavoriteApi.fetch(myuser.data.id, val.id);
     setFavorite(FavoriteRes);
   };
 
   const handleLike = async () => {
     const data = {
       todo_id: val.id,
-      user_id: myuser.data.data.id,
+      user_id: myuser.data.id,
     };
     await FavoriteApi.create(data);
     notify("正常にいいねが完了しました。");

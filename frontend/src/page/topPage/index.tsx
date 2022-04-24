@@ -1,16 +1,17 @@
 import React, { useState, FC } from "react";
 import Presenter from "./presenter";
-import { TopPageType } from "./type";
 import useFetchAllTodos from "../../hooks/useFetchAllTodos";
+import useFetchUser from "../../hooks/useFetchUser";
 
-const TopPage: FC<TopPageType> = ({ myuser }) => {
+const TopPage: FC = () => {
   const [searchName, setSearchName] = useState("");
   const todos = useFetchAllTodos();
+  const { myUser } = useFetchUser();
 
   return (
     <Presenter
       todos={todos}
-      user={myuser}
+      user={myUser}
       searchName={searchName}
       setSearchName={setSearchName}
     />
