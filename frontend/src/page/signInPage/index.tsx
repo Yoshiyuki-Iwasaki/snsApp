@@ -29,9 +29,8 @@ const SigninPage: FC = () => {
       Cookies.set("_client", res.headers["client"]);
       Cookies.set("_uid", res.headers["uid"]);
       notify("正常にログインが完了しました。");
-      navigate("/");
       fetchUser();
-      console.log("res", res);
+      navigate("/");
     } catch (e: any) {
       console.log(e);
     }

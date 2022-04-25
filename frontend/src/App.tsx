@@ -10,16 +10,9 @@ import DetailPage from "./page/detailPage";
 import SignUpPage from "./page/signUpPage";
 import SignInPage from "./page/signInPage";
 import UserPage from "./page/userPage";
-import Cookies from "js-cookie";
 import useFetchUser from "./hooks/useFetchUser";
 
 const App: FC = () => {
-  const uid = Cookies.get("_uid");
-  const access_token = Cookies.get("_access_token");
-  const client = Cookies.get(" _client");
-  console.log(uid);
-  console.log(access_token);
-  console.log(client);
   const { myUser } = useFetchUser();
   return (
     <Router>
