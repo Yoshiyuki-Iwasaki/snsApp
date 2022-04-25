@@ -17,11 +17,13 @@ async function logout() {
       "access-token": Cookies.get("_access_token"),
       client: Cookies.get("_client"),
       uid: Cookies.get("_uid"),
+      expiry: Cookies.get("_expiry"),
+      "token-type": Cookies.get("_token-type"),
     },
   });
 }
 
-export const fetch_loginUser = () => {
+export const fetchLoginUser = () => {
   if (
     !Cookies.get("_access_token") ||
     !Cookies.get("_client") ||
@@ -33,6 +35,8 @@ export const fetch_loginUser = () => {
       "access-token": Cookies.get("_access_token"),
       client: Cookies.get("_client"),
       uid: Cookies.get("_uid"),
+      expiry: Cookies.get("_expiry"),
+      "token-type": Cookies.get("_token-type"),
     },
   });
 };
@@ -51,7 +55,7 @@ const UserApi = {
   logout,
   show,
   follow,
-  fetch_loginUser,
+  fetchLoginUser,
 };
 
 export default UserApi;
