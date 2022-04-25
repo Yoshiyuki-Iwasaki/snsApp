@@ -11,6 +11,7 @@ import SignUpPage from "./page/signUpPage";
 import SignInPage from "./page/signInPage";
 import UserPage from "./page/userPage";
 import Cookies from "js-cookie";
+import useFetchUser from "./hooks/useFetchUser";
 
 const App: FC = () => {
   const uid = Cookies.get("_uid");
@@ -19,17 +20,27 @@ const App: FC = () => {
   console.log(uid);
   console.log(access_token);
   console.log(client);
+  const { myUser } = useFetchUser();
   return (
     <Router>
       <Layout>
         <Routes>
-          <Route path={"/"} element={<TodoList />} />
-          <Route path={"/new"} element={<AddTodo />} />
-          <Route path={"/user/:id"} element={<UserPage />} />
-          <Route path={"/:id"} element={<DetailPage />} />
-          <Route path={"/:id/edit"} element={<EditTodo />} />
-          <Route path={"/signup"} element={<SignUpPage />} />
-          <Route path={"/signin"} element={<SignInPage />} />
+          {myUser && myUser.isLogin ? (
+            <>
+              <Route path={"/new"} element={<AddTodo />} />
+              <Route path={"/user/:id"} element={<UserPage />} />
+              <Route path={"/:id"} element={<DetailPage />} />
+              <Route path={"/:id/edit"} element={<EditTodo />} />
+              <Route path={"/signup"} element={<SignUpPage />} />
+              <Route path={"/signin"} element={<SignInPage />} />
+            </>
+          ) : (
+            <>
+              <Route path={"/"} element={<TodoList />} />
+              <Route path={"/signup"} element={<SignUpPage />} />
+              <Route path={"/signin"} element={<SignInPage />} />
+            </>
+          )}
         </Routes>
       </Layout>
     </Router>

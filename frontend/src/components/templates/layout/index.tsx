@@ -14,7 +14,7 @@ const Layout: FC<LayoutType> = ({ children }) => {
       {myUser && (
         <>
           <Header myUser={myUser} setUser={setMyUser} />
-          <Content>{myUser.isLogin ? <>{children}</> : <SignInPage />}</Content>
+          <Content>{children}</Content>
         </>
       )}
     </>
