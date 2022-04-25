@@ -27,12 +27,11 @@ const App: FC = () => {
         <Routes>
           {myUser && myUser.isLogin ? (
             <>
+              <Route path={"/"} element={<TodoList />} />
               <Route path={"/new"} element={<AddTodo />} />
               <Route path={"/user/:id"} element={<UserPage />} />
               <Route path={"/:id"} element={<DetailPage />} />
               <Route path={"/:id/edit"} element={<EditTodo />} />
-              <Route path={"/signup"} element={<SignUpPage />} />
-              <Route path={"/signin"} element={<SignInPage />} />
             </>
           ) : (
             <>

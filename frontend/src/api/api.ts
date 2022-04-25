@@ -1,5 +1,6 @@
 import storageUtils from "../util/storage";
 import axios, { AxiosError } from "axios";
+import applyCaseMiddleware from "axios-case-converter";
 
 const snakeCase = require("snakecase-keys");
 const camelCase = require("camelcase-keys");
@@ -9,11 +10,18 @@ export type APIResponseError = {
   message: string;
 };
 
-const api = axios.create({
-  timeout: 30 * 1000,
-  withCredentials: true,
-  headers: { accept: " application/json" },
-});
+const options = {
+  ignoreHeaders: true,
+};
+
+const api = applyCaseMiddleware(
+  axios.create({
+    timeout: 30 * 30 * 1000,
+    withCredentials: true,
+    headers: { accept: " application/json" },
+  }),
+  options
+);
 
 api.interceptors.request.use(
   (req: any) => {
