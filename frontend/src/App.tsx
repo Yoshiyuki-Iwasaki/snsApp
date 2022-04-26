@@ -10,10 +10,10 @@ import DetailPage from "./page/detailPage";
 import SignUpPage from "./page/signUpPage";
 import SignInPage from "./page/signInPage";
 import UserPage from "./page/userPage";
-import useFetchUser from "./hooks/useFetchUser";
+import useFetchMyUser from "./hooks/useFetchMyUser";
 
 const App: FC = () => {
-  const { myUser } = useFetchUser();
+  const { myUser } = useFetchMyUser();
   return (
     <Router>
       <Layout>

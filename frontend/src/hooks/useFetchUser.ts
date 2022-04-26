@@ -1,12 +1,12 @@
 import { FC, useEffect, useState } from "react";
 import UserApi from "../api/User/api";
 
-const useFetchUser = () => {
-  const [myUser, setMyUser] = useState<any>();
+const useFetchUser = val => {
+  const [user, setUser] = useState<any>();
 
   const fetchUser = async () => {
-    const userRes = await UserApi.fetchLoginUser();
-    setMyUser(userRes.data);
+    const userRes = await UserApi.show(val);
+    setUser(userRes.data);
     console.log("userRes", userRes.data);
   };
 
@@ -14,7 +14,7 @@ const useFetchUser = () => {
     fetchUser();
   }, []);
 
-  return { myUser, setMyUser, fetchUser };
+  return { user, setUser, fetchUser };
 };
 
 export default useFetchUser;

@@ -4,10 +4,10 @@ import TodoApi from "../../api/Todo/api";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
 import { notify } from "../../util/notify";
 import Presenter from "./presenter";
-import useFetchUser from "../../hooks/useFetchUser";
+import useFetchMyUser from "../../hooks/useFetchMyUser";
 
 const AddPage: FC = () => {
-  const { myUser } = useFetchUser();
+  const { myUser } = useFetchMyUser();
   const navigate = useNavigate();
   const initialTodoState = {
     id: null,

@@ -5,10 +5,10 @@ import ReplyApi from "../../api/Reply/api";
 import { notify } from "../../util/notify";
 import { useParams } from "react-router-dom";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
-import useFetchUser from "../../hooks/useFetchUser";
+import useFetchMyUser from "../../hooks/useFetchMyUser";
 
 const DetailPage = () => {
-  const { myUser } = useFetchUser();
+  const { myUser } = useFetchMyUser();
   const params = useParams();
   const initialTodoState = {
     id: null,

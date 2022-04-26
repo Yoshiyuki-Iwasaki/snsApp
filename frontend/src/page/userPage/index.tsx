@@ -6,35 +6,37 @@ import { useParams } from "react-router-dom";
 import Presenter from "./presenter";
 import useFetchMyPost from "../../hooks/useFetchMyPost";
 import useFetchLikedMyPost from "../../hooks/useFetchLikedMyPost";
+import useFetchMyUser from "../../hooks/useFetchMyUser";
 import useFetchUser from "../../hooks/useFetchUser";
 
 const UserPage: FC = () => {
   const params = useParams();
   const [follow, setFollow] = useState<any>();
-  const [user, setUser] = useState<any>();
   const myPost = useFetchMyPost(Number(params.id));
   const likedPost = useFetchLikedMyPost(Number(params.id));
-  const { myUser } = useFetchUser();
+  const { myUser } = useFetchMyUser();
+  const { user } = useFetchUser(Number(params.id));
   console.log("myUser", myUser);
 
   const fetchFollow = async () => {
     const followRes = await RelationshipApi.fetch(
-      Number(params.id),
-      myUser.data.id
+      myUser && myUser.data.id,
+      Number(params.id)
     );
     setFollow(followRes);
   };
 
   useEffect(() => {
     fetchFollow();
+    console.log("follow", follow);
   }, []);
 
   const handleFollow = async () => {
     const data = {
-      follow_id: user.id,
-      follower_id: myUser.data.id,
+      follow_id: myUser && myUser.data.id,
+      follower_id: Number(params.id),
     };
-    await RelationshipApi.create(user.id, data);
+    await RelationshipApi.create(myUser && myUser.data.id, data);
     notify("正常にフォローが完了しました。");
     fetchFollow();
   };

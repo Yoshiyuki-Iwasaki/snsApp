@@ -4,7 +4,7 @@ import FavoriteApi from "../../../api/Favorite/api";
 import { ListItemType } from "./type";
 import { notify } from "../../../util/notify";
 import useFetchFavorite from "../../../hooks/useFetchFavorite";
-import useFetchUser from "../../../hooks/useFetchUser";
+import useFetchMyUser from "../../../hooks/useFetchMyUser";
 
 const ListItem: FC<ListItemType> = ({ myUser, user, val }) => {
   const { favorite, fetchFavorite } = useFetchFavorite(val);

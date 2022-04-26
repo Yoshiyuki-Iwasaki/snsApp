@@ -6,10 +6,10 @@ import Presenter from "./presenter";
 import { SigninPageType } from "./type";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
 import Cookies from "js-cookie";
-import useFetchUser from "../../hooks/useFetchUser";
+import useFetchMyUser from "../../hooks/useFetchMyUser";
 
 const SigninPage: FC = () => {
-  const { fetchUser } = useFetchUser();
+  const { fetchUser } = useFetchMyUser();
   const initialTodoState = {
     email: "",
     password: "",

@@ -3,10 +3,10 @@ import Header from "../../organisms/header";
 import { LayoutType } from "./type";
 import { Content } from "./style";
 import SignInPage from "../../../page/signInPage";
-import useFetchUser from "../../../hooks/useFetchUser";
+import useFetchMyUser from "../../../hooks/useFetchMyUser";
 
 const Layout: FC<LayoutType> = ({ children }) => {
-  const { myUser, setMyUser } = useFetchUser();
+  const { myUser, setMyUser } = useFetchMyUser();
 
   console.log("myUser", myUser);
   return (
