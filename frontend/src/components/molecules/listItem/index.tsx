@@ -4,21 +4,15 @@ import FavoriteApi from "../../../api/Favorite/api";
 import { ListItemType } from "./type";
 import { notify } from "../../../util/notify";
 import useFetchFavorite from "../../../hooks/useFetchFavorite";
+import useFetchUser from "../../../hooks/useFetchUser";
 
-const ListItem: FC<ListItemType> = ({ myuser, user, val }) => {
-  console.log("myuser", myuser);
-  // const { favorite, fetchFavorite } = useFetchFavorite(myuser, val);
-  const [favorite, setFavorite] = useState<any>();
-
-  const fetchFavorite = async () => {
-    const FavoriteRes = await FavoriteApi.fetch(myuser.data.id, val.id);
-    setFavorite(FavoriteRes);
-  };
+const ListItem: FC<ListItemType> = ({ myUser, user, val }) => {
+  const { favorite, fetchFavorite } = useFetchFavorite(val);
 
   const handleLike = async () => {
     const data = {
       todo_id: val.id,
-      user_id: myuser.data.id,
+      user_id: myUser.data.id,
     };
     await FavoriteApi.create(data);
     notify("正常にいいねが完了しました。");
@@ -30,10 +24,6 @@ const ListItem: FC<ListItemType> = ({ myuser, user, val }) => {
     notify("正常にいいね削除完了しました。");
     fetchFavorite();
   };
-
-  useEffect(() => {
-    // fetchFavorite();
-  }, []);
 
   return (
     <Presenter

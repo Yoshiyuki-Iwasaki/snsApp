@@ -15,6 +15,7 @@ const UserPage: FC = () => {
   const myPost = useFetchMyPost(Number(params.id));
   const likedPost = useFetchLikedMyPost(Number(params.id));
   const { myUser } = useFetchUser();
+  console.log("myUser", myUser);
 
   const fetchFollow = async () => {
     const followRes = await RelationshipApi.fetch(

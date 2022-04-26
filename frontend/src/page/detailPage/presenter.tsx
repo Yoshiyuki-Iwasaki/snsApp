@@ -55,7 +55,7 @@ const Presenter: FC<DetailPageType> = ({
       {replies &&
         replies.data.map(val => {
           return (
-            <ListItem key={val.id} myuser={myuser} user={val.user} val={val} />
+            <ListItem key={val.id} myUser={myuser} user={val.user} val={val} />
           );
         })}
     </>

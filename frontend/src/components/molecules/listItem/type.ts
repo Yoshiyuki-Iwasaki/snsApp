@@ -1,6 +1,6 @@
 export type ListItemType = {
   user: any;
-  myuser: any;
+  myUser: any;
   val: any;
 };
 

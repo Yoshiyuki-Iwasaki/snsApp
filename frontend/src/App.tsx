@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { FC } from "react";
 import "ress";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";

@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import FavoriteApi from "../api/Favorite/api";
+import useFetchUser from "./useFetchUser";
 
-const useFetchFavorite = (myuser, val) => {
+const useFetchFavorite = val => {
   const [favorite, setFavorite] = useState<any>();
+  const { myUser } = useFetchUser();
+
+  const fetchFavorite = async () => {
+    const FavoriteRes = await FavoriteApi.fetch(myUser.data.id, val.id);
+    setFavorite(FavoriteRes);
+  };
 
   useEffect(() => {
-    const fetchFavorite = async () => {
-      const FavoriteRes = await FavoriteApi.fetch(myuser.id, val.id);
-      setFavorite(FavoriteRes);
-    };
-    fetchFavorite();
-  }, []);
+    myUser && fetchFavorite();
+    console.log("test");
+  }, [myUser]);
 
-  return favorite;
+  return { favorite, fetchFavorite };
 };
 
 export default useFetchFavorite;

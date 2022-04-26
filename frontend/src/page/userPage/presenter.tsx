@@ -53,7 +53,7 @@ const Presenter: FC<PresenterType> = ({
                 return (
                   <ListItem
                     key={val.id}
-                    myuser={myUser}
+                    myUser={myUser}
                     user={val.user}
                     val={val}
                   />
@@ -67,7 +67,7 @@ const Presenter: FC<PresenterType> = ({
                 return (
                   <ListItem
                     key={val.id}
-                    myuser={myUser}
+                    myUser={myUser}
                     user={val.user}
                     val={val.todo}
                   />
