@@ -3,7 +3,6 @@ import UserApi from "../../api/User/api";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../util/notify";
 import Presenter from "./presenter";
-import { SigninPageType } from "./type";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
 import Cookies from "js-cookie";
 import useFetchMyUser from "../../hooks/useFetchMyUser";

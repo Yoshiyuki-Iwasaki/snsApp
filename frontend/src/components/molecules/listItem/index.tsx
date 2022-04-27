@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { FC } from "react";
 import Presenter from "./presenter";
 import FavoriteApi from "../../../api/Favorite/api";
 import { ListItemType } from "./type";

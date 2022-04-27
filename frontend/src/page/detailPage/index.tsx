@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import TodoApi from "../../api/Todo/api";
+import React from "react";
 import Presenter from "./presenter";
 import ReplyApi from "../../api/Reply/api";
 import { notify } from "../../util/notify";
