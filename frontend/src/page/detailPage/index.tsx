@@ -6,15 +6,12 @@ import { notify } from "../../util/notify";
 import { useParams } from "react-router-dom";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
 import useFetchMyUser from "../../hooks/useFetchMyUser";
+import useFetchReply from "../../hooks/useFetchReply";
+import useFetchTodoData from "../../hooks/useFetchTodoData";
 
 const DetailPage = () => {
   const { myUser } = useFetchMyUser();
   const params = useParams();
-  const initialTodoState = {
-    id: null,
-    name: "",
-    createdAt: "",
-  };
   const initialReplyState = {
     id: null,
     name: "",
@@ -22,21 +19,10 @@ const DetailPage = () => {
     todo_id: "",
     createdAt: "",
   };
-  const [currentTodo, setCurrentTodo] = useState(initialTodoState);
-  const [replies, setReplies] = useState<any>();
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialReplyState);
-
-  const fetchTodoData = async id => {
-    const todoRes = await TodoApi.fetch_detail(id);
-    setCurrentTodo(todoRes.data);
-  };
-
-  const fetchReply = async () => {
-    const ReplyRes = await ReplyApi.fetch(Number(params.id));
-    setReplies(ReplyRes);
-    console.log(ReplyRes);
-  };
+  const { replies, fetchReply } = useFetchReply(params);
+  const currentTodo = useFetchTodoData(params);
 
   const addReply = async () => {
     const data = {
@@ -49,16 +35,11 @@ const DetailPage = () => {
     notify("正常にリプライが完了しました。");
   };
 
-  useEffect(() => {
-    fetchTodoData(params.id);
-    fetchReply();
-  }, []);
-
   return (
     <Presenter
       params={params}
       currentTodo={currentTodo}
-      myuser={myUser}
+      myUser={myUser}
       reply={inputChange}
       replies={replies}
       handleInputChange={handleInputChange}

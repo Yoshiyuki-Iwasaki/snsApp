@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
 import { notify } from "../../util/notify";
-import UserApi from "../../api/User/api";
 import RelationshipApi from "../../api/Relationship/api";
 import { useParams } from "react-router-dom";
 import Presenter from "./presenter";
@@ -16,7 +15,6 @@ const UserPage: FC = () => {
   const likedPost = useFetchLikedMyPost(Number(params.id));
   const { myUser } = useFetchMyUser();
   const { user } = useFetchUser(Number(params.id));
-  console.log("myUser", myUser);
 
   const fetchFollow = async () => {
     const followRes = await RelationshipApi.fetch(

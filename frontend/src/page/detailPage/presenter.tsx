@@ -14,7 +14,7 @@ import { Box, Flex, Container, Link } from "@chakra-ui/react";
 const Presenter: FC<DetailPageType> = ({
   params,
   currentTodo,
-  myuser,
+  myUser,
   handleInputChange,
   reply,
   replies,
@@ -55,7 +55,14 @@ const Presenter: FC<DetailPageType> = ({
       {replies &&
         replies.data.map(val => {
           return (
-            <ListItem key={val.id} myUser={myuser} user={val.user} val={val} />
+            <ListItem
+              key={val.id}
+              myUser={myUser}
+              user={val.user}
+              val={val}
+              params={params}
+              detailPageFrag={true}
+            />
           );
         })}
     </>

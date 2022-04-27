@@ -1,7 +1,7 @@
 export type DetailPageType = {
   params: any;
   currentTodo: any;
-  myuser: any;
+  myUser: any;
   handleInputChange: any;
   reply: any;
   replies: any;

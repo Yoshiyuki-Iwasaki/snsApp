@@ -4,15 +4,20 @@ import FavoriteApi from "../../../api/Favorite/api";
 import { ListItemType } from "./type";
 import { notify } from "../../../util/notify";
 import useFetchFavorite from "../../../hooks/useFetchFavorite";
-import useFetchMyUser from "../../../hooks/useFetchMyUser";
 
-const ListItem: FC<ListItemType> = ({ myUser, user, val }) => {
+const ListItem: FC<ListItemType> = ({
+  myUser,
+  user,
+  val,
+  detailPageFrag,
+  params,
+}) => {
   const { favorite, fetchFavorite } = useFetchFavorite(val);
 
   const handleLike = async () => {
     const data = {
-      todo_id: val.id,
-      user_id: myUser.data.id,
+      todo_id: detailPageFrag ? Number(params.id) : val.id,
+      user_id: myUser && myUser.data.id,
     };
     await FavoriteApi.create(data);
     notify("正常にいいねが完了しました。");
