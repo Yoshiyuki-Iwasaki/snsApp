@@ -34,7 +34,7 @@ const Presenter: FC<PresenterType> = ({
       </Flex>
       <Box mt={3}>
         {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
-        {myUser && myUser.id !== parseInt(params.id) ? (
+        {myUser && myUser.data.id !== parseInt(params.id) ? (
           <>
             {follow && follow.data.relationship.length ? (
               <Button onClick={handleUnfollow}>フォロー削除</Button>
