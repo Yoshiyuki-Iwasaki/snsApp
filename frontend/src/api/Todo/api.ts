@@ -3,8 +3,8 @@ import { todoType } from "./type";
 
 const ENDPOINT = "/api/v1/todos";
 
-async function fetch() {
-  return api.get(ENDPOINT);
+async function fetch(pageNumber: any) {
+  return api.get(ENDPOINT + `/` + pageNumber);
 }
 
 async function fetch_detail(id: number) {

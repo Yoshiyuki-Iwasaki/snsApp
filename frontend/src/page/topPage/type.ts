@@ -6,4 +6,7 @@ export type PresenterType = {
   todos: any;
   searchName: any;
   setSearchName: any;
+  hasMore: any;
+  isFetching: any;
+  fetchTodo: any;
 };
