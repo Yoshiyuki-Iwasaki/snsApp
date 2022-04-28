@@ -7,7 +7,6 @@ const useFetchUser = val => {
   const fetchUser = async () => {
     const userRes = await UserApi.show(val);
     setUser(userRes.data);
-    console.log("userRes", userRes.data);
   };
 
   useEffect(() => {

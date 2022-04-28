@@ -7,7 +7,6 @@ const useFetchMyUser = () => {
   const fetchUser = async () => {
     const userRes = await UserApi.fetchLoginUser();
     setMyUser(userRes.data);
-    console.log("userRes", userRes.data);
   };
 
   useEffect(() => {

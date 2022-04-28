@@ -7,7 +7,6 @@ const useFetchAllTodos = params => {
   const fetchReply = async () => {
     const ReplyRes = await ReplyApi.fetch(Number(params.id));
     setReplies(ReplyRes);
-    console.log(ReplyRes);
   };
 
   useEffect(() => {
