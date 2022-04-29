@@ -19,8 +19,9 @@ const EditPage: FC = () => {
     useHandleInputChange(initialTodoState);
 
   const fetchTodoData = async id => {
-    const todoRes = await TodoApi.fetch_detail(id);
+    const todoRes = await TodoApi.show(id);
     setInputChange(todoRes.data);
+    console.log("todoRes", todoRes);
   };
 
   const updateTodo = async () => {
@@ -40,8 +41,8 @@ const EditPage: FC = () => {
   };
 
   useEffect(() => {
-    fetchTodoData(params.id);
-  }, [params.id]);
+    fetchTodoData(Number(params.id));
+  }, []);
 
   return (
     <Presenter

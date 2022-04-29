@@ -3,11 +3,11 @@ import { todoType } from "./type";
 
 const ENDPOINT = "/api/v1/todos";
 
-async function fetch(pageNumber: any) {
-  return api.get(ENDPOINT + `/` + pageNumber);
+async function fetch(pageNumber: number) {
+  return api.get(ENDPOINT + `/page/` + pageNumber);
 }
 
-async function fetch_detail(id: number) {
+async function show(id: number) {
   return api.get(ENDPOINT + `/` + id);
 }
 
@@ -29,7 +29,7 @@ async function remove(id: number) {
 
 const TodoApi = {
   fetch,
-  fetch_detail,
+  show,
   fetch_userTodo,
   create,
   update,
