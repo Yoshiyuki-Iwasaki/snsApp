@@ -1,17 +1,17 @@
 class Api::V1::TodosController < ApplicationController
     def index
-        todos = Todo.all.page(params[:page]).per(5)
-        render json: todos
-    end
-
-    def userIndex
-        todos = Todo.where(user: params[:id])
+        todos = Todo.order(created_at: :desc).page(params[:page]).per(5)
         render json: todos
     end
 
     def show
         todo = Todo.find(params[:id])
         render json: todo
+    end
+
+    def userIndex
+        todos = Todo.where(user_id: params[:id])
+        render json: todos
     end
 
     def create
@@ -42,6 +42,6 @@ class Api::V1::TodosController < ApplicationController
 
     private
     def todo_params
-        params.require(:todo).permit(:name, :user_id)
+        params.permit(:name, :user_id)
     end
 end
