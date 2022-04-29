@@ -24,13 +24,13 @@ const Presenter: FC<DetailPageType> = ({
     <>
       <Container>
         <Flex>
-          <Box mr={3}>
-            {currentTodo.user && (
+          {currentTodo.user && (
+            <Box mr={3}>
               <Link href={"/user/" + currentTodo.user.id}>
                 <Label>{currentTodo.user && currentTodo.user.name}</Label>
               </Link>
-            )}
-          </Box>
+            </Box>
+          )}
           <Label>{formatDate(currentTodo.createdAt)}</Label>
           <Link href={"/" + params.id + "/edit"}>
             <EditButton>

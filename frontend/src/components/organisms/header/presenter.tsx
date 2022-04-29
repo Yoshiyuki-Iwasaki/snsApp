@@ -13,6 +13,9 @@ const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
         <Flex alignItems={"center"}>
           {myUser && myUser.isLogin ? (
             <>
+              <Link mr={3} href={`/new`}>
+                新規投稿
+              </Link>
               <Link mr={3} href={`/user/${myUser.data.id}`}>
                 {myUser.data.name}
               </Link>
