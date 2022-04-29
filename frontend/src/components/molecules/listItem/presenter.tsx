@@ -16,7 +16,7 @@ const Presenter: FC<PresenterType> = ({
 }) => {
   return (
     <Box py={3} borderBottom="1px" borderColor="gray.500">
-      <Link to={"/" + val.id}>
+      <Link to={"/todo/" + val.id}>
         <Flex>
           <Box mr={5}>
             <Label>{user.name}</Label>
