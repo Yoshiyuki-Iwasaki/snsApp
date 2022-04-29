@@ -18,10 +18,15 @@ const DetailPage = () => {
     todo_id: "",
     createdAt: "",
   };
+  const initialTodoState = {
+    id: null,
+    name: "",
+    createdAt: "",
+  };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialReplyState);
   const { replies, fetchReply } = useFetchReply(params);
-  const currentTodo = useFetchTodoData(params);
+  const currentTodo = useFetchTodoData(initialTodoState, Number(params.id));
 
   const addReply = async () => {
     const data = {
