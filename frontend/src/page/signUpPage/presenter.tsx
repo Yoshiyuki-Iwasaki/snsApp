@@ -5,7 +5,7 @@ import { SignUpPageType } from "./type";
 const Presenter: FC<SignUpPageType> = ({
   user,
   handleInputChange,
-  handleCreateUser,
+  handleAddUser,
 }) => {
   return (
     <>
@@ -26,7 +26,7 @@ const Presenter: FC<SignUpPageType> = ({
         onChange={handleInputChange}
       />
       <input type="hidden" name="confirm_success_url" value="/signin"></input>
-      <button onClick={handleCreateUser}>button</button>
+      <button onClick={handleAddUser}>button</button>
     </>
   );
 };
