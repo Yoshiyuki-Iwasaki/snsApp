@@ -8,13 +8,16 @@ const useFetchTodoData = (params: any) => {
     createdAt: "",
   };
   const [currentTodo, setCurrentTodo] = useState<any>(initialTodoState);
-  const fetchTodoData = async id => {
-    const todoRes = await TodoApi.fetch_detail(id);
-    setCurrentTodo(todoRes.data);
-  };
-
   useEffect(() => {
+    const fetchTodoData = async id => {
+      const todoRes = await TodoApi.fetch_detail(id);
+      setCurrentTodo(todoRes.data);
+      console.log("todoRes", todoRes);
+    };
+
     fetchTodoData(Number(params.id));
+    console.log("currentTodo", currentTodo);
+    console.log("Number(params.id)", Number(params.id));
   }, []);
 
   return currentTodo;

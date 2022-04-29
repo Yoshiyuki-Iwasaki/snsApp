@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { notify } from "../../util/notify";
 import RelationshipApi from "../../api/Relationship/api";
 import { useParams } from "react-router-dom";
@@ -7,27 +7,17 @@ import useFetchMyPost from "../../hooks/useFetchMyPost";
 import useFetchLikedMyPost from "../../hooks/useFetchLikedMyPost";
 import useFetchMyUser from "../../hooks/useFetchMyUser";
 import useFetchUser from "../../hooks/useFetchUser";
+import useFetchFollow from "../../hooks/useFetchFollow";
 
 const UserPage: FC = () => {
   const params = useParams();
-  const [follow, setFollow] = useState<any>();
   const myPost = useFetchMyPost(Number(params.id));
   const likedPost = useFetchLikedMyPost(Number(params.id));
   const { myUser } = useFetchMyUser();
   const { user } = useFetchUser(Number(params.id));
+  const { follow, fetchFollow } = useFetchFollow();
 
-  const fetchFollow = async () => {
-    const followRes = await RelationshipApi.fetch(
-      myUser && myUser.data.id,
-      Number(params.id)
-    );
-    setFollow(followRes);
-  };
-
-  useEffect(() => {
-    fetchFollow();
-    console.log("follow", follow);
-  }, []);
+  console.log("follow", follow);
 
   const handleFollow = async () => {
     const data = {

@@ -20,10 +20,10 @@ async function remove(id: number) {
   return api.delete(ENDPOINT + `/relationships/` + id);
 }
 
-const FollowApi = {
+const RelationshipApi = {
   fetch,
   create,
   remove,
 };
 
-export default FollowApi;
+export default RelationshipApi;
