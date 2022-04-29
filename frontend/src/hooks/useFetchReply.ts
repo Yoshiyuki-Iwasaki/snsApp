@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import ReplyApi from "../api/Reply/api";
+import { useParams } from "react-router-dom";
 
-const useFetchAllTodos = params => {
+const useFetchAllTodos = () => {
   const [replies, setReplies] = useState<any>();
+  const params = useParams();
 
   const fetchReply = async () => {
     const ReplyRes = await ReplyApi.fetch(Number(params.id));

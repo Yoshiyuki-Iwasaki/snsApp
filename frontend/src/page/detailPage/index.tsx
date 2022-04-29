@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
 import useFetchMyUser from "../../hooks/useFetchMyUser";
 import useFetchReply from "../../hooks/useFetchReply";
-import useFetchTodoData from "../../hooks/useFetchTodoData";
+import useFetchCurrentTodo from "../../hooks/useFetchCurrentTodo";
 
 const DetailPage = () => {
   const { myUser } = useFetchMyUser();
@@ -18,15 +18,10 @@ const DetailPage = () => {
     todo_id: "",
     createdAt: "",
   };
-  const initialTodoState = {
-    id: null,
-    name: "",
-    createdAt: "",
-  };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialReplyState);
-  const { replies, fetchReply } = useFetchReply(params);
-  const currentTodo = useFetchTodoData(initialTodoState, Number(params.id));
+  const { replies, fetchReply } = useFetchReply();
+  const currentTodo = useFetchCurrentTodo();
 
   const addReply = async () => {
     const data = {

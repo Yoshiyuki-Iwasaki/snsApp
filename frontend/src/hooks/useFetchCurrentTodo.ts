@@ -2,26 +2,30 @@ import { useState, useEffect } from "react";
 import TodoApi from "../api/Todo/api";
 import { useParams } from "react-router-dom";
 
-const useFetchTodoData = (initialTodoState, id) => {
+const useFetchTodoData = (inputChange?: any, setInputChange?: any) => {
   const params = useParams();
+  const initialTodoState = {
+    id: null,
+    name: "",
+    createdAt: "",
+  };
   const [currentTodo, setCurrentTodo] = useState<any>(initialTodoState);
   useEffect(() => {
     const fetchTodoData = async () => {
       try {
-        const todoRes = await TodoApi.show(id);
-        setCurrentTodo(todoRes.data);
-        console.log("todoRes", todoRes);
+        const todoRes = await TodoApi.show(Number(params.id));
+        inputChange
+          ? setInputChange(todoRes.data)
+          : setCurrentTodo(todoRes.data);
       } catch (e: any) {
         console.log(e);
       }
     };
 
     fetchTodoData();
-    console.log("currentTodo", currentTodo);
-    console.log("Number(params.id)", Number(params.id));
   }, []);
 
-  return currentTodo;
+  return inputChange ? { inputChange, setInputChange } : currentTodo;
 };
 
 export default useFetchTodoData;
