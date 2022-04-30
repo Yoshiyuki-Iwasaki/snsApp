@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_21_145239) do
+ActiveRecord::Schema.define(version: 2022_04_30_070850) do
 
   create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "todo_id", null: false
+    t.bigint "user_id"
+    t.bigint "todo_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "reply_id"
+    t.index ["reply_id"], name: "index_favorites_on_reply_id"
     t.index ["todo_id"], name: "index_favorites_on_todo_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_145239) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "favorites", "replies"
   add_foreign_key "favorites", "todos"
   add_foreign_key "favorites", "users"
   add_foreign_key "replies", "todos"
