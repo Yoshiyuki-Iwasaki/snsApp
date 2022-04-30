@@ -25,9 +25,9 @@ const DetailPage = () => {
 
   const addReply = async () => {
     const data = {
+      todo_id: Number(params.id),
       name: inputChange.name,
       user_id: myUser.data.id,
-      todo_id: Number(params.id),
     };
     await ReplyApi.create(data);
     fetchReply();

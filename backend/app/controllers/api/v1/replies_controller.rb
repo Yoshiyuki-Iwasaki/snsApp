@@ -32,6 +32,6 @@ class Api::V1::RepliesController < ApplicationController
 
     private
     def reply_params
-        params.require(:reply).permit(:name, :user_id, :todo_id)
+        params.permit(:name, :user_id, :todo_id, :reply_id)
     end
 end

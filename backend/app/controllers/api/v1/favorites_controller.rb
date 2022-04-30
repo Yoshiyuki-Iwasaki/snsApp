@@ -8,6 +8,14 @@ class Api::V1::FavoritesController < ApplicationController
         render json: {favorite: favorite, isFavorite: isFavorite}
     end
 
+    def replyIndex
+        # いいねしているかどうかをチェック
+        favorite = Favorite.where(user_id: params[:user_id], reply_id: params[:reply_id])
+        # いいね数をチェック
+        isFavorite = Favorite.where(reply_id: params[:reply_id]);
+        render json: {favorite: favorite, isFavorite: isFavorite}
+    end
+
     def todoIndex
         favorite = Favorite.where(user_id: params[:id])
         render json: favorite
@@ -32,6 +40,6 @@ class Api::V1::FavoritesController < ApplicationController
 
     private
     def favorite_params
-        params.permit(:user_id, :todo_id)
+        params.permit(:user_id, :todo_id, :reply_id)
     end
 end
