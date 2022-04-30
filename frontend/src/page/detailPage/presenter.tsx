@@ -60,7 +60,6 @@ const Presenter: FC<DetailPageType> = ({
               myUser={myUser}
               user={val.user}
               val={val}
-              params={params}
               detailPageFrag={true}
             />
           );
