@@ -23,7 +23,7 @@ const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
             </>
           ) : (
             <>
-              <Link mr={3} href="/signin">
+              <Link mr={3} href="/">
                 ログイン
               </Link>
               <Link href="/signup">新規登録</Link>

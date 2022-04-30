@@ -28,9 +28,8 @@ const App: FC = () => {
             </>
           ) : (
             <>
-              <Route path={"/"} element={<TodoList />} />
+              <Route path={"/"} element={<SignInPage />} />
               <Route path={"/signup"} element={<SignUpPage />} />
-              <Route path={"/signin"} element={<SignInPage />} />
             </>
           )}
         </Routes>
