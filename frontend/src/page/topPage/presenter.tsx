@@ -4,6 +4,7 @@ import ListItem from "../../components/molecules/listItem";
 import SearchArea from "../../components/molecules/searchArea";
 import { PresenterType } from "./type";
 import InfiniteScroll from "react-infinite-scroller";
+import { Box } from "@chakra-ui/react";
 
 const Presenter: FC<PresenterType> = ({
   user,
@@ -22,7 +23,7 @@ const Presenter: FC<PresenterType> = ({
   );
 
   return (
-    <>
+    <Box p="5" w="500px" borderWidth="1px">
       <SearchArea setSearchName={setSearchName} />
       <List>
         <InfiniteScroll
@@ -56,7 +57,7 @@ const Presenter: FC<PresenterType> = ({
             })}
         </InfiniteScroll>
       </List>
-    </>
+    </Box>
   );
 };
 

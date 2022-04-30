@@ -21,7 +21,7 @@ const Presenter: FC<DetailPageType> = ({
   addReply,
 }) => {
   return (
-    <>
+    <Box p="5" w="500px" borderWidth="1px">
       <Container>
         <Flex>
           {currentTodo.user && (
@@ -64,7 +64,7 @@ const Presenter: FC<DetailPageType> = ({
             />
           );
         })}
-    </>
+    </Box>
   );
 };
 

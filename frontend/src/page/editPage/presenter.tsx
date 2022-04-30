@@ -4,6 +4,7 @@ import Button from "../../components/atoms/button";
 import { formatDate } from "../../util/data";
 import Label from "../../components/atoms/label";
 import { EditPage } from "./type";
+import { Box, Flex, Container, Link } from "@chakra-ui/react";
 
 const Presenter: FC<EditPage> = ({
   currentTodo,
@@ -12,7 +13,7 @@ const Presenter: FC<EditPage> = ({
   deleteTodo,
 }) => {
   return (
-    <>
+    <Box p="5" w="500px" borderWidth="1px">
       <Label>{formatDate(currentTodo.createdAt)}</Label>
       <label htmlFor="name">Current Name</label>
       <InputName
@@ -24,7 +25,7 @@ const Presenter: FC<EditPage> = ({
       <Label>CurrentStatus</Label>
       <Button onClick={updateTodo}>Update</Button>
       <Button onClick={deleteTodo}>Delete</Button>
-    </>
+    </Box>
   );
 };
 
