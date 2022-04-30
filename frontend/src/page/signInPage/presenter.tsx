@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import Input from "../../components/atoms/input";
 import { PresenterType } from "./type";
+import { Box, Center, FormLabel, Input, Button } from "@chakra-ui/react";
 
 const Presenter: FC<PresenterType> = ({
   todo,
@@ -8,19 +8,21 @@ const Presenter: FC<PresenterType> = ({
   handleLogin,
 }) => {
   return (
-    <>
-      <label htmlFor="email">email</label>
+    <Box p="5" w="500px" borderWidth="1px">
+      <FormLabel htmlFor="email">email</FormLabel>
       <Input name="email" value={todo.email} onChange={handleInputChange} />
-
-      <label htmlFor="password">password</label>
+      <FormLabel mt={2} htmlFor="password">
+        password
+      </FormLabel>
       <Input
         name="password"
         value={todo.password}
         onChange={handleInputChange}
       />
-
-      <button onClick={handleLogin}>button</button>
-    </>
+      <Center mt={5}>
+        <Button onClick={handleLogin}>ログイン</Button>
+      </Center>
+    </Box>
   );
 };
 

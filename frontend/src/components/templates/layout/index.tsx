@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import Header from "../../organisms/header";
 import { LayoutType } from "./type";
-import { Content } from "./style";
-import SignInPage from "../../../page/signInPage";
+import { Center } from "@chakra-ui/react";
+
 import useFetchMyUser from "../../../hooks/useFetchMyUser";
 
 const Layout: FC<LayoutType> = ({ children }) => {
@@ -14,7 +14,7 @@ const Layout: FC<LayoutType> = ({ children }) => {
       {myUser && (
         <>
           <Header myUser={myUser} setUser={setMyUser} />
-          <Content>{children}</Content>
+          <Center minH="calc(100vh - (24px + 2rem))">{children}</Center>
         </>
       )}
     </>
