@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import { AiFillEdit } from "react-icons/ai";
-import { Icon } from "./style";
-import { EditButton } from "./style";
 import { formatDate } from "../../util/data";
 import Label from "../../components/atoms/label";
 import Button from "../../components/atoms/button";
@@ -31,9 +29,9 @@ const Presenter: FC<DetailPageType> = ({
         )}
         <Label>{formatDate(currentTodo.createdAt)}</Label>
         <Link href={"/" + params.id + "/edit"}>
-          <EditButton>
+          <button>
             <AiFillEdit />
-          </EditButton>
+          </button>
         </Link>
       </Flex>
       <Box mt={3}>
@@ -51,9 +49,9 @@ const Presenter: FC<DetailPageType> = ({
         onClick={addReply}
         disabled={!reply.name || /^\s*$/.test(reply.name)}
       >
-        <Icon>
+        <button>
           <FiSend />
-        </Icon>
+        </button>
       </Button>
       {replies &&
         replies.data.map(val => {

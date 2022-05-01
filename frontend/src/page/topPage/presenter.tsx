@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { List } from "./style";
 import ListItem from "../../components/molecules/listItem";
 import SearchArea from "../../components/molecules/searchArea";
 import { PresenterType } from "./type";
@@ -25,7 +24,7 @@ const Presenter: FC<PresenterType> = ({
   return (
     <Box p="5">
       <SearchArea setSearchName={setSearchName} />
-      <List>
+      <div>
         <InfiniteScroll
           pageStart={0}
           loadMore={!isFetching && fetchTodo} //項目を読み込む際に処理するコールバック関数
@@ -56,7 +55,7 @@ const Presenter: FC<PresenterType> = ({
               );
             })}
         </InfiniteScroll>
-      </List>
+      </div>
     </Box>
   );
 };
