@@ -1,7 +1,6 @@
 import { TextProps } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
-export interface LabelType extends TextProps {
-  href?: string;
-  children?: any;
-  props?: any;
-}
+export type LabelType = {
+  children?: ReactNode;
+} & TextProps;

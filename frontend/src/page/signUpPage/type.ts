@@ -1,5 +1,12 @@
+type handleAddUserType = () => {};
+
 export type SignUpPageType = {
-  user: any;
+  user: {
+    name: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+  };
   handleInputChange: any;
-  handleAddUser: any;
+  handleAddUser: handleAddUserType;
 };

@@ -1,9 +1,24 @@
+type addReplyType = () => {};
+
 export type DetailPageType = {
   params: any;
-  currentTodo: any;
-  myUser: any;
+  currentTodo: {
+    user: {
+      id: number;
+      name: string;
+    };
+    name: string;
+    createdAt: string;
+  };
+  myUser: {
+    data: {
+      id: number;
+    };
+  };
   handleInputChange: any;
-  reply: any;
+  reply: {
+    name: string;
+  };
   replies: any;
-  addReply: any;
+  addReply: addReplyType;
 };

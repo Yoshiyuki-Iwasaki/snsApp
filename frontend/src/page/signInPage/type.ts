@@ -1,9 +1,11 @@
-export type SigninPageType = {
-  fetchUser: any;
-};
+type handleLoginType = () => {};
 
 export type PresenterType = {
-  todo: any;
+  loginInfo: {
+    id: number;
+    email: string;
+    password: string;
+  };
   handleInputChange: any;
-  handleLogin: any;
+  handleLogin: handleLoginType;
 };

@@ -1,12 +1,11 @@
-import React, { FC } from 'react';
-import { FollowButton } from './style';
-import { PresenterType } from './type';
+import React, { FC } from "react";
+import { PresenterType } from "./type";
 
 const Presenter: FC<PresenterType> = ({ state, method }) => {
   return (
-    <FollowButton data-testid="button" onClick={method}>
-      {state ? 'フォロー削除' : 'フォロー'}
-    </FollowButton>
+    <button data-testid="button" onClick={method}>
+      {state ? "フォロー削除" : "フォロー"}
+    </button>
   );
 };
 

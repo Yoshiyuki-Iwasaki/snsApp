@@ -1,10 +1,9 @@
 import React, { FC } from "react";
 import { formatDate } from "../../../util/data";
 import { Link } from "react-router-dom";
-import Label from "../../atoms/label";
 import { PresenterType } from "./type";
 import SaveButton from "../../atoms/button";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
 const Presenter: FC<PresenterType> = ({
@@ -15,30 +14,49 @@ const Presenter: FC<PresenterType> = ({
   handleUnlike,
 }) => {
   return (
-    <Box py={3} borderBottom="1px" borderColor="gray.500">
+    <Box my={2} p={3} borderWidth="1px">
       <Link to={"/todo/" + val.id}>
         <Flex>
           <Box mr={5}>
-            <Label>{user.name}</Label>
+            <Text fontSize="14px" fontWeight="700">
+              {user.name}
+            </Text>
           </Box>
           <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
         </Flex>
         <Box mt={2} mr={3}>
-          <Label>{val.name}</Label>
+          <Text fontSize="15px">{val.name}</Text>
         </Box>
       </Link>
-      <Flex mt={4} alignItems="center">
+      <Flex mt={3} alignItems="center">
         {favorite && favorite.data.favorite.length ? (
-          <SaveButton onClick={handleUnlike}>
-            <StarIcon />
-          </SaveButton>
+          <Button
+            m={0}
+            p={0}
+            minWidth={0}
+            height="25px"
+            width="25px"
+            bg="#FF69b4"
+            onClick={handleUnlike}
+          >
+            <StarIcon w={3} h={3} color="#fff" />
+          </Button>
         ) : (
-          <SaveButton colorScheme="gray" onClick={handleLike}>
-            <StarIcon />
-          </SaveButton>
+          <Button
+            m={0}
+            p={0}
+            minWidth={0}
+            height="25px"
+            width="25px"
+            onClick={handleLike}
+          >
+            <StarIcon w={3} h={3} />
+          </Button>
         )}
         <Box ml={3}>
-          <Label>{favorite && favorite.data.isFavorite.length}</Label>
+          <Text fontSize="13px">
+            {favorite && favorite.data.isFavorite.length}
+          </Text>
         </Box>
       </Flex>
     </Box>

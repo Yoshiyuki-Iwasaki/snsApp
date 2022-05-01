@@ -1,14 +1,11 @@
 import React, { FC } from "react";
 import { AiFillEdit } from "react-icons/ai";
-import { Icon } from "./style";
-import { EditButton } from "./style";
 import { formatDate } from "../../util/data";
-import Label from "../../components/atoms/label";
 import Button from "../../components/atoms/button";
 import ListItem from "../../components/molecules/listItem";
 import { FiSend } from "react-icons/fi";
 import { DetailPageType } from "./type";
-import { Box, Flex, Input, Link } from "@chakra-ui/react";
+import { Box, Flex, Input, Link, Text } from "@chakra-ui/react";
 
 const Presenter: FC<DetailPageType> = ({
   params,
@@ -20,41 +17,46 @@ const Presenter: FC<DetailPageType> = ({
   addReply,
 }) => {
   return (
-    <Box p="5">
-      <Flex>
-        {currentTodo.user && (
-          <Box mr={3}>
-            <Link href={"/user/" + currentTodo.user.id}>
-              <Label>{currentTodo.user && currentTodo.user.name}</Label>
-            </Link>
-          </Box>
-        )}
-        <Label>{formatDate(currentTodo.createdAt)}</Label>
-        <Link href={"/" + params.id + "/edit"}>
-          <EditButton>
-            <AiFillEdit />
-          </EditButton>
-        </Link>
-      </Flex>
-      <Box mt={3}>
-        <Label>{currentTodo.name}</Label>
+    <>
+      <Box p={3} borderWidth="1px">
+        <Flex>
+          {currentTodo.user && (
+            <Box mr={3}>
+              <Link href={"/user/" + currentTodo.user.id}>
+                <Text fontSize="14px" fontWeight="700">
+                  {currentTodo.user && currentTodo.user.name}
+                </Text>
+              </Link>
+            </Box>
+          )}
+          <Text fontSize="13px">{formatDate(currentTodo.createdAt)}</Text>
+          <Link href={"/" + params.id + "/edit"}>
+            <button>
+              <AiFillEdit />
+            </button>
+          </Link>
+        </Flex>
+        <Box mt={3}>
+          <Text fontSize="15px">{currentTodo.name}</Text>
+        </Box>
       </Box>
-
-      <Input
-        mt={3}
-        name={"name"}
-        value={reply.name}
-        onChange={handleInputChange}
-      />
-      <Button
-        mt={3}
-        onClick={addReply}
-        disabled={!reply.name || /^\s*$/.test(reply.name)}
-      >
-        <Icon>
-          <FiSend />
-        </Icon>
-      </Button>
+      <Flex>
+        <Input
+          mt={3}
+          name={"name"}
+          value={reply.name}
+          onChange={handleInputChange}
+        />
+        <Button
+          mt={3}
+          onClick={addReply}
+          disabled={!reply.name || /^\s*$/.test(reply.name)}
+        >
+          <button>
+            <FiSend />
+          </button>
+        </Button>
+      </Flex>
       {replies &&
         replies.data.map(val => {
           return (
@@ -67,7 +69,7 @@ const Presenter: FC<DetailPageType> = ({
             />
           );
         })}
-    </Box>
+    </>
   );
 };
 

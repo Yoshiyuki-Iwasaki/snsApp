@@ -1,9 +1,9 @@
-export type AddPageType = {
-  myuser: any;
-};
+type addTodoType = () => {};
 
 export type PresenterType = {
-  todo: any;
-  addTodo: any;
+  todo: {
+    name: string;
+  };
+  addTodo: addTodoType;
   handleInputChange: any;
 };
