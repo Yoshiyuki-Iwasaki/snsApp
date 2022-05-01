@@ -11,7 +11,19 @@ export type PresenterType = {
     password: string;
     password_confirmation: string;
   };
-  follow: any;
+  follow: {
+    data: {
+      isRelationshipFollowing: {
+        length: number;
+      };
+      isRelationshipFollowed: {
+        length: number;
+      };
+      relationship: {
+        length: number;
+      };
+    };
+  };
   myUser: any;
   myPost: any;
   likedPost: any;
