@@ -29,7 +29,16 @@ export type PresenterType = {
     password: string;
     password_confirmation: string;
   };
-  favorite: any;
+  favorite: {
+    data: {
+      favorite: {
+        length: number;
+      };
+      isFavorite: {
+        length: number;
+      };
+    };
+  };
   handleLike: handleLikeType;
   handleUnlike: handleUnlikeType;
 };
