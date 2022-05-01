@@ -22,9 +22,9 @@ const Presenter: FC<PresenterType> = ({
   );
 
   return (
-    <Box p="5">
+    <Box mt={2} p="5">
       <SearchArea setSearchName={setSearchName} />
-      <div>
+      <Box>
         <InfiniteScroll
           pageStart={0}
           loadMore={!isFetching && fetchTodo} //項目を読み込む際に処理するコールバック関数
@@ -55,7 +55,7 @@ const Presenter: FC<PresenterType> = ({
               );
             })}
         </InfiniteScroll>
-      </div>
+      </Box>
     </Box>
   );
 };
