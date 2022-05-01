@@ -1,5 +1,4 @@
 type updateTodoType = () => {};
-type deleteTodoType = () => {};
 
 export type EditPage = {
   currentTodo: {
@@ -8,5 +7,4 @@ export type EditPage = {
   };
   handleInputChange: any;
   updateTodo: updateTodoType;
-  deleteTodo: deleteTodoType;
 };

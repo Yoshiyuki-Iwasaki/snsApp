@@ -15,10 +15,13 @@ export type DetailPageType = {
       id: number;
     };
   };
-  handleInputChange: any;
   reply: {
     name: string;
   };
   replies: any;
+  modalOpen: boolean;
+  deleteTodo: any;
+  handleModal: any;
+  handleInputChange: any;
   addReply: addReplyType;
 };

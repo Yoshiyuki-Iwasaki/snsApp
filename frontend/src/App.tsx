@@ -24,7 +24,7 @@ const App: FC = () => {
               <Route path={"/new"} element={<AddTodo />} />
               <Route path={"/user/:id"} element={<UserPage />} />
               <Route path={"/todo/:id"} element={<DetailPage />} />
-              <Route path={"/:id/edit"} element={<EditTodo />} />
+              <Route path={"/todo/:id/edit"} element={<EditTodo />} />
             </>
           ) : (
             <>

@@ -6,6 +6,8 @@ import useFetchMyUser from "../../hooks/useFetchMyUser";
 import useFetchReply from "../../hooks/useFetchReply";
 import useFetchCurrentTodo from "../../hooks/useFetchCurrentTodo";
 import useAddReply from "../../hooks/useAddReply";
+import useDeleteTodo from "../../hooks/useDeleteTodo";
+import useModalOpen from "../../hooks/useModalOpen";
 
 const DetailPage = () => {
   const { myUser } = useFetchMyUser();
@@ -22,6 +24,8 @@ const DetailPage = () => {
   const { replies, fetchReply } = useFetchReply();
   const currentTodo = useFetchCurrentTodo();
   const addReply = useAddReply(inputChange, params, fetchReply);
+  const deleteTodo = useDeleteTodo(params);
+  const { modalOpen, handleModal } = useModalOpen();
 
   return (
     <Presenter
@@ -30,6 +34,9 @@ const DetailPage = () => {
       myUser={myUser}
       reply={inputChange}
       replies={replies}
+      modalOpen={modalOpen}
+      deleteTodo={deleteTodo}
+      handleModal={handleModal}
       handleInputChange={handleInputChange}
       addReply={addReply}
     />

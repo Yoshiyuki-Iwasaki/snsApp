@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Presenter from "./presenter";
 import useHandleInputChange from "../../hooks/useHandleInputChange";
-import useDeleteTodo from "../../hooks/useDeleteTodo";
 import useUpdateTodo from "../../hooks/useUpdateTodo";
 import useFetchCurrentTodo from "../../hooks/useFetchCurrentTodo";
 
@@ -14,7 +13,6 @@ const EditPage: FC = () => {
   };
   const { inputChange, setInputChange, handleInputChange } =
     useHandleInputChange(initialTodoState);
-  const deleteTodo = useDeleteTodo(inputChange);
   const updateTodo = useUpdateTodo(inputChange, setInputChange);
   useFetchCurrentTodo(inputChange, setInputChange);
 
@@ -23,7 +21,6 @@ const EditPage: FC = () => {
       currentTodo={inputChange}
       handleInputChange={handleInputChange}
       updateTodo={updateTodo}
-      deleteTodo={deleteTodo}
     />
   );
 };

@@ -1,24 +1,65 @@
 import React, { FC } from "react";
-import { AiFillEdit } from "react-icons/ai";
 import { formatDate } from "../../util/data";
-import Button from "../../components/atoms/button";
 import ListItem from "../../components/molecules/listItem";
 import { FiSend } from "react-icons/fi";
 import { DetailPageType } from "./type";
-import { Box, Flex, Input, Link, Text } from "@chakra-ui/react";
+import { Box, Flex, Input, Link, Text, Button } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Presenter: FC<DetailPageType> = ({
   params,
   currentTodo,
   myUser,
-  handleInputChange,
   reply,
   replies,
+  modalOpen,
+  deleteTodo,
+  handleModal,
+  handleInputChange,
   addReply,
 }) => {
   return (
     <>
-      <Box p={3} borderWidth="1px">
+      <Box p={3} borderWidth="1px" position="relative">
+        <Button
+          m={0}
+          p={0}
+          w={30}
+          h={30}
+          minWidth={0}
+          minHeight={0}
+          lineHeight={1}
+          position="absolute"
+          top={2}
+          right={3}
+          onClick={handleModal}
+        >
+          <HamburgerIcon />
+        </Button>
+        {modalOpen && (
+          <Box position="absolute" top={2} right={16}>
+            <Box>
+              <Link href={"/todo/" + params.id + "/edit"} fontSize="13px">
+                編集
+              </Link>
+            </Box>
+            <Box>
+              <Button
+                m={0}
+                p={0}
+                minWidth={0}
+                height="auto"
+                width="auto"
+                bgColor="#fff"
+                fontSize="13px"
+                fontWeight={400}
+                onClick={deleteTodo}
+              >
+                削除
+              </Button>
+            </Box>
+          </Box>
+        )}
         <Flex>
           {currentTodo.user && (
             <Box mr={3}>
@@ -30,11 +71,6 @@ const Presenter: FC<DetailPageType> = ({
             </Box>
           )}
           <Text fontSize="13px">{formatDate(currentTodo.createdAt)}</Text>
-          <Link href={"/" + params.id + "/edit"}>
-            <button>
-              <AiFillEdit />
-            </button>
-          </Link>
         </Flex>
         <Box mt={3}>
           <Text fontSize="15px">{currentTodo.name}</Text>

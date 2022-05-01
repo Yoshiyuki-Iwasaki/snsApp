@@ -39,6 +39,9 @@ export type PresenterType = {
       };
     };
   };
+  modalOpen: boolean;
   handleLike: handleLikeType;
   handleUnlike: handleUnlikeType;
+  handleModal: any;
+  deleteTodo;
 };
