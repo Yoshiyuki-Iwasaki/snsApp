@@ -7,9 +7,10 @@ const useDeleteTodo = inputChange => {
   const deleteTodo = async () => {
     const sure = window.confirm("Are you sure?");
     if (sure) {
-      await TodoApi.remove(inputChange.id);
+      await TodoApi.remove(Number(inputChange.id));
       notify("正常に投稿の編集が完了しました。");
       navigate("/");
+      window.location.reload();
     }
   };
 

@@ -6,11 +6,11 @@ class User < ApplicationRecord
                 :recoverable, :rememberable, :validatable, :omniauthable
         include DeviseTokenAuth::Concerns::User
 
-        has_many :todos, foreign_key: 'user_id'
-        has_many :favorites, foreign_key: 'user_id'
+        has_many :todos, foreign_key: 'user_id', dependent: :destroy
+        has_many :favorites, foreign_key: 'user_id', dependent: :destroy
 
-        has_many :followed_users, foreign_key: :follower_id, class_name: 'Relationship'
-        has_many :follows, through: :followed_users
-        has_many :following_users, foreign_key: :follow_id, class_name: 'Relationship'
-        has_many :followers, through: :following_users
+        has_many :followed_users, foreign_key: :follower_id, class_name: 'Relationship', dependent: :destroy
+        has_many :follows, through: :followed_users, dependent: :destroy
+        has_many :following_users, foreign_key: :follow_id, class_name: 'Relationship', dependent: :destroy
+        has_many :followers, through: :following_users, dependent: :destroy
 end
