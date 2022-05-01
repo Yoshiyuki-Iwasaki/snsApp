@@ -16,7 +16,7 @@ const Presenter: FC<PresenterType> = ({
   handleFollow,
 }) => {
   return (
-    <Box p="5" w="500px" borderWidth="1px">
+    <Box p="5">
       <Label>{user && user.name}</Label>
       <Flex mt={3}>
         <Flex mr={3}>

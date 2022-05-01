@@ -5,11 +5,10 @@ import { EditButton } from "./style";
 import { formatDate } from "../../util/data";
 import Label from "../../components/atoms/label";
 import Button from "../../components/atoms/button";
-import Input from "../../components/atoms/input";
 import ListItem from "../../components/molecules/listItem";
 import { FiSend } from "react-icons/fi";
 import { DetailPageType } from "./type";
-import { Box, Flex, Container, Link } from "@chakra-ui/react";
+import { Box, Flex, Input, Link } from "@chakra-ui/react";
 
 const Presenter: FC<DetailPageType> = ({
   params,
@@ -21,30 +20,34 @@ const Presenter: FC<DetailPageType> = ({
   addReply,
 }) => {
   return (
-    <Box p="5" w="500px" borderWidth="1px">
-      <Container>
-        <Flex>
-          {currentTodo.user && (
-            <Box mr={3}>
-              <Link href={"/user/" + currentTodo.user.id}>
-                <Label>{currentTodo.user && currentTodo.user.name}</Label>
-              </Link>
-            </Box>
-          )}
-          <Label>{formatDate(currentTodo.createdAt)}</Label>
-          <Link href={"/" + params.id + "/edit"}>
-            <EditButton>
-              <AiFillEdit />
-            </EditButton>
-          </Link>
-        </Flex>
-        <Box mt={3}>
-          <Label>{currentTodo.name}</Label>
-        </Box>
-      </Container>
+    <Box p="5">
+      <Flex>
+        {currentTodo.user && (
+          <Box mr={3}>
+            <Link href={"/user/" + currentTodo.user.id}>
+              <Label>{currentTodo.user && currentTodo.user.name}</Label>
+            </Link>
+          </Box>
+        )}
+        <Label>{formatDate(currentTodo.createdAt)}</Label>
+        <Link href={"/" + params.id + "/edit"}>
+          <EditButton>
+            <AiFillEdit />
+          </EditButton>
+        </Link>
+      </Flex>
+      <Box mt={3}>
+        <Label>{currentTodo.name}</Label>
+      </Box>
 
-      <Input name={"name"} value={reply.name} onChange={handleInputChange} />
+      <Input
+        mt={3}
+        name={"name"}
+        value={reply.name}
+        onChange={handleInputChange}
+      />
       <Button
+        mt={3}
         onClick={addReply}
         disabled={!reply.name || /^\s*$/.test(reply.name)}
       >

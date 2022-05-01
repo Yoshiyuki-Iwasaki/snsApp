@@ -23,7 +23,7 @@ const Presenter: FC<PresenterType> = ({
   );
 
   return (
-    <Box p="5" w="500px" borderWidth="1px">
+    <Box p="5">
       <SearchArea setSearchName={setSearchName} />
       <List>
         <InfiniteScroll
