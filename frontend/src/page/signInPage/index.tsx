@@ -14,7 +14,7 @@ const SigninPage: FC = () => {
 
   return (
     <Presenter
-      todo={inputChange}
+      loginInfo={inputChange}
       handleInputChange={handleInputChange}
       handleLogin={handleLogin}
     />

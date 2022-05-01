@@ -3,7 +3,6 @@ import React, { FC } from "react";
 import { PresenterType } from "./type";
 
 const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
-  console.log("myUser", myUser);
   return (
     <Flex px={5} py={3} alignItems={"center"} justifyContent={"space-between"}>
       <Link href="/">

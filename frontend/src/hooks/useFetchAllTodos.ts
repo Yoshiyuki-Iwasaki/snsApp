@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import TodoApi from "../api/Todo/api";
 
 const useFetchAllTodos = () => {
-  const [isFetching, setIsFetching] = useState(false);
-  const [hasMore, setHasMore] = useState(true); //再読み込み判定
+  const [isFetching, setIsFetching] = useState<boolean>(false);
+  const [hasMore, setHasMore] = useState<boolean>(true); //再読み込み判定
   const [todos, setTodos] = useState<any[]>([]);
 
   const fetchTodo = async page => {

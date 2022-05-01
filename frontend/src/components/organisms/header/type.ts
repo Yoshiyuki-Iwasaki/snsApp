@@ -1,9 +1,10 @@
-export type HeaderType = {
-  myUser: any;
-  setUser: any;
-};
-
 export type PresenterType = {
-  myUser: any;
+  myUser: {
+    isLogin: boolean;
+    data: {
+      id: number;
+      name: string;
+    };
+  };
   handleLogout: any;
 };

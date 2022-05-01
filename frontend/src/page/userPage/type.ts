@@ -2,7 +2,12 @@ export type UserPageType = {
   myUser: any;
 };
 export type PresenterType = {
-  user: any;
+  user: {
+    name: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+  };
   follow: any;
   myUser: any;
   myPost: any;

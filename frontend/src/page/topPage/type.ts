@@ -1,12 +1,14 @@
-export type TopPageType = {
-  myuser: any;
-};
 export type PresenterType = {
-  user: any;
+  user: {
+    name: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+  };
   todos: any;
-  searchName: any;
+  searchName: string;
   setSearchName: any;
-  hasMore: any;
-  isFetching: any;
+  hasMore: boolean;
+  isFetching: boolean;
   fetchTodo: any;
 };

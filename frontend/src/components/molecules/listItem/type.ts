@@ -1,13 +1,31 @@
 export type ListItemType = {
-  user: any;
+  user: {
+    name: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+  };
   myUser: any;
-  val: any;
+  val: {
+    id: number;
+    createdAt: string;
+    name: string;
+  };
   detailPageFrag?: boolean;
 };
 
 export type PresenterType = {
-  val: any;
-  user: any;
+  val: {
+    id: number;
+    createdAt: string;
+    name: string;
+  };
+  user: {
+    name: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+  };
   favorite: any;
   handleLike: any;
   handleUnlike: any;
