@@ -1,7 +1,9 @@
+type addTodoType = () => {};
+
 export type PresenterType = {
   todo: {
     name: string;
   };
-  addTodo: any;
+  addTodo: addTodoType;
   handleInputChange: any;
 };

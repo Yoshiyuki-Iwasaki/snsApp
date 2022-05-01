@@ -1,3 +1,6 @@
+type handleLikeType = () => {};
+type handleUnlikeType = () => {};
+
 export type ListItemType = {
   user: {
     name: string;
@@ -27,6 +30,6 @@ export type PresenterType = {
     password_confirmation: string;
   };
   favorite: any;
-  handleLike: any;
-  handleUnlike: any;
+  handleLike: handleLikeType;
+  handleUnlike: handleUnlikeType;
 };

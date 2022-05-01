@@ -1,3 +1,5 @@
+type handleLogoutType = () => {};
+
 export type PresenterType = {
   myUser: {
     isLogin: boolean;
@@ -6,5 +8,5 @@ export type PresenterType = {
       name: string;
     };
   };
-  handleLogout: any;
+  handleLogout: handleLogoutType;
 };

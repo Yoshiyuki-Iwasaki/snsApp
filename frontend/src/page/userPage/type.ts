@@ -1,3 +1,6 @@
+type handleUnfollowType = () => {};
+type handleFollowType = () => {};
+
 export type UserPageType = {
   myUser: any;
 };
@@ -13,6 +16,6 @@ export type PresenterType = {
   myPost: any;
   likedPost: any;
   params: any;
-  handleUnfollow: any;
-  handleFollow: any;
+  handleUnfollow: handleUnfollowType;
+  handleFollow: handleFollowType;
 };

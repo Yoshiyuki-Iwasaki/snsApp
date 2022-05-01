@@ -1,9 +1,12 @@
+type updateTodoType = () => {};
+type deleteTodoType = () => {};
+
 export type EditPage = {
   currentTodo: {
     name: string;
     createdAt: string;
   };
   handleInputChange: any;
-  updateTodo: any;
-  deleteTodo: any;
+  updateTodo: updateTodoType;
+  deleteTodo: deleteTodoType;
 };
