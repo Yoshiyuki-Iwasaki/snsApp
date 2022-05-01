@@ -13,10 +13,15 @@ const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
       <Flex alignItems={"center"}>
         {myUser && myUser.isLogin ? (
           <>
-            <Link mr={3} href={`/new`} fontSize={14}>
+            <Link mr={5} href={`/new`} fontSize={14} fontWeight={700}>
               新規投稿
             </Link>
-            <Link mr={3} href={`/user/${myUser.data.id}`} fontSize={14}>
+            <Link
+              mr={5}
+              href={`/user/${myUser.data.id}`}
+              fontSize={14}
+              fontWeight={700}
+            >
               {myUser.data.name}
             </Link>
             <Button onClick={handleLogout} fontSize={14}>
@@ -25,7 +30,7 @@ const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
           </>
         ) : (
           <>
-            <Link mr={3} href="/" fontSize={14}>
+            <Link mr={5} href="/" fontSize={14}>
               ログイン
             </Link>
             <Link href="/signup" fontSize={14}>
