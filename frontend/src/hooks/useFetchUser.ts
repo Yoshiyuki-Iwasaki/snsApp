@@ -1,8 +1,8 @@
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import UserApi from '../api/User/api';
 
 const useFetchUser = (val) => {
-  const [user, setUser] = useState<any>();
+  const [user, setUser] = useState();
 
   const fetchUser = async () => {
     const userRes = await UserApi.show(val);

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const useHandleInputChange = (initialTodoState) => {
-  const [inputChange, setInputChange] = useState<any>(initialTodoState);
+  const [inputChange, setInputChange] = useState(initialTodoState);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

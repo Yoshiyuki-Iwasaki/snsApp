@@ -3,7 +3,11 @@ import { notify } from '../util/notify';
 import TodoApi from '../api/Todo/api';
 import ReplyApi from '../api/Reply/api';
 
-const useDeleteTodo = (inputChange: any, replyFrag?: boolean) => {
+type inputChangeType = {
+  id: string | number;
+};
+
+const useDeleteTodo = (inputChange: inputChangeType, replyFrag?: boolean) => {
   const navigate = useNavigate();
   const deleteTodo = async () => {
     const sure = window.confirm('Are you sure?');

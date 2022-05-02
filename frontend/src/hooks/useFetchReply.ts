@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import ReplyApi from '../api/Reply/api';
 import { useParams } from 'react-router-dom';
 
-const useFetchAllTodos = () => {
+const useFetchReply = () => {
   const [replies, setReplies] = useState<any>();
   const params = useParams();
 
@@ -18,4 +18,4 @@ const useFetchAllTodos = () => {
   return { replies, fetchReply };
 };
 
-export default useFetchAllTodos;
+export default useFetchReply;

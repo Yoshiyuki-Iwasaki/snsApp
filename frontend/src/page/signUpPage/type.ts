@@ -1,5 +1,12 @@
+type eventType = {
+  target: {
+    name: string;
+    value: string;
+  };
+};
+
 type handleAddUserType = () => {};
-type handleInputChangeType = (event: any) => void;
+type handleInputChangeType = (event: eventType) => void;
 
 export type SignUpPageType = {
   user: {
