@@ -1,16 +1,16 @@
-import { Button, Flex, Link, Text } from "@chakra-ui/react";
-import React, { FC } from "react";
-import { PresenterType } from "./type";
+import { Button, Flex, Link, Text, textDecoration } from '@chakra-ui/react';
+import React, { FC } from 'react';
+import { PresenterType } from './type';
 
 const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
   return (
-    <Flex px={5} py={3} alignItems={"center"} justifyContent={"space-between"}>
-      <Link href="/">
+    <Flex px={5} py={3} alignItems={'center'} justifyContent={'space-between'}>
+      <Link href="/" _hover={{ textDecoration: 'none' }}>
         <Text fontSize={22} fontWeight={700}>
           TODO LIST
         </Text>
       </Link>
-      <Flex alignItems={"center"}>
+      <Flex alignItems={'center'}>
         {myUser && myUser.isLogin ? (
           <>
             <Link mr={5} href={`/new`} fontSize={14} fontWeight={700}>
