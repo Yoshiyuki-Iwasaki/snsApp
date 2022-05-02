@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { formatDate } from "../../../util/data";
-import { PresenterType } from "./type";
-import { Box, Flex, Text, Button, Link } from "@chakra-ui/react";
-import { StarIcon, HamburgerIcon } from "@chakra-ui/icons";
+import React, { FC } from 'react';
+import { formatDate } from '../../../util/data';
+import { PresenterType } from './type';
+import { Box, Flex, Text, Button, Link } from '@chakra-ui/react';
+import { StarIcon, HamburgerIcon } from '@chakra-ui/icons';
 
 const Presenter: FC<PresenterType> = ({
   val,
@@ -40,7 +40,7 @@ const Presenter: FC<PresenterType> = ({
           {/* 詳細ページのみ編集リンク非表示にする */}
           {!detailPageFrag && (
             <Box>
-              <Link href={"/todo/" + val.id + "/edit"} fontSize="13px">
+              <Link href={'/todo/' + val.id + '/edit'} fontSize="13px">
                 編集
               </Link>
             </Box>
@@ -63,7 +63,7 @@ const Presenter: FC<PresenterType> = ({
         </Box>
       )}
       {val && (
-        <Link href={"/todo/" + val.id}>
+        <Link href={'/todo/' + val.id}>
           <Flex>
             <Box mr={5}>
               <Text fontSize="14px" fontWeight="700">

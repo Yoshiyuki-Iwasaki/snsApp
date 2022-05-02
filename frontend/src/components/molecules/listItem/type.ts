@@ -1,5 +1,7 @@
 type handleLikeType = () => {};
 type handleUnlikeType = () => {};
+type deleteTodoType = () => {};
+type handleModalType = () => void;
 
 export type ListItemType = {
   user: {
@@ -9,7 +11,11 @@ export type ListItemType = {
     password: string;
     password_confirmation: string;
   };
-  myUser: any;
+  myUser: {
+    data: {
+      id: number;
+    };
+  };
   val: {
     id: number;
     createdAt: string;
@@ -50,6 +56,6 @@ export type PresenterType = {
   detailPageFrag: boolean;
   handleLike: handleLikeType;
   handleUnlike: handleUnlikeType;
-  handleModal: any;
-  deleteTodo;
+  handleModal: handleModalType;
+  deleteTodo: deleteTodoType;
 };

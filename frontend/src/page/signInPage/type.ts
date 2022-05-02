@@ -1,4 +1,5 @@
 type handleLoginType = () => {};
+type handleInputChangeType = (event: any) => void;
 
 export type PresenterType = {
   loginInfo: {
@@ -6,6 +7,6 @@ export type PresenterType = {
     email: string;
     password: string;
   };
-  handleInputChange: any;
+  handleInputChange: handleInputChangeType;
   handleLogin: handleLoginType;
 };

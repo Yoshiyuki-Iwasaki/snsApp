@@ -52,7 +52,7 @@ const Presenter: FC<PresenterType> = ({
       </Center>
       <Box mt={3}>
         {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
-        {myUser && myUser.data.id !== parseInt(params.id) ? (
+        {myUser && myUser.data.id !== Number(params.id) ? (
           <>
             {follow && follow.data.relationship.length ? (
               <Button onClick={handleUnfollow}>フォロー削除</Button>

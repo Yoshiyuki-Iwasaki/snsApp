@@ -1,14 +1,17 @@
+import { Todos } from '../../type/Todos';
+
+type fetchTodoType = (page: number) => {};
+
 export type PresenterType = {
-  user: {
-    name: string;
-    email: string;
-    password: string;
-    password_confirmation: string;
+  myUser: {
+    data: {
+      id: number;
+    };
   };
-  todos: any;
+  todos: Todos[];
   searchName: string;
-  setSearchName: any;
+  setSearchName: React.Dispatch<React.SetStateAction<string>>;
   hasMore: boolean;
   isFetching: boolean;
-  fetchTodo: any;
+  fetchTodo: fetchTodoType;
 };

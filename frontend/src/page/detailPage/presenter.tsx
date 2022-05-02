@@ -97,7 +97,7 @@ const Presenter: FC<DetailPageType> = ({
         </Flex>
         <Box mt={2}>
           {replies &&
-            replies.data.map((val) => {
+            replies.map((val) => {
               return (
                 <ListItem
                   key={val.id}

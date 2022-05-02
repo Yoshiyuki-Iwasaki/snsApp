@@ -1,3 +1,3 @@
 export type SearchAreaType = {
-  setSearchName: any;
+  setSearchName: React.Dispatch<React.SetStateAction<string>>;
 };

@@ -10,14 +10,16 @@ import useHandleFollow from '../../hooks/useHandleFollow';
 import useHandleUnFollow from '../../hooks/useHandleUnFollow';
 
 const UserPage: FC = () => {
-  const params = useParams();
-  const myPost = useFetchMyPost(Number(params.id));
-  const likedPost = useFetchLikedMyPost(Number(params.id));
+  const { id } = useParams();
+  const myPost = useFetchMyPost(Number(id));
+  const likedPost = useFetchLikedMyPost(Number(id));
   const { myUser } = useFetchMyUser();
-  const { user } = useFetchUser(Number(params.id));
+  const { user } = useFetchUser(Number(id));
   const { follow, fetchFollow } = useFetchFollow();
-  const handleFollow = useHandleFollow(myUser, params, fetchFollow);
+  const handleFollow = useHandleFollow(myUser, { id }, fetchFollow);
   const handleUnfollow = useHandleUnFollow(follow, fetchFollow);
+
+  console.log('myUser', myUser);
 
   return (
     <Presenter
@@ -26,7 +28,7 @@ const UserPage: FC = () => {
       myUser={myUser}
       myPost={myPost}
       likedPost={likedPost}
-      params={params}
+      params={{ id }}
       handleUnfollow={handleUnfollow}
       handleFollow={handleFollow}
     />

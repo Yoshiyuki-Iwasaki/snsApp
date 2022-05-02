@@ -1,4 +1,5 @@
 type handleAddUserType = () => {};
+type handleInputChangeType = (event: any) => void;
 
 export type SignUpPageType = {
   user: {
@@ -7,6 +8,6 @@ export type SignUpPageType = {
     password: string;
     password_confirmation: string;
   };
-  handleInputChange: any;
+  handleInputChange: handleInputChangeType;
   handleAddUser: handleAddUserType;
 };

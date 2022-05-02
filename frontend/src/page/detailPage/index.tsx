@@ -11,7 +11,7 @@ import useModalOpen from '../../hooks/useModalOpen';
 
 const DetailPage = () => {
   const { myUser } = useFetchMyUser();
-  const params = useParams();
+  const { id } = useParams();
   const initialReplyState = {
     id: null,
     name: '',
@@ -23,17 +23,17 @@ const DetailPage = () => {
     useHandleInputChange(initialReplyState);
   const { replies, fetchReply } = useFetchReply();
   const currentTodo = useFetchCurrentTodo();
-  const addReply = useAddReply(inputChange, params, fetchReply);
-  const deleteTodo = useDeleteTodo(params);
+  const addReply = useAddReply(inputChange, { id }, fetchReply);
+  const deleteTodo = useDeleteTodo({ id });
   const { modalOpen, handleModal } = useModalOpen();
 
   return (
     <Presenter
-      params={params}
+      params={{ id }}
       currentTodo={currentTodo}
       myUser={myUser}
       reply={inputChange}
-      replies={replies}
+      replies={replies && replies.data}
       modalOpen={modalOpen}
       deleteTodo={deleteTodo}
       handleModal={handleModal}

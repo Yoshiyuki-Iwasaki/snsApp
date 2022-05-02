@@ -1,7 +1,14 @@
+import { Todos } from '../../type/Todos';
+
 type addReplyType = () => {};
+type deleteTodoType = () => {};
+type handleInputChangeType = (event: any) => void;
+type handleModalType = () => void;
 
 export type DetailPageType = {
-  params: any;
+  params: {
+    id: string;
+  };
   currentTodo: {
     user: {
       id: number;
@@ -18,10 +25,10 @@ export type DetailPageType = {
   reply: {
     name: string;
   };
-  replies: any;
+  replies: Todos[];
   modalOpen: boolean;
-  deleteTodo: any;
-  handleModal: any;
-  handleInputChange: any;
+  deleteTodo: deleteTodoType;
+  handleModal: handleModalType;
+  handleInputChange: handleInputChangeType;
   addReply: addReplyType;
 };

@@ -6,7 +6,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { Box } from '@chakra-ui/react';
 
 const Presenter: FC<PresenterType> = ({
-  user,
+  myUser,
   todos,
   searchName,
   setSearchName,
@@ -48,7 +48,7 @@ const Presenter: FC<PresenterType> = ({
               return (
                 <ListItem
                   key={val.id}
-                  myUser={user}
+                  myUser={myUser}
                   user={val.user}
                   val={val}
                 />

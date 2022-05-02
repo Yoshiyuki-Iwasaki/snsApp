@@ -1,9 +1,24 @@
+import { Todos } from '../../type/Todos';
+
 type handleUnfollowType = () => {};
 type handleFollowType = () => {};
 
-export type UserPageType = {
-  myUser: any;
+type TodosLikedPost = {
+  id: number;
+  todo: {
+    id: number;
+    name: string;
+    user: {
+      id: number;
+      name: string;
+      email: string;
+      password: string;
+      password_confirmation: string;
+    };
+    createdAt: string;
+  };
 };
+
 export type PresenterType = {
   user: {
     name: string;
@@ -24,10 +39,20 @@ export type PresenterType = {
       };
     };
   };
-  myUser: any;
-  myPost: any;
-  likedPost: any;
-  params: any;
+  myUser: {
+    data: {
+      id: number;
+    };
+  };
+  myPost: {
+    data: Todos[];
+  };
+  likedPost: {
+    data: TodosLikedPost[];
+  };
+  params: {
+    id: string;
+  };
   handleUnfollow: handleUnfollowType;
   handleFollow: handleFollowType;
 };

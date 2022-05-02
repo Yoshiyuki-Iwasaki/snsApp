@@ -1,12 +1,19 @@
 type updateTodoType = () => {};
+type handleInputChangeType = (event: any) => void;
 
-export type EditPage = {
-  myUser: any;
+export type PresenterType = {
+  myUser: {
+    data: {
+      id: number;
+    };
+  };
   currentTodo: {
     name: string;
     createdAt: string;
-    user: any;
+    user: {
+      id: number;
+    };
   };
-  handleInputChange: any;
+  handleInputChange: handleInputChangeType;
   updateTodo: updateTodoType;
 };
