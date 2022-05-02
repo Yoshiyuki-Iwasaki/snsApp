@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       get '/todos/users/:id/', to: "todos#userIndex"
       get '/replies/todos/:id/', to: "replies#index"
       get '/replies/:reply_id/users/:user_id/favorites/', to: "favorites#replyIndex"
-      get '/favorites/users/:id', to: "favorites#todoIndex"
+      get '/favorites/users/:id', to: "favorites#userIndex"
       get '/users/:id/follower/:follower_id/relationships', to: "relationships#index"
       post '/users/:id/relationships', to: "relationships#create", as: "follow_user"
     end

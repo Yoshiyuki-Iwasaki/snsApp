@@ -87,12 +87,16 @@ const Presenter: FC<PresenterType> = ({
             {likedPost.data &&
               likedPost.data.map(val => {
                 return (
-                  <ListItem
-                    key={val.id}
-                    myUser={myUser}
-                    user={val.user}
-                    val={val.todo}
-                  />
+                  val.todo && (
+                    <>
+                      <ListItem
+                        key={val.id}
+                        myUser={myUser}
+                        user={val.todo.user}
+                        val={val.todo}
+                      />
+                    </>
+                  )
                 );
               })}
           </Box>

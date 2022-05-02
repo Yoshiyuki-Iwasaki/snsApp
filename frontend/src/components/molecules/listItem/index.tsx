@@ -17,6 +17,7 @@ const ListItem: FC<ListItemType> = ({ myUser, user, val, detailPageFrag }) => {
   return (
     <Presenter
       val={val}
+      myUser={myUser}
       user={user}
       favorite={favorite}
       modalOpen={modalOpen}

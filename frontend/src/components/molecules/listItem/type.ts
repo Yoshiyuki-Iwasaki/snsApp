@@ -3,6 +3,7 @@ type handleUnlikeType = () => {};
 
 export type ListItemType = {
   user: {
+    id: number;
     name: string;
     email: string;
     password: string;
@@ -23,7 +24,13 @@ export type PresenterType = {
     createdAt: string;
     name: string;
   };
+  myUser: {
+    data: {
+      id: number;
+    };
+  };
   user: {
+    id: number;
     name: string;
     email: string;
     password: string;

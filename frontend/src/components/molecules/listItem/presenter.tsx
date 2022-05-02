@@ -6,6 +6,7 @@ import { StarIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const Presenter: FC<PresenterType> = ({
   val,
+  myUser,
   user,
   favorite,
   modalOpen,
@@ -17,21 +18,23 @@ const Presenter: FC<PresenterType> = ({
 }) => {
   return (
     <Box my={2} p={3} borderWidth="1px" position="relative">
-      <Button
-        m={0}
-        p={0}
-        w={30}
-        h={30}
-        minWidth={0}
-        minHeight={0}
-        lineHeight={1}
-        position="absolute"
-        top={2}
-        right={3}
-        onClick={handleModal}
-      >
-        <HamburgerIcon />
-      </Button>
+      {myUser && myUser.data.id === user.id && (
+        <Button
+          m={0}
+          p={0}
+          w={30}
+          h={30}
+          minWidth={0}
+          minHeight={0}
+          lineHeight={1}
+          position="absolute"
+          top={2}
+          right={3}
+          onClick={handleModal}
+        >
+          <HamburgerIcon />
+        </Button>
+      )}
       {modalOpen && (
         <Box position="absolute" top={2} right={16}>
           {/* 詳細ページのみ編集リンク非表示にする */}

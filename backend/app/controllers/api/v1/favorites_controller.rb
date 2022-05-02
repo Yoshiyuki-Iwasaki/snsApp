@@ -16,7 +16,7 @@ class Api::V1::FavoritesController < ApplicationController
         render json: {favorite: favorite, isFavorite: isFavorite}
     end
 
-    def todoIndex
+    def userIndex
         favorite = Favorite.where(user_id: params[:id])
         render json: favorite
     end
