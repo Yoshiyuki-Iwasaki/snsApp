@@ -12,7 +12,7 @@ const Presenter: FC<EditPage> = ({
 }) => {
   return (
     <>
-      {/* 自分の投稿のみ編集削除できるようにする。 */}
+      {/* 自分の投稿のみ編集、削除できるようにする。 */}
       {myUser && myUser.data.id === currentTodo.user.id && (
         <>
           <Box p="5" w="500px" borderWidth="1px">

@@ -9,6 +9,7 @@ const Presenter: FC<PresenterType> = ({
   user,
   favorite,
   modalOpen,
+  detailPageFrag,
   handleLike,
   handleUnlike,
   handleModal,
@@ -33,11 +34,14 @@ const Presenter: FC<PresenterType> = ({
       </Button>
       {modalOpen && (
         <Box position="absolute" top={2} right={16}>
-          <Box>
-            <Link href={"/todo/" + val.id + "/edit"} fontSize="13px">
-              編集
-            </Link>
-          </Box>
+          {/* 詳細ページのみ編集リンク非表示にする */}
+          {!detailPageFrag && (
+            <Box>
+              <Link href={"/todo/" + val.id + "/edit"} fontSize="13px">
+                編集
+              </Link>
+            </Box>
+          )}
           <Box>
             <Button
               m={0}
