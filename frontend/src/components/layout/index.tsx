@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import Header from "../../organisms/header";
-import { LayoutType } from "./type";
-import { Container, Center } from "@chakra-ui/react";
+import React, { FC } from 'react';
+import Header from '../header';
+import { LayoutType } from './type';
+import { Container, Center } from '@chakra-ui/react';
 
-import useFetchMyUser from "../../../hooks/useFetchMyUser";
+import useFetchMyUser from '../../hooks/useFetchMyUser';
 
 const Layout: FC<LayoutType> = ({ children }) => {
   const { myUser } = useFetchMyUser();

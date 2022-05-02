@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import Presenter from './presenter';
 import { useNavigate } from 'react-router-dom';
-import UserApi from '../../../api/User/api';
-import useFetchMyUser from '../../../hooks/useFetchMyUser';
+import UserApi from '../../api/User/api';
+import useFetchMyUser from '../../hooks/useFetchMyUser';
 
 const Header: FC = () => {
   const navigate = useNavigate();

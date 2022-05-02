@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import Button from '../../components/atoms/button';
-import ListItem from '../../components/molecules/listItem';
-import { Flex, Box, Center, Image, Text } from '@chakra-ui/react';
+import ListItem from '../../components/listItem';
+import { Flex, Box, Center, Image, Text, Button } from '@chakra-ui/react';
 import { PresenterType } from './type';
 
 const Presenter: FC<PresenterType> = ({

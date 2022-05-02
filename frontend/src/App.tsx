@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AddTodo from './page/addPage';
 import TodoList from './page/topPage';
 import EditTodo from './page/editPage';
-import Layout from './components/templates/layout';
+import Layout from './components/layout';
 import DetailPage from './page/detailPage';
 import SignUpPage from './page/signUpPage';
 import SignInPage from './page/signInPage';

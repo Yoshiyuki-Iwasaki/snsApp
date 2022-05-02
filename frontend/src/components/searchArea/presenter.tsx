@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import Input from "../../atoms/input";
-import { SearchAreaType } from "./type";
+import React, { FC } from 'react';
+import { SearchAreaType } from './type';
+import { Input } from '@chakra-ui/react';
 
 const Presenter: FC<SearchAreaType> = ({ setSearchName }) => {
   return (
     <>
       <Input
         placeholder="Search todo."
-        onChange={e => {
+        onChange={(e) => {
           setSearchName(e.target.value);
         }}
       />

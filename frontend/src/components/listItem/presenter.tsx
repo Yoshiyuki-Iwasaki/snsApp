@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { formatDate } from '../../../util/data';
+import { formatDate } from '../../util/data';
 import { PresenterType } from './type';
 import { Box, Flex, Text, Button, Link } from '@chakra-ui/react';
 import { StarIcon, HamburgerIcon } from '@chakra-ui/icons';

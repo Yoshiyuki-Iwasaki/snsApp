@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-import Button from '../../components/atoms/button';
 import { formatDate } from '../../util/data';
 import { PresenterType } from './type';
-import { Box, Input, Text } from '@chakra-ui/react';
+import { Box, Input, Text, Button } from '@chakra-ui/react';
 
 const Presenter: FC<PresenterType> = ({
   myUser,

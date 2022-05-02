@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import ListItem from '../../components/molecules/listItem';
-import SearchArea from '../../components/molecules/searchArea';
+import ListItem from '../../components/listItem';
+import SearchArea from '../../components/searchArea';
 import { PresenterType } from './type';
 import InfiniteScroll from 'react-infinite-scroller';
 import { Box } from '@chakra-ui/react';

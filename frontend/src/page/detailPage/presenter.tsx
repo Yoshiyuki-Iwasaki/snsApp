@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { formatDate } from '../../util/data';
-import ListItem from '../../components/molecules/listItem';
+import ListItem from '../../components/listItem';
 import { FiSend } from 'react-icons/fi';
 import { DetailPageType } from './type';
 import { Box, Flex, Input, Link, Text, Button } from '@chakra-ui/react';
