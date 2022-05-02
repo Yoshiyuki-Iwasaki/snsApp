@@ -1,7 +1,7 @@
-import api from "../api";
-import { todoType } from "./type";
+import api from '../api';
+import { todoType } from './type';
 
-const ENDPOINT = "/api/v1/todos";
+const ENDPOINT = '/api/v1/todos';
 
 async function fetch(pageNumber: number) {
   return api.get(ENDPOINT + `/page/` + pageNumber);

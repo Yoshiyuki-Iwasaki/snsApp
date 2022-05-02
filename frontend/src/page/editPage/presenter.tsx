@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import Button from "../../components/atoms/button";
-import { formatDate } from "../../util/data";
-import { EditPage } from "./type";
-import { Box, Input, Text } from "@chakra-ui/react";
+import React, { FC } from 'react';
+import Button from '../../components/atoms/button';
+import { formatDate } from '../../util/data';
+import { EditPage } from './type';
+import { Box, Input, Text } from '@chakra-ui/react';
 
 const Presenter: FC<EditPage> = ({
   myUser,

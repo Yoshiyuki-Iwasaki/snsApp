@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import Button from "../../components/atoms/button";
-import { FiSend } from "react-icons/fi";
-import "react-toastify/dist/ReactToastify.css";
-import { PresenterType } from "./type";
-import { Box, Input, FormControl, Flex, Text } from "@chakra-ui/react";
+import React, { FC } from 'react';
+import Button from '../../components/atoms/button';
+import { FiSend } from 'react-icons/fi';
+import 'react-toastify/dist/ReactToastify.css';
+import { PresenterType } from './type';
+import { Box, Input, FormControl, Flex, Text } from '@chakra-ui/react';
 
 const Presenter: FC<PresenterType> = ({ todo, addTodo, handleInputChange }) => {
   return (
@@ -16,7 +16,7 @@ const Presenter: FC<PresenterType> = ({ todo, addTodo, handleInputChange }) => {
           <Input
             mt={2}
             mr={2}
-            name={"name"}
+            name={'name'}
             value={todo.name}
             onChange={handleInputChange}
           />

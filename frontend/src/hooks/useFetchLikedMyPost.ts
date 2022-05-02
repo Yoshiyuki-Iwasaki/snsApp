@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import FavoriteApi from "../api/Favorite/api";
+import { useState, useEffect } from 'react';
+import FavoriteApi from '../api/Favorite/api';
 
 const useFetchLikedMyPost = (id: number) => {
   const [likedPost, setLikedPost] = useState<any>([]);

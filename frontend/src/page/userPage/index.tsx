@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import { useParams } from "react-router-dom";
-import Presenter from "./presenter";
-import useFetchMyPost from "../../hooks/useFetchMyPost";
-import useFetchLikedMyPost from "../../hooks/useFetchLikedMyPost";
-import useFetchMyUser from "../../hooks/useFetchMyUser";
-import useFetchUser from "../../hooks/useFetchUser";
-import useFetchFollow from "../../hooks/useFetchFollow";
-import useHandleFollow from "../../hooks/useHandleFollow";
-import useHandleUnFollow from "../../hooks/useHandleUnFollow";
+import React, { FC } from 'react';
+import { useParams } from 'react-router-dom';
+import Presenter from './presenter';
+import useFetchMyPost from '../../hooks/useFetchMyPost';
+import useFetchLikedMyPost from '../../hooks/useFetchLikedMyPost';
+import useFetchMyUser from '../../hooks/useFetchMyUser';
+import useFetchUser from '../../hooks/useFetchUser';
+import useFetchFollow from '../../hooks/useFetchFollow';
+import useHandleFollow from '../../hooks/useHandleFollow';
+import useHandleUnFollow from '../../hooks/useHandleUnFollow';
 
 const UserPage: FC = () => {
   const params = useParams();

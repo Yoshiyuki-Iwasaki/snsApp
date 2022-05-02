@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import moment from "moment";
+import { createSlice } from '@reduxjs/toolkit';
+import moment from 'moment';
 const now = moment();
-const nowFormat = now.format("YYYY-MM-DD");
+const nowFormat = now.format('YYYY-MM-DD');
 
 export interface TodoState {
   // taskが何個あるのかを管理する
@@ -22,10 +22,10 @@ const initialState: TodoState = {
   todos: [
     {
       id: 1,
-      username: "username1",
-      date: "2022-03-27",
+      username: 'username1',
+      date: '2022-03-27',
       content:
-        "投稿内容投稿内容投稿内容投稿内容投稿内容投稿内容投稿内容投稿内容投稿内容",
+        '投稿内容投稿内容投稿内容投稿内容投稿内容投稿内容投稿内容投稿内容投稿内容',
       likeState: false,
       likeCount: 0,
     },
@@ -33,7 +33,7 @@ const initialState: TodoState = {
 };
 
 export const todoSlice = createSlice({
-  name: "todo",
+  name: 'todo',
   initialState,
   reducers: {
     // 投稿追加機能

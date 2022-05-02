@@ -1,5 +1,5 @@
-import api from "../api";
-const ENDPOINT = "/api/v1";
+import api from '../api';
+const ENDPOINT = '/api/v1';
 
 async function fetch(user_id: number, todo_id: number) {
   return api.get(
@@ -9,12 +9,12 @@ async function fetch(user_id: number, todo_id: number) {
 
 async function fetch_replyTodo(user_id: number, reply_id: number) {
   return api.get(
-    ENDPOINT + `/replies/` + reply_id + `/users/` + user_id + "/favorites"
+    ENDPOINT + `/replies/` + reply_id + `/users/` + user_id + '/favorites'
   );
 }
 
 async function fetch_userTodo(user_id: number) {
-  return api.get(ENDPOINT + "/favorites" + `/users/` + user_id);
+  return api.get(ENDPOINT + '/favorites' + `/users/` + user_id);
 }
 
 async function create(favorite: any) {

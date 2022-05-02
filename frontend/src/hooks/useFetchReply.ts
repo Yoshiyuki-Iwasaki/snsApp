@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import ReplyApi from "../api/Reply/api";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import ReplyApi from '../api/Reply/api';
+import { useParams } from 'react-router-dom';
 
 const useFetchAllTodos = () => {
   const [replies, setReplies] = useState<any>();

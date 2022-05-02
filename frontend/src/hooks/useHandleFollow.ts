@@ -1,5 +1,5 @@
-import { notify } from "../util/notify";
-import RelationshipApi from "../api/Relationship/api";
+import { notify } from '../util/notify';
+import RelationshipApi from '../api/Relationship/api';
 
 const useHandleFollow = (myUser, params, fetchFollow) => {
   const handleFollow = async () => {
@@ -8,7 +8,7 @@ const useHandleFollow = (myUser, params, fetchFollow) => {
       follower_id: Number(params.id),
     };
     await RelationshipApi.create(myUser && myUser.data.id, data);
-    notify("正常にフォローが完了しました。");
+    notify('正常にフォローが完了しました。');
     fetchFollow();
   };
 

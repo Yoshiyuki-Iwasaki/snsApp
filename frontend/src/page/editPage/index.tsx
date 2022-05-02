@@ -1,16 +1,16 @@
-import React, { FC } from "react";
-import "react-toastify/dist/ReactToastify.css";
-import Presenter from "./presenter";
-import useHandleInputChange from "../../hooks/useHandleInputChange";
-import useUpdateTodo from "../../hooks/useUpdateTodo";
-import useFetchCurrentTodo from "../../hooks/useFetchCurrentTodo";
-import useFetchMyUser from "../../hooks/useFetchMyUser";
+import React, { FC } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import Presenter from './presenter';
+import useHandleInputChange from '../../hooks/useHandleInputChange';
+import useUpdateTodo from '../../hooks/useUpdateTodo';
+import useFetchCurrentTodo from '../../hooks/useFetchCurrentTodo';
+import useFetchMyUser from '../../hooks/useFetchMyUser';
 
 const EditPage: FC = () => {
   const initialTodoState = {
     id: null,
-    name: "",
-    createdAt: "",
+    name: '',
+    createdAt: '',
   };
   const { inputChange, setInputChange, handleInputChange } =
     useHandleInputChange(initialTodoState);

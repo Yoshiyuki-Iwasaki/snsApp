@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { Box, Center, FormLabel, Input, Button } from "@chakra-ui/react";
-import { SignUpPageType } from "./type";
+import React, { FC } from 'react';
+import { Box, Center, FormLabel, Input, Button } from '@chakra-ui/react';
+import { SignUpPageType } from './type';
 
 const Presenter: FC<SignUpPageType> = ({
   user,

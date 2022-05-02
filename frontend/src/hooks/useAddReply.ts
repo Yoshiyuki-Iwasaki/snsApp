@@ -1,6 +1,6 @@
-import { notify } from "../util/notify";
-import useFetchMyUser from "./useFetchMyUser";
-import ReplyApi from "../api/Reply/api";
+import { notify } from '../util/notify';
+import useFetchMyUser from './useFetchMyUser';
+import ReplyApi from '../api/Reply/api';
 
 const useAddTodo = (inputChange, params, fetchReply) => {
   const { myUser } = useFetchMyUser();
@@ -12,7 +12,7 @@ const useAddTodo = (inputChange, params, fetchReply) => {
     };
     await ReplyApi.create(data);
     fetchReply();
-    notify("正常にリプライが完了しました。");
+    notify('正常にリプライが完了しました。');
   };
 
   return addReply;

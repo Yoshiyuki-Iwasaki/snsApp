@@ -1,9 +1,9 @@
-import storageUtils from "../util/storage";
-import axios, { AxiosError } from "axios";
-import applyCaseMiddleware from "axios-case-converter";
+import storageUtils from '../util/storage';
+import axios, { AxiosError } from 'axios';
+import applyCaseMiddleware from 'axios-case-converter';
 
-const snakeCase = require("snakecase-keys");
-const camelCase = require("camelcase-keys");
+const snakeCase = require('snakecase-keys');
+const camelCase = require('camelcase-keys');
 
 export type APIResponseError = {
   statusCode: number;
@@ -18,7 +18,7 @@ const api = applyCaseMiddleware(
   axios.create({
     timeout: 30 * 30 * 1000,
     withCredentials: true,
-    headers: { accept: " application/json" },
+    headers: { accept: ' application/json' },
   }),
   options
 );
@@ -28,17 +28,17 @@ api.interceptors.request.use(
     const { accessToken } = storageUtils.getSavedToken();
     const locale = storageUtils.getLocal();
     if (accessToken) {
-      req.headers["Authorization"] = `${accessToken}`;
+      req.headers['Authorization'] = `${accessToken}`;
     }
     req.params = req.params ? { ...req.params, locale } : { locale };
     req.params = snakeCase(req.params, { deep: true });
 
-    if (req.data && req.headers["Content-Type"] !== "multipart/form-data") {
+    if (req.data && req.headers['Content-Type'] !== 'multipart/form-data') {
       req.params = snakeCase(req.params, { deep: true });
     }
     return req;
   },
-  err => {
+  (err) => {
     return Promise.reject(err);
   }
 );
@@ -48,7 +48,7 @@ api.interceptors.response.use(
     if (res.data) res.data = camelCase(res.data, { deep: true });
     return res;
   },
-  err => {
+  (err) => {
     return Promise.reject(err);
   }
 );
@@ -58,10 +58,10 @@ export const getApiErrorMessage = (
   detailed = false
 ): string => {
   if (!error.response) {
-    return error.code || "unknown";
+    return error.code || 'unknown';
   }
   if (detailed) {
-    return Object.values(error.response.data.errors || {}).join(", ");
+    return Object.values(error.response.data.errors || {}).join(', ');
   }
 
   return error.response.data.message || error.response.statusText;

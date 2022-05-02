@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import Presenter from "./presenter";
-import useHandleInputChange from "../../hooks/useHandleInputChange";
-import useHandleLogin from "../../hooks/useHandleLogin";
+import React, { FC } from 'react';
+import Presenter from './presenter';
+import useHandleInputChange from '../../hooks/useHandleInputChange';
+import useHandleLogin from '../../hooks/useHandleLogin';
 
 const SigninPage: FC = () => {
   const initialTodoState = {
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialTodoState);

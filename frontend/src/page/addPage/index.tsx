@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import useHandleInputChange from "../../hooks/useHandleInputChange";
-import useAddTodo from "../../hooks/useAddTodo";
-import Presenter from "./presenter";
+import React, { FC } from 'react';
+import useHandleInputChange from '../../hooks/useHandleInputChange';
+import useAddTodo from '../../hooks/useAddTodo';
+import Presenter from './presenter';
 
 const AddPage: FC = () => {
   const initialTodoState = {
     id: null,
-    name: "",
-    user_id: "",
+    name: '',
+    user_id: '',
   };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialTodoState);

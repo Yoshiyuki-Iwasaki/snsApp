@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import ListItem from "../../components/molecules/listItem";
-import SearchArea from "../../components/molecules/searchArea";
-import { PresenterType } from "./type";
-import InfiniteScroll from "react-infinite-scroller";
-import { Box } from "@chakra-ui/react";
+import React, { FC } from 'react';
+import ListItem from '../../components/molecules/listItem';
+import SearchArea from '../../components/molecules/searchArea';
+import { PresenterType } from './type';
+import InfiniteScroll from 'react-infinite-scroller';
+import { Box } from '@chakra-ui/react';
 
 const Presenter: FC<PresenterType> = ({
   user,
@@ -35,8 +35,8 @@ const Presenter: FC<PresenterType> = ({
         >
           {/* 読み込み最中に表示する項目 */}
           {todos
-            .filter(val => {
-              if (searchName === "") {
+            .filter((val) => {
+              if (searchName === '') {
                 return val;
               } else if (
                 val.name.toLowerCase().includes(searchName.toLowerCase())
@@ -44,7 +44,7 @@ const Presenter: FC<PresenterType> = ({
                 return val;
               }
             })
-            .map(val => {
+            .map((val) => {
               return (
                 <ListItem
                   key={val.id}

@@ -1,23 +1,23 @@
-import React from "react";
-import Presenter from "./presenter";
-import { useParams } from "react-router-dom";
-import useHandleInputChange from "../../hooks/useHandleInputChange";
-import useFetchMyUser from "../../hooks/useFetchMyUser";
-import useFetchReply from "../../hooks/useFetchReply";
-import useFetchCurrentTodo from "../../hooks/useFetchCurrentTodo";
-import useAddReply from "../../hooks/useAddReply";
-import useDeleteTodo from "../../hooks/useDeleteTodo";
-import useModalOpen from "../../hooks/useModalOpen";
+import React from 'react';
+import Presenter from './presenter';
+import { useParams } from 'react-router-dom';
+import useHandleInputChange from '../../hooks/useHandleInputChange';
+import useFetchMyUser from '../../hooks/useFetchMyUser';
+import useFetchReply from '../../hooks/useFetchReply';
+import useFetchCurrentTodo from '../../hooks/useFetchCurrentTodo';
+import useAddReply from '../../hooks/useAddReply';
+import useDeleteTodo from '../../hooks/useDeleteTodo';
+import useModalOpen from '../../hooks/useModalOpen';
 
 const DetailPage = () => {
   const { myUser } = useFetchMyUser();
   const params = useParams();
   const initialReplyState = {
     id: null,
-    name: "",
-    user_id: "",
-    todo_id: "",
-    createdAt: "",
+    name: '',
+    user_id: '',
+    todo_id: '',
+    createdAt: '',
   };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialReplyState);

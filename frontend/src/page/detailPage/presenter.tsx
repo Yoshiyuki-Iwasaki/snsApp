@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import { formatDate } from "../../util/data";
-import ListItem from "../../components/molecules/listItem";
-import { FiSend } from "react-icons/fi";
-import { DetailPageType } from "./type";
-import { Box, Flex, Input, Link, Text, Button } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import React, { FC } from 'react';
+import { formatDate } from '../../util/data';
+import ListItem from '../../components/molecules/listItem';
+import { FiSend } from 'react-icons/fi';
+import { DetailPageType } from './type';
+import { Box, Flex, Input, Link, Text, Button } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 const Presenter: FC<DetailPageType> = ({
   params,
@@ -39,7 +39,7 @@ const Presenter: FC<DetailPageType> = ({
         {modalOpen && (
           <Box position="absolute" top={2} right={16}>
             <Box>
-              <Link href={"/todo/" + params.id + "/edit"} fontSize="13px">
+              <Link href={'/todo/' + params.id + '/edit'} fontSize="13px">
                 編集
               </Link>
             </Box>
@@ -63,7 +63,7 @@ const Presenter: FC<DetailPageType> = ({
         <Flex>
           {currentTodo.user && (
             <Box mr={3}>
-              <Link href={"/user/" + currentTodo.user.id}>
+              <Link href={'/user/' + currentTodo.user.id}>
                 <Text fontSize="14px" fontWeight="700">
                   {currentTodo.user && currentTodo.user.name}
                 </Text>
@@ -81,7 +81,7 @@ const Presenter: FC<DetailPageType> = ({
           <Input
             mt={3}
             mr={2}
-            name={"name"}
+            name={'name'}
             value={reply.name}
             onChange={handleInputChange}
           />
@@ -97,7 +97,7 @@ const Presenter: FC<DetailPageType> = ({
         </Flex>
         <Box mt={2}>
           {replies &&
-            replies.data.map(val => {
+            replies.data.map((val) => {
               return (
                 <ListItem
                   key={val.id}

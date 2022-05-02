@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import FavoriteApi from "../api/Favorite/api";
-import useFetchMyUser from "./useFetchMyUser";
+import { useState, useEffect } from 'react';
+import FavoriteApi from '../api/Favorite/api';
+import useFetchMyUser from './useFetchMyUser';
 
 const useFetchFavorite = (val, detailPageFrag) => {
   const [favorite, setFavorite] = useState<any>();

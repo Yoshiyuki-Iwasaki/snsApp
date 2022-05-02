@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import TodoApi from "../api/Todo/api";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import TodoApi from '../api/Todo/api';
+import { useParams } from 'react-router-dom';
 
 const useFetchTodoData = (inputChange?: any, setInputChange?: any) => {
   const params = useParams();
   const initialTodoState = {
     id: null,
-    name: "",
-    createdAt: "",
+    name: '',
+    createdAt: '',
   };
   const [currentTodo, setCurrentTodo] = useState<any>(initialTodoState);
   useEffect(() => {

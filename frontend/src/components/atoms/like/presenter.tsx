@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { LikeType } from "./type";
-import { Button } from "@chakra-ui/react";
+import React, { FC } from 'react';
+import { LikeType } from './type';
+import { Button } from '@chakra-ui/react';
 
 const Presenter: FC<LikeType> = ({ postData, handleLike }) => {
   return (

@@ -1,14 +1,14 @@
-import React from "react";
-import Presenter from "./presenter";
-import useHandleInputChange from "../../hooks/useHandleInputChange";
-import useHandleAddUser from "../../hooks/useHandleAddUser";
+import React from 'react';
+import Presenter from './presenter';
+import useHandleInputChange from '../../hooks/useHandleInputChange';
+import useHandleAddUser from '../../hooks/useHandleAddUser';
 
 const SignUpPage = () => {
   const initialTodoState = {
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
+    name: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
   };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialTodoState);

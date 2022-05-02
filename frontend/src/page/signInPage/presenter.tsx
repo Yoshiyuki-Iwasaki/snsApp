@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { PresenterType } from "./type";
-import { Box, Center, FormLabel, Input, Button } from "@chakra-ui/react";
+import React, { FC } from 'react';
+import { PresenterType } from './type';
+import { Box, Center, FormLabel, Input, Button } from '@chakra-ui/react';
 
 const Presenter: FC<PresenterType> = ({
   loginInfo,

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import UserApi from "../api/User/api";
+import { useEffect, useState } from 'react';
+import UserApi from '../api/User/api';
 
 const useFetchMyUser = () => {
   const [myUser, setMyUser] = useState<any>();

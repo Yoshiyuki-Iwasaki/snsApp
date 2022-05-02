@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import Button from "../../components/atoms/button";
-import ListItem from "../../components/molecules/listItem";
-import { Flex, Box, Center, Image, Text } from "@chakra-ui/react";
-import { PresenterType } from "./type";
+import React, { FC } from 'react';
+import Button from '../../components/atoms/button';
+import ListItem from '../../components/molecules/listItem';
+import { Flex, Box, Center, Image, Text } from '@chakra-ui/react';
+import { PresenterType } from './type';
 
 const Presenter: FC<PresenterType> = ({
   user,
@@ -61,7 +61,7 @@ const Presenter: FC<PresenterType> = ({
             )}
           </>
         ) : (
-          ""
+          ''
         )}
         <Flex mt={5}>
           <Box mx={1} w="50%">
@@ -69,7 +69,7 @@ const Presenter: FC<PresenterType> = ({
               投稿一覧
             </Text>
             {myPost &&
-              myPost.data.map(val => {
+              myPost.data.map((val) => {
                 return (
                   <ListItem
                     key={val.id}
@@ -85,7 +85,7 @@ const Presenter: FC<PresenterType> = ({
               いいねした投稿
             </Text>
             {likedPost.data &&
-              likedPost.data.map(val => {
+              likedPost.data.map((val) => {
                 return (
                   val.todo && (
                     <>

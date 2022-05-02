@@ -4,15 +4,15 @@ export type TokenType = {
 };
 
 const cashedToken: TokenType = {
-  accessToken: "",
+  accessToken: '',
 };
 
 const getSavedToken = (): TokenType => {
   if (cashedToken.accessToken) {
     return cashedToken;
   }
-  const accessToken = window.localStorage.getItem("accessToken");
-  const expiry = window.localStorage.getItem("expiry");
+  const accessToken = window.localStorage.getItem('accessToken');
+  const expiry = window.localStorage.getItem('expiry');
   return {
     accessToken,
     expiry: expiry ? parseInt(expiry) : undefined,
@@ -30,9 +30,9 @@ const getSavedToken = (): TokenType => {
 
 const saveTokensObj = (token: TokenType) => {
   if (token.accessToken)
-    window.localStorage.setItem("accessToken", token.accessToken);
+    window.localStorage.setItem('accessToken', token.accessToken);
   if (token.expiry)
-    window.localStorage.setItem("expiry", token.expiry.toString());
+    window.localStorage.setItem('expiry', token.expiry.toString());
   cashedToken.accessToken = token.accessToken;
   cashedToken.expiry = token.expiry;
 };
@@ -42,13 +42,13 @@ const saveTokens = (name: any, value?: any) => {
 };
 
 const getLocal = () => {
-  const local = window.localStorage.getItem("i18nextLang") || "en";
-  return local === "en-US" ? "en" : local;
+  const local = window.localStorage.getItem('i18nextLang') || 'en';
+  return local === 'en-US' ? 'en' : local;
 };
 
 const clear = () => {
   window.localStorage.clear();
-  cashedToken.accessToken = "";
+  cashedToken.accessToken = '';
   cashedToken.expiry = undefined;
 };
 

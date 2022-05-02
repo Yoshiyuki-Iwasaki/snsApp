@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import { notify } from "../util/notify";
-import useFetchMyUser from "./useFetchMyUser";
-import TodoApi from "../api/Todo/api";
+import { useNavigate } from 'react-router-dom';
+import { notify } from '../util/notify';
+import useFetchMyUser from './useFetchMyUser';
+import TodoApi from '../api/Todo/api';
 
-const useAddTodo = inputChange => {
+const useAddTodo = (inputChange) => {
   const { myUser } = useFetchMyUser();
   const navigate = useNavigate();
   const addTodo = async () => {
@@ -12,8 +12,8 @@ const useAddTodo = inputChange => {
       user_id: myUser.data.id,
     };
     await TodoApi.create(data);
-    notify("正常に投稿が完了しました。");
-    navigate("/");
+    notify('正常に投稿が完了しました。');
+    navigate('/');
   };
 
   return addTodo;

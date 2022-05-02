@@ -1,5 +1,5 @@
-import api from "../api";
-const ENDPOINT = "/api/v1";
+import api from '../api';
+const ENDPOINT = '/api/v1';
 
 async function fetch(follow_id: number, follower_id: number) {
   return api.get(
