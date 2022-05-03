@@ -11,13 +11,14 @@ const ListItem: FC<ListItemType> = ({
   myUser,
   postedUser,
   val,
+  replyFrag,
   detailPageFrag,
 }) => {
   const { favorite, fetchFavorite } = useFetchFavorite(val, detailPageFrag);
   const handleLike = useHandleLike(val, myUser, fetchFavorite, detailPageFrag);
   const handleUnlike = useHandleUnlike(favorite, fetchFavorite);
   const deleteTodo = useDeleteTodo(val, detailPageFrag);
-  const { modalOpen, handleModal } = useModalOpen();
+  const { modalOpenFrag, handleModal } = useModalOpen();
 
   return (
     <Presenter
@@ -25,7 +26,8 @@ const ListItem: FC<ListItemType> = ({
       myUser={myUser}
       postedUser={postedUser}
       favorite={favorite}
-      modalOpen={modalOpen}
+      replyFrag={replyFrag}
+      modalOpenFrag={modalOpenFrag}
       handleLike={handleLike}
       handleUnlike={handleUnlike}
       handleModal={handleModal}

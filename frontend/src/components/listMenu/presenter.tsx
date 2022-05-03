@@ -6,7 +6,8 @@ import { ListMenuType } from './type';
 const Presenter: FC<ListMenuType> = ({
   myUser,
   postedUser,
-  modalOpen,
+  modalOpenFrag,
+  replyFrag,
   val,
   handleModal,
   deleteTodo,
@@ -30,13 +31,15 @@ const Presenter: FC<ListMenuType> = ({
           <HamburgerIcon />
         </Button>
       )}
-      {modalOpen && (
+      {modalOpenFrag && (
         <Box position="absolute" top={2} right={16}>
-          <Box>
-            <Link href={'/todo/' + val.id + '/edit'} fontSize="13px">
-              編集
-            </Link>
-          </Box>
+          {!replyFrag && (
+            <Box>
+              <Link href={'/todo/' + val.id + '/edit'} fontSize="13px">
+                編集
+              </Link>
+            </Box>
+          )}
           <Box>
             <Button
               m={0}

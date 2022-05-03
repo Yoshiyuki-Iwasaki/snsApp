@@ -23,7 +23,7 @@ export type DetailPageType = {
     name: string;
   };
   replies: Todos[];
-  modalOpen: boolean;
+  modalOpenFrag: boolean;
   deleteTodo: deleteTodoType;
   handleModal: handleModalType;
   handleInputChange: handleInputChangeType;

@@ -21,6 +21,7 @@ export type ListItemType = {
     createdAt: string;
     name: string;
   };
+  replyFrag?: boolean;
   detailPageFrag?: boolean;
 };
 
@@ -50,7 +51,8 @@ export type PresenterType = {
       length: number;
     };
   };
-  modalOpen: boolean;
+  replyFrag: boolean;
+  modalOpenFrag: boolean;
   handleLike: handleLikeType;
   handleUnlike: handleUnlikeType;
   handleModal: handleModalType;

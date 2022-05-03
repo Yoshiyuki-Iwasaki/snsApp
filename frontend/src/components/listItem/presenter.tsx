@@ -10,7 +10,8 @@ const Presenter: FC<PresenterType> = ({
   myUser,
   postedUser,
   favorite,
-  modalOpen,
+  replyFrag,
+  modalOpenFrag,
   handleLike,
   handleUnlike,
   handleModal,
@@ -21,7 +22,8 @@ const Presenter: FC<PresenterType> = ({
       <ListMenu
         myUser={myUser}
         postedUser={postedUser}
-        modalOpen={modalOpen}
+        replyFrag={replyFrag}
+        modalOpenFrag={modalOpenFrag}
         val={val}
         handleModal={handleModal}
         deleteTodo={deleteTodo}

@@ -11,7 +11,7 @@ const Presenter: FC<DetailPageType> = ({
   myUser,
   reply,
   replies,
-  modalOpen,
+  modalOpenFrag,
   deleteTodo,
   handleModal,
   handleInputChange,
@@ -23,7 +23,7 @@ const Presenter: FC<DetailPageType> = ({
         <ListMenu
           myUser={myUser}
           postedUser={currentTodo.user}
-          modalOpen={modalOpen}
+          modalOpenFrag={modalOpenFrag}
           val={currentTodo}
           handleModal={handleModal}
           deleteTodo={deleteTodo}
@@ -72,6 +72,7 @@ const Presenter: FC<DetailPageType> = ({
                   myUser={myUser}
                   postedUser={val.user}
                   val={val}
+                  replyFrag={true}
                   detailPageFrag={true}
                 />
               );

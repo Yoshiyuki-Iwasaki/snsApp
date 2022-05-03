@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 const useModalOpen = () => {
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [modalOpenFrag, setModalOpenFrag] = useState<boolean>(false);
   const handleModal = () => {
-    setModalOpen(!modalOpen);
+    setModalOpenFrag(!modalOpenFrag);
   };
 
-  return { modalOpen, handleModal };
+  return { modalOpenFrag, handleModal };
 };
 
 export default useModalOpen;
