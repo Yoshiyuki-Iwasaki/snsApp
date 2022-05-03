@@ -7,7 +7,7 @@ const useFetchMyPost = (id: number) => {
   useEffect(() => {
     const fetchMyPost = async () => {
       const TodoRes = await TodoApi.fetch_userTodo(id);
-      setMyPost(TodoRes);
+      setMyPost(TodoRes.data);
     };
     fetchMyPost();
   }, []);

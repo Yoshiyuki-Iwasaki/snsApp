@@ -10,7 +10,7 @@ const useFetchFavorite = (val, detailPageFrag) => {
     const FavoriteRes = detailPageFrag
       ? await FavoriteApi.fetch_replyTodo(myUser.data.id, val.id)
       : await FavoriteApi.fetch(myUser.data.id, val.id);
-    setFavorite(FavoriteRes);
+    setFavorite(FavoriteRes.data);
   };
 
   useEffect(() => {

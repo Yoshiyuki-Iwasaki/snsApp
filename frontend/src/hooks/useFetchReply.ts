@@ -8,7 +8,7 @@ const useFetchReply = () => {
 
   const fetchReply = async () => {
     const ReplyRes = await ReplyApi.fetch(Number(params.id));
-    setReplies(ReplyRes);
+    setReplies(ReplyRes.data);
   };
 
   useEffect(() => {

@@ -33,7 +33,7 @@ const DetailPage = () => {
       currentTodo={currentTodo}
       myUser={myUser}
       reply={inputChange}
-      replies={replies && replies.data}
+      replies={replies}
       modalOpen={modalOpen}
       deleteTodo={deleteTodo}
       handleModal={handleModal}

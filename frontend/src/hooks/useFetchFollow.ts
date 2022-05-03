@@ -13,12 +13,11 @@ const useFetchFollow = () => {
       myUser && myUser.data.id,
       Number(params.id)
     );
-    setFollow(followRes);
+    setFollow(followRes.data);
   };
 
   useEffect(() => {
     fetchFollow();
-    console.log('follow', follow);
   }, []);
 
   return { follow, fetchFollow };

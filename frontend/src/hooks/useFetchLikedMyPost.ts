@@ -7,7 +7,7 @@ const useFetchLikedMyPost = (id: number) => {
   useEffect(() => {
     const fetchLikedPost = async () => {
       const FavoriteRes = await FavoriteApi.fetch_userTodo(id);
-      setLikedPost(FavoriteRes);
+      setLikedPost(FavoriteRes.data);
     };
     fetchLikedPost();
   }, []);

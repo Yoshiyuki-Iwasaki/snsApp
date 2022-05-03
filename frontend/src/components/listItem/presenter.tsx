@@ -78,7 +78,7 @@ const Presenter: FC<PresenterType> = ({
         </Link>
       )}
       <Flex mt={3} alignItems="center">
-        {favorite && favorite.data.favorite.length ? (
+        {favorite && favorite.favorite.length ? (
           <Button
             m={0}
             p={0}
@@ -103,9 +103,7 @@ const Presenter: FC<PresenterType> = ({
           </Button>
         )}
         <Box ml={3}>
-          <Text fontSize="13px">
-            {favorite && favorite.data.isFavorite.length}
-          </Text>
+          <Text fontSize="13px">{favorite && favorite.isFavorite.length}</Text>
         </Box>
       </Flex>
     </Box>

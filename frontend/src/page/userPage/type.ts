@@ -27,16 +27,14 @@ export type PresenterType = {
     password_confirmation: string;
   };
   follow: {
-    data: {
-      isRelationshipFollowing: {
-        length: number;
-      };
-      isRelationshipFollowed: {
-        length: number;
-      };
-      relationship: {
-        length: number;
-      };
+    isRelationshipFollowing: {
+      length: number;
+    };
+    isRelationshipFollowed: {
+      length: number;
+    };
+    relationship: {
+      length: number;
     };
   };
   myUser: {
@@ -44,12 +42,8 @@ export type PresenterType = {
       id: number;
     };
   };
-  myPost: {
-    data: Todos[];
-  };
-  likedPost: {
-    data: TodosLikedPost[];
-  };
+  myPost: Todos[];
+  likedPost: TodosLikedPost[];
   params: {
     id: string;
   };

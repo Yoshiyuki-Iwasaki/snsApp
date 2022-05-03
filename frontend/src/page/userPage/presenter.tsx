@@ -34,7 +34,7 @@ const Presenter: FC<PresenterType> = ({
               </Text>
             </Box>
             <Text fontSize="14px" fontWeight="700">
-              {follow && follow.data.isRelationshipFollowing.length}
+              {follow && follow.isRelationshipFollowing.length}
             </Text>
           </Flex>
           <Flex>
@@ -44,7 +44,7 @@ const Presenter: FC<PresenterType> = ({
               </Text>
             </Box>
             <Text fontSize="14px" fontWeight="700">
-              {follow && follow.data.isRelationshipFollowed.length}
+              {follow && follow.isRelationshipFollowed.length}
             </Text>
           </Flex>
         </Flex>
@@ -53,7 +53,7 @@ const Presenter: FC<PresenterType> = ({
         {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
         {myUser && myUser.data.id !== Number(params.id) ? (
           <>
-            {follow && follow.data.relationship.length ? (
+            {follow && follow.relationship.length ? (
               <Button onClick={handleUnfollow}>フォロー削除</Button>
             ) : (
               <Button onClick={handleFollow}>フォロー</Button>
@@ -68,7 +68,7 @@ const Presenter: FC<PresenterType> = ({
               投稿一覧
             </Text>
             {myPost &&
-              myPost.data.map((val) => {
+              myPost.map((val) => {
                 return (
                   <ListItem
                     key={val.id}
@@ -83,8 +83,8 @@ const Presenter: FC<PresenterType> = ({
             <Text fontSize="16px" fontWeight="700">
               いいねした投稿
             </Text>
-            {likedPost.data &&
-              likedPost.data.map((val) => {
+            {likedPost &&
+              likedPost.map((val) => {
                 return (
                   val.todo && (
                     <>

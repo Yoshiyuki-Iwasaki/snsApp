@@ -43,13 +43,11 @@ export type PresenterType = {
     password_confirmation: string;
   };
   favorite: {
-    data: {
-      favorite: {
-        length: number;
-      };
-      isFavorite: {
-        length: number;
-      };
+    favorite: {
+      length: number;
+    };
+    isFavorite: {
+      length: number;
     };
   };
   modalOpen: boolean;
