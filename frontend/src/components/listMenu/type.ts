@@ -1,5 +1,5 @@
-type deleteTodoType = () => {};
-type handleModalType = () => void;
+import { deleteTodoType } from '../../type';
+import { handleModalType } from '../../type';
 
 export type ListMenuType = {
   myUser: {

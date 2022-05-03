@@ -1,12 +1,5 @@
-type eventType = {
-  target: {
-    name: string;
-    value: string;
-  };
-};
-
-type handleInputChangeType = (event: eventType) => void;
-type handleLoginType = () => {};
+import { handleInputChangeType } from '../../type';
+import { handleLoginType } from '../../type';
 
 export type PresenterType = {
   loginInfo: {

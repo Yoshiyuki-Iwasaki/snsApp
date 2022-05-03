@@ -1,7 +1,7 @@
-type handleLikeType = () => {};
-type handleUnlikeType = () => {};
-type deleteTodoType = () => {};
-type handleModalType = () => void;
+import { deleteTodoType } from '../../type';
+import { handleModalType } from '../../type';
+import { handleLikeType } from '../../type';
+import { handleUnlikeType } from '../../type';
 
 export type ListItemType = {
   user: {

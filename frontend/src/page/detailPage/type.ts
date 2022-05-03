@@ -1,15 +1,8 @@
 import { Todos } from '../../type/Todos';
-type eventType = {
-  target: {
-    name: string;
-    value: string;
-  };
-};
-
-type handleInputChangeType = (event: eventType) => void;
-type addReplyType = () => {};
-type deleteTodoType = () => {};
-type handleModalType = () => void;
+import { deleteTodoType } from '../../type';
+import { handleModalType } from '../../type';
+import { handleInputChangeType } from '../../type';
+import { addReplyType } from '../../type';
 
 export type DetailPageType = {
   params: {

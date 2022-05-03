@@ -1,4 +1,4 @@
-type handleLogoutType = () => {};
+import { handleLogoutType } from '../../type';
 
 export type PresenterType = {
   myUser: {

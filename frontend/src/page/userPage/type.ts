@@ -1,7 +1,6 @@
 import { Todos } from '../../type/Todos';
-
-type handleUnfollowType = () => {};
-type handleFollowType = () => {};
+import { handleUnfollowType } from '../../type';
+import { handleFollowType } from '../../type';
 
 type TodosLikedPost = {
   id: number;

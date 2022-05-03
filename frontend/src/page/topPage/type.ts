@@ -1,6 +1,5 @@
 import { Todos } from '../../type/Todos';
-
-type fetchTodoType = (page: number) => {};
+import { fetchTodoType } from '../../type';
 
 export type PresenterType = {
   myUser: {

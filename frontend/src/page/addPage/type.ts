@@ -1,12 +1,5 @@
-type eventType = {
-  target: {
-    name: string;
-    value: string;
-  };
-};
-
-type handleInputChangeType = (event: eventType) => void;
-type addTodoType = () => {};
+import { handleInputChangeType } from '../../type';
+import { addTodoType } from '../../type';
 
 export type PresenterType = {
   todo: {
