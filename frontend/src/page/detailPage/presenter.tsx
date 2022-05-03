@@ -7,7 +7,6 @@ import { DetailPageType } from './type';
 import { Box, Flex, Input, Link, Text, Button } from '@chakra-ui/react';
 
 const Presenter: FC<DetailPageType> = ({
-  params,
   currentTodo,
   myUser,
   reply,
@@ -23,7 +22,7 @@ const Presenter: FC<DetailPageType> = ({
       <Box p={3} borderWidth="1px" position="relative">
         <ListMenu
           myUser={myUser}
-          user={currentTodo.user}
+          postedUser={currentTodo.user}
           modalOpen={modalOpen}
           val={currentTodo}
           handleModal={handleModal}
@@ -71,7 +70,7 @@ const Presenter: FC<DetailPageType> = ({
                 <ListItem
                   key={val.id}
                   myUser={myUser}
-                  user={val.user}
+                  postedUser={val.user}
                   val={val}
                   detailPageFrag={true}
                 />

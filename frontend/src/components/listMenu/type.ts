@@ -7,7 +7,7 @@ export type ListMenuType = {
       id: number;
     };
   };
-  user: {
+  postedUser: {
     id: number;
     name: string;
   };

@@ -14,14 +14,14 @@ const UserPage: FC = () => {
   const myPost = useFetchMyPost(Number(id));
   const likedPost = useFetchLikedMyPost(Number(id));
   const { myUser } = useFetchMyUser();
-  const { user } = useFetchUser(Number(id));
+  const { postedUser } = useFetchUser(Number(id));
   const { follow, fetchFollow } = useFetchFollow();
   const handleFollow = useHandleFollow(myUser, { id }, fetchFollow);
   const handleUnfollow = useHandleUnFollow(follow, fetchFollow);
 
   return (
     <Presenter
-      user={user}
+      postedUser={postedUser}
       follow={follow}
       myUser={myUser}
       myPost={myPost}

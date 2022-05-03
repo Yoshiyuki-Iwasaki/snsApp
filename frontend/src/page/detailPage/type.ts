@@ -5,9 +5,6 @@ import { handleInputChangeType } from '../../type';
 import { addReplyType } from '../../type';
 
 export type DetailPageType = {
-  params: {
-    id: string;
-  };
   currentTodo: {
     id: number;
     user: {

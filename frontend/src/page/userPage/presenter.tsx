@@ -4,7 +4,7 @@ import { Flex, Box, Center, Image, Text, Button } from '@chakra-ui/react';
 import { PresenterType } from './type';
 
 const Presenter: FC<PresenterType> = ({
-  user,
+  postedUser,
   follow,
   myUser,
   myPost,
@@ -22,7 +22,7 @@ const Presenter: FC<PresenterType> = ({
       </Center>
       <Center mt={3}>
         <Text fontSize="18px" fontWeight="700">
-          {user && user.name}
+          {postedUser && postedUser.name}
         </Text>
       </Center>
       <Center>
@@ -75,7 +75,7 @@ const Presenter: FC<PresenterType> = ({
                   <ListItem
                     key={val.id}
                     myUser={myUser}
-                    user={val.user}
+                    postedUser={val.user}
                     val={val}
                   />
                 );
@@ -93,7 +93,7 @@ const Presenter: FC<PresenterType> = ({
                       <ListItem
                         key={val.id}
                         myUser={myUser}
-                        user={val.todo.user}
+                        postedUser={val.todo.user}
                         val={val.todo}
                       />
                     </>

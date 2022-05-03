@@ -4,7 +4,7 @@ import { handleLikeType } from '../../type';
 import { handleUnlikeType } from '../../type';
 
 export type ListItemType = {
-  user: {
+  postedUser: {
     id: number;
     name: string;
     email: string;
@@ -35,7 +35,7 @@ export type PresenterType = {
       id: number;
     };
   };
-  user: {
+  postedUser: {
     id: number;
     name: string;
     email: string;

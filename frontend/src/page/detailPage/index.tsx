@@ -29,7 +29,6 @@ const DetailPage = () => {
 
   return (
     <Presenter
-      params={{ id }}
       currentTodo={currentTodo}
       myUser={myUser}
       reply={inputChange}

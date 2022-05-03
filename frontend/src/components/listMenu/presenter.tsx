@@ -5,7 +5,7 @@ import { ListMenuType } from './type';
 
 const Presenter: FC<ListMenuType> = ({
   myUser,
-  user,
+  postedUser,
   modalOpen,
   val,
   handleModal,
@@ -13,7 +13,7 @@ const Presenter: FC<ListMenuType> = ({
 }) => {
   return (
     <>
-      {myUser && myUser.data.id === user.id && (
+      {myUser && myUser.data.id === postedUser.id && (
         <Button
           m={0}
           p={0}

@@ -49,7 +49,7 @@ const Presenter: FC<PresenterType> = ({
                 <ListItem
                   key={val.id}
                   myUser={myUser}
-                  user={val.user}
+                  postedUser={val.user}
                   val={val}
                 />
               );

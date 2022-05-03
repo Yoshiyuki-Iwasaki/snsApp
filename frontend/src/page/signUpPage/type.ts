@@ -2,7 +2,7 @@ import { handleInputChangeType } from '../../type';
 import { handleAddUserType } from '../../type';
 
 export type SignUpPageType = {
-  user: {
+  signUpInfo: {
     name: string;
     email: string;
     password: string;
