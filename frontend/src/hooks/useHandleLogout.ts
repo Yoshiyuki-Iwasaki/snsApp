@@ -10,6 +10,7 @@ const useHandleLogout = () => {
     await UserApi.logout();
     setMyUser('');
     navigate('/');
+    window.location.reload();
   };
 
   return { myUser, handleLogout };

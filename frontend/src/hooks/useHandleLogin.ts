@@ -21,6 +21,7 @@ const useHandleLogin = (inputChange) => {
       notify('正常にログインが完了しました。');
       fetchUser();
       navigate('/');
+      window.location.reload();
     } catch (e) {
       console.log(e);
     }
