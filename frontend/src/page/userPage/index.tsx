@@ -19,8 +19,6 @@ const UserPage: FC = () => {
   const handleFollow = useHandleFollow(myUser, { id }, fetchFollow);
   const handleUnfollow = useHandleUnFollow(follow, fetchFollow);
 
-  console.log('myUser', myUser);
-
   return (
     <Presenter
       user={user}

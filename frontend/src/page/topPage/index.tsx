@@ -8,8 +8,6 @@ const TopPage: FC = () => {
   const { myUser } = useFetchMyUser();
   const { todos, fetchTodo, hasMore, isFetching } = useFetchAllTodos();
 
-  console.log('todos', todos);
-
   return (
     <Presenter
       todos={todos}
