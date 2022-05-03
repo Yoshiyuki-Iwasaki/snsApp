@@ -2,7 +2,8 @@ import React, { FC } from 'react';
 import { formatDate } from '../../util/data';
 import { PresenterType } from './type';
 import { Box, Flex, Text, Button, Link } from '@chakra-ui/react';
-import { StarIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { StarIcon } from '@chakra-ui/icons';
+import ListMenu from '../listMenu';
 
 const Presenter: FC<PresenterType> = ({
   val,
@@ -18,50 +19,15 @@ const Presenter: FC<PresenterType> = ({
 }) => {
   return (
     <Box my={2} p={3} borderWidth="1px" position="relative">
-      {myUser && myUser.data.id === user.id && (
-        <Button
-          m={0}
-          p={0}
-          w={30}
-          h={30}
-          minWidth={0}
-          minHeight={0}
-          lineHeight={1}
-          position="absolute"
-          top={2}
-          right={3}
-          onClick={handleModal}
-        >
-          <HamburgerIcon />
-        </Button>
-      )}
-      {modalOpen && (
-        <Box position="absolute" top={2} right={16}>
-          {/* 詳細ページのみ編集リンク非表示にする */}
-          {!detailPageFrag && (
-            <Box>
-              <Link href={'/todo/' + val.id + '/edit'} fontSize="13px">
-                編集
-              </Link>
-            </Box>
-          )}
-          <Box>
-            <Button
-              m={0}
-              p={0}
-              minWidth={0}
-              height="auto"
-              width="auto"
-              bgColor="#fff"
-              fontSize="13px"
-              fontWeight={400}
-              onClick={deleteTodo}
-            >
-              削除
-            </Button>
-          </Box>
-        </Box>
-      )}
+      <ListMenu
+        myUser={myUser}
+        user={user}
+        modalOpen={modalOpen}
+        detailPageFrag={detailPageFrag}
+        val={val}
+        handleModal={handleModal}
+        deleteTodo={deleteTodo}
+      />
       {val && (
         <Link href={'/todo/' + val.id}>
           <Flex>
