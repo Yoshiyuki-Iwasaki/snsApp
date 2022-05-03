@@ -7,7 +7,6 @@ const Presenter: FC<ListMenuType> = ({
   myUser,
   user,
   modalOpen,
-  detailPageFrag,
   val,
   handleModal,
   deleteTodo,

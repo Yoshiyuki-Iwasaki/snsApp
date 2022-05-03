@@ -12,7 +12,6 @@ export type ListMenuType = {
     name: string;
   };
   modalOpen: boolean;
-  detailPageFrag: boolean;
   val: {
     id: number;
     createdAt: string;

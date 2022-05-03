@@ -6,7 +6,6 @@ const ListMenu: FC<ListMenuType> = ({
   myUser,
   user,
   modalOpen,
-  detailPageFrag,
   val,
   handleModal,
   deleteTodo,
@@ -17,7 +16,6 @@ const ListMenu: FC<ListMenuType> = ({
         myUser={myUser}
         user={user}
         modalOpen={modalOpen}
-        detailPageFrag={detailPageFrag}
         val={val}
         handleModal={handleModal}
         deleteTodo={deleteTodo}

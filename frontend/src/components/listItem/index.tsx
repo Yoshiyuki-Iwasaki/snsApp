@@ -21,7 +21,6 @@ const ListItem: FC<ListItemType> = ({ myUser, user, val, detailPageFrag }) => {
       user={user}
       favorite={favorite}
       modalOpen={modalOpen}
-      detailPageFrag={detailPageFrag}
       handleLike={handleLike}
       handleUnlike={handleUnlike}
       handleModal={handleModal}

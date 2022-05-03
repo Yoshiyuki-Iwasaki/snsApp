@@ -51,7 +51,6 @@ export type PresenterType = {
     };
   };
   modalOpen: boolean;
-  detailPageFrag: boolean;
   handleLike: handleLikeType;
   handleUnlike: handleUnlikeType;
   handleModal: handleModalType;

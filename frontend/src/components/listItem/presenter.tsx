@@ -11,7 +11,6 @@ const Presenter: FC<PresenterType> = ({
   user,
   favorite,
   modalOpen,
-  detailPageFrag,
   handleLike,
   handleUnlike,
   handleModal,
@@ -23,7 +22,6 @@ const Presenter: FC<PresenterType> = ({
         myUser={myUser}
         user={user}
         modalOpen={modalOpen}
-        detailPageFrag={detailPageFrag}
         val={val}
         handleModal={handleModal}
         deleteTodo={deleteTodo}
