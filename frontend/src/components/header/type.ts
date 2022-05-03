@@ -1,5 +1,3 @@
-import { handleLogoutType } from '../../type';
-
 export type PresenterType = {
   myUser: {
     isLogin: boolean;
@@ -8,5 +6,4 @@ export type PresenterType = {
       name: string;
     };
   };
-  handleLogout: handleLogoutType;
 };

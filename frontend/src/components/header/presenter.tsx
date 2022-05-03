@@ -1,13 +1,13 @@
-import { Button, Flex, Link, Text, textDecoration } from '@chakra-ui/react';
+import { Button, Flex, Link, Text } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import { PresenterType } from './type';
 
-const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
+const Presenter: FC<PresenterType> = ({ myUser }) => {
   return (
     <Flex px={5} py={3} alignItems={'center'} justifyContent={'space-between'}>
       <Link href="/" _hover={{ textDecoration: 'none' }}>
         <Text fontSize={22} fontWeight={700}>
-          TODO LIST
+          SNS APP
         </Text>
       </Link>
       <Flex alignItems={'center'}>
@@ -15,6 +15,9 @@ const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
           <>
             <Link mr={5} href={`/new`} fontSize={14} fontWeight={700}>
               新規投稿
+            </Link>
+            <Link mr={5} href={`/setting`} fontSize={14} fontWeight={700}>
+              設定
             </Link>
             <Link
               mr={5}
@@ -24,9 +27,6 @@ const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
             >
               {myUser.data.name}
             </Link>
-            <Button onClick={handleLogout} fontSize={14}>
-              ログアウト
-            </Button>
           </>
         ) : (
           <>
