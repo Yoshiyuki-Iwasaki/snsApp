@@ -50,18 +50,20 @@ const Presenter: FC<PresenterType> = ({
         </Flex>
       </Center>
       <Box mt={3}>
-        {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
-        {myUser && myUser.data.id !== Number(params.id) ? (
-          <>
-            {follow && follow.relationship.length ? (
-              <Button onClick={handleUnfollow}>フォロー削除</Button>
-            ) : (
-              <Button onClick={handleFollow}>フォロー</Button>
-            )}
-          </>
-        ) : (
-          ''
-        )}
+        <Center>
+          {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
+          {myUser && myUser.data.id !== Number(params.id) ? (
+            <>
+              {follow && follow.relationship.length ? (
+                <Button onClick={handleUnfollow}>フォロー削除</Button>
+              ) : (
+                <Button onClick={handleFollow}>フォロー</Button>
+              )}
+            </>
+          ) : (
+            ''
+          )}
+        </Center>
         <Flex mt={5}>
           <Box mx={1} w="50%">
             <Text fontSize="16px" fontWeight="700">

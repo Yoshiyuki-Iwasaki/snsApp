@@ -32,14 +32,11 @@ const Presenter: FC<ListMenuType> = ({
       )}
       {modalOpen && (
         <Box position="absolute" top={2} right={16}>
-          {/* 詳細ページのみ編集リンク非表示にする */}
-          {!detailPageFrag && (
-            <Box>
-              <Link href={'/todo/' + val.id + '/edit'} fontSize="13px">
-                編集
-              </Link>
-            </Box>
-          )}
+          <Box>
+            <Link href={'/todo/' + val.id + '/edit'} fontSize="13px">
+              編集
+            </Link>
+          </Box>
           <Box>
             <Button
               m={0}

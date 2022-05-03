@@ -9,6 +9,7 @@ export type DetailPageType = {
     id: string;
   };
   currentTodo: {
+    id: number;
     user: {
       id: number;
       name: string;

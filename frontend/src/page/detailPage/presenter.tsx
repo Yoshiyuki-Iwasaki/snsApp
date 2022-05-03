@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { formatDate } from '../../util/data';
 import ListItem from '../../components/listItem';
+import ListMenu from '../../components/listMenu';
 import { FiSend } from 'react-icons/fi';
 import { DetailPageType } from './type';
 import { Box, Flex, Input, Link, Text, Button } from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
 
 const Presenter: FC<DetailPageType> = ({
   params,
@@ -21,45 +21,14 @@ const Presenter: FC<DetailPageType> = ({
   return (
     <>
       <Box p={3} borderWidth="1px" position="relative">
-        <Button
-          m={0}
-          p={0}
-          w={30}
-          h={30}
-          minWidth={0}
-          minHeight={0}
-          lineHeight={1}
-          position="absolute"
-          top={2}
-          right={3}
-          onClick={handleModal}
-        >
-          <HamburgerIcon />
-        </Button>
-        {modalOpen && (
-          <Box position="absolute" top={2} right={16}>
-            <Box>
-              <Link href={'/todo/' + params.id + '/edit'} fontSize="13px">
-                編集
-              </Link>
-            </Box>
-            <Box>
-              <Button
-                m={0}
-                p={0}
-                minWidth={0}
-                height="auto"
-                width="auto"
-                bgColor="#fff"
-                fontSize="13px"
-                fontWeight={400}
-                onClick={deleteTodo}
-              >
-                削除
-              </Button>
-            </Box>
-          </Box>
-        )}
+        <ListMenu
+          myUser={myUser}
+          user={currentTodo.user}
+          modalOpen={modalOpen}
+          val={currentTodo}
+          handleModal={handleModal}
+          deleteTodo={deleteTodo}
+        />
         <Flex>
           {currentTodo.user && (
             <Box mr={3}>

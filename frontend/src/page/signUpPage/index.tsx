@@ -1,7 +1,7 @@
 import React from 'react';
 import Presenter from './presenter';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
-import useHandleAddUser from '../../hooks/useHandleAddUser';
+import useCreateUser from '../../hooks/useCreateUser';
 
 const SignUpPage = () => {
   const initialTodoState = {
@@ -12,7 +12,7 @@ const SignUpPage = () => {
   };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialTodoState);
-  const handleAddUser = useHandleAddUser(inputChange);
+  const handleAddUser = useCreateUser(inputChange);
 
   return (
     <Presenter

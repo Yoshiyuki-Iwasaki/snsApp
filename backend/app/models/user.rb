@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-        after_create :skip_confirmation_email_for_some_user
+        # after_create :skip_confirmation_email_for_some_user
 
         # Include default devise modules.
         devise :database_authenticatable, :registerable,
