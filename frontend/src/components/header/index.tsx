@@ -3,9 +3,9 @@ import Presenter from './presenter';
 import useHandleLogout from '../../hooks/useHandleLogout';
 
 const Header: FC = () => {
-  const { myUser, handleLogout } = useHandleLogout();
+  const { myUser } = useHandleLogout();
 
-  return <Presenter myUser={myUser} handleLogout={handleLogout} />;
+  return <Presenter myUser={myUser} />;
 };
 
 export default Header;
