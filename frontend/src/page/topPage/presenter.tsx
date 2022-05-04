@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import ListItem from '../../components/listItem';
-import SearchArea from '../../components/searchArea';
 import { PresenterType } from './type';
 import InfiniteScroll from 'react-infinite-scroller';
 import { Box } from '@chakra-ui/react';
@@ -8,8 +7,6 @@ import { Box } from '@chakra-ui/react';
 const Presenter: FC<PresenterType> = ({
   myUser,
   todos,
-  searchName,
-  setSearchName,
   hasMore,
   isFetching,
   fetchTodo,
@@ -23,7 +20,6 @@ const Presenter: FC<PresenterType> = ({
 
   return (
     <Box mt={2} p="5">
-      <SearchArea setSearchName={setSearchName} />
       <Box>
         <InfiniteScroll
           pageStart={0}
@@ -34,26 +30,16 @@ const Presenter: FC<PresenterType> = ({
           useWindow={false}
         >
           {/* 読み込み最中に表示する項目 */}
-          {todos
-            .filter((val) => {
-              if (searchName === '') {
-                return val;
-              } else if (
-                val.name.toLowerCase().includes(searchName.toLowerCase())
-              ) {
-                return val;
-              }
-            })
-            .map((val) => {
-              return (
-                <ListItem
-                  key={val.id}
-                  myUser={myUser}
-                  postedUser={val.user}
-                  val={val}
-                />
-              );
-            })}
+          {todos.map((val) => {
+            return (
+              <ListItem
+                key={val.id}
+                myUser={myUser}
+                postedUser={val.user}
+                val={val}
+              />
+            );
+          })}
         </InfiniteScroll>
       </Box>
     </Box>
