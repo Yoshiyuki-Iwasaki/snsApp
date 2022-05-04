@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import FavoriteApi from '../api/Favorite/api';
 import useFetchMyUser from './useFetchMyUser';
 
+// Favoriteを取得するcustom hooks.
 const useFetchFavorite = (val, detailPageFrag) => {
   const [favorite, setFavorite] = useState<any>();
   const { myUser } = useFetchMyUser();

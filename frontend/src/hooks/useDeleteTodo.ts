@@ -7,6 +7,7 @@ type inputChangeType = {
   id: string | number;
 };
 
+// Todo削除処理をするcustom hooks.
 const useDeleteTodo = (inputChange: inputChangeType, replyFrag?: boolean) => {
   const navigate = useNavigate();
   const deleteTodo = async () => {

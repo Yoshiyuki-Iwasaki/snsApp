@@ -1,6 +1,7 @@
 import { notify } from '../util/notify';
 import RelationshipApi from '../api/Relationship/api';
 
+// Followを取得するcustom hooks.
 const useHandleFollow = (myUser, params, fetchFollow) => {
   const handleFollow = async () => {
     const data = {

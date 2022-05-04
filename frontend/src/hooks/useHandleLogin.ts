@@ -4,6 +4,7 @@ import useFetchMyUser from './useFetchMyUser';
 import UserApi from '../api/User/api';
 import Cookies from 'js-cookie';
 
+// Login処理をするcustom hooks.
 const useHandleLogin = (inputChange) => {
   const { fetchUser } = useFetchMyUser();
   const navigate = useNavigate();

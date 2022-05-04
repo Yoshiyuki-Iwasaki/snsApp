@@ -3,6 +3,7 @@ import { notify } from '../util/notify';
 import useFetchMyUser from './useFetchMyUser';
 import TodoApi from '../api/Todo/api';
 
+// Todo作成処理をするcustom hooks.
 const useAddTodo = (inputChange) => {
   const { myUser } = useFetchMyUser();
   const navigate = useNavigate();

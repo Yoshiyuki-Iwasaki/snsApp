@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ReplyApi from '../api/Reply/api';
 import { useParams } from 'react-router-dom';
 
+// Replyを取得するcustom hooks.
 const useFetchReply = () => {
   const [replies, setReplies] = useState<any>();
   const params = useParams();

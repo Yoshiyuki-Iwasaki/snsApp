@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TodoApi from '../api/Todo/api';
 
+// Todoを取得するcustom hooks.
 const useFetchAllTodos = () => {
   const [isFetching, setIsFetching] = useState<boolean>(false);
   const [hasMore, setHasMore] = useState<boolean>(true); //再読み込み判定

@@ -2,7 +2,8 @@ import { notify } from '../util/notify';
 import useFetchMyUser from './useFetchMyUser';
 import ReplyApi from '../api/Reply/api';
 
-const useAddTodo = (inputChange, params, fetchReply) => {
+// Reply作成処理をするcustom hooks.
+const useAddReply = (inputChange, params, fetchReply) => {
   const { myUser } = useFetchMyUser();
   const addReply = async () => {
     const data = {
@@ -18,4 +19,4 @@ const useAddTodo = (inputChange, params, fetchReply) => {
   return addReply;
 };
 
-export default useAddTodo;
+export default useAddReply;

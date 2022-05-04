@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import UserApi from '../api/User/api';
 
+// ログイン中ユーザー情報を取得するcustom hooks.
 const useFetchMyUser = () => {
   const [myUser, setMyUser] = useState<any>();
 
