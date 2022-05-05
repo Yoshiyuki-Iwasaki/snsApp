@@ -7,9 +7,6 @@ const useFetchNotification = () => {
   const [notification, setNotification] = useState();
   const { myUser } = useFetchMyUser();
 
-  console.log('myUser', myUser);
-  console.log('notification', notification);
-
   const fetchNotification = async () => {
     try {
       const notificationRes = await NotificationApi.fetch(myUser.data.id);

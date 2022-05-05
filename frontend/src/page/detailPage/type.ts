@@ -1,4 +1,5 @@
 import { Todos } from '../../type/Todos';
+import { MyUserType } from '../../type/MyUser';
 import { deleteTodoType } from '../../type';
 import { handleModalType } from '../../type';
 import { handleInputChangeType } from '../../type';
@@ -14,11 +15,7 @@ export type DetailPageType = {
     name: string;
     createdAt: string;
   };
-  myUser: {
-    data: {
-      id: number;
-    };
-  };
+  myUser: MyUserType;
   reply: {
     name: string;
   };

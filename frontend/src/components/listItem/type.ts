@@ -2,46 +2,21 @@ import { deleteTodoType } from '../../type';
 import { handleModalType } from '../../type';
 import { handleLikeType } from '../../type';
 import { handleUnlikeType } from '../../type';
+import { MyUserType } from '../../type/MyUser';
+import { Todos } from '../../type/Todos';
+import { PostedUser } from '../../type/User';
 
 export type ListItemType = {
-  postedUser: {
-    id: number;
-    name: string;
-    email: string;
-    password: string;
-    password_confirmation: string;
-  };
-  myUser: {
-    data: {
-      id: number;
-    };
-  };
-  val: {
-    id: number;
-    createdAt: string;
-    name: string;
-  };
+  postedUser: PostedUser;
+  myUser: MyUserType;
+  val: Todos;
   replyFrag?: boolean;
 };
 
 export type PresenterType = {
-  val: {
-    id: number;
-    createdAt: string;
-    name: string;
-  };
-  myUser: {
-    data: {
-      id: number;
-    };
-  };
-  postedUser: {
-    id: number;
-    name: string;
-    email: string;
-    password: string;
-    password_confirmation: string;
-  };
+  val: Todos;
+  myUser: MyUserType;
+  postedUser: PostedUser;
   favorite: {
     favorite: {
       length: number;

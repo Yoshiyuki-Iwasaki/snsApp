@@ -1,12 +1,9 @@
 import { deleteTodoType } from '../../type';
 import { handleModalType } from '../../type';
+import { MyUserType } from '../../type/MyUser';
 
 export type ListMenuType = {
-  myUser: {
-    data: {
-      id: number;
-    };
-  };
+  myUser: MyUserType;
   postedUser: {
     id: number;
     name: string;
