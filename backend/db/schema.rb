@@ -37,10 +37,12 @@ ActiveRecord::Schema.define(version: 2022_05_03_182056) do
   end
 
   create_table "relationships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "follow_id", null: false
-    t.integer "follower_id", null: false
+    t.bigint "following_id", null: false
+    t.bigint "follower_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
   create_table "replies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -92,6 +94,8 @@ ActiveRecord::Schema.define(version: 2022_05_03_182056) do
   add_foreign_key "notifications", "todos"
   add_foreign_key "notifications", "users", column: "visited_id"
   add_foreign_key "notifications", "users", column: "visiter_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
+  add_foreign_key "relationships", "users", column: "following_id"
   add_foreign_key "replies", "todos"
   add_foreign_key "replies", "users"
   add_foreign_key "todos", "users"

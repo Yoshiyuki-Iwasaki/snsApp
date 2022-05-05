@@ -22,12 +22,14 @@ Rails.application.routes.draw do
 
       get '/todos/page/:page/', to: "todos#index"
       get '/todos/users/:id/', to: "todos#userIndex"
-      get '/replies/todos/:id/', to: "replies#index"
       get '/favorites/users/:id', to: "favorites#userIndex"
+      get '/replies/todos/:id/', to: "replies#index"
       get '/replies/:reply_id/users/:user_id/favorites/', to: "favorites#replyIndex"
-      get '/users/:id/follower/:follower_id/relationships', to: "relationships#index"
       get '/notifications/user/:id/', to: "notifications#index"
-      post '/users/:id/relationships', to: "relationships#create", as: "follow_user"
+      get '/following/:following_id/follower/:follower_id/relationships', to: "relationships#index"
+      get '/follower/:follower_id/relationships', to: "relationships#followingIndex"
+      get '/following/:following_id/relationships', to: "relationships#followerIndex"
+      post '/following/:id/relationships', to: "relationships#create"
     end
   end
 end

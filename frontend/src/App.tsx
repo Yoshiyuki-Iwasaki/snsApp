@@ -13,6 +13,7 @@ import SignInPage from './page/signInPage';
 import UserPage from './page/userPage';
 import SettingPage from './page/settingPage';
 import NotificationPage from './page/notificationPage';
+import FollowPage from './page/followPage';
 
 const App: FC = () => {
   const { myUser } = useFetchMyUser();
@@ -25,6 +26,7 @@ const App: FC = () => {
               <Route path={'/'} element={<TodoList />} />
               <Route path={'/new'} element={<AddTodo />} />
               <Route path={'/user/:id'} element={<UserPage />} />
+              <Route path={'/user/:id/follow'} element={<FollowPage />} />
               <Route path={'/todo/:id'} element={<DetailPage />} />
               <Route path={'/todo/:id/edit'} element={<EditTodo />} />
               <Route path={'/setting'} element={<SettingPage />} />

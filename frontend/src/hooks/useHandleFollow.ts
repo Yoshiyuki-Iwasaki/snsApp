@@ -6,7 +6,7 @@ import NotificationApi from '../api/Notification/api';
 const useHandleFollow = (myUser, params, fetchFollow) => {
   const handleFollow = async () => {
     const data = {
-      follow_id: myUser && myUser.data.id,
+      following_id: myUser && myUser.data.id,
       follower_id: Number(params.id),
     };
     const notificationData = {
