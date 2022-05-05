@@ -3,10 +3,13 @@ import RelationshipApi from '../api/Relationship/api';
 import { useParams } from 'react-router-dom';
 import useFetchMyUser from './useFetchMyUser';
 
+// Followを取得するcustom hooks.
 const useFetchFollow = () => {
   const [follow, setFollow] = useState<any>();
   const { myUser } = useFetchMyUser();
   const params = useParams();
+
+  console.log('follow', follow);
 
   const fetchFollow = async () => {
     const followRes = await RelationshipApi.fetch(

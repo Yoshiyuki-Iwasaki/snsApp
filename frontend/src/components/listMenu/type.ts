@@ -7,11 +7,12 @@ export type ListMenuType = {
       id: number;
     };
   };
-  user: {
+  postedUser: {
     id: number;
     name: string;
   };
-  modalOpen: boolean;
+  replyFrag?: boolean;
+  modalOpenFrag: boolean;
   val: {
     id: number;
     createdAt: string;

@@ -3,24 +3,28 @@ import { Box, Center, FormLabel, Input, Button } from '@chakra-ui/react';
 import { SignUpPageType } from './type';
 
 const Presenter: FC<SignUpPageType> = ({
-  user,
+  signUpInfo,
   handleInputChange,
   handleAddUser,
 }) => {
   return (
     <Box p="5" w="500px" borderWidth="1px">
       <FormLabel htmlFor="name">name</FormLabel>
-      <Input name="name" value={user.name} onChange={handleInputChange} />
+      <Input name="name" value={signUpInfo.name} onChange={handleInputChange} />
       <FormLabel mt={2} htmlFor="email">
         email
       </FormLabel>
-      <Input name="email" value={user.email} onChange={handleInputChange} />
+      <Input
+        name="email"
+        value={signUpInfo.email}
+        onChange={handleInputChange}
+      />
       <FormLabel mt={2} htmlFor="password">
         password
       </FormLabel>
       <Input
         name="password"
-        value={user.password}
+        value={signUpInfo.password}
         onChange={handleInputChange}
       />
       <FormLabel mt={2} htmlFor="password_confirmation">
@@ -28,7 +32,7 @@ const Presenter: FC<SignUpPageType> = ({
       </FormLabel>
       <Input
         name="password_confirmation"
-        value={user.password_confirmation}
+        value={signUpInfo.password_confirmation}
         onChange={handleInputChange}
       />
       <Input type="hidden" name="confirm_success_url" value="/signin" />

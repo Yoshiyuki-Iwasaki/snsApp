@@ -23,18 +23,17 @@ const DetailPage = () => {
     useHandleInputChange(initialReplyState);
   const { replies, fetchReply } = useFetchReply();
   const currentTodo = useFetchCurrentTodo();
-  const addReply = useAddReply(inputChange, { id }, fetchReply);
+  const addReply = useAddReply(inputChange, { id }, fetchReply, currentTodo);
   const deleteTodo = useDeleteTodo({ id });
-  const { modalOpen, handleModal } = useModalOpen();
+  const { modalOpenFrag, handleModal } = useModalOpen();
 
   return (
     <Presenter
-      params={{ id }}
       currentTodo={currentTodo}
       myUser={myUser}
       reply={inputChange}
       replies={replies}
-      modalOpen={modalOpen}
+      modalOpenFrag={modalOpenFrag}
       deleteTodo={deleteTodo}
       handleModal={handleModal}
       handleInputChange={handleInputChange}

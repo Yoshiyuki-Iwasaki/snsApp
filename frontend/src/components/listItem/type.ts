@@ -4,7 +4,7 @@ import { handleLikeType } from '../../type';
 import { handleUnlikeType } from '../../type';
 
 export type ListItemType = {
-  user: {
+  postedUser: {
     id: number;
     name: string;
     email: string;
@@ -21,7 +21,7 @@ export type ListItemType = {
     createdAt: string;
     name: string;
   };
-  detailPageFrag?: boolean;
+  replyFrag?: boolean;
 };
 
 export type PresenterType = {
@@ -35,7 +35,7 @@ export type PresenterType = {
       id: number;
     };
   };
-  user: {
+  postedUser: {
     id: number;
     name: string;
     email: string;
@@ -50,7 +50,8 @@ export type PresenterType = {
       length: number;
     };
   };
-  modalOpen: boolean;
+  replyFrag: boolean;
+  modalOpenFrag: boolean;
   handleLike: handleLikeType;
   handleUnlike: handleUnlikeType;
   handleModal: handleModalType;

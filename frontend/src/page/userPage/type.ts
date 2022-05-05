@@ -19,7 +19,7 @@ type TodosLikedPost = {
 };
 
 export type PresenterType = {
-  user: {
+  postedUser: {
     name: string;
     email: string;
     password: string;

@@ -16,6 +16,9 @@ const Presenter: FC<PresenterType> = ({ myUser }) => {
             <Link mr={5} href={`/new`} fontSize={14} fontWeight={700}>
               新規投稿
             </Link>
+            <Link mr={5} href={`/notification`} fontSize={14} fontWeight={700}>
+              通知
+            </Link>
             <Link mr={5} href={`/setting`} fontSize={14} fontWeight={700}>
               設定
             </Link>

@@ -3,7 +3,7 @@ import { PresenterType } from './type';
 import { Box, Center, FormLabel, Input, Button } from '@chakra-ui/react';
 
 const Presenter: FC<PresenterType> = ({
-  loginInfo,
+  signInInfo,
   handleInputChange,
   handleLogin,
 }) => {
@@ -12,7 +12,7 @@ const Presenter: FC<PresenterType> = ({
       <FormLabel htmlFor="email">email</FormLabel>
       <Input
         name="email"
-        value={loginInfo.email}
+        value={signInInfo.email}
         onChange={handleInputChange}
       />
       <FormLabel mt={2} htmlFor="password">
@@ -20,7 +20,7 @@ const Presenter: FC<PresenterType> = ({
       </FormLabel>
       <Input
         name="password"
-        value={loginInfo.password}
+        value={signInInfo.password}
         onChange={handleInputChange}
       />
       <Center mt={5}>

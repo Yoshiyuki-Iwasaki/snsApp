@@ -4,8 +4,9 @@ import Presenter from './presenter';
 
 const ListMenu: FC<ListMenuType> = ({
   myUser,
-  user,
-  modalOpen,
+  postedUser,
+  modalOpenFrag,
+  replyFrag = false,
   val,
   handleModal,
   deleteTodo,
@@ -14,8 +15,9 @@ const ListMenu: FC<ListMenuType> = ({
     <>
       <Presenter
         myUser={myUser}
-        user={user}
-        modalOpen={modalOpen}
+        postedUser={postedUser}
+        modalOpenFrag={modalOpenFrag}
+        replyFrag={replyFrag}
         val={val}
         handleModal={handleModal}
         deleteTodo={deleteTodo}

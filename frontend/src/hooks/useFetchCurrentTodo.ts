@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import TodoApi from '../api/Todo/api';
 import { useParams } from 'react-router-dom';
 
+// 現在開いているTodoを取得するcustom hooks.
 const useFetchTodoData = (inputChange?: any, setInputChange?: any) => {
   const params = useParams();
   const initialTodoState = {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_30_070850) do
+ActiveRecord::Schema.define(version: 2022_05_03_182056) do
 
   create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 2022_04_30_070850) do
     t.index ["reply_id"], name: "index_favorites_on_reply_id"
     t.index ["todo_id"], name: "index_favorites_on_todo_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "visiter_id", null: false
+    t.bigint "visited_id", null: false
+    t.bigint "todo_id"
+    t.string "type", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["todo_id"], name: "index_notifications_on_todo_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visiter_id"], name: "index_notifications_on_visiter_id"
   end
 
   create_table "relationships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -76,6 +89,9 @@ ActiveRecord::Schema.define(version: 2022_04_30_070850) do
   add_foreign_key "favorites", "replies"
   add_foreign_key "favorites", "todos"
   add_foreign_key "favorites", "users"
+  add_foreign_key "notifications", "todos"
+  add_foreign_key "notifications", "users", column: "visited_id"
+  add_foreign_key "notifications", "users", column: "visiter_id"
   add_foreign_key "replies", "todos"
   add_foreign_key "replies", "users"
   add_foreign_key "todos", "users"

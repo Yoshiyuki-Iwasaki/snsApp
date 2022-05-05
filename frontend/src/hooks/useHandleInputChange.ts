@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// Inputのvalue値を管理するcustom hooks.
 const useHandleInputChange = (initialTodoState) => {
   const [inputChange, setInputChange] = useState(initialTodoState);
 

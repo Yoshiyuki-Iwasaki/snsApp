@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import FavoriteApi from '../api/Favorite/api';
 
+// いいねしたTodoを取得するcustom hooks.
 const useFetchLikedMyPost = (id: number) => {
   const [likedPost, setLikedPost] = useState<any>([]);
 

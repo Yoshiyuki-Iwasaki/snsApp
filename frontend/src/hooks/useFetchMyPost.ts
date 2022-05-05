@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import TodoApi from '../api/Todo/api';
 
+// 自分が投稿したTodoを取得するcustom hooks.
 const useFetchMyPost = (id: number) => {
   const [myPost, setMyPost] = useState<any>();
 

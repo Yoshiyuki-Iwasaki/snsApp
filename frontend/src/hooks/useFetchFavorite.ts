@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import FavoriteApi from '../api/Favorite/api';
 import useFetchMyUser from './useFetchMyUser';
 
-const useFetchFavorite = (val, detailPageFrag) => {
+// Favoriteを取得するcustom hooks.
+const useFetchFavorite = (val, replyFrag) => {
   const [favorite, setFavorite] = useState<any>();
   const { myUser } = useFetchMyUser();
 
   const fetchFavorite = async () => {
-    const FavoriteRes = detailPageFrag
+    const FavoriteRes = replyFrag
       ? await FavoriteApi.fetch_replyTodo(myUser.data.id, val.id)
       : await FavoriteApi.fetch(myUser.data.id, val.id);
     setFavorite(FavoriteRes.data);

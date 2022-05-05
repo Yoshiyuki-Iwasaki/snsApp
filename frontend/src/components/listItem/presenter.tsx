@@ -8,9 +8,10 @@ import ListMenu from '../listMenu';
 const Presenter: FC<PresenterType> = ({
   val,
   myUser,
-  user,
+  postedUser,
   favorite,
-  modalOpen,
+  replyFrag,
+  modalOpenFrag,
   handleLike,
   handleUnlike,
   handleModal,
@@ -20,8 +21,9 @@ const Presenter: FC<PresenterType> = ({
     <Box my={2} p={3} borderWidth="1px" position="relative">
       <ListMenu
         myUser={myUser}
-        user={user}
-        modalOpen={modalOpen}
+        postedUser={postedUser}
+        replyFrag={replyFrag}
+        modalOpenFrag={modalOpenFrag}
         val={val}
         handleModal={handleModal}
         deleteTodo={deleteTodo}
@@ -31,7 +33,7 @@ const Presenter: FC<PresenterType> = ({
           <Flex>
             <Box mr={5}>
               <Text fontSize="14px" fontWeight="700">
-                {user.name}
+                {postedUser.name}
               </Text>
             </Box>
             <Text fontSize="13px">{formatDate(val.createdAt)}</Text>

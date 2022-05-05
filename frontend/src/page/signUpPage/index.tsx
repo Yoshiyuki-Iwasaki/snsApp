@@ -16,7 +16,7 @@ const SignUpPage = () => {
 
   return (
     <Presenter
-      user={inputChange}
+      signUpInfo={inputChange}
       handleInputChange={handleInputChange}
       handleAddUser={handleAddUser}
     />

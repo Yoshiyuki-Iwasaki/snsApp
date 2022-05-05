@@ -5,9 +5,6 @@ import { handleInputChangeType } from '../../type';
 import { addReplyType } from '../../type';
 
 export type DetailPageType = {
-  params: {
-    id: string;
-  };
   currentTodo: {
     id: number;
     user: {
@@ -26,7 +23,7 @@ export type DetailPageType = {
     name: string;
   };
   replies: Todos[];
-  modalOpen: boolean;
+  modalOpenFrag: boolean;
   deleteTodo: deleteTodoType;
   handleModal: handleModalType;
   handleInputChange: handleInputChangeType;

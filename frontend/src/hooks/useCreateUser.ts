@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { notify } from '../util/notify';
 import UserApi from '../api/User/api';
 
+// ユーザー新規作成処理をするcustom hooks.
 const useCreateUser = (inputChange) => {
   const navigate = useNavigate();
   const handleAddUser = async () => {
