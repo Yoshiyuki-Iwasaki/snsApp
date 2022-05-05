@@ -12,6 +12,10 @@
     "noEmit": true,
     "allowSyntheticDefaultImports": true // これを追加
   },
+  "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
   "exclude": [
     "**/*.spec.ts",
     "node_modules",
