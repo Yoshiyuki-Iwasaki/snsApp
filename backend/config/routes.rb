@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :favorites, only: %i[create destroy]
       resources :relationships, only: %i[destroy]
       resources :replies, only: %i[index create update destroy]
+      resources :notifications, only: %i[create]
       resources :todos do
         resources :users do
           resources :favorites, only: %i[index]
@@ -22,9 +23,10 @@ Rails.application.routes.draw do
       get '/todos/page/:page/', to: "todos#index"
       get '/todos/users/:id/', to: "todos#userIndex"
       get '/replies/todos/:id/', to: "replies#index"
-      get '/replies/:reply_id/users/:user_id/favorites/', to: "favorites#replyIndex"
       get '/favorites/users/:id', to: "favorites#userIndex"
+      get '/replies/:reply_id/users/:user_id/favorites/', to: "favorites#replyIndex"
       get '/users/:id/follower/:follower_id/relationships', to: "relationships#index"
+      get '/notifications/user/:id/', to: "notifications#index"
       post '/users/:id/relationships', to: "relationships#create", as: "follow_user"
     end
   end

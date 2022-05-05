@@ -73,7 +73,6 @@ const Presenter: FC<DetailPageType> = ({
                   postedUser={val.user}
                   val={val}
                   replyFrag={true}
-                  detailPageFrag={true}
                 />
               );
             })}

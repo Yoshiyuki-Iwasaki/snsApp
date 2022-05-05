@@ -7,17 +7,11 @@ import useHandleUnlike from '../../hooks/useHandleUnlike';
 import useDeleteTodo from '../../hooks/useDeleteTodo';
 import useModalOpen from '../../hooks/useModalOpen';
 
-const ListItem: FC<ListItemType> = ({
-  myUser,
-  postedUser,
-  val,
-  replyFrag,
-  detailPageFrag,
-}) => {
-  const { favorite, fetchFavorite } = useFetchFavorite(val, detailPageFrag);
-  const handleLike = useHandleLike(val, myUser, fetchFavorite, detailPageFrag);
+const ListItem: FC<ListItemType> = ({ myUser, postedUser, val, replyFrag }) => {
+  const { favorite, fetchFavorite } = useFetchFavorite(val, replyFrag);
+  const handleLike = useHandleLike(val, myUser, fetchFavorite, replyFrag);
   const handleUnlike = useHandleUnlike(favorite, fetchFavorite);
-  const deleteTodo = useDeleteTodo(val, detailPageFrag);
+  const deleteTodo = useDeleteTodo(val, replyFrag);
   const { modalOpenFrag, handleModal } = useModalOpen();
 
   return (

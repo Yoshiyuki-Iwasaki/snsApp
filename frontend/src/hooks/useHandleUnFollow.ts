@@ -4,7 +4,7 @@ import RelationshipApi from '../api/Relationship/api';
 // フォロー削除処理をするcustom hooks.
 const useHandleFollow = (follow, fetchFollow) => {
   const handleUnfollow = async () => {
-    await RelationshipApi.remove(follow.data.relationship[0].id);
+    await RelationshipApi.remove(follow.relationship[0].id);
     notify('正常にフォロー削除完了しました。');
     fetchFollow();
   };

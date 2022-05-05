@@ -1,6 +1,9 @@
 class Notification < ApplicationRecord
-  belongs_to :todo_id, optional: true
-  belongs_to :reply_id, optional: true
-  belongs_to :relationship_id, optional: true
-  belongs_to :favorite_id, optional: true
+  self.inheritance_column = :_type_disabled # この行を追加
+  belongs_to :visiter, class_name: 'User', optional: true
+  belongs_to :visited, class_name: 'User', optional: true
+  belongs_to :todo, optional: true
+  belongs_to :reply, optional: true
+  belongs_to :relationship, optional: true
+  belongs_to :favorite, optional: true
 end

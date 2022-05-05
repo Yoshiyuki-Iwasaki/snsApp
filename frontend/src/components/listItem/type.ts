@@ -22,7 +22,6 @@ export type ListItemType = {
     name: string;
   };
   replyFrag?: boolean;
-  detailPageFrag?: boolean;
 };
 
 export type PresenterType = {

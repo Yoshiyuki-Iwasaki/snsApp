@@ -9,6 +9,8 @@ const useFetchFollow = () => {
   const { myUser } = useFetchMyUser();
   const params = useParams();
 
+  console.log('follow', follow);
+
   const fetchFollow = async () => {
     const followRes = await RelationshipApi.fetch(
       myUser && myUser.data.id,

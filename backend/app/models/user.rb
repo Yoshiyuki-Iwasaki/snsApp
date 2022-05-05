@@ -9,8 +9,13 @@ class User < ApplicationRecord
   has_many :todos, foreign_key: 'user_id', dependent: :destroy
   has_many :favorites, foreign_key: 'user_id', dependent: :destroy
 
-  has_many :followed_users, foreign_key: :follower_id, class_name: 'Relationship', dependent: :destroy
+  has_many :followed_users, foreign_key: "follower_id", class_name: 'Relationship', dependent: :destroy
   has_many :follows, through: :followed_users, dependent: :destroy
-  has_many :following_users, foreign_key: :follow_id, class_name: 'Relationship', dependent: :destroy
+  has_many :following_users, foreign_key: "follow_id", class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :following_users, dependent: :destroy
+
+  has_many :visiter_user, foreign_key: "visiter_id", class_name: 'Notification', dependent: :destroy
+  has_many :visiter, through: :visiter_user, dependent: :destroy
+  has_many :visited_user, foreign_key: "visited_id", class_name: 'Notification', dependent: :destroy
+  has_many :visited, through: :visited_user, dependent: :destroy
 end
