@@ -2,12 +2,22 @@ class Api::V1::RelationshipsController < ApplicationController
 
     def index
         # フォローしているかどうかをチェック
-        relationship = Relationship.where(follow_id: params[:id], follower_id: params[:follower_id])
+        relationship = Relationship.where(following_id: params[:following_id], follower_id: params[:follower_id])
         # 特定のユーザーをフォローしているかチェック
-        isRelationship_following = Relationship.where(follow_id: params[:follower_id]);
+        isRelationship_following = Relationship.where(following_id: params[:follower_id]);
         # 特定のユーザーがフォローされているかチェック
         isRelationship_followed = Relationship.where(follower_id: params[:follower_id]);
         render json: {relationship: relationship, isRelationship_following: isRelationship_following, isRelationship_followed: isRelationship_followed}
+    end
+
+    def followingIndex
+        relationship = Relationship.where(follower_id: params[:follower_id]);
+        render json: relationship
+    end
+
+    def followerIndex
+        relationship = Relationship.where(following_id: params[:following_id]);
+        render json: relationship
     end
 
     def create
@@ -29,6 +39,6 @@ class Api::V1::RelationshipsController < ApplicationController
 
     private
     def relationship_params
-        params.permit(:follow_id, :follower_id)
+        params.permit(:following_id, :follower_id)
     end
 end

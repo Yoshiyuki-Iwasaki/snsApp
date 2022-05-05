@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import ListItem from '../../components/listItem';
-import { Flex, Box, Center, Image, Text, Button } from '@chakra-ui/react';
+import { Flex, Box, Center, Image, Text, Button, Link } from '@chakra-ui/react';
 import { PresenterType } from './type';
 
 const Presenter: FC<PresenterType> = ({
@@ -13,6 +13,7 @@ const Presenter: FC<PresenterType> = ({
   handleUnfollow,
   handleFollow,
 }) => {
+  console.log('follow', follow);
   return (
     <Box p="5">
       <Center>
@@ -28,33 +29,37 @@ const Presenter: FC<PresenterType> = ({
       <Center>
         <Flex mt={2}>
           <Flex mr={3}>
-            <Box mr={2}>
+            <Link mr={1} href={'/user/' + Number(params.id) + '/follow'}>
               <Text fontSize="14px" fontWeight="700">
                 フォロー数
               </Text>
-            </Box>
-            <Text fontSize="14px" fontWeight="700">
-              {follow && follow.isRelationshipFollowing.length}
-            </Text>
+            </Link>
+            <Link href={'/user/' + Number(params.id) + '/follow'}>
+              <Text fontSize="14px" fontWeight="700">
+                {follow && follow.isRelationshipFollowing.length}
+              </Text>
+            </Link>
           </Flex>
-          <Flex>
-            <Box mr={2}>
+          <Flex mr={2}>
+            <Link mr={1} href={'/user/' + Number(params.id) + '/follow'}>
               <Text fontSize="14px" fontWeight="700">
                 フォロワー数
               </Text>
-            </Box>
-            <Text fontSize="14px" fontWeight="700">
-              {follow && follow.isRelationshipFollowed.length}
-            </Text>
+            </Link>
+            <Link href={'/user/' + Number(params.id) + '/follow'}>
+              <Text fontSize="14px" fontWeight="700">
+                {follow && follow.isRelationshipFollowed.length}
+              </Text>
+            </Link>
           </Flex>
         </Flex>
       </Center>
       <Box mt={3}>
         <Center>
           {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
-          {myUser && myUser.data.id !== Number(params.id) ? (
+          {follow && myUser && myUser.data.id !== Number(params.id) ? (
             <>
-              {follow && follow.relationship.length ? (
+              {follow.relationship.length ? (
                 <Button onClick={handleUnfollow}>フォロー削除</Button>
               ) : (
                 <Button onClick={handleFollow}>フォロー</Button>
