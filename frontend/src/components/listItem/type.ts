@@ -3,18 +3,18 @@ import { handleModalType } from '../../type';
 import { handleLikeType } from '../../type';
 import { handleUnlikeType } from '../../type';
 import { MyUserType } from '../../type/MyUser';
-import { Todos } from '../../type/Todos';
+import { TodosType } from '../../type/Todos';
 import { PostedUser } from '../../type/User';
 
 export type ListItemType = {
   postedUser: PostedUser;
   myUser: MyUserType;
-  val: Todos;
+  val: TodosType;
   replyFrag?: boolean;
 };
 
 export type PresenterType = {
-  val: Todos;
+  val: TodosType;
   myUser: MyUserType;
   postedUser: PostedUser;
   favorite: {

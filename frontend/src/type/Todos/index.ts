@@ -1,4 +1,4 @@
-export type Todos = {
+export type TodosType = {
   id: number;
   name: string;
   user: {

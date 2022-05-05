@@ -1,16 +1,11 @@
 import { MyUserType } from '../../type/MyUser';
+import { TodosType } from '../../type/Todos';
 import { handleInputChangeType } from '../../type';
 import { updateTodoType } from '../../type';
 
 export type PresenterType = {
   myUser: MyUserType;
-  currentTodo: {
-    name: string;
-    createdAt: string;
-    user: {
-      id: number;
-    };
-  };
+  currentTodo: TodosType;
   handleInputChange: handleInputChangeType;
   updateTodo: updateTodoType;
 };

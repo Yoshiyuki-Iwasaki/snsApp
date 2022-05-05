@@ -1,11 +1,11 @@
-import { Todos } from '../../type/Todos';
+import { TodosType } from '../../type/Todos';
 import { MyUserType } from '../../type/MyUser';
 import { handleUnfollowType } from '../../type';
 import { handleFollowType } from '../../type';
 
 type TodosLikedPost = {
   id: number;
-  todo: Todos;
+  todo: TodosType;
 };
 
 export type PresenterType = {
@@ -27,7 +27,7 @@ export type PresenterType = {
     };
   };
   myUser: MyUserType;
-  myPost: Todos[];
+  myPost: TodosType[];
   likedPost: TodosLikedPost[];
   params: {
     id: string;

@@ -1,4 +1,6 @@
+import { followingList } from '../../type/Follow';
+
 export type PresenterType = {
-  followingList: any;
-  followerList: any;
+  followingList: followingList[];
+  followerList: followingList[];
 };
