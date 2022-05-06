@@ -10,7 +10,7 @@ const Presenter: FC<PresenterType> = ({ notification }) => {
         notification.map((val) => {
           return (
             <>
-              <Box>
+              <Box py={2}>
                 {val.type === 'like' && (
                   <Link href={'/todo/' + val.todo.id}>
                     <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
