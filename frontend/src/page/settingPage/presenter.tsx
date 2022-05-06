@@ -2,12 +2,14 @@ import React, { FC } from 'react';
 import { Box, Link, Button } from '@chakra-ui/react';
 import { PresenterType } from './type';
 
-const Presenter: FC<PresenterType> = ({ handleLogout }) => {
+const Presenter: FC<PresenterType> = ({ params, handleLogout }) => {
   return (
     <>
       <Box>
         <Box>
-          <Link>プロフィール編集</Link>
+          <Link href={'/user/' + Number(params.id) + '/edit/'}>
+            プロフィール編集
+          </Link>
         </Box>
         <Box>
           <Button onClick={handleLogout}>ログアウト</Button>
