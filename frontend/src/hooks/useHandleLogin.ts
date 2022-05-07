@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { notify } from '../util/notify';
 import useFetchMyUser from './useFetchMyUser';
-import UserApi from '../api/User/api';
+import AuthApi from '../api/Auth/api';
 import Cookies from 'js-cookie';
 
 // Login処理をするcustom hooks.
@@ -15,7 +15,7 @@ const useHandleLogin = (inputChange) => {
       password: inputChange.password,
     };
     try {
-      const res = await UserApi.login(data);
+      const res = await AuthApi.login(data);
       Cookies.set('_access_token', res.headers['access-token']);
       Cookies.set('_client', res.headers['client']);
       Cookies.set('_uid', res.headers['uid']);
