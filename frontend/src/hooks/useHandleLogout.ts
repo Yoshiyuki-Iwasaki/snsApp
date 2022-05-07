@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import UserApi from '../api/User/api';
+import AuthApi from '../api/Auth/api';
 import useFetchMyUser from './useFetchMyUser';
 
 // Logout処理をするcustom hooks.
@@ -8,7 +8,7 @@ const useHandleLogout = () => {
   const { myUser, setMyUser } = useFetchMyUser();
 
   const handleLogout = async () => {
-    await UserApi.logout();
+    await AuthApi.logout();
     setMyUser('');
     navigate('/');
     window.location.reload();

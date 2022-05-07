@@ -23,6 +23,7 @@ const Presenter: FC<SignUpPageType> = ({
         password
       </FormLabel>
       <Input
+        type="password"
         name="password"
         value={signUpInfo.password}
         onChange={handleInputChange}
@@ -31,6 +32,7 @@ const Presenter: FC<SignUpPageType> = ({
         password_confirmation
       </FormLabel>
       <Input
+        type="password"
         name="password_confirmation"
         value={signUpInfo.password_confirmation}
         onChange={handleInputChange}
