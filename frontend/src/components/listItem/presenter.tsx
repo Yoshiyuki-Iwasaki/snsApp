@@ -10,12 +10,12 @@ const Presenter: FC<PresenterType> = ({
   myUser,
   postedUser,
   favorite,
-  replyFrag,
   modalOpenFrag,
   handleLike,
   handleUnlike,
   handleModal,
   deleteTodo,
+  replyFrag,
 }) => {
   return (
     <Box my={2} p={3} borderWidth="1px" position="relative">
@@ -28,21 +28,36 @@ const Presenter: FC<PresenterType> = ({
         handleModal={handleModal}
         deleteTodo={deleteTodo}
       />
-      {val && (
-        <Link href={'/todo/' + val.id}>
-          <Flex>
-            <Box mr={5}>
-              <Text fontSize="14px" fontWeight="700">
-                {postedUser.name}
-              </Text>
+      {val &&
+        (replyFrag ? (
+          <Box>
+            <Flex>
+              <Box mr={5}>
+                <Text fontSize="14px" fontWeight="700">
+                  {postedUser.name}
+                </Text>
+              </Box>
+              <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
+            </Flex>
+            <Box mt={2} mr={3}>
+              <Text fontSize="15px">{val.name}</Text>
             </Box>
-            <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
-          </Flex>
-          <Box mt={2} mr={3}>
-            <Text fontSize="15px">{val.name}</Text>
           </Box>
-        </Link>
-      )}
+        ) : (
+          <Link href={'/todo/' + val.id}>
+            <Flex>
+              <Box mr={5}>
+                <Text fontSize="14px" fontWeight="700">
+                  {postedUser.name}
+                </Text>
+              </Box>
+              <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
+            </Flex>
+            <Box mt={2} mr={3}>
+              <Text fontSize="15px">{val.name}</Text>
+            </Box>
+          </Link>
+        ))}
       <Flex mt={3} alignItems="center">
         {favorite && favorite.favorite.length ? (
           <Button

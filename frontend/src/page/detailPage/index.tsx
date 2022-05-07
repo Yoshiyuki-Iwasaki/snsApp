@@ -21,9 +21,9 @@ const DetailPage = () => {
   };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialReplyState);
-  const { replies, fetchReply } = useFetchReply();
+  const { replies } = useFetchReply();
   const currentTodo = useFetchCurrentTodo();
-  const addReply = useAddReply(inputChange, { id }, fetchReply, currentTodo);
+  const addReply = useAddReply(inputChange, { id }, currentTodo);
   const deleteTodo = useDeleteTodo({ id });
   const { modalOpenFrag, handleModal } = useModalOpen();
 
