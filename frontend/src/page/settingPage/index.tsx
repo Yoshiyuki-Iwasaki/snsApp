@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import Presenter from './presenter';
 import useHandleLogout from '../../hooks/useHandleLogout';
-import { useParams } from 'react-router-dom';
+import useFetchMyUser from '../../hooks/useFetchMyUser';
 
 const SettingPage: FC = () => {
-  const { id } = useParams();
   const { handleLogout } = useHandleLogout();
+  const { myUser } = useFetchMyUser();
 
-  return <Presenter params={{ id }} handleLogout={handleLogout} />;
+  return <Presenter myUser={myUser} handleLogout={handleLogout} />;
 };
 
 export default SettingPage;

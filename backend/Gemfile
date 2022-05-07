@@ -48,12 +48,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-
 gem 'active_model_serializers', '~> 0.10.0'
 
+# ユーザー管理
 gem 'devise'
-
 gem 'devise_token_auth'
+
+# 画像アップロード
+gem 'carrierwave'
+gem 'mini_magick'
 
 # 日本語対応
 gem 'devise-i18n'
