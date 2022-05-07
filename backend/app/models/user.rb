@@ -6,6 +6,9 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
+  # 作成したUploaderをimageカラムに紐付ける
+  mount_uploader :image, ImageUploader
+
   has_many :todos, foreign_key: 'user_id', dependent: :destroy
   has_many :favorites, foreign_key: 'user_id', dependent: :destroy
 

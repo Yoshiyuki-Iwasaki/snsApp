@@ -49,13 +49,18 @@ async function follow(id: string, user: any) {
   return api.post(ENDPOINT + `/users/` + id + '/follow', user);
 }
 
+async function update(id: number, user: any) {
+  return api.patch(ENDPOINT + `/users/` + id, user);
+}
+
 const UserApi = {
   create,
   login,
   logout,
+  fetchLoginUser,
   show,
   follow,
-  fetchLoginUser,
+  update,
 };
 
 export default UserApi;

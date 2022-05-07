@@ -4,7 +4,7 @@ import ReplyApi from '../api/Reply/api';
 import NotificationApi from '../api/Notification/api';
 
 // Reply作成処理をするcustom hooks.
-const useAddReply = (inputChange, params, fetchReply, currentTodo) => {
+const useAddReply = (inputChange, params, currentTodo) => {
   const { myUser } = useFetchMyUser();
   const addReply = async () => {
     const data = {
@@ -22,7 +22,7 @@ const useAddReply = (inputChange, params, fetchReply, currentTodo) => {
     try {
       await ReplyApi.create(data);
       await NotificationApi.create(notificationData);
-      fetchReply();
+      window.location.reload();
       notify('正常にリプライが完了しました。');
     } catch (e: any) {
       console.log(e);

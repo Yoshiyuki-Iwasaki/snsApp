@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -12,10 +16,6 @@
     "noEmit": true,
     "allowSyntheticDefaultImports": true // これを追加
   },
-  "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
   "exclude": [
     "**/*.spec.ts",
     "node_modules",

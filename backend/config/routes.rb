@@ -5,7 +5,7 @@ Rails.application.routes.draw do
         registrations: 'api/v1/auth/registrations'
       }
       resources :todos, only: %i[create update destroy show]
-      resources :users, only: %i[create show]
+      resources :users, only: %i[create show update]
       resources :favorites, only: %i[create destroy]
       resources :relationships, only: %i[destroy]
       resources :replies, only: %i[index create update destroy]

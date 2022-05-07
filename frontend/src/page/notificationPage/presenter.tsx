@@ -8,10 +8,11 @@ const Presenter: FC<PresenterType> = ({ notification }) => {
     <>
       {notification &&
         notification.map((val) => {
+          console.log('val', val);
           return (
             <>
               <Box py={2}>
-                {val.type === 'like' && (
+                {val && val.type === 'like' && (
                   <Link href={'/todo/' + val.todo.id}>
                     <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
                     {val.visiter.name}さんからいいねが来ました。

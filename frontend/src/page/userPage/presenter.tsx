@@ -13,7 +13,6 @@ const Presenter: FC<PresenterType> = ({
   handleUnfollow,
   handleFollow,
 }) => {
-  console.log('follow', follow);
   return (
     <Box p="5">
       <Center>
