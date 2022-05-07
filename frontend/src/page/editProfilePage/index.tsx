@@ -29,17 +29,18 @@ const EditProfilePage: FC = () => {
 
   const onChangeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, files } = event.target;
-    if (files != null) {
-      console.log('files', files[0]);
+    if (files[0] != null) {
+      console.log({ [name]: files[0] });
       setInputChange({ ...inputChange, [name]: files[0] });
     }
 
-    console.log('event.target.files', event.target.files);
+    console.log('event.target.files', files[0]);
   };
 
   useEffect(() => {
     myUser && setInputChange(myUser.data);
     console.log('inputChange', inputChange);
+    console.log('myUser', myUser);
   }, [myUser]);
 
   return (
