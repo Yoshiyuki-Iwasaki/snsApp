@@ -26,7 +26,12 @@ class Api::V1::UsersController < ApplicationController
     def update
         user = User.find(params[:id])
         if user.update(user_params)
-            render json: user
+            if params[:image]
+                @user.image="#{@user.id}.jpg"
+                image=params[:image]
+                File.binwrite("public/user_images/#{@user.image}", image.read)
+                render json: user
+            end
         else
             render json: user.errors, status: 422
         end
