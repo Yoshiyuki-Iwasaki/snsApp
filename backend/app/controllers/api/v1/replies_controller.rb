@@ -1,6 +1,6 @@
 class Api::V1::RepliesController < ApplicationController
     def index
-        replies = Reply.where(todo_id: params[:id])
+        replies = Reply.order(created_at: :desc).where(todo_id: params[:id])
         render json: replies
     end
 

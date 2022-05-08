@@ -2,7 +2,7 @@ class Api::V1::FavoritesController < ApplicationController
 
     def index
         # いいねしているかどうかをチェック
-        favorite = Favorite.where(user_id: params[:user_id], todo_id: params[:todo_id])
+        favorite = Favorite.order(created_at: :desc).where(user_id: params[:user_id], todo_id: params[:todo_id])
         # いいね数をチェック
         isFavorite = Favorite.where(todo_id: params[:todo_id]);
         render json: {favorite: favorite, isFavorite: isFavorite}
@@ -10,14 +10,14 @@ class Api::V1::FavoritesController < ApplicationController
 
     def replyIndex
         # いいねしているかどうかをチェック
-        favorite = Favorite.where(user_id: params[:user_id], reply_id: params[:reply_id])
+        favorite = Favorite.order(created_at: :desc).where(user_id: params[:user_id], reply_id: params[:reply_id])
         # いいね数をチェック
         isFavorite = Favorite.where(reply_id: params[:reply_id]);
         render json: {favorite: favorite, isFavorite: isFavorite}
     end
 
     def userIndex
-        favorite = Favorite.where(user_id: params[:id])
+        favorite = Favorite.order(created_at: :desc).where(user_id: params[:id])
         render json: favorite
     end
 

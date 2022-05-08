@@ -10,7 +10,7 @@ class Api::V1::TodosController < ApplicationController
     end
 
     def userIndex
-        todos = Todo.where(user_id: params[:id])
+        todos = Todo.order(created_at: :desc).where(user_id: params[:id])
         render json: todos
     end
 
