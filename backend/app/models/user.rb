@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   # 作成したUploaderをimageカラムに紐付ける
   # mount_uploader :image, ImageUploader
-  has_one_attached :image
+  # has_one_attached :image
 
   has_many :todos, foreign_key: 'user_id', dependent: :destroy
   has_many :favorites, foreign_key: 'user_id', dependent: :destroy
