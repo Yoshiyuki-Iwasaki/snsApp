@@ -15,6 +15,15 @@ class Api::V1::NotificationsController < ApplicationController
         end
     end
 
+    def update
+        notification = Notification.find(params[:id])
+        if notification.update(notification_params)
+            render json: notification
+        else
+            render json: notification.errors, status: 422
+        end
+    end
+
     private
     def notification_params
         params.permit(:visiter_id, :visited_id, :todo_id, :type, :checked)

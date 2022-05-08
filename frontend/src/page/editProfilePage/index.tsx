@@ -23,24 +23,17 @@ const EditProfilePage: FC = () => {
     const userRes = await UserApi.update(inputChange.id, inputChange);
     setInputChange(userRes.data);
     notify('正常に投稿の編集が完了しました。');
-
-    console.log('inputChange', inputChange);
   };
 
   const onChangeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, files } = event.target;
     if (files[0] != null) {
-      console.log({ [name]: files[0] });
       setInputChange({ ...inputChange, [name]: files[0] });
     }
-
-    console.log('event.target.files', files[0]);
   };
 
   useEffect(() => {
     myUser && setInputChange(myUser.data);
-    console.log('inputChange', inputChange);
-    console.log('myUser', myUser);
   }, [myUser]);
 
   return (

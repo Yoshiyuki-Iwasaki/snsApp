@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :favorites, only: %i[create destroy]
       resources :relationships, only: %i[destroy]
       resources :replies, only: %i[index create update destroy]
-      resources :notifications, only: %i[create]
+      resources :notifications, only: %i[create update]
       resources :todos do
         resources :users do
           resources :favorites, only: %i[index]

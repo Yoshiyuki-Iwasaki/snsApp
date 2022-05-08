@@ -1,37 +1,27 @@
 import React, { FC } from 'react';
-import { Box, Text, Link } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { formatDate } from '../../util/data';
 import { PresenterType } from './type';
 
-const Presenter: FC<PresenterType> = ({ notification }) => {
+const Presenter: FC<PresenterType> = ({
+  notification,
+  handleNotificationCheck,
+}) => {
   return (
     <>
       {notification &&
         notification.map((val) => {
-          console.log('val', val);
           return (
-            <>
-              <Box py={2}>
-                {val && val.type === 'like' && (
-                  <Link href={'/todo/' + val.todo.id}>
-                    <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
-                    {val.visiter.name}さんからいいねが来ました。
-                  </Link>
-                )}
-                {val.type === 'reply' && (
-                  <Link href={'/todo/' + val.todo.id}>
-                    <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
-                    {val.visiter.name}さんから返信が来ました。
-                  </Link>
-                )}
-                {val.type === 'follow' && (
-                  <Link href={'/user/' + val.visiter.id}>
-                    <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
-                    {val.visiter.name}さんからフォローが来ました。
-                  </Link>
-                )}
-              </Box>
-            </>
+            <Box py={2} onClick={() => handleNotificationCheck(val)}>
+              <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
+              <Text fontSize="14px">
+                {val.visiter.name}さんから
+                {val.type === 'like' && 'いいね'}
+                {val.type === 'reply' && '返信'}
+                {val.type === 'follow' && 'フォロー'}が来ました。
+                {val.checked === true && '既読済み'}
+              </Text>
+            </Box>
           );
         })}
     </>

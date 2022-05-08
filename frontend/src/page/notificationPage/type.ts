@@ -1,1 +1,1 @@
-export type PresenterType = { notification: any };
+export type PresenterType = { notification: any; handleNotificationCheck: any };
