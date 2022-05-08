@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Presenter from './presenter';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
 import { notify } from '../../util/notify';
-import AuthApi from '../../api/Auth/api';
+import UserApi from '../../api/User/api';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 
 const ChangePasswordPage: FC = () => {
@@ -13,7 +13,7 @@ const ChangePasswordPage: FC = () => {
 
   const handleEditProfile = async () => {
     try {
-      await AuthApi.change_password_mail(inputChange.email, '/password');
+      await UserApi.change_password_mail(inputChange.email, '/password');
       notify('正常にパスワードが変更されました');
     } catch (e) {
       console.log('e', e);
