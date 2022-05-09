@@ -1,11 +1,11 @@
 import { MyUserType } from '../../type/MyUser';
-import { TodosType } from '../../type/Todos';
+import { PostsType } from '../../type/Posts';
 import { handleInputChangeType } from '../../type';
-import { updateTodoType } from '../../type';
+import { updatePostType } from '../../type';
 
 export type PresenterType = {
   myUser: MyUserType;
-  currentTodo: TodosType;
+  currentPost: PostsType;
   handleInputChange: handleInputChangeType;
-  updateTodo: updateTodoType;
+  updatePost: updatePostType;
 };

@@ -2,8 +2,8 @@ import api from '../api';
 import { replyType } from './type';
 const ENDPOINT = '/api/v1';
 
-async function fetch(todo_id: number) {
-  return api.get(ENDPOINT + `/replies/` + `/todos/` + todo_id);
+async function fetch(post_id: number) {
+  return api.get(ENDPOINT + `/replies/` + `/posts/` + post_id);
 }
 
 async function create(data: replyType) {

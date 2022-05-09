@@ -2,28 +2,28 @@ import React, { FC } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import Presenter from './presenter';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
-import useUpdateTodo from '../../hooks/useUpdateTodo';
-import useFetchCurrentTodo from '../../hooks/useFetchCurrentTodo';
+import useUpdatePost from '../../hooks/useUpdatePost';
+import useFetchCurrentPost from '../../hooks/useFetchCurrentPost';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 
 const EditPage: FC = () => {
-  const initialTodoState = {
+  const initialPostState = {
     id: null,
     name: '',
     createdAt: '',
   };
   const { inputChange, setInputChange, handleInputChange } =
-    useHandleInputChange(initialTodoState);
-  const updateTodo = useUpdateTodo(inputChange, setInputChange);
-  useFetchCurrentTodo(inputChange, setInputChange);
+    useHandleInputChange(initialPostState);
+  const updatePost = useUpdatePost(inputChange, setInputChange);
+  useFetchCurrentPost(inputChange, setInputChange);
   const { myUser } = useFetchMyUser();
 
   return (
     <Presenter
       myUser={myUser}
-      currentTodo={inputChange}
+      currentPost={inputChange}
       handleInputChange={handleInputChange}
-      updateTodo={updateTodo}
+      updatePost={updatePost}
     />
   );
 };

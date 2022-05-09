@@ -1,23 +1,23 @@
 import React, { FC } from 'react';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
-import useAddTodo from '../../hooks/useAddTodo';
+import useAddPost from '../../hooks/useAddPost';
 import Presenter from './presenter';
 
 const AddPage: FC = () => {
-  const initialTodoState = {
+  const initialPostState = {
     id: null,
     name: '',
     user_id: '',
   };
   const { inputChange, handleInputChange } =
-    useHandleInputChange(initialTodoState);
-  const addTodo = useAddTodo(inputChange);
+    useHandleInputChange(initialPostState);
+  const addPost = useAddPost(inputChange);
 
   return (
     <>
       <Presenter
-        todo={inputChange}
-        addTodo={addTodo}
+        post={inputChange}
+        addPost={addPost}
         handleInputChange={handleInputChange}
       />
     </>

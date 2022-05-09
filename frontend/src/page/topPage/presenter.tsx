@@ -6,10 +6,10 @@ import { Box } from '@chakra-ui/react';
 
 const Presenter: FC<PresenterType> = ({
   myUser,
-  todos,
+  posts,
   hasMore,
   isFetching,
-  fetchTodo,
+  fetchPost,
 }) => {
   //ロード中に表示する項目
   const loader = (
@@ -23,14 +23,15 @@ const Presenter: FC<PresenterType> = ({
       <Box>
         <InfiniteScroll
           pageStart={0}
-          loadMore={!isFetching && fetchTodo} //項目を読み込む際に処理するコールバック関数
+          loadMore={!isFetching && fetchPost} //項目を読み込む際に処理するコールバック関数
           initialLoad={true}
           hasMore={hasMore} //読み込みを行うかどうかの判定
           loader={loader}
           useWindow={false}
         >
           {/* 読み込み最中に表示する項目 */}
-          {todos.map((val) => {
+          {posts.map((val) => {
+            console.log('val', val);
             return (
               <ListItem
                 key={val.id}

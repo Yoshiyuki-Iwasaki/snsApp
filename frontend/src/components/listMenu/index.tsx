@@ -9,7 +9,7 @@ const ListMenu: FC<ListMenuType> = ({
   replyFrag = false,
   val,
   handleModal,
-  deleteTodo,
+  deletePost,
 }) => {
   return (
     <>
@@ -20,7 +20,7 @@ const ListMenu: FC<ListMenuType> = ({
         replyFrag={replyFrag}
         val={val}
         handleModal={handleModal}
-        deleteTodo={deleteTodo}
+        deletePost={deletePost}
       />
     </>
   );

@@ -26,6 +26,6 @@ class Api::V1::NotificationsController < ApplicationController
 
     private
     def notification_params
-        params.permit(:visiter_id, :visited_id, :todo_id, :type, :checked)
+        params.permit(:visiter_id, :visited_id, :post_id, :type, :checked)
     end
 end

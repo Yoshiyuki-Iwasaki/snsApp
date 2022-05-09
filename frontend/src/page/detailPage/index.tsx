@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 import useFetchReply from '../../hooks/useFetchReply';
-import useFetchCurrentTodo from '../../hooks/useFetchCurrentTodo';
+import useFetchCurrentPost from '../../hooks/useFetchCurrentPost';
 import useAddReply from '../../hooks/useAddReply';
-import useDeleteTodo from '../../hooks/useDeleteTodo';
+import useDeletePost from '../../hooks/useDeletePost';
 import useModalOpen from '../../hooks/useModalOpen';
 
 const DetailPage = () => {
@@ -16,25 +16,25 @@ const DetailPage = () => {
     id: null,
     name: '',
     user_id: '',
-    todo_id: '',
+    post_id: '',
     createdAt: '',
   };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialReplyState);
   const { replies } = useFetchReply();
-  const currentTodo = useFetchCurrentTodo();
-  const addReply = useAddReply(inputChange, { id }, currentTodo);
-  const deleteTodo = useDeleteTodo({ id });
+  const currentPost = useFetchCurrentPost();
+  const addReply = useAddReply(inputChange, { id }, currentPost);
+  const deletePost = useDeletePost({ id });
   const { modalOpenFrag, handleModal } = useModalOpen();
 
   return (
     <Presenter
-      currentTodo={currentTodo}
+      currentPost={currentPost}
       myUser={myUser}
       reply={inputChange}
       replies={replies}
       modalOpenFrag={modalOpenFrag}
-      deleteTodo={deleteTodo}
+      deletePost={deletePost}
       handleModal={handleModal}
       handleInputChange={handleInputChange}
       addReply={addReply}

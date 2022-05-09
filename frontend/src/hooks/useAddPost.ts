@@ -1,23 +1,24 @@
 import { useNavigate } from 'react-router-dom';
 import { notify } from '../util/notify';
 import useFetchMyUser from './useFetchMyUser';
-import TodoApi from '../api/Todo/api';
+import postApi from '../api/Post/api';
 
-// Todo作成処理をするcustom hooks.
-const useAddTodo = (inputChange) => {
+// Post作成処理をするcustom hooks.
+const useAddPost = (inputChange) => {
   const { myUser } = useFetchMyUser();
   const navigate = useNavigate();
-  const addTodo = async () => {
+  const addPost = async () => {
+    if (!inputChange.name) return;
     const data = {
       name: inputChange.name,
       user_id: myUser.data.id,
     };
-    await TodoApi.create(data);
+    await postApi.create(data);
     notify('正常に投稿が完了しました。');
     navigate('/');
   };
 
-  return addTodo;
+  return addPost;
 };
 
-export default useAddTodo;
+export default useAddPost;

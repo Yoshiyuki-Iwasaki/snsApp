@@ -6,7 +6,7 @@ const Presenter: FC<SearchAreaType> = ({ setSearchName }) => {
   return (
     <>
       <Input
-        placeholder="Search todo."
+        placeholder="Search post."
         onChange={(e) => {
           setSearchName(e.target.value);
         }}

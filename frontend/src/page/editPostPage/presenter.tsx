@@ -5,25 +5,25 @@ import { Box, Input, Text, Button } from '@chakra-ui/react';
 
 const Presenter: FC<PresenterType> = ({
   myUser,
-  currentTodo,
+  currentPost,
   handleInputChange,
-  updateTodo,
+  updatePost,
 }) => {
   return (
     <>
       {/* 自分の投稿のみ編集、削除できるようにする。 */}
-      {myUser && myUser.data.id === currentTodo.user.id && (
+      {myUser && myUser.data.id === currentPost.user.id && (
         <>
           <Box p="5" w="500px" borderWidth="1px">
-            <Text fontSize={13}>{formatDate(currentTodo.createdAt)}</Text>
+            <Text fontSize={13}>{formatDate(currentPost.createdAt)}</Text>
             <Input
               mt={2}
               type="text"
               name="name"
-              value={currentTodo.name}
+              value={currentPost.name}
               onChange={handleInputChange}
             />
-            <Button mt={2} onClick={updateTodo}>
+            <Button mt={2} onClick={updatePost}>
               Update
             </Button>
           </Box>

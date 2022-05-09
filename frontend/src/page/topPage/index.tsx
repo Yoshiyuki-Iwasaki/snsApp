@@ -1,19 +1,19 @@
 import React, { FC } from 'react';
 import Presenter from './presenter';
-import useFetchAllTodos from '../../hooks/useFetchAllTodos';
+import useFetchAllPosts from '../../hooks/useFetchAllPosts';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 
 const TopPage: FC = () => {
   const { myUser } = useFetchMyUser();
-  const { todos, fetchTodo, hasMore, isFetching } = useFetchAllTodos();
+  const { posts, fetchPost, hasMore, isFetching } = useFetchAllPosts();
 
   return (
     <Presenter
-      todos={todos}
+      posts={posts}
       myUser={myUser}
       hasMore={hasMore}
       isFetching={isFetching}
-      fetchTodo={fetchTodo}
+      fetchPost={fetchPost}
     />
   );
 };

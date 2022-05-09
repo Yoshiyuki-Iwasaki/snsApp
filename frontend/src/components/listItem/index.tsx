@@ -4,14 +4,14 @@ import { ListItemType } from './type';
 import useFetchFavorite from '../../hooks/useFetchFavorite';
 import useHandleLike from '../../hooks/useHandleLike';
 import useHandleUnlike from '../../hooks/useHandleUnlike';
-import useDeleteTodo from '../../hooks/useDeleteTodo';
+import useDeletePost from '../../hooks/useDeletePost';
 import useModalOpen from '../../hooks/useModalOpen';
 
 const ListItem: FC<ListItemType> = ({ myUser, postedUser, val, replyFrag }) => {
   const { favorite, fetchFavorite } = useFetchFavorite(val, replyFrag);
   const handleLike = useHandleLike(val, myUser, fetchFavorite, replyFrag);
   const handleUnlike = useHandleUnlike(favorite, fetchFavorite);
-  const deleteTodo = useDeleteTodo(val, replyFrag);
+  const deletePost = useDeletePost(val, replyFrag);
   const { modalOpenFrag, handleModal } = useModalOpen();
 
   return (
@@ -25,7 +25,7 @@ const ListItem: FC<ListItemType> = ({ myUser, postedUser, val, replyFrag }) => {
       handleLike={handleLike}
       handleUnlike={handleUnlike}
       handleModal={handleModal}
-      deleteTodo={deleteTodo}
+      deletePost={deletePost}
     />
   );
 };

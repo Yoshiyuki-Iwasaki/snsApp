@@ -4,14 +4,14 @@ import useHandleInputChange from '../../hooks/useHandleInputChange';
 import useCreateUser from '../../hooks/useCreateUser';
 
 const SignUpPage = () => {
-  const initialTodoState = {
+  const initialPostState = {
     name: '',
     email: '',
     password: '',
     password_confirmation: '',
   };
   const { inputChange, handleInputChange } =
-    useHandleInputChange(initialTodoState);
+    useHandleInputChange(initialPostState);
   const handleAddUser = useCreateUser(inputChange);
 
   return (

@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import TodoApi from '../api/Todo/api';
+import PostApi from '../api/Post/api';
 
-// 自分が投稿したTodoを取得するcustom hooks.
+// 自分が投稿したPostを取得するcustom hooks.
 const useFetchMyPost = (id: number) => {
   const [myPost, setMyPost] = useState<any>();
 
   useEffect(() => {
     const fetchMyPost = async () => {
-      const TodoRes = await TodoApi.fetch_userTodo(id);
-      setMyPost(TodoRes.data);
+      const PostRes = await PostApi.fetch_userPost(id);
+      setMyPost(PostRes.data);
     };
     fetchMyPost();
   }, []);

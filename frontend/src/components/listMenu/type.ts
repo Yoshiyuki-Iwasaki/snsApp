@@ -1,4 +1,4 @@
-import { deleteTodoType } from '../../type';
+import { deletePostType } from '../../type';
 import { handleModalType } from '../../type';
 import { MyUserType } from '../../type/MyUser';
 
@@ -16,5 +16,5 @@ export type ListMenuType = {
     name: string;
   };
   handleModal: handleModalType;
-  deleteTodo: deleteTodoType;
+  deletePost: deletePostType;
 };

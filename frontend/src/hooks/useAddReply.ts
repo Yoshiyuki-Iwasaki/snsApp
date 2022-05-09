@@ -4,18 +4,18 @@ import ReplyApi from '../api/Reply/api';
 import NotificationApi from '../api/Notification/api';
 
 // Reply作成処理をするcustom hooks.
-const useAddReply = (inputChange, params, currentTodo) => {
+const useAddReply = (inputChange, params, currentPost) => {
   const { myUser } = useFetchMyUser();
   const addReply = async () => {
     const data = {
-      todo_id: Number(params.id),
+      post_id: Number(params.id),
       name: inputChange.name,
       user_id: myUser.data.id,
     };
     const notificationData = {
       visiter_id: myUser && myUser.data.id,
-      visited_id: currentTodo.user.id,
-      todo_id: Number(params.id),
+      visited_id: currentPost.user.id,
+      post_id: Number(params.id),
       type: 'reply',
       checked: false,
     };

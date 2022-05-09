@@ -2,19 +2,19 @@ import api from '../api';
 import { favoriteType } from './type';
 const ENDPOINT = '/api/v1';
 
-async function fetch(user_id: number, todo_id: number) {
+async function fetch(user_id: number, post_id: number) {
   return api.get(
-    ENDPOINT + `/todos/` + todo_id + `/users/` + user_id + `/favorites`
+    ENDPOINT + `/posts/` + post_id + `/users/` + user_id + `/favorites`
   );
 }
 
-async function fetch_replyTodo(user_id: number, reply_id: number) {
+async function fetch_replyPost(user_id: number, reply_id: number) {
   return api.get(
     ENDPOINT + `/replies/` + reply_id + `/users/` + user_id + '/favorites'
   );
 }
 
-async function fetch_userTodo(user_id: number) {
+async function fetch_userPost(user_id: number) {
   return api.get(ENDPOINT + '/favorites' + `/users/` + user_id);
 }
 
@@ -28,8 +28,8 @@ async function remove(id: number) {
 
 const FavoriteApi = {
   fetch,
-  fetch_replyTodo,
-  fetch_userTodo,
+  fetch_replyPost,
+  fetch_userPost,
   create,
   remove,
 };

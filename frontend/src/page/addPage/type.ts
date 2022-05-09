@@ -1,10 +1,10 @@
 import { handleInputChangeType } from '../../type';
-import { addTodoType } from '../../type';
+import { addPostType } from '../../type';
 
 export type PresenterType = {
-  todo: {
-    name: string;
+  post: {
+    name: any;
   };
-  addTodo: addTodoType;
+  addPost: addPostType;
   handleInputChange: handleInputChangeType;
 };

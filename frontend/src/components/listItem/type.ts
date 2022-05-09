@@ -1,20 +1,20 @@
-import { deleteTodoType } from '../../type';
+import { deletePostType } from '../../type';
 import { handleModalType } from '../../type';
 import { handleLikeType } from '../../type';
 import { handleUnlikeType } from '../../type';
 import { MyUserType } from '../../type/MyUser';
-import { TodosType } from '../../type/Todos';
+import { PostsType } from '../../type/Posts';
 import { PostedUser } from '../../type/User';
 
 export type ListItemType = {
   postedUser: PostedUser;
   myUser: MyUserType;
-  val: TodosType;
+  val: PostsType;
   replyFrag?: boolean;
 };
 
 export type PresenterType = {
-  val: TodosType;
+  val: PostsType;
   myUser: MyUserType;
   postedUser: PostedUser;
   favorite: {
@@ -30,5 +30,5 @@ export type PresenterType = {
   handleLike: handleLikeType;
   handleUnlike: handleUnlikeType;
   handleModal: handleModalType;
-  deleteTodo: deleteTodoType;
+  deletePost: deletePostType;
 };

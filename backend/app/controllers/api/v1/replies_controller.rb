@@ -1,6 +1,6 @@
 class Api::V1::RepliesController < ApplicationController
     def index
-        replies = Reply.order(created_at: :desc).where(todo_id: params[:id])
+        replies = Reply.order(created_at: :desc).where(post_id: params[:id])
         render json: replies
     end
 
@@ -32,6 +32,6 @@ class Api::V1::RepliesController < ApplicationController
 
     private
     def reply_params
-        params.permit(:name, :user_id, :todo_id, :reply_id)
+        params.permit(:name, :user_id, :post_id, :reply_id)
     end
 end

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import FavoriteApi from '../api/Favorite/api';
 
-// いいねしたTodoを取得するcustom hooks.
+// いいねしたPostを取得するcustom hooks.
 const useFetchLikedMyPost = (id: number) => {
   const [likedPost, setLikedPost] = useState<any>([]);
 
   useEffect(() => {
     const fetchLikedPost = async () => {
-      const FavoriteRes = await FavoriteApi.fetch_userTodo(id);
+      const FavoriteRes = await FavoriteApi.fetch_userPost(id);
       setLikedPost(FavoriteRes.data);
     };
     fetchLikedPost();

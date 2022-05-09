@@ -10,7 +10,7 @@ const Presenter: FC<ListMenuType> = ({
   replyFrag,
   val,
   handleModal,
-  deleteTodo,
+  deletePost,
 }) => {
   return (
     <>
@@ -35,7 +35,7 @@ const Presenter: FC<ListMenuType> = ({
         <Box position="absolute" top={2} right={16}>
           {!replyFrag && (
             <Box>
-              <Link href={'/todo/' + val.id + '/edit'} fontSize="13px">
+              <Link href={'/post/' + val.id + '/edit'} fontSize="13px">
                 編集
               </Link>
             </Box>
@@ -50,7 +50,7 @@ const Presenter: FC<ListMenuType> = ({
               bgColor="#fff"
               fontSize="13px"
               fontWeight={400}
-              onClick={deleteTodo}
+              onClick={deletePost}
             >
               削除
             </Button>

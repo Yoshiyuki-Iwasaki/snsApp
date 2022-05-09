@@ -1,19 +1,19 @@
-import { TodosType } from '../../type/Todos';
+import { PostsType } from '../../type/Posts';
 import { MyUserType } from '../../type/MyUser';
-import { deleteTodoType } from '../../type';
+import { deletePostType } from '../../type';
 import { handleModalType } from '../../type';
 import { handleInputChangeType } from '../../type';
 import { addReplyType } from '../../type';
 
 export type DetailPageType = {
-  currentTodo: TodosType;
+  currentPost: PostsType;
   myUser: MyUserType;
   reply: {
     name: string;
   };
-  replies: TodosType[];
+  replies: PostsType[];
   modalOpenFrag: boolean;
-  deleteTodo: deleteTodoType;
+  deletePost: deletePostType;
   handleModal: handleModalType;
   handleInputChange: handleInputChangeType;
   addReply: addReplyType;

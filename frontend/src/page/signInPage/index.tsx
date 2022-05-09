@@ -4,12 +4,12 @@ import useHandleInputChange from '../../hooks/useHandleInputChange';
 import useHandleLogin from '../../hooks/useHandleLogin';
 
 const SigninPage: FC = () => {
-  const initialTodoState = {
+  const initialPostState = {
     email: '',
     password: '',
   };
   const { inputChange, handleInputChange } =
-    useHandleInputChange(initialTodoState);
+    useHandleInputChange(initialPostState);
   const handleLogin = useHandleLogin(inputChange);
 
   return (

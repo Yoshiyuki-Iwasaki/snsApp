@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-SAMPLE_TODOS = [
+SAMPLE_POSTS = [
     {
         name: "sampleTarou01",
         email: "tarou01@example.com",
@@ -27,6 +27,6 @@ SAMPLE_TODOS = [
     },
 ]
 
-SAMPLE_TODOS.each do |todo|
-    User.create(todo)
+SAMPLE_POSTS.each do |post|
+    User.create(post)
 end

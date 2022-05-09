@@ -92,13 +92,13 @@ const Presenter: FC<PresenterType> = ({
             {likedPost &&
               likedPost.map((val) => {
                 return (
-                  val.todo && (
+                  val.post && (
                     <>
                       <ListItem
                         key={val.id}
                         myUser={myUser}
-                        postedUser={val.todo.user}
-                        val={val.todo}
+                        postedUser={val.post.user}
+                        val={val.post}
                       />
                     </>
                   )

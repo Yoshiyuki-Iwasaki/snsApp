@@ -4,9 +4,9 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout';
 import useFetchMyUser from './hooks/useFetchMyUser';
-import AddTodoPage from './page/addPage';
+import AddPostPage from './page/addPage';
 import TopPage from './page/topPage';
-import EditTodoPage from './page/editTodoPage';
+import EditPostPage from './page/editPostPage';
 import DetailPage from './page/detailPage';
 import SignUpPage from './page/signUpPage';
 import SignInPage from './page/signInPage';
@@ -26,11 +26,11 @@ const App: FC = () => {
           {myUser && myUser.isLogin ? (
             <>
               <Route path={'/'} element={<TopPage />} />
-              <Route path={'/new'} element={<AddTodoPage />} />
+              <Route path={'/new'} element={<AddPostPage />} />
               <Route path={'/user/:id'} element={<UserPage />} />
               <Route path={'/user/:id/follow'} element={<FollowPage />} />
-              <Route path={'/todo/:id'} element={<DetailPage />} />
-              <Route path={'/todo/:id/edit'} element={<EditTodoPage />} />
+              <Route path={'/post/:id'} element={<DetailPage />} />
+              <Route path={'/post/:id/edit'} element={<EditPostPage />} />
               <Route path={'/setting'} element={<SettingPage />} />
               <Route path={'/notification'} element={<NotificationPage />} />
               <Route path={'/user/:id/edit'} element={<EditProfilePage />} />

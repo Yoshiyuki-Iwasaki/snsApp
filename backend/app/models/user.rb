@@ -10,7 +10,7 @@ class User < ApplicationRecord
   # mount_uploader :image, ImageUploader
   # has_one_attached :image
 
-  has_many :todos, foreign_key: 'user_id', dependent: :destroy
+  has_many :posts, foreign_key: 'user_id', dependent: :destroy
   has_many :favorites, foreign_key: 'user_id', dependent: :destroy
 
   has_many :following_users, foreign_key: "following_id", class_name: 'Relationship', dependent: :destroy

@@ -14,7 +14,7 @@ const Presenter: FC<PresenterType> = ({
   handleLike,
   handleUnlike,
   handleModal,
-  deleteTodo,
+  deletePost,
   replyFrag,
 }) => {
   return (
@@ -26,7 +26,7 @@ const Presenter: FC<PresenterType> = ({
         modalOpenFrag={modalOpenFrag}
         val={val}
         handleModal={handleModal}
-        deleteTodo={deleteTodo}
+        deletePost={deletePost}
       />
       {val &&
         (replyFrag ? (
@@ -44,7 +44,7 @@ const Presenter: FC<PresenterType> = ({
             </Box>
           </Box>
         ) : (
-          <Link href={'/todo/' + val.id}>
+          <Link href={'/post/' + val.id}>
             <Flex>
               <Box mr={5}>
                 <Text fontSize="14px" fontWeight="700">

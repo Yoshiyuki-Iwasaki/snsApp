@@ -1,8 +1,8 @@
-# module Todos
+# module Favorites
   class FavoriteSerializer < ActiveModel::Serializer
-    attributes :id, :user, :todo, :reply, :created_at
+    attributes :id, :user, :post, :reply, :created_at
     belongs_to :user
-    belongs_to :todo
+    belongs_to :post
     belongs_to :reply
   end
 # end

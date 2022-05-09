@@ -6,7 +6,7 @@ import NotificationApi from '../api/Notification/api';
 const useHandleLike = (val, myUser, fetchFavorite, replyFrag) => {
   const handleLike = async () => {
     const data = {
-      todo_id: replyFrag ? '' : val.id,
+      post_id: replyFrag ? '' : val.id,
       user_id: myUser && myUser.data.id,
       reply_id: replyFrag ? val.id : '',
     };
@@ -14,7 +14,7 @@ const useHandleLike = (val, myUser, fetchFavorite, replyFrag) => {
     const notificationData = {
       visiter_id: myUser && myUser.data.id,
       visited_id: val.user.id,
-      todo_id: replyFrag ? null : val.id,
+      post_id: replyFrag ? null : val.id,
       reply_id: replyFrag ? val.id : null,
       type: 'like',
       checked: false,

@@ -15,7 +15,7 @@ const NotificationPage: FC = () => {
     };
     await NotificationApi.update(val.id, data);
     if (val.type === 'like' || val.type === 'reply') {
-      navigate('/todo/' + val.todo.id);
+      navigate('/post/' + val.post.id);
     } else if (val.type === 'follow') {
       navigate('/user/' + val.visiter.id);
     }

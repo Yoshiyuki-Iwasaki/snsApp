@@ -1,11 +1,11 @@
-import { TodosType } from '../../type/Todos';
+import { PostsType } from '../../type/Posts';
 import { MyUserType } from '../../type/MyUser';
-import { fetchTodoType } from '../../type';
+import { fetchPostType } from '../../type';
 
 export type PresenterType = {
   myUser: MyUserType;
-  todos: TodosType[];
+  posts: PostsType[];
   hasMore: boolean;
   isFetching: boolean;
-  fetchTodo: fetchTodoType;
+  fetchPost: fetchPostType;
 };

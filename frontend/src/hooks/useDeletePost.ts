@@ -1,21 +1,21 @@
 import { useNavigate } from 'react-router-dom';
 import { notify } from '../util/notify';
-import TodoApi from '../api/Todo/api';
+import PostApi from '../api/Post/api';
 import ReplyApi from '../api/Reply/api';
 
 type inputChangeType = {
   id: string | number;
 };
 
-// Todo削除処理をするcustom hooks.
-const useDeleteTodo = (inputChange: inputChangeType, replyFrag?: boolean) => {
+// Post削除処理をするcustom hooks.
+const useDeletePost = (inputChange: inputChangeType, replyFrag?: boolean) => {
   const navigate = useNavigate();
-  const deleteTodo = async () => {
+  const deletePost = async () => {
     const sure = window.confirm('Are you sure?');
     if (sure) {
       replyFrag
         ? await ReplyApi.remove(Number(inputChange.id))
-        : await TodoApi.remove(Number(inputChange.id));
+        : await PostApi.remove(Number(inputChange.id));
       !replyFrag && navigate('/');
       replyFrag
         ? notify('正常に返信の削除が完了しました。')
@@ -24,7 +24,7 @@ const useDeleteTodo = (inputChange: inputChangeType, replyFrag?: boolean) => {
     }
   };
 
-  return deleteTodo;
+  return deletePost;
 };
 
-export default useDeleteTodo;
+export default useDeletePost;

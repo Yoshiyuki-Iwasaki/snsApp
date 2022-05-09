@@ -1,13 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import moment from 'moment';
 const now = moment();
-const nowFormat = now.format('YYYY-MM-DD');
 
-export interface TodoState {
+export interface PostState {
   // taskが何個あるのかを管理する
   idCount: number;
   // storeに保存するtaskの一覧
-  todos: {
+  posts: {
     id: number;
     username: string;
     date: string;
@@ -17,9 +16,9 @@ export interface TodoState {
   }[];
 }
 
-const initialState: TodoState = {
+const initialState: PostState = {
   idCount: 1,
-  todos: [
+  posts: [
     {
       id: 1,
       username: 'username1',
@@ -32,8 +31,8 @@ const initialState: TodoState = {
   ],
 };
 
-export const todoSlice = createSlice({
-  name: 'todo',
+export const postSlice = createSlice({
+  name: 'post',
   initialState,
   reducers: {
     // 投稿追加機能
@@ -70,6 +69,6 @@ export const todoSlice = createSlice({
   },
 });
 
-export const { actions: appActions } = todoSlice;
+export const { actions: appActions } = postSlice;
 
-export default todoSlice.reducer;
+export default postSlice.reducer;

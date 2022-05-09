@@ -9,7 +9,7 @@ const useFetchFavorite = (val, replyFrag) => {
 
   const fetchFavorite = async () => {
     const FavoriteRes = replyFrag
-      ? await FavoriteApi.fetch_replyTodo(myUser.data.id, val.id)
+      ? await FavoriteApi.fetch_replyPost(myUser.data.id, val.id)
       : await FavoriteApi.fetch(myUser.data.id, val.id);
     setFavorite(FavoriteRes.data);
   };
