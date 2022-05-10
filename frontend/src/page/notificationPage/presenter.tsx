@@ -9,6 +9,9 @@ const Presenter: FC<PresenterType> = ({
 }) => {
   return (
     <>
+      <Text mb={2} fontWeight={700} fontSize="15px">
+        通知
+      </Text>
       {notification &&
         notification.map((val) => {
           return (

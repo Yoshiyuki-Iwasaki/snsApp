@@ -11,6 +11,9 @@ const Presenter: FC<PresenterType> = ({
 }) => {
   return (
     <>
+      <Text mb={2} fontWeight={700} fontSize="15px">
+        編集
+      </Text>
       {/* 自分の投稿のみ編集、削除できるようにする。 */}
       {myUser && myUser.data.id === currentPost.user.id && (
         <>
@@ -24,7 +27,7 @@ const Presenter: FC<PresenterType> = ({
               onChange={handleInputChange}
             />
             <Button mt={2} onClick={updatePost}>
-              Update
+              更新
             </Button>
           </Box>
         </>

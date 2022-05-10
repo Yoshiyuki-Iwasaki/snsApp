@@ -4,7 +4,7 @@ import { PresenterType } from './type';
 
 const Presenter: FC<PresenterType> = ({ myUser }) => {
   return (
-    <Flex px={5} py={3} alignItems={'center'} justifyContent={'space-between'}>
+    <Flex py={3} alignItems={'center'} justifyContent={'space-between'}>
       <Link href="/" _hover={{ textDecoration: 'none' }}>
         <Text fontSize={22} fontWeight={700}>
           SNS APP
