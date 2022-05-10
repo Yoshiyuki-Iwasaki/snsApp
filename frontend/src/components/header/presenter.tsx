@@ -1,6 +1,7 @@
-import { Button, Flex, Link, Text } from '@chakra-ui/react';
+import { Flex, Link, Text } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import { PresenterType } from './type';
+import { SettingsIcon, PlusSquareIcon, BellIcon } from '@chakra-ui/icons';
 
 const Presenter: FC<PresenterType> = ({ myUser }) => {
   return (
@@ -14,13 +15,13 @@ const Presenter: FC<PresenterType> = ({ myUser }) => {
         {myUser && myUser.isLogin ? (
           <>
             <Link mr={5} href={`/new`} fontSize={14} fontWeight={700}>
-              新規投稿
+              <PlusSquareIcon />
             </Link>
             <Link mr={5} href={`/notification`} fontSize={14} fontWeight={700}>
-              通知
+              <BellIcon />
             </Link>
             <Link mr={5} href={`/setting`} fontSize={14} fontWeight={700}>
-              設定
+              <SettingsIcon />
             </Link>
             <Link
               mr={5}
