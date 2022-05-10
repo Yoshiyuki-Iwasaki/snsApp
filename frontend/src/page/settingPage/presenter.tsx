@@ -1,11 +1,14 @@
 import React, { FC } from 'react';
-import { Box, Link, Button } from '@chakra-ui/react';
+import { Box, Link, Button, Text } from '@chakra-ui/react';
 import { PresenterType } from './type';
 
 const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
   return (
     <>
       <Box>
+        <Text mb={2} fontWeight={700} fontSize="15px">
+          設定
+        </Text>
         {myUser && (
           <>
             <Box>
