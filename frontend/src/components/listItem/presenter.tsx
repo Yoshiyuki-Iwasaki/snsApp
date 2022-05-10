@@ -4,6 +4,7 @@ import { PresenterType } from './type';
 import { Box, Flex, Text, Button, Link } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import ListMenu from '../listMenu';
+import { motion } from 'framer-motion';
 
 const Presenter: FC<PresenterType> = ({
   val,
@@ -44,18 +45,20 @@ const Presenter: FC<PresenterType> = ({
             </Box>
           </Box>
         ) : (
-          <Link href={'/post/' + val.id}>
-            <Flex>
-              <Box mr={5}>
-                <Text fontSize="14px" fontWeight="700">
-                  {postedUser.name}
-                </Text>
+          <Link href={'/post/' + val.id} _hover={{ textDecoration: 'none' }}>
+            <motion.div whileHover={{ opacity: 0.7 }}>
+              <Flex>
+                <Box mr={5}>
+                  <Text fontSize="14px" fontWeight="700">
+                    {postedUser.name}
+                  </Text>
+                </Box>
+                <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
+              </Flex>
+              <Box mt={2} mr={3}>
+                <Text fontSize="15px">{val.name}</Text>
               </Box>
-              <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
-            </Flex>
-            <Box mt={2} mr={3}>
-              <Text fontSize="15px">{val.name}</Text>
-            </Box>
+            </motion.div>
           </Link>
         ))}
       <Flex mt={3} alignItems="center">

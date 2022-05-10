@@ -5,6 +5,7 @@ import ListMenu from '../../components/listMenu';
 import { FiSend } from 'react-icons/fi';
 import { DetailPageType } from './type';
 import { Box, Flex, Input, Link, Text, Button } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
 const Presenter: FC<DetailPageType> = ({
   currentPost,
@@ -31,11 +32,16 @@ const Presenter: FC<DetailPageType> = ({
         <Flex>
           {currentPost.user && (
             <Box mr={3}>
-              <Link href={'/user/' + currentPost.user.id}>
-                <Text fontSize="14px" fontWeight="700">
-                  {currentPost.user && currentPost.user.name}
-                </Text>
-              </Link>
+              <motion.div whileHover={{ opacity: 0.7 }}>
+                <Link
+                  href={'/user/' + currentPost.user.id}
+                  _hover={{ textDecoration: 'none' }}
+                >
+                  <Text fontSize="14px" fontWeight="700">
+                    {currentPost.user && currentPost.user.name}
+                  </Text>
+                </Link>
+              </motion.div>
             </Box>
           )}
           <Text fontSize="13px">{formatDate(currentPost.createdAt)}</Text>

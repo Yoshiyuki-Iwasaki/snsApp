@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import ListItem from '../../components/listItem';
 import { Flex, Box, Center, Image, Text, Button, Link } from '@chakra-ui/react';
 import { PresenterType } from './type';
+import { motion } from 'framer-motion';
 
 const Presenter: FC<PresenterType> = ({
   postedUser,
@@ -27,30 +28,37 @@ const Presenter: FC<PresenterType> = ({
       </Center>
       <Center>
         <Flex mt={2}>
-          <Flex mr={3}>
-            <Link mr={1} href={'/user/' + Number(params.id) + '/follow'}>
-              <Text fontSize="14px" fontWeight="700">
-                フォロー数
-              </Text>
+          <motion.div whileHover={{ opacity: 0.7 }}>
+            <Link
+              mr={3}
+              href={'/user/' + Number(params.id) + '/follow'}
+              _hover={{ textDecoration: 'none' }}
+            >
+              <Flex>
+                <Text mr={1} fontSize="14px" fontWeight="700">
+                  フォロー数
+                </Text>
+                <Text fontSize="14px" fontWeight="700">
+                  {follow && follow.isRelationshipFollowing.length}
+                </Text>
+              </Flex>
             </Link>
-            <Link href={'/user/' + Number(params.id) + '/follow'}>
-              <Text fontSize="14px" fontWeight="700">
-                {follow && follow.isRelationshipFollowing.length}
-              </Text>
+          </motion.div>
+          <motion.div whileHover={{ opacity: 0.7 }}>
+            <Link
+              href={'/user/' + Number(params.id) + '/follow'}
+              _hover={{ textDecoration: 'none' }}
+            >
+              <Flex>
+                <Text mr={1} fontSize="14px" fontWeight="700">
+                  フォロワー数
+                </Text>
+                <Text fontSize="14px" fontWeight="700">
+                  {follow && follow.isRelationshipFollowed.length}
+                </Text>
+              </Flex>
             </Link>
-          </Flex>
-          <Flex mr={2}>
-            <Link mr={1} href={'/user/' + Number(params.id) + '/follow'}>
-              <Text fontSize="14px" fontWeight="700">
-                フォロワー数
-              </Text>
-            </Link>
-            <Link href={'/user/' + Number(params.id) + '/follow'}>
-              <Text fontSize="14px" fontWeight="700">
-                {follow && follow.isRelationshipFollowed.length}
-              </Text>
-            </Link>
-          </Flex>
+          </motion.div>
         </Flex>
       </Center>
       <Box mt={3}>

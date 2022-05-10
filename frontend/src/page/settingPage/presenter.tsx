@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Box, Link, Button, Text } from '@chakra-ui/react';
 import { PresenterType } from './type';
+import { motion } from 'framer-motion';
 
 const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
   return (
@@ -12,14 +13,24 @@ const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
         {myUser && (
           <>
             <Box>
-              <Link href={'/user/' + myUser.data.id + '/edit/'}>
-                プロフィール編集
-              </Link>
+              <motion.div whileHover={{ opacity: 0.7 }}>
+                <Link
+                  href={'/user/' + myUser.data.id + '/edit/'}
+                  _hover={{ textDecoration: 'none' }}
+                >
+                  プロフィール編集
+                </Link>
+              </motion.div>
             </Box>
             <Box>
-              <Link href={'/user/' + myUser.data.id + '/editPassword/'}>
-                パスワード変更
-              </Link>
+              <motion.div whileHover={{ opacity: 0.7 }}>
+                <Link
+                  href={'/user/' + myUser.data.id + '/editPassword/'}
+                  _hover={{ textDecoration: 'none' }}
+                >
+                  パスワード変更
+                </Link>
+              </motion.div>
             </Box>
           </>
         )}

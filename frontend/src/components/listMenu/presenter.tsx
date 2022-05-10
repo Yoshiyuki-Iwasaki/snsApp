@@ -35,7 +35,11 @@ const Presenter: FC<ListMenuType> = ({
         <Box position="absolute" top={2} right={16}>
           {!replyFrag && (
             <Box>
-              <Link href={'/post/' + val.id + '/edit'} fontSize="13px">
+              <Link
+                href={'/post/' + val.id + '/edit'}
+                fontSize="13px"
+                _hover={{ textDecoration: 'none' }}
+              >
                 編集
               </Link>
             </Box>

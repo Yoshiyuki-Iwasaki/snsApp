@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { PresenterType } from './type';
 import { Box, Center, FormLabel, Input, Button, Link } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
 const Presenter: FC<PresenterType> = ({
   signInInfo,
@@ -25,7 +26,11 @@ const Presenter: FC<PresenterType> = ({
         onChange={handleInputChange}
       />
       <Center mt={5}>
-        <Link href="/change_password">パスワードリセット</Link>
+        <motion.div whileHover={{ opacity: 0.7 }}>
+          <Link href="/change_password" _hover={{ textDecoration: 'none' }}>
+            パスワードリセット
+          </Link>
+        </motion.div>
       </Center>
       <Center mt={2}>
         <Button onClick={handleLogin}>ログイン</Button>
