@@ -10,13 +10,11 @@ const useHandleLogin = (inputChange) => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    console.log('test');
     const data = {
       email: inputChange.email,
       password: inputChange.password,
     };
     try {
-      console.log('test01');
       const res = await UserApi.login(data);
       Cookies.set('_access_token', res.headers['access-token']);
       Cookies.set('_client', res.headers['client']);
@@ -27,7 +25,6 @@ const useHandleLogin = (inputChange) => {
       window.location.reload();
     } catch (e) {
       console.log(e);
-      console.log('test02');
     }
   };
 

@@ -19,7 +19,7 @@ const Presenter: FC<PresenterType> = ({
   );
 
   return (
-    <Box mt={2} p="5">
+    <Box mt={2}>
       <Box>
         <InfiniteScroll
           pageStart={0}
@@ -31,7 +31,6 @@ const Presenter: FC<PresenterType> = ({
         >
           {/* 読み込み最中に表示する項目 */}
           {posts.map((val) => {
-            console.log('val', val);
             return (
               <ListItem
                 key={val.id}
