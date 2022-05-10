@@ -10,8 +10,23 @@ async function login(user: any) {
   return api.post(ENDPOINT + `auth/sign_in`, user);
 }
 
-async function change_password_mail(email: any, redirect_url: any) {
-  return api.post(ENDPOINT + `auth/password/`, email, redirect_url);
+async function change_password_mail(email: string, redirect_url: string) {
+  return api.post(ENDPOINT + `auth/password`, {
+    email: email,
+    redirect_url: redirect_url,
+  });
+}
+
+async function change_password(user: any) {
+  return api.patch(ENDPOINT + `auth/password/`, user, {
+    headers: {
+      'access-token': Cookies.get('_access_token'),
+      client: Cookies.get('_client'),
+      uid: Cookies.get('_uid'),
+      expiry: Cookies.get('_expiry'),
+      'token-type': Cookies.get('_token-type'),
+    },
+  });
 }
 
 async function logout() {
@@ -39,23 +54,24 @@ export const fetchLoginUser = () => {
 };
 
 async function show(id: string) {
-  return api.get(ENDPOINT + `/users/` + id);
+  return api.get(ENDPOINT + `users/` + id);
 }
 
 async function follow(id: string, user: any) {
-  return api.post(ENDPOINT + `/users/` + id + '/follow', user);
+  return api.post(ENDPOINT + `users/` + id + '/follow', user);
 }
 
 async function update(id: number, user: any) {
-  return api.patch(ENDPOINT + `/users/` + id, user);
+  return api.patch(ENDPOINT + `users/` + id, user);
 }
 
 const UserApi = {
   create,
   login,
   logout,
-  fetchLoginUser,
   change_password_mail,
+  change_password,
+  fetchLoginUser,
   show,
   follow,
   update,

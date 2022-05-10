@@ -15,6 +15,7 @@ import SettingPage from './page/settingPage';
 import NotificationPage from './page/notificationPage';
 import FollowPage from './page/followPage';
 import EditProfilePage from './page/editProfilePage';
+import EditPasswordPage from './page/editPasswordPage';
 import ChangePasswordPage from './page/changePasswordPage';
 
 const App: FC = () => {
@@ -34,6 +35,10 @@ const App: FC = () => {
               <Route path={'/setting'} element={<SettingPage />} />
               <Route path={'/notification'} element={<NotificationPage />} />
               <Route path={'/user/:id/edit'} element={<EditProfilePage />} />
+              <Route
+                path={'/user/:id/editPassword'}
+                element={<EditPasswordPage />}
+              />
             </>
           ) : (
             <>

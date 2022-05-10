@@ -6,13 +6,20 @@ const Presenter: FC<PresenterType> = ({ myUser, handleLogout }) => {
   return (
     <>
       <Box>
-        <Box>
-          {myUser && (
-            <Link href={'/user/' + myUser.data.id + '/edit/'}>
-              プロフィール編集
-            </Link>
-          )}
-        </Box>
+        {myUser && (
+          <>
+            <Box>
+              <Link href={'/user/' + myUser.data.id + '/edit/'}>
+                プロフィール編集
+              </Link>
+            </Box>
+            <Box>
+              <Link href={'/user/' + myUser.data.id + '/editPassword/'}>
+                パスワード変更
+              </Link>
+            </Box>
+          </>
+        )}
         <Box>
           <Button onClick={handleLogout}>ログアウト</Button>
         </Box>
