@@ -64,16 +64,23 @@ const Presenter: FC<PresenterType> = ({
       <Box mt={3}>
         <Center>
           {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
-          {follow && myUser && myUser.data.id !== Number(params.id) ? (
+          {follow && myUser && myUser.data.id !== Number(params.id) && (
             <>
               {follow.relationship.length ? (
                 <Button onClick={handleUnfollow}>フォロー削除</Button>
               ) : (
                 <Button onClick={handleFollow}>フォロー</Button>
               )}
+              <motion.div whileHover={{ opacity: 0.7 }}>
+                <Link
+                  ml={2}
+                  href={'/chat/' + Number(params.id)}
+                  _hover={{ textDecoration: 'none' }}
+                >
+                  チャット
+                </Link>
+              </motion.div>
             </>
-          ) : (
-            ''
           )}
         </Center>
         <Flex mt={5}>
