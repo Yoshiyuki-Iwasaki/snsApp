@@ -1,5 +1,5 @@
 export type postType = {
   id?: number;
-  name: string;
+  content: string;
   user_id: number;
 };

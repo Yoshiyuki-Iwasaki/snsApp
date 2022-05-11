@@ -9,7 +9,7 @@ const useAddReply = (inputChange, params, currentPost) => {
   const addReply = async () => {
     const data = {
       post_id: Number(params.id),
-      name: inputChange.name,
+      content: inputChange.content,
       user_id: myUser.data.id,
     };
     const notificationData = {

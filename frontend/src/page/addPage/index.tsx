@@ -6,7 +6,7 @@ import Presenter from './presenter';
 const AddPage: FC = () => {
   const initialPostState = {
     id: null,
-    name: '',
+    content: '',
     user_id: '',
   };
   const { inputChange, handleInputChange } =

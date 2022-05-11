@@ -9,7 +9,7 @@ export type DetailPageType = {
   currentPost: PostsType;
   myUser: MyUserType;
   reply: {
-    name: string;
+    content: string;
   };
   replies: PostsType[];
   modalOpenFrag: boolean;

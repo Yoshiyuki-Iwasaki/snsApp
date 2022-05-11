@@ -1,6 +1,6 @@
 export type replyType = {
   id?: number;
-  name: string;
+  content: string;
   post_id: number;
   user_id: number;
 };

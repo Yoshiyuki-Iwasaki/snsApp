@@ -13,7 +13,7 @@ export type ListMenuType = {
   val: {
     id: number;
     createdAt: string;
-    name: string;
+    content: string;
   };
   handleModal: handleModalType;
   deletePost: deletePostType;

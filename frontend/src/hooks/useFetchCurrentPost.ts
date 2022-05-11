@@ -7,7 +7,7 @@ const useFetchPostData = (inputChange?: any, setInputChange?: any) => {
   const params = useParams();
   const initialPostState = {
     id: null,
-    name: '',
+    content: '',
     createdAt: '',
   };
   const [currentPost, setCurrentPost] = useState<any>(initialPostState);
