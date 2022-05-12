@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_11_141946) do
+ActiveRecord::Schema.define(version: 2022_05_12_215752) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(version: 2022_05_11_141946) do
   end
 
   create_table "chats", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "poster_id", null: false
-    t.bigint "posted_id", null: false
-    t.string "content"
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.string "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["posted_id"], name: "index_chats_on_posted_id"
-    t.index ["poster_id"], name: "index_chats_on_poster_id"
+    t.index ["room_id"], name: "index_chats_on_room_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
   create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -101,6 +101,20 @@ ActiveRecord::Schema.define(version: 2022_05_11_141946) do
     t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
+  create_table "rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_user_rooms_on_room_id"
+    t.index ["user_id"], name: "index_user_rooms_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -128,8 +142,8 @@ ActiveRecord::Schema.define(version: 2022_05_11_141946) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "chats", "users", column: "posted_id"
-  add_foreign_key "chats", "users", column: "poster_id"
+  add_foreign_key "chats", "rooms"
+  add_foreign_key "chats", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "replies"
   add_foreign_key "favorites", "users"
@@ -141,4 +155,6 @@ ActiveRecord::Schema.define(version: 2022_05_11_141946) do
   add_foreign_key "relationships", "users", column: "following_id"
   add_foreign_key "replies", "posts"
   add_foreign_key "replies", "users"
+  add_foreign_key "user_rooms", "rooms"
+  add_foreign_key "user_rooms", "users"
 end
