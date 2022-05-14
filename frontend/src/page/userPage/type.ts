@@ -9,6 +9,7 @@ type PostsLikedPost = {
 };
 
 export type PresenterType = {
+  chatRoom: any;
   postedUser: {
     name: string;
     email: string;

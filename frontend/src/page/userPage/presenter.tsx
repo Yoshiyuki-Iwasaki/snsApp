@@ -5,6 +5,7 @@ import { PresenterType } from './type';
 import { motion } from 'framer-motion';
 
 const Presenter: FC<PresenterType> = ({
+  chatRoom,
   postedUser,
   follow,
   myUser,
@@ -71,15 +72,17 @@ const Presenter: FC<PresenterType> = ({
               ) : (
                 <Button onClick={handleFollow}>フォロー</Button>
               )}
-              <motion.div whileHover={{ opacity: 0.7 }}>
-                <Link
-                  ml={2}
-                  href={'/chat/' + Number(params.id)}
-                  _hover={{ textDecoration: 'none' }}
-                >
-                  チャット
-                </Link>
-              </motion.div>
+              {chatRoom && (
+                <motion.div whileHover={{ opacity: 0.7 }}>
+                  <Link
+                    ml={2}
+                    href={'/chatRoom/' + chatRoom.room.id}
+                    _hover={{ textDecoration: 'none' }}
+                  >
+                    チャット
+                  </Link>
+                </motion.div>
+              )}
             </>
           )}
         </Center>

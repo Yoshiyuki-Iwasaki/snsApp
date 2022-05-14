@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Presenter from './presenter';
 import useFetchMyPost from '../../hooks/useFetchMyPost';
@@ -8,6 +8,7 @@ import useFetchUser from '../../hooks/useFetchUser';
 import useFetchFollow from '../../hooks/useFetchFollow';
 import useHandleFollow from '../../hooks/useHandleFollow';
 import useHandleUnFollow from '../../hooks/useHandleUnFollow';
+import UserApi from '../../api/User/api';
 
 const UserPage: FC = () => {
   const { id } = useParams();
@@ -18,9 +19,21 @@ const UserPage: FC = () => {
   const { follow, fetchFollow } = useFetchFollow();
   const handleFollow = useHandleFollow(myUser, { id }, fetchFollow);
   const handleUnfollow = useHandleUnFollow(follow, fetchFollow);
+  const [chatRoom, setChatRoom] = useState();
+
+  const fetchUserChat = async () => {
+    const room = await UserApi.userChat(myUser.data.id, Number(id));
+    setChatRoom(room.data);
+    console.log('room', room.data);
+  };
+
+  useEffect(() => {
+    myUser && fetchUserChat();
+  }, [myUser]);
 
   return (
     <Presenter
+      chatRoom={chatRoom}
       postedUser={postedUser}
       follow={follow}
       myUser={myUser}

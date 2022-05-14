@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         resources :sessions, only: %i[index]
       end
 
+      get '/chats/myUser/:myUser_id/users/:users_id', to: "users#userChat"
       get '/posts/page/:page/', to: "posts#index"
       get '/posts/users/:id/', to: "posts#userIndex"
       get '/favorites/users/:id', to: "favorites#userIndex"
