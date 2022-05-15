@@ -19,29 +19,27 @@ const Presenter: FC<PresenterType> = ({
   );
 
   return (
-    <Box mt={2}>
-      <Box>
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={!isFetching && fetchPost} //項目を読み込む際に処理するコールバック関数
-          initialLoad={true}
-          hasMore={hasMore} //読み込みを行うかどうかの判定
-          loader={loader}
-          useWindow={false}
-        >
-          {/* 読み込み最中に表示する項目 */}
-          {posts.map((val) => {
-            return (
-              <ListItem
-                key={val.id}
-                myUser={myUser}
-                postedUser={val.user}
-                val={val}
-              />
-            );
-          })}
-        </InfiniteScroll>
-      </Box>
+    <Box height="calc(100vh - 57px)" overflow="scroll">
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={!isFetching && fetchPost} //項目を読み込む際に処理するコールバック関数
+        initialLoad={true}
+        hasMore={hasMore} //読み込みを行うかどうかの判定
+        loader={loader}
+        useWindow={false}
+      >
+        {/* 読み込み最中に表示する項目 */}
+        {posts.map((val) => {
+          return (
+            <ListItem
+              key={val.id}
+              myUser={myUser}
+              postedUser={val.user}
+              val={val}
+            />
+          );
+        })}
+      </InfiniteScroll>
     </Box>
   );
 };

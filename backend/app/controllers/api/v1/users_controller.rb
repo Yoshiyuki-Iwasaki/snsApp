@@ -14,8 +14,7 @@ class Api::V1::UsersController < ApplicationController
         render json: user
     end
 
-    def fechUserRoom
-
+    def fetchUserRoom
         # カレントユーザーのuser_roomにあるroom_idの値の配列をroomsに代入。
         rooms = UserRoom.where(user_id: params[:myUser_id].to_i).pluck(:room_id)
 
@@ -37,6 +36,11 @@ class Api::V1::UsersController < ApplicationController
             UserRoom.create(user_id: params[:myUser_id], room_id: room.id)
             user_room = UserRoom.create(user_id: params[:users_id], room_id: room.id)
         end
+        render json: user_room
+    end
+
+    def fetchUserRoomMember
+        user_room = UserRoom.where(room_id: params[:id])
         render json: user_room
     end
 

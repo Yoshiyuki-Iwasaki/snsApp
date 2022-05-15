@@ -7,7 +7,8 @@ import NotificationApi from '../api/Notification/api';
 // Chat作成処理をするcustom hooks.
 const useAddChat = (inputChange, id) => {
   const { myUser } = useFetchMyUser();
-  const { fetchChat } = useFetchChat(Number(id));
+  const { chatRoomMember } = useFetchChat(id);
+
   const addChat = async () => {
     const data = {
       user_id: myUser.data.id,
@@ -15,16 +16,16 @@ const useAddChat = (inputChange, id) => {
       message: inputChange.content,
       id: null,
     };
-    // const notificationData = {
-    //   visiter_id: myUser.data.id,
-    //   visited_id: Number(id),
-    //   post_id: null,
-    //   type: 'chat',
-    //   checked: false,
-    // };
+    const notificationData = {
+      visiter_id: myUser.data.id,
+      visited_id: chatRoomMember.user.id,
+      post_id: null,
+      type: 'chat',
+      checked: false,
+    };
     try {
       await ChatApi.create(data);
-      // await NotificationApi.create(notificationData);
+      await NotificationApi.create(notificationData);
       notify('正常にChatが投稿されました。');
       window.location.reload();
     } catch (e: any) {

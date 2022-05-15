@@ -23,6 +23,7 @@ const Presenter: FC<PresenterType> = ({
                   {val.visiter.name}さんから
                   {val.type === 'like' && 'いいね'}
                   {val.type === 'reply' && '返信'}
+                  {val.type === 'chat' && 'チャット'}
                   {val.type === 'follow' && 'フォロー'}が来ました。
                   {val.checked === true && '既読済み'}
                 </Text>
