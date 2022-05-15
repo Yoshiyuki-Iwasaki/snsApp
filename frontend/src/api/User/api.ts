@@ -57,7 +57,7 @@ async function show(id: string) {
   return api.get(ENDPOINT + `users/` + id);
 }
 
-async function userChat(myUser_id: number, users_id: number) {
+async function fechUserRoom(myUser_id: number, users_id: number) {
   return api.get(
     ENDPOINT + `chats/` + `myUser/` + myUser_id + `/users/` + users_id
   );
@@ -79,7 +79,7 @@ const UserApi = {
   change_password,
   fetchLoginUser,
   show,
-  userChat,
+  fechUserRoom,
   follow,
   update,
 };

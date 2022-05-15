@@ -14,7 +14,7 @@ class Api::V1::UsersController < ApplicationController
         render json: user
     end
 
-    def userChat
+    def fechUserRoom
 
         # カレントユーザーのuser_roomにあるroom_idの値の配列をroomsに代入。
         rooms = UserRoom.where(user_id: params[:myUser_id].to_i).pluck(:room_id)

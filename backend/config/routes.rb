@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :relationships, only: %i[destroy]
       resources :replies, only: %i[index create update destroy]
       resources :notifications, only: %i[create update]
+      resources :chats, only: %i[create]
       resources :posts do
         resources :users do
           resources :favorites, only: %i[index]
@@ -20,13 +21,26 @@ Rails.application.routes.draw do
         resources :sessions, only: %i[index]
       end
 
-      get '/chats/myUser/:myUser_id/users/:users_id', to: "users#userChat"
+      get '/chats/:id/', to: "chats#index"
+
+      # users
+      get '/chats/myUser/:myUser_id/users/:users_id', to: "users#fechUserRoom"
+
+      # posts
       get '/posts/page/:page/', to: "posts#index"
       get '/posts/users/:id/', to: "posts#userIndex"
+
+       # favorites
       get '/favorites/users/:id', to: "favorites#userIndex"
-      get '/replies/posts/:id/', to: "replies#index"
       get '/replies/:reply_id/users/:user_id/favorites/', to: "favorites#replyIndex"
+
+      # replies
+      get '/replies/posts/:id/', to: "replies#index"
+
+      # notifications
       get '/notifications/user/:id/', to: "notifications#index"
+
+      # relationships
       get '/following/:following_id/follower/:follower_id/relationships', to: "relationships#index"
       get '/follower/:follower_id/relationships', to: "relationships#followingIndex"
       get '/following/:following_id/relationships', to: "relationships#followerIndex"

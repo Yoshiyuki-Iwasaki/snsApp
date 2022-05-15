@@ -8,7 +8,7 @@ import useFetchUser from '../../hooks/useFetchUser';
 import useFetchFollow from '../../hooks/useFetchFollow';
 import useHandleFollow from '../../hooks/useHandleFollow';
 import useHandleUnFollow from '../../hooks/useHandleUnFollow';
-import UserApi from '../../api/User/api';
+import useFetchUserRoom from '../../hooks/useFetchUserRoom';
 
 const UserPage: FC = () => {
   const { id } = useParams();
@@ -17,19 +17,9 @@ const UserPage: FC = () => {
   const { myUser } = useFetchMyUser();
   const { postedUser } = useFetchUser(Number(id));
   const { follow, fetchFollow } = useFetchFollow();
+  const { chatRoom } = useFetchUserRoom(id);
   const handleFollow = useHandleFollow(myUser, { id }, fetchFollow);
   const handleUnfollow = useHandleUnFollow(follow, fetchFollow);
-  const [chatRoom, setChatRoom] = useState();
-
-  const fetchUserChat = async () => {
-    const room = await UserApi.userChat(myUser.data.id, Number(id));
-    setChatRoom(room.data);
-    console.log('room', room.data);
-  };
-
-  useEffect(() => {
-    myUser && fetchUserChat();
-  }, [myUser]);
 
   return (
     <Presenter
