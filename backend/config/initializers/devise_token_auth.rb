@@ -57,10 +57,10 @@ DeviseTokenAuth.setup do |config|
   # send email, set it to true. (This is a setting for compatibility)
   # config.send_confirmation_email = true
 
-  config.mailer_sender = ENV['EMAIL_ADDRESS']
+  # config.mailer_sender = ENV['EMAIL_ADDRESS']
 
   # Configure the class responsible to send e-mails.
-  config.mailer = 'Devise::Mailer'
+  # config.mailer = 'Devise::Mailer'
 
   config.default_confirm_success_url = "confirmed"
 end

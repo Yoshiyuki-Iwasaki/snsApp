@@ -22,8 +22,8 @@ const Presenter: FC<PresenterType> = ({
             <Input
               mt={2}
               type="text"
-              name="name"
-              value={currentPost.name}
+              name="content"
+              value={currentPost.content}
               onChange={handleInputChange}
             />
             <Button mt={2} onClick={updatePost}>

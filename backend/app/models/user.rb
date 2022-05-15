@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_many :posts, foreign_key: 'user_id', dependent: :destroy
   has_many :favorites, foreign_key: 'user_id', dependent: :destroy
+  has_many :user_rooms, foreign_key: 'user_id', dependent: :destroy
+  has_many :chats, foreign_key: 'user_id', dependent: :destroy
 
   has_many :following_users, foreign_key: "following_id", class_name: 'Relationship', dependent: :destroy
   has_many :following, through: :following_users, dependent: :destroy

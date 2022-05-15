@@ -57,6 +57,12 @@ async function show(id: string) {
   return api.get(ENDPOINT + `users/` + id);
 }
 
+async function fechUserRoom(myUser_id: number, users_id: number) {
+  return api.get(
+    ENDPOINT + `chats/` + `myUser/` + myUser_id + `/users/` + users_id
+  );
+}
+
 async function follow(id: string, user: any) {
   return api.post(ENDPOINT + `users/` + id + '/follow', user);
 }
@@ -73,6 +79,7 @@ const UserApi = {
   change_password,
   fetchLoginUser,
   show,
+  fechUserRoom,
   follow,
   update,
 };

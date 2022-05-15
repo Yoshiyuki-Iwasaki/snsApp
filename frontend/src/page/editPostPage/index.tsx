@@ -9,7 +9,7 @@ import useFetchMyUser from '../../hooks/useFetchMyUser';
 const EditPage: FC = () => {
   const initialPostState = {
     id: null,
-    name: '',
+    content: '',
     createdAt: '',
   };
   const { inputChange, setInputChange, handleInputChange } =

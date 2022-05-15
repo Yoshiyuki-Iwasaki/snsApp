@@ -3,7 +3,7 @@ import { addPostType } from '../../type';
 
 export type PresenterType = {
   post: {
-    name: any;
+    content: string;
   };
   addPost: addPostType;
   handleInputChange: handleInputChangeType;

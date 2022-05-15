@@ -47,7 +47,7 @@ const Presenter: FC<DetailPageType> = ({
           <Text fontSize="13px">{formatDate(currentPost.createdAt)}</Text>
         </Flex>
         <Box mt={3}>
-          <Text fontSize="15px">{currentPost.name}</Text>
+          <Text fontSize="15px">{currentPost.content}</Text>
         </Box>
       </Box>
       <Box mt={3}>
@@ -55,14 +55,14 @@ const Presenter: FC<DetailPageType> = ({
           <Input
             mt={3}
             mr={2}
-            name={'name'}
-            value={reply.name}
+            name={'content'}
+            value={reply.content}
             onChange={handleInputChange}
           />
           <Button
             mt={3}
             onClick={addReply}
-            disabled={!reply.name || /^\s*$/.test(reply.name)}
+            disabled={!reply.content || /^\s*$/.test(reply.content)}
           >
             <button>
               <FiSend />

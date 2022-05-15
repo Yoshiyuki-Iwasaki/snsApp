@@ -1,6 +1,6 @@
 # module Relationship
   class RelationshipSerializer < ActiveModel::Serializer
-    attributes :id, :following, :follower
+    attributes :id, :following, :follower, :created_at
 
     # アソシエーションの指定
     belongs_to :following

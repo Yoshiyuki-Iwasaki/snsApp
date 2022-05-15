@@ -41,7 +41,7 @@ const Presenter: FC<PresenterType> = ({
               <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
             </Flex>
             <Box mt={2} mr={3}>
-              <Text fontSize="15px">{val.name}</Text>
+              <Text fontSize="15px">{val.content}</Text>
             </Box>
           </Box>
         ) : (
@@ -56,7 +56,7 @@ const Presenter: FC<PresenterType> = ({
                 <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
               </Flex>
               <Box mt={2} mr={3}>
-                <Text fontSize="15px">{val.name}</Text>
+                <Text fontSize="15px">{val.content}</Text>
               </Box>
             </motion.div>
           </Link>

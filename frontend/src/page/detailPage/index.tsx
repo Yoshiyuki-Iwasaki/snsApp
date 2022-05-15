@@ -14,7 +14,7 @@ const DetailPage = () => {
   const { id } = useParams();
   const initialReplyState = {
     id: null,
-    name: '',
+    content: '',
     user_id: '',
     post_id: '',
     createdAt: '',

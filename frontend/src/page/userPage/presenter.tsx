@@ -5,6 +5,7 @@ import { PresenterType } from './type';
 import { motion } from 'framer-motion';
 
 const Presenter: FC<PresenterType> = ({
+  chatRoom,
   postedUser,
   follow,
   myUser,
@@ -64,16 +65,25 @@ const Presenter: FC<PresenterType> = ({
       <Box mt={3}>
         <Center>
           {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
-          {follow && myUser && myUser.data.id !== Number(params.id) ? (
+          {follow && myUser && myUser.data.id !== Number(params.id) && (
             <>
               {follow.relationship.length ? (
                 <Button onClick={handleUnfollow}>フォロー削除</Button>
               ) : (
                 <Button onClick={handleFollow}>フォロー</Button>
               )}
+              {chatRoom && (
+                <motion.div whileHover={{ opacity: 0.7 }}>
+                  <Link
+                    ml={2}
+                    href={'/chatRoom/' + chatRoom.room.id}
+                    _hover={{ textDecoration: 'none' }}
+                  >
+                    チャット
+                  </Link>
+                </motion.div>
+              )}
             </>
-          ) : (
-            ''
           )}
         </Center>
         <Flex mt={5}>

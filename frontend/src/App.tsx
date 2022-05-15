@@ -7,6 +7,7 @@ import useFetchMyUser from './hooks/useFetchMyUser';
 import AddPostPage from './page/addPage';
 import TopPage from './page/topPage';
 import EditPostPage from './page/editPostPage';
+import ChatRoomPage from './page/chatRoomPage';
 import DetailPage from './page/detailPage';
 import SignUpPage from './page/signUpPage';
 import SignInPage from './page/signInPage';
@@ -30,6 +31,7 @@ const App: FC = () => {
               <Route path={'/new'} element={<AddPostPage />} />
               <Route path={'/user/:id'} element={<UserPage />} />
               <Route path={'/user/:id/follow'} element={<FollowPage />} />
+              <Route path={'/chatRoom/:id/'} element={<ChatRoomPage />} />
               <Route path={'/post/:id'} element={<DetailPage />} />
               <Route path={'/post/:id/edit'} element={<EditPostPage />} />
               <Route path={'/setting'} element={<SettingPage />} />
