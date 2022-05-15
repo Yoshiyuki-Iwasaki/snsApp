@@ -2,11 +2,22 @@ import React, { FC } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import Presenter from './presenter';
 import useFetchFollow from '../../hooks/useFetchFollow';
+import useFetchUser from '../../hooks/useFetchUser';
+import { useParams } from 'react-router-dom';
 
 const FollowPage: FC = () => {
-  const { followingList, followerList } = useFetchFollow();
+  const { id } = useParams();
+  const { follow, followingList, followerList } = useFetchFollow();
+  const { postedUser } = useFetchUser(Number(id));
+
   return (
-    <Presenter followingList={followingList} followerList={followerList} />
+    <Presenter
+      postedUser={postedUser}
+      follow={follow}
+      params={{ id }}
+      followingList={followingList}
+      followerList={followerList}
+    />
   );
 };
 
