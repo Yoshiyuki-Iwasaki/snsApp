@@ -18,6 +18,7 @@ import FollowPage from './page/followPage';
 import EditProfilePage from './page/editProfilePage';
 import EditPasswordPage from './page/editPasswordPage';
 import ChangePasswordPage from './page/changePasswordPage';
+import SearchPage from './page/searchPage';
 
 const App: FC = () => {
   const { myUser } = useFetchMyUser();
@@ -37,6 +38,7 @@ const App: FC = () => {
               <Route path={'/setting'} element={<SettingPage />} />
               <Route path={'/notification'} element={<NotificationPage />} />
               <Route path={'/user/:id/edit'} element={<EditProfilePage />} />
+              <Route path={'/search/:id/'} element={<SearchPage />} />
               <Route
                 path={'/user/:id/editPassword'}
                 element={<EditPasswordPage />}
