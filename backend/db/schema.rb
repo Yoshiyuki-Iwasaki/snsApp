@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2022_05_12_215752) do
   end
 
   create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "url"
     t.bigint "visiter_id", null: false
     t.bigint "visited_id", null: false
     t.bigint "post_id"

@@ -17,6 +17,7 @@ const useAddChat = (inputChange, id) => {
       id: null,
     };
     const notificationData = {
+      url: chatRoomMember.room.id,
       visiter_id: myUser.data.id,
       visited_id: chatRoomMember.user.id,
       post_id: null,

@@ -18,6 +18,8 @@ const NotificationPage: FC = () => {
       navigate('/post/' + val.post.id);
     } else if (val.type === 'follow') {
       navigate('/user/' + val.visiter.id);
+    } else if (val.type === 'chat') {
+      navigate('/chatRoom/' + val.url);
     }
   };
 
