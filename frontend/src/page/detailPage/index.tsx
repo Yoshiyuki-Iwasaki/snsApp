@@ -8,17 +8,11 @@ import useFetchCurrentPost from '../../hooks/useFetchCurrentPost';
 import useAddReply from '../../hooks/useAddReply';
 import useDeletePost from '../../hooks/useDeletePost';
 import useModalOpen from '../../hooks/useModalOpen';
+import { initialReplyState } from '../../util/state';
 
 const DetailPage = () => {
   const { myUser } = useFetchMyUser();
   const { id } = useParams();
-  const initialReplyState = {
-    id: null,
-    content: '',
-    user_id: '',
-    post_id: '',
-    createdAt: '',
-  };
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialReplyState);
   const { replies } = useFetchReply();

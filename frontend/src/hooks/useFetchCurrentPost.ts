@@ -1,16 +1,12 @@
 import { useState, useEffect } from 'react';
 import PostApi from '../api/Post/api';
 import { useParams } from 'react-router-dom';
+import { initialEditPostState } from '../util/state';
 
 // 現在開いているPostを取得するcustom hooks.
 const useFetchPostData = (inputChange?: any, setInputChange?: any) => {
   const params = useParams();
-  const initialPostState = {
-    id: null,
-    content: '',
-    createdAt: '',
-  };
-  const [currentPost, setCurrentPost] = useState<any>(initialPostState);
+  const [currentPost, setCurrentPost] = useState<any>(initialEditPostState);
   useEffect(() => {
     const fetchPostData = async () => {
       try {

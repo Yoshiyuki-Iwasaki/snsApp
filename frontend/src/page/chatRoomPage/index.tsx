@@ -5,18 +5,13 @@ import useHandleInputChange from '../../hooks/useHandleInputChange';
 import useAddChat from '../../hooks/useAddChat';
 import useFetchChat from '../../hooks/useFetchChat';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
+import { initialChatState } from '../../util/state';
 
 const ChatRoomPage = () => {
   const { myUser } = useFetchMyUser();
-  const initialPostState = {
-    id: null,
-    user_id: '',
-    room_id: '',
-    message: '',
-  };
   const { id } = useParams();
   const { inputChange, handleInputChange } =
-    useHandleInputChange(initialPostState);
+    useHandleInputChange(initialChatState);
   const addChat = useAddChat(inputChange, Number(id));
   const { chats } = useFetchChat(Number(id));
 

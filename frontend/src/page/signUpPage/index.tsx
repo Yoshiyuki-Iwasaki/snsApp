@@ -2,16 +2,11 @@ import React from 'react';
 import Presenter from './presenter';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
 import useCreateUser from '../../hooks/useCreateUser';
+import { initialUserState } from '../../util/state';
 
 const SignUpPage = () => {
-  const initialPostState = {
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
-  };
   const { inputChange, handleInputChange } =
-    useHandleInputChange(initialPostState);
+    useHandleInputChange(initialUserState);
   const handleAddUser = useCreateUser(inputChange);
 
   return (

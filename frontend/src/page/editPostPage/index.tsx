@@ -5,15 +5,11 @@ import useHandleInputChange from '../../hooks/useHandleInputChange';
 import useUpdatePost from '../../hooks/useUpdatePost';
 import useFetchCurrentPost from '../../hooks/useFetchCurrentPost';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
+import { initialEditPostState } from '../../util/state';
 
 const EditPage: FC = () => {
-  const initialPostState = {
-    id: null,
-    content: '',
-    createdAt: '',
-  };
   const { inputChange, setInputChange, handleInputChange } =
-    useHandleInputChange(initialPostState);
+    useHandleInputChange(initialEditPostState);
   const updatePost = useUpdatePost(inputChange, setInputChange);
   useFetchCurrentPost(inputChange, setInputChange);
   const { myUser } = useFetchMyUser();
