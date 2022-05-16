@@ -11,10 +11,10 @@ const useAddChat = (inputChange, id) => {
 
   const addChat = async () => {
     const data = {
+      id: null,
       user_id: myUser.data.id,
       room_id: Number(id),
       message: inputChange.content,
-      id: null,
     };
     const notificationData = {
       url: chatRoomMember.room.id,

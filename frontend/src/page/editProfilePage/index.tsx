@@ -4,17 +4,9 @@ import useHandleInputChange from '../../hooks/useHandleInputChange';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 import { notify } from '../../util/notify';
 import UserApi from '../../api/User/api';
+import { initialUserState } from '../../util/state';
 
 const EditProfilePage: FC = () => {
-  const initialUserState = {
-    email: '',
-    id: null,
-    image: null,
-    name: '',
-    nickname: '',
-    provider: '',
-    uid: '',
-  };
   const { inputChange, setInputChange, handleInputChange } =
     useHandleInputChange(initialUserState);
   const { myUser } = useFetchMyUser();

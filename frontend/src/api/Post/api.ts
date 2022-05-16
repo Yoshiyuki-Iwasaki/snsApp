@@ -27,6 +27,10 @@ async function remove(id: number) {
   return api.delete(ENDPOINT + `/` + id);
 }
 
+async function search(id: string) {
+  return api.get(ENDPOINT + `/search/` + id);
+}
+
 const PostApi = {
   fetch,
   show,
@@ -34,6 +38,7 @@ const PostApi = {
   create,
   update,
   remove,
+  search,
 };
 
 export default PostApi;

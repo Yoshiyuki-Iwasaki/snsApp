@@ -40,6 +40,11 @@ class Api::V1::PostsController < ApplicationController
         end
     end
 
+    def search
+        posts = Post.order(created_at: :desc).where('content like ?', params[:id])
+        render json: posts
+    end
+
     private
     def post_params
         params.permit(:content, :user_id)
