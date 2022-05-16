@@ -3,6 +3,7 @@ import ListItem from '../../components/listItem';
 import { PresenterType } from './type';
 import InfiniteScroll from 'react-infinite-scroller';
 import { Box } from '@chakra-ui/react';
+import Loading from '../../components/loading';
 
 const Presenter: FC<PresenterType> = ({
   myUser,
@@ -11,13 +12,6 @@ const Presenter: FC<PresenterType> = ({
   isFetching,
   fetchPost,
 }) => {
-  //ロード中に表示する項目
-  const loader = (
-    <div className="loader" key={0}>
-      Loading ...
-    </div>
-  );
-
   return (
     <Box height="calc(100vh - 57px)" overflow="scroll">
       <InfiniteScroll
@@ -25,7 +19,7 @@ const Presenter: FC<PresenterType> = ({
         loadMore={!isFetching && fetchPost} //項目を読み込む際に処理するコールバック関数
         initialLoad={true}
         hasMore={hasMore} //読み込みを行うかどうかの判定
-        loader={loader}
+        loader={Loading}
         useWindow={false}
       >
         {/* 読み込み最中に表示する項目 */}
