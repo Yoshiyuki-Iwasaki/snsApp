@@ -9,8 +9,6 @@ const ChangePasswordPage: FC = () => {
   const { myUser } = useFetchMyUser();
   const { inputChange, handleInputChange } = useHandleInputChange('');
 
-  console.log('myUser', myUser);
-
   const handleEditProfile = async () => {
     try {
       await UserApi.change_password_mail(inputChange.email, '/password');

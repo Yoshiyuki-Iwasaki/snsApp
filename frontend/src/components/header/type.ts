@@ -6,4 +6,7 @@ export type PresenterType = {
       name: string;
     };
   };
+  search: any;
+  handleInputChange: any;
+  handleSearch?: any;
 };

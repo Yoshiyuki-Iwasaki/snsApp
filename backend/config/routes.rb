@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       # posts
       get '/posts/page/:page/', to: "posts#index"
       get '/posts/users/:id/', to: "posts#userIndex"
+      get '/posts/search/:id', to: "posts#search"
 
        # favorites
       get '/favorites/users/:id', to: "favorites#userIndex"

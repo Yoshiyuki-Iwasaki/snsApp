@@ -1,10 +1,20 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
+import { Flex, Link, Text, FormControl, Input, Button } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import { PresenterType } from './type';
-import { SettingsIcon, PlusSquareIcon, BellIcon } from '@chakra-ui/icons';
+import {
+  SettingsIcon,
+  PlusSquareIcon,
+  BellIcon,
+  SearchIcon,
+} from '@chakra-ui/icons';
 import { motion } from 'framer-motion';
 
-const Presenter: FC<PresenterType> = ({ myUser }) => {
+const Presenter: FC<PresenterType> = ({
+  myUser,
+  search,
+  handleInputChange,
+  handleSearch,
+}) => {
   return (
     <Flex py={3} alignItems={'center'} justifyContent={'space-between'}>
       <Link href="/" _hover={{ textDecoration: 'none' }}>
@@ -17,6 +27,22 @@ const Presenter: FC<PresenterType> = ({ myUser }) => {
       <Flex alignItems={'center'}>
         {myUser && myUser.isLogin ? (
           <>
+            <FormControl mr={2}>
+              <Flex>
+                <Input
+                  mt={2}
+                  mr={2}
+                  name={'content'}
+                  value={search.content}
+                  onChange={handleInputChange}
+                />
+                <Button mt={2} onClick={handleSearch}>
+                  <button>
+                    <SearchIcon />
+                  </button>
+                </Button>
+              </Flex>
+            </FormControl>
             <Link
               mr={5}
               href={`/new`}
