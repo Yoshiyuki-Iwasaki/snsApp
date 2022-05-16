@@ -16,18 +16,38 @@ const Presenter: FC<PresenterType> = ({
       {notification &&
         notification.map((val) => {
           return (
-            <Box py={2} onClick={() => handleNotificationCheck(val)}>
-              <motion.div whileHover={{ opacity: 0.7 }}>
-                <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
-                <Text fontSize="14px">
-                  {val.visiter.name}さんから
-                  {val.type === 'like' && 'いいね'}
-                  {val.type === 'reply' && '返信'}
-                  {val.type === 'chat' && 'チャット'}
-                  {val.type === 'follow' && 'フォロー'}が来ました。
-                  {val.checked === true && '既読済み'}
-                </Text>
-              </motion.div>
+            <Box>
+              {val.checked ? (
+                <Box p={3} onClick={() => handleNotificationCheck(val)}>
+                  <motion.div whileHover={{ opacity: 0.7 }}>
+                    <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
+                    <Text fontSize="14px">
+                      {val.visiter.name}さんから
+                      {val.type === 'like' && 'いいね'}
+                      {val.type === 'reply' && '返信'}
+                      {val.type === 'chat' && 'チャット'}
+                      {val.type === 'follow' && 'フォロー'}が来ました。
+                    </Text>
+                  </motion.div>
+                </Box>
+              ) : (
+                <Box
+                  p={3}
+                  bgColor="#ffffe0"
+                  onClick={() => handleNotificationCheck(val)}
+                >
+                  <motion.div whileHover={{ opacity: 0.7 }}>
+                    <Text fontSize="13px">{formatDate(val.createdAt)}</Text>
+                    <Text fontSize="14px">
+                      {val.visiter.name}さんから
+                      {val.type === 'like' && 'いいね'}
+                      {val.type === 'reply' && '返信'}
+                      {val.type === 'chat' && 'チャット'}
+                      {val.type === 'follow' && 'フォロー'}が来ました。
+                    </Text>
+                  </motion.div>
+                </Box>
+              )}
             </Box>
           );
         })}
