@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import Presenter from './presenter';
 import useFetchMyPost from '../../hooks/useFetchMyPost';

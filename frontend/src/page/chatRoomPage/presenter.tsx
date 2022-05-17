@@ -10,7 +10,6 @@ import {
   FormControl,
   Center,
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 import { PresenterType } from './type';
 
 const Presenter: FC<PresenterType> = ({

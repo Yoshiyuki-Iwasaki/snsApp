@@ -4,11 +4,9 @@ import { useParams } from 'react-router-dom';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
 import useAddChat from '../../hooks/useAddChat';
 import useFetchChat from '../../hooks/useFetchChat';
-import useFetchMyUser from '../../hooks/useFetchMyUser';
 import { initialChatState } from '../../util/state';
 
 const ChatRoomPage = () => {
-  const { myUser } = useFetchMyUser();
   const { id } = useParams();
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialChatState);

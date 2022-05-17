@@ -3,10 +3,8 @@ import Presenter from './presenter';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
 import { notify } from '../../util/notify';
 import UserApi from '../../api/User/api';
-import useFetchMyUser from '../../hooks/useFetchMyUser';
 
 const ChangePasswordPage: FC = () => {
-  const { myUser } = useFetchMyUser();
   const { inputChange, handleInputChange } = useHandleInputChange('');
 
   const handleEditProfile = async () => {
