@@ -18,3 +18,9 @@ export type DetailPageType = {
   handleInputChange: handleInputChangeType;
   addReply: addReplyType;
 };
+
+export type PresenterType = {
+  id: number;
+  myUser: any;
+  posts: any;
+};

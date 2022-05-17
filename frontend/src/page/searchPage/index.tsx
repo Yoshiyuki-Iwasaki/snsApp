@@ -18,7 +18,7 @@ const SearchPage = () => {
     fetchSearchFunction();
   }, [id]);
 
-  return <Presenter id={id} myUser={myUser} posts={posts} />;
+  return <Presenter id={Number(id)} myUser={myUser} posts={posts} />;
 };
 
 export default SearchPage;

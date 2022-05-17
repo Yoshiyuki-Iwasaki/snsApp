@@ -1,3 +1,6 @@
+import { handleInputChangeType } from '../../type';
+import { handleSearchType } from '../../type';
+
 export type PresenterType = {
   myUser: {
     isLogin: boolean;
@@ -6,7 +9,9 @@ export type PresenterType = {
       name: string;
     };
   };
-  search: any;
-  handleInputChange: any;
-  handleSearch?: any;
+  search: {
+    content: string;
+  };
+  handleInputChange: handleInputChangeType;
+  handleSearch?: handleSearchType;
 };

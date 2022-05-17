@@ -2,5 +2,11 @@ import { handleLogoutType } from '../../type';
 
 export type PresenterType = {
   handleLogout: handleLogoutType;
-  myUser: any;
+  myUser: {
+    isLogin: boolean;
+    data: {
+      id: number;
+      name: string;
+    };
+  };
 };

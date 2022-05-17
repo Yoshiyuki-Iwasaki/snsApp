@@ -17,9 +17,7 @@ const ChatRoomPage = () => {
 
   return (
     <Presenter
-      myUser={myUser}
       chats={chats}
-      id={id}
       inputChange={inputChange}
       addChat={addChat}
       handleInputChange={handleInputChange}

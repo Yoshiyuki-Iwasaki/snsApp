@@ -2,6 +2,8 @@ import { PostsType } from '../../type/Posts';
 import { MyUserType } from '../../type/MyUser';
 import { handleUnfollowType } from '../../type';
 import { handleFollowType } from '../../type';
+import { RoomsType } from '@/type/Room';
+import { UserType } from '@/api/User/type';
 
 type PostsLikedPost = {
   id: number;
@@ -9,7 +11,11 @@ type PostsLikedPost = {
 };
 
 export type PresenterType = {
-  chatRoom: any;
+  chatRoom: {
+    id: number;
+    room: RoomsType;
+    user: UserType;
+  };
   postedUser: {
     name: string;
     email: string;

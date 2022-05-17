@@ -19,3 +19,5 @@ export type handleFollowType = () => {};
 export type handleLikeType = () => {};
 export type handleUnlikeType = () => {};
 export type handleLogoutType = () => {};
+export type handleNotificationCheckType = (val: any) => {};
+export type handleSearchType = () => void;

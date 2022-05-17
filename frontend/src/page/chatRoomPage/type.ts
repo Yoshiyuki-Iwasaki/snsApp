@@ -18,3 +18,10 @@ export type DetailPageType = {
   handleInputChange: handleInputChangeType;
   addReply: addReplyType;
 };
+
+export type PresenterType = {
+  chats: any;
+  inputChange: any;
+  addChat: any;
+  handleInputChange: any;
+};

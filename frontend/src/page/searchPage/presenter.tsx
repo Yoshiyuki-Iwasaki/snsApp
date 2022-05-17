@@ -12,8 +12,9 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { PresenterType } from './type';
 
-const Presenter: FC<any> = ({ id, myUser, posts }) => {
+const Presenter: FC<PresenterType> = ({ id, myUser, posts }) => {
   return (
     <>
       <Box height="calc(100vh - 135px)" overflow="scroll">

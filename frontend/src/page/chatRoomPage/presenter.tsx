@@ -11,8 +11,9 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { PresenterType } from './type';
 
-const Presenter: FC<any> = ({
+const Presenter: FC<PresenterType> = ({
   chats,
   inputChange,
   addChat,

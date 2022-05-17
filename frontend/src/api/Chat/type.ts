@@ -1,4 +1,4 @@
-export type replyType = {
+export type chatType = {
   id?: number;
   content: string;
   post_id: number;
