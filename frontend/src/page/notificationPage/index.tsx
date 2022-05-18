@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import Presenter from './presenter';
-import useFetchNotification from '../../hooks/useFetchNotification';
-import useHandleNotificationCheck from '../../hooks/useHandleNotificationCheck';
+import { useFetchNotification } from './hooks';
+import { useHandleNotificationCheck } from './hooks';
 
 const NotificationPage: FC = () => {
   const { notification } = useFetchNotification();

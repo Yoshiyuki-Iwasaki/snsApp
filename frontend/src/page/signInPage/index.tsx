@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Presenter from './presenter';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
-import useHandleLogin from '../../hooks/useHandleLogin';
+import { useHandleLogin } from './hooks';
 import { initialUserState } from '../../util/state';
 
 const SigninPage: FC = () => {

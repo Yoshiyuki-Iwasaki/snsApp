@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { notify } from '../util/notify';
-import useFetchMyUser from './useFetchMyUser';
-import PostApi from '../api/Post/api';
+import { notify } from '../../util/notify';
+import useFetchMyUser from '../../hooks/useFetchMyUser';
+import PostApi from '../../api/Post/api';
 
 // Post作成処理をするcustom hooks.
-const useAddPost = (inputChange) => {
+export const useAddPost = (inputChange) => {
   const { myUser } = useFetchMyUser();
   const navigate = useNavigate();
   const addPost = async () => {
@@ -20,5 +20,3 @@ const useAddPost = (inputChange) => {
 
   return addPost;
 };
-
-export default useAddPost;

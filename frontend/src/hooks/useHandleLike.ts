@@ -3,7 +3,7 @@ import FavoriteApi from '../api/Favorite/api';
 import NotificationApi from '../api/Notification/api';
 
 // いいね処理をするcustom hooks.
-const useHandleLike = (val, myUser, fetchFavorite, replyFrag) => {
+export const useHandleLike = (val, myUser, fetchFavorite, replyFrag) => {
   const handleLike = async () => {
     const data = {
       post_id: replyFrag ? '' : val.id,
@@ -26,5 +26,3 @@ const useHandleLike = (val, myUser, fetchFavorite, replyFrag) => {
 
   return handleLike;
 };
-
-export default useHandleLike;

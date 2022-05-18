@@ -1,7 +1,7 @@
 import React from 'react';
 import Presenter from './presenter';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
-import useCreateUser from '../../hooks/useCreateUser';
+import { useCreateUser } from './hooks';
 import { initialUserState } from '../../util/state';
 
 const SignUpPage = () => {

@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import { notify } from '../util/notify';
-import useFetchMyUser from './useFetchMyUser';
-import UserApi from '../api/User/api';
+import { notify } from '../../util/notify';
+import useFetchMyUser from '../../hooks/useFetchMyUser';
+import UserApi from '../../api/User/api';
 import Cookies from 'js-cookie';
 
 // Login処理をするcustom hooks.
-const useHandleLogin = (inputChange) => {
+export const useHandleLogin = (inputChange) => {
   const { fetchUser } = useFetchMyUser();
   const navigate = useNavigate();
 
@@ -30,5 +30,3 @@ const useHandleLogin = (inputChange) => {
 
   return handleLogin;
 };
-
-export default useHandleLogin;

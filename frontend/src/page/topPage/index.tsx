@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Presenter from './presenter';
-import useFetchAllPosts from '../../hooks/useFetchAllPosts';
+import { useFetchAllPosts } from './hooks';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 
 const TopPage: FC = () => {

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { initialEditPostState } from '../util/state';
 
 // 現在開いているPostを取得するcustom hooks.
-const useFetchPostData = (inputChange?: any, setInputChange?: any) => {
+const useFetchCurrentPost = (inputChange?: any, setInputChange?: any) => {
   const params = useParams();
   const [currentPost, setCurrentPost] = useState<any>(initialEditPostState);
   useEffect(() => {
@@ -25,4 +25,4 @@ const useFetchPostData = (inputChange?: any, setInputChange?: any) => {
   return inputChange ? { inputChange, setInputChange } : currentPost;
 };
 
-export default useFetchPostData;
+export default useFetchCurrentPost;

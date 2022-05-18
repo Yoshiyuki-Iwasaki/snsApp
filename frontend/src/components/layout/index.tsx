@@ -3,7 +3,6 @@ import Header from '../header';
 import { LayoutType } from './type';
 import { Container, Center } from '@chakra-ui/react';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
-import { motion } from 'framer-motion';
 
 const Layout: FC<LayoutType> = ({ children }) => {
   const { myUser } = useFetchMyUser();

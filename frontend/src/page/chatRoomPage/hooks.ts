@@ -1,11 +1,11 @@
-import { notify } from '../util/notify';
-import useFetchMyUser from './useFetchMyUser';
-import useFetchChat from '../hooks/useFetchChat';
-import ChatApi from '../api/Chat/api';
-import NotificationApi from '../api/Notification/api';
+import { notify } from '../../util/notify';
+import useFetchMyUser from '../../hooks/useFetchMyUser';
+import useFetchChat from '../../hooks/useFetchChat';
+import ChatApi from '../../api/Chat/api';
+import NotificationApi from '../../api/Notification/api';
 
 // Chat作成処理をするcustom hooks.
-const useAddChat = (inputChange, id) => {
+export const useAddChat = (inputChange, id) => {
   const { myUser } = useFetchMyUser();
   const { chatRoomMember } = useFetchChat(id);
 
@@ -33,8 +33,5 @@ const useAddChat = (inputChange, id) => {
       console.log(e);
     }
   };
-
   return addChat;
 };
-
-export default useAddChat;

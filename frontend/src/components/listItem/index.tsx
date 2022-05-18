@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import Presenter from './presenter';
 import { ListItemType } from './type';
-import useFetchFavorite from '../../hooks/useFetchFavorite';
-import useHandleLike from '../../hooks/useHandleLike';
-import useHandleUnlike from '../../hooks/useHandleUnlike';
+import { useFetchFavorite } from './hooks';
+import { useHandleLike } from './hooks';
+import { useHandleUnlike } from './hooks';
 import useDeletePost from '../../hooks/useDeletePost';
 import useModalOpen from '../../hooks/useModalOpen';
 

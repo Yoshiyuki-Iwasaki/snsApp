@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import Presenter from './presenter';
 import useHandleInputChange from '../../hooks/useHandleInputChange';
-import useUpdatePost from '../../hooks/useUpdatePost';
+import { useUpdatePost } from './hooks';
 import useFetchCurrentPost from '../../hooks/useFetchCurrentPost';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 import { initialEditPostState } from '../../util/state';

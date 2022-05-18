@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { notify } from '../util/notify';
-import PostApi from '../api/Post/api';
+import { notify } from '../../util/notify';
+import PostApi from '../../api/Post/api';
 
 // Post更新処理をするcustom hooks.
-const useUpdatePost = (inputChange, setInputChange) => {
+export const useUpdatePost = (inputChange, setInputChange) => {
   const navigate = useNavigate();
   const updatePost = async () => {
     const postRes = await PostApi.update(inputChange.id, inputChange);
@@ -14,5 +14,3 @@ const useUpdatePost = (inputChange, setInputChange) => {
 
   return updatePost;
 };
-
-export default useUpdatePost;

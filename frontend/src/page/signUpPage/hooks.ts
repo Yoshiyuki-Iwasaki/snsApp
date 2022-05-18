@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { notify } from '../util/notify';
-import UserApi from '../api/User/api';
+import { notify } from '../../util/notify';
+import UserApi from '../../api/User/api';
 
 // ユーザー新規作成処理をするcustom hooks.
-const useCreateUser = (inputChange) => {
+export const useCreateUser = (inputChange) => {
   const navigate = useNavigate();
   const handleAddUser = async () => {
     await UserApi.create(inputChange);
@@ -14,5 +14,3 @@ const useCreateUser = (inputChange) => {
 
   return handleAddUser;
 };
-
-export default useCreateUser;
