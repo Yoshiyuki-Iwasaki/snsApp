@@ -6,10 +6,14 @@ import UserApi from '../../api/User/api';
 export const useCreateUser = (inputChange) => {
   const navigate = useNavigate();
   const handleAddUser = async () => {
-    await UserApi.create(inputChange);
-    notify('正常にユーザー作成が完了しました。');
-    navigate('/');
-    window.location.reload();
+    try {
+      await UserApi.create(inputChange);
+      notify('正常にユーザー作成が完了しました。');
+      navigate('/');
+      window.location.reload();
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   return handleAddUser;

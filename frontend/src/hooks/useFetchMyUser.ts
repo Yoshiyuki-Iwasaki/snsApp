@@ -6,8 +6,12 @@ const useFetchMyUser = () => {
   const [myUser, setMyUser] = useState<any>();
 
   const fetchUser = async () => {
-    const userRes = await UserApi.fetchLoginUser();
-    setMyUser(userRes.data);
+    try {
+      const userRes = await UserApi.fetchLoginUser();
+      setMyUser(userRes.data);
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {

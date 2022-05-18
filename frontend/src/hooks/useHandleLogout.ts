@@ -8,10 +8,14 @@ const useHandleLogout = () => {
   const { myUser, setMyUser } = useFetchMyUser();
 
   const handleLogout = async () => {
-    await UserApi.logout();
-    setMyUser('');
-    navigate('/');
-    window.location.reload();
+    try {
+      await UserApi.logout();
+      setMyUser('');
+      navigate('/');
+      window.location.reload();
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   return { myUser, handleLogout };

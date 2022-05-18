@@ -19,9 +19,13 @@ export const useHandleLike = (val, myUser, fetchFavorite, replyFrag) => {
       type: 'like',
       checked: false,
     };
-    await NotificationApi.create(notificationData);
-    notify('正常にいいねが完了しました。');
-    fetchFavorite();
+    try {
+      await NotificationApi.create(notificationData);
+      notify('正常にいいねが完了しました。');
+      fetchFavorite();
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   return handleLike;

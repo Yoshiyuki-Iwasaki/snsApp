@@ -13,19 +13,23 @@ const useFetchFollow = () => {
   const params = useParams();
 
   const fetchFollow = async () => {
-    const followRes = await RelationshipApi.fetch(
-      myUser && myUser.data.id,
-      Number(params.id)
-    );
-    setFollow(followRes.data);
-    const followingRes = await RelationshipApi.fetch_follower(
-      Number(params.id)
-    );
-    setFollowingList(followingRes.data);
-    const followerRes = await RelationshipApi.fetch_following(
-      Number(params.id)
-    );
-    setFollowerList(followerRes.data);
+    try {
+      const followRes = await RelationshipApi.fetch(
+        myUser && myUser.data.id,
+        Number(params.id)
+      );
+      setFollow(followRes.data);
+      const followingRes = await RelationshipApi.fetch_follower(
+        Number(params.id)
+      );
+      setFollowingList(followingRes.data);
+      const followerRes = await RelationshipApi.fetch_following(
+        Number(params.id)
+      );
+      setFollowerList(followerRes.data);
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {

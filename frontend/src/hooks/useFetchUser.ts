@@ -6,8 +6,12 @@ const useFetchUser = (val) => {
   const [postedUser, setPostedUser] = useState();
 
   const fetchUser = async () => {
-    const userRes = await UserApi.show(val);
-    setPostedUser(userRes.data);
+    try {
+      const userRes = await UserApi.show(val);
+      setPostedUser(userRes.data);
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {

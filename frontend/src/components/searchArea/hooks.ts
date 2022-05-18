@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 export const useHandleSearch = (inputChange) => {
   const navigate = useNavigate();
   const handleSearch = () => {
-    console.log('inputChange', inputChange);
     navigate('/search/' + inputChange.content);
   };
 

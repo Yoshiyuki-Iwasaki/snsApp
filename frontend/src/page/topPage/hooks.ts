@@ -20,6 +20,8 @@ export const useFetchAllPosts = () => {
         }
         setPosts([...posts, ...postRes.data]);
       }
+    } catch (e: any) {
+      console.log(e);
     } finally {
       setIsFetching(false);
     }

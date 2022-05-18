@@ -46,10 +46,14 @@ export const useFetchFavorite = (val, replyFrag) => {
   const { myUser } = useFetchMyUser();
 
   const fetchFavorite = async () => {
-    const FavoriteRes = replyFrag
-      ? await FavoriteApi.fetch_replyPost(myUser.data.id, val.id)
-      : await FavoriteApi.fetch(myUser.data.id, val.id);
-    setFavorite(FavoriteRes.data);
+    try {
+      const FavoriteRes = replyFrag
+        ? await FavoriteApi.fetch_replyPost(myUser.data.id, val.id)
+        : await FavoriteApi.fetch(myUser.data.id, val.id);
+      setFavorite(FavoriteRes.data);
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {

@@ -6,10 +6,14 @@ import PostApi from '../../api/Post/api';
 export const useUpdatePost = (inputChange, setInputChange) => {
   const navigate = useNavigate();
   const updatePost = async () => {
-    const postRes = await PostApi.update(inputChange.id, inputChange);
-    setInputChange(postRes.data);
-    notify('正常に投稿の編集が完了しました。');
-    navigate('/');
+    try {
+      const postRes = await PostApi.update(inputChange.id, inputChange);
+      setInputChange(postRes.data);
+      notify('正常に投稿の編集が完了しました。');
+      navigate('/');
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   return updatePost;

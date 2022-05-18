@@ -11,16 +11,20 @@ type inputChangeType = {
 const useDeletePost = (inputChange: inputChangeType, replyFrag?: boolean) => {
   const navigate = useNavigate();
   const deletePost = async () => {
-    const sure = window.confirm('Are you sure?');
-    if (sure) {
-      replyFrag
-        ? await ReplyApi.remove(Number(inputChange.id))
-        : await PostApi.remove(Number(inputChange.id));
-      !replyFrag && navigate('/');
-      replyFrag
-        ? notify('正常に返信の削除が完了しました。')
-        : notify('正常に投稿の削除が完了しました。');
-      window.location.reload();
+    try {
+      const sure = window.confirm('削除して問題ないですか?');
+      if (sure) {
+        replyFrag
+          ? await ReplyApi.remove(Number(inputChange.id))
+          : await PostApi.remove(Number(inputChange.id));
+        !replyFrag && navigate('/');
+        replyFrag
+          ? notify('正常に返信の削除が完了しました。')
+          : notify('正常に投稿の削除が完了しました。');
+        window.location.reload();
+      }
+    } catch (e: any) {
+      console.log(e);
     }
   };
 

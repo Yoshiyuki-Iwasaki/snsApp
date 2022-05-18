@@ -10,15 +10,19 @@ const useFetchChat = (id) => {
   const [chatRoomMember, setChatRoomMember] = useState<any>();
 
   const fetchChat = async () => {
-    const ChatRes = await ChatApi.fetch(Number(id));
-    const roomMember = await UserApi.fetchUserRoomMember(Number(id));
-    //自分ではないチャットのメンバーを取得
-    const yourRoomMember = roomMember.data.filter((val) => {
-      return val.user.id !== myUser.data.id;
-    });
+    try {
+      const ChatRes = await ChatApi.fetch(Number(id));
+      const roomMember = await UserApi.fetchUserRoomMember(Number(id));
+      //自分ではないチャットのメンバーを取得
+      const yourRoomMember = roomMember.data.filter((val) => {
+        return val.user.id !== myUser.data.id;
+      });
 
-    setChatRoomMember(yourRoomMember[0]);
-    setChats(ChatRes.data);
+      setChatRoomMember(yourRoomMember[0]);
+      setChats(ChatRes.data);
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {

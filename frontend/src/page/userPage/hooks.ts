@@ -10,11 +10,14 @@ import useFetchMyUser from '../../hooks/useFetchMyUser';
 // フォロー削除処理をするcustom hooks.
 export const useHandleUnFollow = (follow, fetchFollow) => {
   const handleUnfollow = async () => {
-    await RelationshipApi.remove(follow.relationship[0].id);
-    notify('正常にフォロー削除完了しました。');
-    fetchFollow();
+    try {
+      await RelationshipApi.remove(follow.relationship[0].id);
+      notify('正常にフォロー削除完了しました。');
+      fetchFollow();
+    } catch (e: any) {
+      console.log(e);
+    }
   };
-
   return handleUnfollow;
 };
 
@@ -50,8 +53,12 @@ export const useFetchUserRoom = (id) => {
   const [chatRoom, setChatRoom] = useState();
 
   const fetchUserRoom = async () => {
-    const room = await UserApi.fetchUserRoom(myUser.data.id, Number(id));
-    setChatRoom(room.data);
+    try {
+      const room = await UserApi.fetchUserRoom(myUser.data.id, Number(id));
+      setChatRoom(room.data);
+    } catch (e: any) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {
@@ -65,8 +72,12 @@ export const useFetchUserRoom = (id) => {
 export const useFetchMyPost = (id: number) => {
   const [myPost, setMyPost] = useState<any>();
   const fetchMyPost = useCallback(async () => {
-    const PostRes = await PostApi.fetch_userPost(id);
-    setMyPost(PostRes.data);
+    try {
+      const PostRes = await PostApi.fetch_userPost(id);
+      setMyPost(PostRes.data);
+    } catch (e: any) {
+      console.log(e);
+    }
   }, [id]);
 
   useEffect(() => {
@@ -82,8 +93,12 @@ export const useFetchLikedMyPost = (id: number) => {
 
   useEffect(() => {
     const fetchLikedPost = async () => {
-      const FavoriteRes = await FavoriteApi.fetch_userPost(id);
-      setLikedPost(FavoriteRes.data);
+      try {
+        const FavoriteRes = await FavoriteApi.fetch_userPost(id);
+        setLikedPost(FavoriteRes.data);
+      } catch (e: any) {
+        console.log(e);
+      }
     };
     fetchLikedPost();
   }, []);
