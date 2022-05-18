@@ -41,7 +41,7 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def search
-        posts = Post.order(created_at: :desc).where('content like ?', params[:id])
+        posts = Post.order(created_at: :desc).where('content like ?', '%' + params[:id] + '%')
         render json: posts
     end
 
