@@ -85,9 +85,11 @@ const Presenter: FC<PresenterType> = ({
       )}
       <Flex mt={5}>
         <Box mx={1} w="50%">
-          <Text fontSize="16px" fontWeight="700">
-            投稿一覧
-          </Text>
+          <Center>
+            <Text fontSize="16px" fontWeight="700">
+              投稿一覧
+            </Text>
+          </Center>
           {myPost &&
             myPost.map((val) => {
               return (
@@ -101,9 +103,11 @@ const Presenter: FC<PresenterType> = ({
             })}
         </Box>
         <Box mx={1} w="50%">
-          <Text fontSize="16px" fontWeight="700">
-            いいねした投稿
-          </Text>
+          <Center>
+            <Text fontSize="16px" fontWeight="700">
+              いいねした投稿
+            </Text>
+          </Center>
           {likedPost &&
             likedPost.map((val) => {
               return (
