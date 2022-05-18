@@ -20,6 +20,7 @@ export type DetailPageType = {
 };
 
 export type PresenterType = {
+  myUser: any;
   chats: any;
   inputChange: any;
   addChat: any;
