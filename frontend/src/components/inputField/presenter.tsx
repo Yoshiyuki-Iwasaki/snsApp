@@ -2,14 +2,11 @@ import React, { FC } from 'react';
 import { FiSend } from 'react-icons/fi';
 import 'react-toastify/dist/ReactToastify.css';
 import { PresenterType } from './type';
-import { Box, Input, FormControl, Flex, Text, Button } from '@chakra-ui/react';
+import { Box, Input, FormControl, Flex, Button } from '@chakra-ui/react';
 
 const Presenter: FC<PresenterType> = ({ post, addPost, handleInputChange }) => {
   return (
     <Box p="5" borderWidth="1px">
-      <Text fontSize="15px" fontWeight="700">
-        新規投稿
-      </Text>
       <FormControl onSubmit={addPost}>
         <Flex>
           <Input

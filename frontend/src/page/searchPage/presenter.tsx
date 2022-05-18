@@ -1,23 +1,12 @@
 import React, { FC } from 'react';
-import { formatDate } from '../../util/data';
-import { FiSend } from 'react-icons/fi';
 import ListItem from '../../components/listItem';
-import {
-  Box,
-  Flex,
-  Input,
-  Text,
-  Button,
-  FormControl,
-  Center,
-} from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import { PresenterType } from './type';
 
 const Presenter: FC<PresenterType> = ({ id, myUser, posts }) => {
   return (
     <>
-      <Box height="calc(100vh - 135px)" overflow="scroll">
+      <Box height="calc(100vh - 72px)" overflow="scroll">
         <Text>検索結果: {id}</Text>
         <Flex>
           <Box>

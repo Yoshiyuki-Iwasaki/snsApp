@@ -4,7 +4,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout';
 import useFetchMyUser from './hooks/useFetchMyUser';
-import AddPostPage from './page/addPage';
 import TopPage from './page/topPage';
 import EditPostPage from './page/editPostPage';
 import ChatRoomPage from './page/chatRoomPage';
@@ -29,7 +28,6 @@ const App: FC = () => {
           {myUser && myUser.isLogin ? (
             <>
               <Route path={'/'} element={<TopPage />} />
-              <Route path={'/new'} element={<AddPostPage />} />
               <Route path={'/user/:id'} element={<UserPage />} />
               <Route path={'/user/:id/follow'} element={<FollowPage />} />
               <Route path={'/chatRoom/:id/'} element={<ChatRoomPage />} />

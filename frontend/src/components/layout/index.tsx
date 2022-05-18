@@ -15,7 +15,7 @@ const Layout: FC<LayoutType> = ({ children }) => {
               <Header />
             </Container>
           </Center>
-          <Center minH="calc(100vh - (24px + 2rem))" alignItems="flex-start">
+          <Center minH="calc(100vh - 72px)" alignItems="flex-start">
             <Container maxW="600px">{children}</Container>
           </Center>
         </>

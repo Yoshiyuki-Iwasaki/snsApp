@@ -4,7 +4,7 @@ import { useAddPost } from './hooks';
 import Presenter from './presenter';
 import { initialPostState } from '../../util/state';
 
-const AddPage: FC = () => {
+const InputField: FC = () => {
   const { inputChange, handleInputChange } =
     useHandleInputChange(initialPostState);
   const addPost = useAddPost(inputChange);
@@ -20,4 +20,4 @@ const AddPage: FC = () => {
   );
 };
 
-export default AddPage;
+export default InputField;
