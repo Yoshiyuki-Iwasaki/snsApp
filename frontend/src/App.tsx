@@ -18,6 +18,7 @@ import EditProfilePage from './page/editProfilePage';
 import EditPasswordPage from './page/editPasswordPage';
 import ChangePasswordPage from './page/changePasswordPage';
 import SearchPage from './page/searchPage';
+import ErrorPage from './page/errorPage';
 
 const App: FC = () => {
   const { myUser } = useFetchMyUser();
@@ -41,6 +42,7 @@ const App: FC = () => {
                 path={'/user/:id/editPassword'}
                 element={<EditPasswordPage />}
               />
+              <Route path={'/*'} element={<ErrorPage />} />
             </>
           ) : (
             <>

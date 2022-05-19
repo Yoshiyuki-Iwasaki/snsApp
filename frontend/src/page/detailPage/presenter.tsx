@@ -50,39 +50,35 @@ const Presenter: FC<DetailPageType> = ({
           <Text fontSize="15px">{currentPost.content}</Text>
         </Box>
       </Box>
-      <Box mt={3}>
-        <Flex>
-          <Input
-            mt={3}
-            mr={2}
-            name={'content'}
-            value={reply.content}
-            onChange={handleInputChange}
-          />
-          <Button
-            mt={3}
-            onClick={addReply}
-            disabled={!reply.content || /^\s*$/.test(reply.content)}
-          >
-            <button>
-              <FiSend />
-            </button>
-          </Button>
-        </Flex>
-        <Box mt={2}>
-          {replies &&
-            replies.map((val) => {
-              return (
-                <ListItem
-                  key={val.id}
-                  myUser={myUser}
-                  postedUser={val.user}
-                  val={val}
-                  replyFrag={true}
-                />
-              );
-            })}
-        </Box>
+      <Flex my={5}>
+        <Input
+          mr={2}
+          name={'content'}
+          value={reply.content}
+          onChange={handleInputChange}
+        />
+        <Button
+          onClick={addReply}
+          disabled={!reply.content || /^\s*$/.test(reply.content)}
+        >
+          <button>
+            <FiSend />
+          </button>
+        </Button>
+      </Flex>
+      <Box mt={2}>
+        {replies &&
+          replies.map((val) => {
+            return (
+              <ListItem
+                key={val.id}
+                myUser={myUser}
+                postedUser={val.user}
+                val={val}
+                replyFrag={true}
+              />
+            );
+          })}
       </Box>
     </>
   );

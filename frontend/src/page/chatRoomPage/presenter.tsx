@@ -6,6 +6,7 @@ import {
   Flex,
   Input,
   Text,
+  Link,
   Button,
   FormControl,
   Center,
@@ -30,9 +31,14 @@ const Presenter: FC<PresenterType> = ({
                   <Flex my={2} justifyContent="flex-end">
                     <Box p={3} w="40%" borderWidth="1px" borderRadius={8}>
                       <Flex alignItems={'center'}>
-                        <Text mr={2} fontSize="13px" fontWeight={700}>
+                        <Link
+                          href={`/user/` + val.user.id}
+                          mr={2}
+                          fontSize="13px"
+                          fontWeight={700}
+                        >
                           {val.user.name}
-                        </Text>
+                        </Link>
                         <Text fontSize="11px">{formatDate(val.createdAt)}</Text>
                       </Flex>
                       <Text fontSize="13px">{val.message}</Text>
@@ -42,9 +48,14 @@ const Presenter: FC<PresenterType> = ({
                   <Flex my={2} justifyContent="flex-start">
                     <Box p={3} w="40%" borderWidth="1px" borderRadius={8}>
                       <Flex alignItems={'center'}>
-                        <Text mr={2} fontSize="13px" fontWeight={700}>
+                        <Link
+                          href={`/user/` + val.user.id}
+                          mr={2}
+                          fontSize="13px"
+                          fontWeight={700}
+                        >
                           {val.user.name}
-                        </Text>
+                        </Link>
                         <Text fontSize="11px">{formatDate(val.createdAt)}</Text>
                       </Flex>
                       <Text fontSize="13px">{val.message}</Text>

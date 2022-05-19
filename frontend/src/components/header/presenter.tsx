@@ -21,17 +21,6 @@ const Presenter: FC<PresenterType> = ({ myUser }) => {
             <SearchArea />
             <Link
               mr={5}
-              href={`/new`}
-              fontSize={14}
-              fontWeight={700}
-              _hover={{ textDecoration: 'none' }}
-            >
-              <motion.button whileHover={{ scale: 1.3 }}>
-                <PlusSquareIcon />
-              </motion.button>
-            </Link>
-            <Link
-              mr={5}
               href={`/notification`}
               fontSize={14}
               fontWeight={700}
