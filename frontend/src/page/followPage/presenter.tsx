@@ -10,8 +10,6 @@ const Presenter: FC<PresenterType> = ({
   followingList,
   followerList,
 }) => {
-  console.log('postedUser', postedUser);
-  console.log('follow', follow);
   return (
     <Box p="5">
       <Center>
