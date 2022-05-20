@@ -5,6 +5,6 @@ export type PresenterType = {
   post: {
     content: string;
   };
-  addPost: addPostType;
+  addPost: any;
   handleInputChange: handleInputChangeType;
 };

@@ -5,15 +5,15 @@ import Presenter from './presenter';
 import { initialPostState } from '../../util/state';
 
 const InputField: FC = () => {
-  const { inputChange, handleInputChange } =
+  const { inputChange, setInputChange, handleInputChange } =
     useHandleInputChange(initialPostState);
-  const addPost = useAddPost(inputChange);
+  const addPost = useAddPost(inputChange, setInputChange);
 
   return (
     <>
       <Presenter
         post={inputChange}
-        addPost={addPost}
+        addPost={(e) => addPost(e)}
         handleInputChange={handleInputChange}
       />
     </>
