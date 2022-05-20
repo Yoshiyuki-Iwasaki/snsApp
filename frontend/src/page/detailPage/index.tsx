@@ -13,11 +13,16 @@ import { initialReplyState } from '../../util/state';
 const DetailPage = () => {
   const { myUser } = useFetchMyUser();
   const { id } = useParams();
-  const { inputChange, handleInputChange } =
+  const { inputChange, setInputChange, handleInputChange } =
     useHandleInputChange(initialReplyState);
   const { replies } = useFetchReply();
   const currentPost = useFetchCurrentPost();
-  const addReply = useAddReply(inputChange, { id }, currentPost);
+  const addReply = useAddReply(
+    inputChange,
+    setInputChange,
+    { id },
+    currentPost
+  );
   const deletePost = useDeletePost({ id });
   const { modalOpenFrag, handleModal } = useModalOpen();
 

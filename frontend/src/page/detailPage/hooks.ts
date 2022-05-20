@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { notify } from '../../util/notify';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 import ReplyApi from '../../api/Reply/api';
@@ -6,8 +6,14 @@ import NotificationApi from '../../api/Notification/api';
 import { useParams } from 'react-router-dom';
 
 // Reply作成処理をするcustom hooks.
-export const useAddReply = (inputChange, params, currentPost) => {
+export const useAddReply = (
+  inputChange,
+  setInputChange,
+  params,
+  currentPost
+) => {
   const { myUser } = useFetchMyUser();
+  const { fetchReply, replies } = useFetchReply();
   const addReply = async () => {
     const data = {
       post_id: Number(params.id),
@@ -21,10 +27,15 @@ export const useAddReply = (inputChange, params, currentPost) => {
       type: 'reply',
       checked: false,
     };
+    const emptyData = {
+      content: '',
+    };
     try {
       await ReplyApi.create(data);
       await NotificationApi.create(notificationData);
-      window.location.reload();
+      setInputChange(emptyData);
+      fetchReply();
+      console.log('add replies', replies);
       notify('正常にリプライが完了しました。');
     } catch (e: any) {
       console.log(e);
