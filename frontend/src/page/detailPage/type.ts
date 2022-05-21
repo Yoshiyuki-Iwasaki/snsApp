@@ -13,7 +13,14 @@ export type DetailPageType = {
   };
   replies: PostsType[];
   modalOpenFrag: boolean;
-  favorite: any;
+  favorite: {
+    favorite: {
+      length: number;
+    };
+    isFavorite: {
+      length: number;
+    };
+  };
   deletePost: deletePostType;
   handleModal: handleModalType;
   handleInputChange: handleInputChangeType;

@@ -21,7 +21,10 @@ export type DetailPageType = {
 
 export type PresenterType = {
   id: number | string;
-  myUser: any;
-  posts: any;
-  users: any;
+  myUser: MyUserType;
+  posts: PostsType[];
+  users: {
+    id: number;
+    name: string;
+  }[];
 };

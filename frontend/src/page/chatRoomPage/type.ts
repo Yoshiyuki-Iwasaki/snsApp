@@ -20,9 +20,11 @@ export type DetailPageType = {
 };
 
 export type PresenterType = {
-  myUser: any;
+  myUser: MyUserType;
   chats: any;
-  inputChange: any;
+  inputChange: {
+    content: string;
+  };
   addChat: any;
-  handleInputChange: any;
+  handleInputChange: handleInputChangeType;
 };

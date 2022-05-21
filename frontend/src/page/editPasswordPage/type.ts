@@ -2,11 +2,7 @@ import { handleInputChangeType } from '../../type';
 import { handleLoginType } from '../../type';
 
 export type PresenterType = {
-  signInInfo: {
-    id: number;
-    email: string;
-    password: string;
-  };
+  editProfile;
   handleInputChange: handleInputChangeType;
-  handleLogin: handleLoginType;
+  handleEditProfile: any;
 };

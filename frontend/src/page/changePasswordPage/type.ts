@@ -3,6 +3,6 @@ import { handleLoginType } from '../../type';
 
 export type PresenterType = {
   editProfile: any;
-  handleInputChange: any;
+  handleInputChange: handleInputChangeType;
   handleEditProfile: any;
 };
