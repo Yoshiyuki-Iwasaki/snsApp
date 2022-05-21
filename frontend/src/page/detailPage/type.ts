@@ -16,5 +16,5 @@ export type DetailPageType = {
   deletePost: deletePostType;
   handleModal: handleModalType;
   handleInputChange: handleInputChangeType;
-  addReply: addReplyType;
+  addReply: any;
 };

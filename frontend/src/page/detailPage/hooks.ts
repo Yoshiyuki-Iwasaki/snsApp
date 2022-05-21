@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { notify } from '../../util/notify';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 import ReplyApi from '../../api/Reply/api';
@@ -13,8 +13,8 @@ export const useAddReply = (
   currentPost
 ) => {
   const { myUser } = useFetchMyUser();
-  const { fetchReply, replies } = useFetchReply();
-  const addReply = async () => {
+  const addReply = async (e) => {
+    e.preventDefault();
     const data = {
       post_id: Number(params.id),
       content: inputChange.content,
@@ -34,8 +34,7 @@ export const useAddReply = (
       await ReplyApi.create(data);
       await NotificationApi.create(notificationData);
       setInputChange(emptyData);
-      fetchReply();
-      console.log('add replies', replies);
+      window.location.reload();
       notify('正常にリプライが完了しました。');
     } catch (e: any) {
       console.log(e);

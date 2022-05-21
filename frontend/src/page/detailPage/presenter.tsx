@@ -50,22 +50,22 @@ const Presenter: FC<DetailPageType> = ({
           <Text fontSize="15px">{currentPost.content}</Text>
         </Box>
       </Box>
-      <Flex my={5}>
-        <Input
-          mr={2}
-          name={'content'}
-          value={reply.content}
-          onChange={handleInputChange}
-        />
-        <Button
-          onClick={addReply}
-          disabled={!reply.content || /^\s*$/.test(reply.content)}
-        >
-          <button>
+      <form onSubmit={(e) => addReply(e)}>
+        <Flex my={5}>
+          <Input
+            mr={2}
+            name={'content'}
+            value={reply.content}
+            onChange={handleInputChange}
+          />
+          <Button
+            onClick={(e) => addReply(e)}
+            disabled={!reply.content || /^\s*$/.test(reply.content)}
+          >
             <FiSend />
-          </button>
-        </Button>
-      </Flex>
+          </Button>
+        </Flex>
+      </form>
       <Box mt={2}>
         {replies &&
           replies.map((val) => {

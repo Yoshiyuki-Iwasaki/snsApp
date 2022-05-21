@@ -36,7 +36,7 @@ const DetailPage = () => {
       deletePost={deletePost}
       handleModal={handleModal}
       handleInputChange={handleInputChange}
-      addReply={addReply}
+      addReply={(e) => addReply(e)}
     />
   );
 };
