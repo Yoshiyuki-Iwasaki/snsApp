@@ -10,6 +10,8 @@ import {
   Button,
   FormControl,
   Center,
+  HStack,
+  VStack,
 } from '@chakra-ui/react';
 import { PresenterType } from './type';
 
@@ -30,7 +32,7 @@ const Presenter: FC<PresenterType> = ({
                 {myUser && val.user.id === myUser.data.id ? (
                   <Flex my={2} justifyContent="flex-end">
                     <Box p={3} w="40%" borderWidth="1px" borderRadius={8}>
-                      <Flex alignItems={'center'}>
+                      <HStack>
                         <Link
                           href={`/user/` + val.user.id}
                           mr={2}
@@ -40,14 +42,14 @@ const Presenter: FC<PresenterType> = ({
                           {val.user.name}
                         </Link>
                         <Text fontSize="11px">{formatDate(val.createdAt)}</Text>
-                      </Flex>
+                      </HStack>
                       <Text fontSize="13px">{val.message}</Text>
                     </Box>
                   </Flex>
                 ) : (
                   <Flex my={2} justifyContent="flex-start">
                     <Box p={3} w="40%" borderWidth="1px" borderRadius={8}>
-                      <Flex alignItems={'center'}>
+                      <HStack>
                         <Link
                           href={`/user/` + val.user.id}
                           mr={2}
@@ -57,7 +59,7 @@ const Presenter: FC<PresenterType> = ({
                           {val.user.name}
                         </Link>
                         <Text fontSize="11px">{formatDate(val.createdAt)}</Text>
-                      </Flex>
+                      </HStack>
                       <Text fontSize="13px">{val.message}</Text>
                     </Box>
                   </Flex>
@@ -67,27 +69,24 @@ const Presenter: FC<PresenterType> = ({
           })}
       </Box>
       <Center>
-        <FormControl
-          onSubmit={addChat}
-          width={'568px'}
-          paddingBottom={5}
-          backgroundColor="#fff"
-        >
-          <Flex>
-            <Input
-              mt={2}
-              mr={2}
-              name={'content'}
-              value={inputChange.content}
-              onChange={handleInputChange}
-            />
-            <Button mt={2} onClick={addChat}>
-              <button>
-                <FiSend />
-              </button>
-            </Button>
-          </Flex>
-        </FormControl>
+        <form onSubmit={(e) => addChat(e)}>
+          <FormControl width={'568px'} paddingBottom={5} backgroundColor="#fff">
+            <Flex>
+              <Input
+                mt={2}
+                mr={2}
+                name={'content'}
+                value={inputChange.content}
+                onChange={handleInputChange}
+              />
+              <Button mt={2} onClick={addChat}>
+                <button>
+                  <FiSend />
+                </button>
+              </Button>
+            </Flex>
+          </FormControl>
+        </form>
       </Center>
     </>
   );

@@ -9,7 +9,8 @@ export const useAddChat = (inputChange, id) => {
   const { myUser } = useFetchMyUser();
   const { chatRoomMember } = useFetchChat(id);
 
-  const addChat = async () => {
+  const addChat = async (e) => {
+    e.preventDefault();
     const data = {
       id: null,
       user_id: myUser.data.id,

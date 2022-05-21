@@ -20,7 +20,7 @@ const ChatRoomPage = () => {
       myUser={myUser}
       chats={chats}
       inputChange={inputChange}
-      addChat={addChat}
+      addChat={(e) => addChat(e)}
       handleInputChange={handleInputChange}
     />
   );
