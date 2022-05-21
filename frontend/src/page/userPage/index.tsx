@@ -16,7 +16,7 @@ const UserPage: FC = () => {
   const likedPost = useFetchLikedMyPost(Number(id));
   const { myUser } = useFetchMyUser();
   const { postedUser } = useFetchUser(Number(id));
-  const { follow, fetchFollow } = useFetchFollow();
+  const { follow, fetchFollow, checkedFollow } = useFetchFollow();
   const { chatRoom } = useFetchUserRoom(id);
   const handleFollow = useHandleFollow(myUser, { id }, fetchFollow);
   const handleUnfollow = useHandleUnFollow(follow, fetchFollow);
@@ -26,6 +26,7 @@ const UserPage: FC = () => {
       chatRoom={chatRoom}
       postedUser={postedUser}
       follow={follow}
+      checkedFollow={checkedFollow}
       myUser={myUser}
       myPost={myPost}
       likedPost={likedPost}

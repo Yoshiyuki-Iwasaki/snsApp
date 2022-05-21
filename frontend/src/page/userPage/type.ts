@@ -33,6 +33,7 @@ export type PresenterType = {
       length: number;
     };
   };
+  checkedFollow: any;
   myUser: MyUserType;
   myPost: PostsType[];
   likedPost: PostsLikedPost[];

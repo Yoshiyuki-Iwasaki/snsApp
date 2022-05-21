@@ -8,6 +8,7 @@ const Presenter: FC<PresenterType> = ({
   chatRoom,
   postedUser,
   follow,
+  checkedFollow,
   myUser,
   myPost,
   likedPost,
@@ -63,26 +64,38 @@ const Presenter: FC<PresenterType> = ({
         </Flex>
       </Center>
       {/* マイページ以外のユーザーページにフォローボタンを表示させる */}
-      {follow && myUser && myUser.data.id !== Number(params.id) && (
-        <Center mt={3}>
-          {follow.relationship.length ? (
-            <Button onClick={handleUnfollow}>フォロー削除</Button>
-          ) : (
-            <Button onClick={handleFollow}>フォロー</Button>
-          )}
-          {chatRoom && (
-            <motion.div whileHover={{ opacity: 0.7 }}>
-              <Link
-                ml={2}
-                href={'/chatRoom/' + chatRoom.room.id}
-                _hover={{ textDecoration: 'none' }}
-              >
-                チャット
-              </Link>
-            </motion.div>
-          )}
-        </Center>
-      )}
+      {checkedFollow &&
+        follow &&
+        myUser &&
+        myUser.data.id !== Number(params.id) && (
+          <>
+            <Center mt={3}>
+              {follow.relationship.length ? (
+                <Button onClick={handleUnfollow}>フォロー削除</Button>
+              ) : (
+                <Button onClick={handleFollow}>フォロー</Button>
+              )}
+              {chatRoom && (
+                <motion.div whileHover={{ opacity: 0.7 }}>
+                  <Link
+                    ml={2}
+                    href={'/chatRoom/' + chatRoom.room.id}
+                    _hover={{ textDecoration: 'none' }}
+                  >
+                    チャット
+                  </Link>
+                </motion.div>
+              )}
+            </Center>
+            {checkedFollow.relationship.length ? (
+              <Center mt={1}>
+                <Text>フォローされてます。</Text>
+              </Center>
+            ) : (
+              ''
+            )}
+          </>
+        )}
       <Flex mt={5}>
         <Box mx={1} w="50%">
           <Center>
@@ -90,17 +103,19 @@ const Presenter: FC<PresenterType> = ({
               投稿一覧
             </Text>
           </Center>
-          {myPost &&
-            myPost.map((val) => {
-              return (
-                <ListItem
-                  key={val.id}
-                  myUser={myUser}
-                  postedUser={val.user}
-                  val={val}
-                />
-              );
-            })}
+          <Box mt={3} height="calc(100vh - (72px + 320px))" overflow="scroll">
+            {myPost &&
+              myPost.map((val) => {
+                return (
+                  <ListItem
+                    key={val.id}
+                    myUser={myUser}
+                    postedUser={val.user}
+                    val={val}
+                  />
+                );
+              })}
+          </Box>
         </Box>
         <Box mx={1} w="50%">
           <Center>
@@ -108,21 +123,23 @@ const Presenter: FC<PresenterType> = ({
               いいねした投稿
             </Text>
           </Center>
-          {likedPost &&
-            likedPost.map((val) => {
-              return (
-                val.post && (
-                  <>
-                    <ListItem
-                      key={val.id}
-                      myUser={myUser}
-                      postedUser={val.post.user}
-                      val={val.post}
-                    />
-                  </>
-                )
-              );
-            })}
+          <Box mt={3} height="calc(100vh - (72px + 320px))" overflow="scroll">
+            {likedPost &&
+              likedPost.map((val) => {
+                return (
+                  val.post && (
+                    <>
+                      <ListItem
+                        key={val.id}
+                        myUser={myUser}
+                        postedUser={val.post.user}
+                        val={val.post}
+                      />
+                    </>
+                  )
+                );
+              })}
+          </Box>
         </Box>
       </Flex>
     </Box>
