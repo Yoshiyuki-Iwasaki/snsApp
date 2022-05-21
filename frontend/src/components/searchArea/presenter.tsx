@@ -1,4 +1,4 @@
-import { Flex, FormControl, Input, Button } from '@chakra-ui/react';
+import { Box, Flex, FormControl, Input, Button } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import { PresenterType } from './type';
 import { SearchIcon } from '@chakra-ui/icons';
@@ -9,7 +9,7 @@ const Presenter: FC<PresenterType> = ({
   handleSearch,
 }) => {
   return (
-    <>
+    <form onSubmit={(e: any) => handleSearch(e)}>
       <FormControl mr={2}>
         <Flex>
           <Input
@@ -18,6 +18,7 @@ const Presenter: FC<PresenterType> = ({
             name={'content'}
             value={search.content}
             onChange={handleInputChange}
+            width={'150px'}
           />
           <Button mt={2} onClick={handleSearch}>
             <button>
@@ -26,7 +27,7 @@ const Presenter: FC<PresenterType> = ({
           </Button>
         </Flex>
       </FormControl>
-    </>
+    </form>
   );
 };
 

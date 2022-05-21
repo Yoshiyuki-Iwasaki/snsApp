@@ -6,5 +6,5 @@ export type PresenterType = {
     content: string;
   };
   handleInputChange: handleInputChangeType;
-  handleSearch?: handleSearchType;
+  handleSearch?: any;
 };
