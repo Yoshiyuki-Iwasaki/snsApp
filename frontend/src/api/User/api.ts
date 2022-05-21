@@ -75,6 +75,10 @@ async function update(id: number, user: any) {
   return api.patch(ENDPOINT + `users/` + id, user);
 }
 
+async function search(id: string) {
+  return api.get(ENDPOINT + `search/users/` + id);
+}
+
 const UserApi = {
   create,
   login,
@@ -87,6 +91,7 @@ const UserApi = {
   fetchUserRoomMember,
   follow,
   update,
+  search,
 };
 
 export default UserApi;

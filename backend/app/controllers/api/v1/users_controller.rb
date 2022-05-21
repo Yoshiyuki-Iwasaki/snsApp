@@ -62,6 +62,11 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def search
+        users = User.order(created_at: :desc).where('name like ?', '%' + params[:id] + '%')
+        render json: users
+    end
+
     private
     def user_params
         params.permit(:name, :email, :password, :password_confirmation)

@@ -20,7 +20,8 @@ export type DetailPageType = {
 };
 
 export type PresenterType = {
-  id: number;
+  id: number | string;
   myUser: any;
   posts: any;
+  users: any;
 };

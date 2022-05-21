@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       # users
       get '/chats/myUser/:myUser_id/users/:users_id', to: "users#fetchUserRoom"
       get '/chats/users/:id', to: "users#fetchUserRoomMember"
+      get '/search/users/:id', to: "users#search"
 
       # posts
       get '/posts/page/:page/', to: "posts#index"
