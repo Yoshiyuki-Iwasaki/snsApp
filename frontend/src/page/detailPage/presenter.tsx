@@ -3,8 +3,9 @@ import { formatDate } from '../../util/data';
 import ListItem from '../../components/listItem';
 import ListMenu from '../../components/listMenu';
 import { FiSend } from 'react-icons/fi';
+import { StarIcon } from '@chakra-ui/icons';
 import { DetailPageType } from './type';
-import { Box, Flex, Input, Link, Text, Button } from '@chakra-ui/react';
+import { Box, Flex, Input, Link, Text, Button, HStack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const Presenter: FC<DetailPageType> = ({
@@ -13,10 +14,13 @@ const Presenter: FC<DetailPageType> = ({
   reply,
   replies,
   modalOpenFrag,
+  favorite,
   deletePost,
   handleModal,
   handleInputChange,
   addReply,
+  handleLike,
+  handleUnlike,
 }) => {
   return (
     <>
@@ -49,6 +53,37 @@ const Presenter: FC<DetailPageType> = ({
         <Box mt={3}>
           <Text fontSize="15px">{currentPost.content}</Text>
         </Box>
+        <HStack mt={3}>
+          {favorite && favorite.favorite.length ? (
+            <Button
+              m={0}
+              p={0}
+              minWidth={0}
+              height={30}
+              width={30}
+              bg="#FF69b4"
+              onClick={handleUnlike}
+            >
+              <StarIcon w={3} h={3} color="#fff" />
+            </Button>
+          ) : (
+            <Button
+              m={0}
+              p={0}
+              minWidth={0}
+              height={30}
+              width={30}
+              onClick={handleLike}
+            >
+              <StarIcon w={3} h={3} />
+            </Button>
+          )}
+          <Box ml={3}>
+            <Text fontSize="13px">
+              {favorite && favorite.isFavorite.length}
+            </Text>
+          </Box>
+        </HStack>
       </Box>
       <form onSubmit={(e) => addReply(e)}>
         <Flex my={5}>
