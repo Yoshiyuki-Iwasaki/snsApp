@@ -11,7 +11,6 @@ import {
   FormControl,
   Center,
   HStack,
-  VStack,
 } from '@chakra-ui/react';
 import { PresenterType } from './type';
 

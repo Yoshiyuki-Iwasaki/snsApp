@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { formatDate } from '../../util/data';
 import { PresenterType } from './type';
-import { Box, Flex, Text, Button, Link } from '@chakra-ui/react';
+import { Box, Flex, Text, Button, Link, HStack } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import ListMenu from '../listMenu';
 import { motion } from 'framer-motion';
@@ -61,7 +61,7 @@ const Presenter: FC<PresenterType> = ({
             </motion.div>
           </Link>
         ))}
-      <Flex mt={3} alignItems="center">
+      <HStack mt={3}>
         {favorite && favorite.favorite.length ? (
           <Button
             m={0}
@@ -89,7 +89,7 @@ const Presenter: FC<PresenterType> = ({
         <Box ml={3}>
           <Text fontSize="13px">{favorite && favorite.isFavorite.length}</Text>
         </Box>
-      </Flex>
+      </HStack>
     </Box>
   );
 };

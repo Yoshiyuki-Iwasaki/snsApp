@@ -1,13 +1,13 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
+import { Box, HStack, Link, Text } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import { PresenterType } from './type';
-import { SettingsIcon, PlusSquareIcon, BellIcon } from '@chakra-ui/icons';
+import { SettingsIcon, BellIcon } from '@chakra-ui/icons';
 import { motion } from 'framer-motion';
 import SearchArea from '../searchArea';
 
 const Presenter: FC<PresenterType> = ({ myUser }) => {
   return (
-    <Flex py={3} alignItems={'center'} justifyContent={'space-between'}>
+    <HStack py={3} justifyContent={'space-between'} spacing="0">
       <Link href="/" _hover={{ textDecoration: 'none' }}>
         <motion.button whileHover={{ opacity: 0.7 }}>
           <Text fontSize={22} fontWeight={700}>
@@ -15,12 +15,12 @@ const Presenter: FC<PresenterType> = ({ myUser }) => {
           </Text>
         </motion.button>
       </Link>
-      <Flex alignItems={'center'}>
+      <HStack spacing="15px">
         {myUser && myUser.isLogin ? (
           <>
             <SearchArea />
             <Link
-              mr={5}
+              ml={5}
               href={`/notification`}
               fontSize={14}
               fontWeight={700}
@@ -31,7 +31,7 @@ const Presenter: FC<PresenterType> = ({ myUser }) => {
               </motion.button>
             </Link>
             <Link
-              mr={5}
+              ml={10}
               href={`/setting`}
               fontSize={14}
               fontWeight={700}
@@ -41,17 +41,18 @@ const Presenter: FC<PresenterType> = ({ myUser }) => {
                 <SettingsIcon />
               </motion.button>
             </Link>
-            <Link
-              mr={5}
-              href={`/user/${myUser.data.id}`}
-              fontSize={14}
-              fontWeight={700}
-              _hover={{ textDecoration: 'none' }}
-            >
-              <motion.button whileHover={{ opacity: 0.7 }}>
-                {myUser.data.name}
-              </motion.button>
-            </Link>
+            <Box ml={10}>
+              <Link
+                href={`/user/${myUser.data.id}`}
+                fontSize={14}
+                fontWeight={700}
+                _hover={{ textDecoration: 'none' }}
+              >
+                <motion.button whileHover={{ opacity: 0.7 }}>
+                  {myUser.data.name}
+                </motion.button>
+              </Link>
+            </Box>
           </>
         ) : (
           <>
@@ -72,8 +73,8 @@ const Presenter: FC<PresenterType> = ({ myUser }) => {
             </Link>
           </>
         )}
-      </Flex>
-    </Flex>
+      </HStack>
+    </HStack>
   );
 };
 
