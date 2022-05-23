@@ -2,30 +2,31 @@ import React, { FC } from 'react';
 import { FiSend } from 'react-icons/fi';
 import 'react-toastify/dist/ReactToastify.css';
 import { PresenterType } from './type';
-import {
-  Box,
-  Input,
-  FormControl,
-  Flex,
-  Button,
-  VStack,
-} from '@chakra-ui/react';
-import { Formik, useFormik } from 'formik';
-import * as Yup from 'yup';
+import { Box, Input, Flex, Button } from '@chakra-ui/react';
+import { useFormik } from 'formik';
 
-const Presenter: FC<PresenterType> = ({ post, addPost, handleInputChange }) => {
+const Presenter: FC<PresenterType> = ({
+  initialValues,
+  onSubmit,
+  validationSchema,
+}) => {
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validationSchema,
+  });
   return (
     <Box p="5" borderWidth="1px">
-      <form onSubmit={(e) => addPost(e)}>
+      <form onSubmit={(e) => formik.handleSubmit(e)}>
         <Flex>
           <Input
             mt={2}
             mr={2}
-            value={post.content}
             name="content"
-            onChange={handleInputChange}
+            onChange={formik.handleChange}
+            value={formik.values.content}
           />
-          <Button mt={2} onClick={addPost}>
+          <Button mt={2} type="submit">
             <FiSend />
           </Button>
         </Flex>

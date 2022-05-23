@@ -2,9 +2,8 @@ import { handleInputChangeType } from '../../type';
 import { addPostType } from '../../type';
 
 export type PresenterType = {
-  post: {
-    content: string;
-  };
+  initialValues: any;
+  onSubmit: any;
+  validationSchema: any;
   addPost: any;
-  handleInputChange: handleInputChangeType;
 };
