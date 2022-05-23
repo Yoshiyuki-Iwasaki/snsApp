@@ -11,7 +11,7 @@ const InputField: FC = () => {
     content: '',
   };
   const validationSchema = Yup.object({
-    content: Yup.string().required('Required'),
+    content: Yup.string().required('入力は必須です。'),
   });
   const onSubmit = (values) => {
     addPost(values);

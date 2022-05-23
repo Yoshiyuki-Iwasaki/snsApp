@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { FiSend } from 'react-icons/fi';
 import 'react-toastify/dist/ReactToastify.css';
 import { PresenterType } from './type';
-import { Box, Input, Flex, Button } from '@chakra-ui/react';
+import { Box, Input, Flex, Button, Text } from '@chakra-ui/react';
 import { useFormik } from 'formik';
 
 const Presenter: FC<PresenterType> = ({
@@ -10,7 +10,7 @@ const Presenter: FC<PresenterType> = ({
   onSubmit,
   validationSchema,
 }) => {
-  const formik = useFormik({
+  const formik: any = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
@@ -30,6 +30,11 @@ const Presenter: FC<PresenterType> = ({
             <FiSend />
           </Button>
         </Flex>
+        {formik.errors && (
+          <Text mt={1} fontSize={14} color="red">
+            {formik.errors.content}
+          </Text>
+        )}
       </form>
     </Box>
   );
