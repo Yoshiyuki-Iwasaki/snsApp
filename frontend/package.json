@@ -15,6 +15,8 @@
     "cors": "^2.8.5",
     "dayjs": "^1.11.0",
     "express": "^4.17.3",
+    "formik": "^2.2.9",
+    "formik-chakra-ui": "^1.6.0",
     "framer-motion": "^6.3.3",
     "js-cookie": "^3.0.1",
     "moment": "^2.29.3",
@@ -30,7 +32,8 @@
     "ress": "^5.0.2",
     "snakecase-keys": "^5.4.0",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
