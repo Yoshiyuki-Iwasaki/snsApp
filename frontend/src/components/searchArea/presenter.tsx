@@ -20,10 +20,12 @@ const Presenter: FC<PresenterType> = ({
             onChange={handleInputChange}
             width={'150px'}
           />
-          <Button mt={2} onClick={handleSearch}>
-            <button>
-              <SearchIcon />
-            </button>
+          <Button
+            mt={2}
+            disabled={!search.content || /^\s*$/.test(search.content)}
+            onClick={handleSearch}
+          >
+            <SearchIcon />
           </Button>
         </Flex>
       </FormControl>
