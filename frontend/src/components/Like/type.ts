@@ -7,18 +7,20 @@ import { PostsType } from '../../type/Posts';
 import { PostedUser } from '../../type/User';
 
 export type ListItemType = {
-  postedUser: PostedUser;
   myUser: MyUserType;
   val: PostsType;
   replyFrag?: boolean;
 };
 
 export type PresenterType = {
-  val: PostsType;
-  myUser: MyUserType;
-  postedUser: PostedUser;
-  replyFrag: boolean;
-  modalOpenFrag: boolean;
-  handleModal: handleModalType;
-  deletePost: deletePostType;
+  favorite: {
+    favoriteData: {
+      length: number;
+    };
+    favoriteNumberData: {
+      length: number;
+    };
+  };
+  handleLike: handleLikeType;
+  handleUnlike: handleUnlikeType;
 };

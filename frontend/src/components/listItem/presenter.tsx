@@ -1,19 +1,16 @@
 import React, { FC } from 'react';
 import { formatDate } from '../../util/data';
 import { PresenterType } from './type';
-import { Box, Flex, Text, Button, Link, HStack } from '@chakra-ui/react';
-import { StarIcon } from '@chakra-ui/icons';
+import { Box, Flex, Text, Link } from '@chakra-ui/react';
 import ListMenu from '../listMenu';
 import { motion } from 'framer-motion';
+import Like from '../Like';
 
 const Presenter: FC<PresenterType> = ({
   val,
   myUser,
   postedUser,
-  favorite,
   modalOpenFrag,
-  handleLike,
-  handleUnlike,
   handleModal,
   deletePost,
   replyFrag,
@@ -61,35 +58,7 @@ const Presenter: FC<PresenterType> = ({
             </motion.div>
           </Link>
         ))}
-      <HStack mt={3}>
-        {favorite && favorite.favorite.length ? (
-          <Button
-            m={0}
-            p={0}
-            minWidth={0}
-            height={30}
-            width={30}
-            bg="#FF69b4"
-            onClick={handleUnlike}
-          >
-            <StarIcon w={3} h={3} color="#fff" />
-          </Button>
-        ) : (
-          <Button
-            m={0}
-            p={0}
-            minWidth={0}
-            height={30}
-            width={30}
-            onClick={handleLike}
-          >
-            <StarIcon w={3} h={3} />
-          </Button>
-        )}
-        <Box ml={3}>
-          <Text fontSize="13px">{favorite && favorite.isFavorite.length}</Text>
-        </Box>
-      </HStack>
+      <Like myUser={myUser} val={val} replyFrag={replyFrag} />
     </Box>
   );
 };

@@ -4,10 +4,10 @@ import FavoriteApi from '../../api/Favorite/api';
 import NotificationApi from '../../api/Notification/api';
 import useFetchMyUser from '../../hooks/useFetchMyUser';
 
-// いいね削除処理をするcustom hooks.
+// いいね削除機能のcustom hooks.
 export const useHandleUnlike = (favorite, fetchFavorite) => {
   const handleUnlike = async () => {
-    await FavoriteApi.remove(favorite.favorite[0].id);
+    await FavoriteApi.remove(favorite.favoriteData[0].id);
     notify('正常にいいね削除完了しました。');
     fetchFavorite();
   };
@@ -15,8 +15,13 @@ export const useHandleUnlike = (favorite, fetchFavorite) => {
   return handleUnlike;
 };
 
-// いいね処理をするcustom hooks.
-export const useHandleLike = (val, myUser, fetchFavorite, replyFrag) => {
+// いいね機能のcustom hooks.
+export const useHandleLike = (
+  val,
+  myUser,
+  fetchFavorite,
+  replyFrag: boolean
+) => {
   const handleLike = async () => {
     const data = {
       post_id: replyFrag ? '' : val.id,
@@ -40,7 +45,7 @@ export const useHandleLike = (val, myUser, fetchFavorite, replyFrag) => {
   return handleLike;
 };
 
-// Favoriteを取得するcustom hooks.
+// いいね取得機能のcustom hooks.
 export const useFetchFavorite = (val, replyFrag) => {
   const [favorite, setFavorite] = useState<any>();
   const { myUser } = useFetchMyUser();
@@ -51,6 +56,7 @@ export const useFetchFavorite = (val, replyFrag) => {
         ? await FavoriteApi.fetch_replyPost(myUser.data.id, val.id)
         : await FavoriteApi.fetch(myUser.data.id, val.id);
       setFavorite(FavoriteRes.data);
+      console.log('FavoriteRes.data', FavoriteRes.data);
     } catch (e: any) {
       console.log(e);
     }
