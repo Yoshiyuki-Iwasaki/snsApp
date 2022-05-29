@@ -15,11 +15,13 @@ const Presenter: FC<PresenterType> = ({ post, addPost, handleInputChange }) => {
             name="content"
             onChange={handleInputChange}
             value={post.content}
+            data-testid="input"
           />
           <Button
             mt={2}
             onClick={(e) => addPost(e)}
             disabled={!post.content || /^\s*$/.test(post.content)}
+            data-testid="button"
           >
             <FiSend />
           </Button>
