@@ -11,35 +11,7 @@ type PostsLikedPost = {
 };
 
 export type PresenterType = {
-  chatRoom: {
-    id: number;
-    room: RoomsType;
-    user: UserType;
-  };
-  postedUser: {
-    name: string;
-    email: string;
-    password: string;
-    password_confirmation: string;
-  };
-  follow: {
-    isRelationshipFollowing: {
-      length: number;
-    };
-    isRelationshipFollowed: {
-      length: number;
-    };
-    relationship: {
-      length: number;
-    };
-  };
-  checkedFollow: any;
   myUser: MyUserType;
   myPost: PostsType[];
   likedPost: PostsLikedPost[];
-  params: {
-    id: string;
-  };
-  handleUnfollow: handleUnfollowType;
-  handleFollow: handleFollowType;
 };
