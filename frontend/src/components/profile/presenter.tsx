@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { PresenterType } from './type';
-import { Flex, Box, Center, Image, Text, Button, Link } from '@chakra-ui/react';
+import { Flex, Box, Center, Image, Text, Link } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import FollowButton from '../followButton';
 
 const Presenter: FC<any> = ({
   chatRoom,
@@ -10,8 +11,6 @@ const Presenter: FC<any> = ({
   checkedFollow,
   myUser,
   params,
-  handleUnfollow,
-  handleFollow,
 }) => {
   return (
     <>
@@ -67,11 +66,7 @@ const Presenter: FC<any> = ({
         myUser.data.id !== Number(params.id) && (
           <>
             <Center mt={3}>
-              {follow.relationship.length ? (
-                <Button onClick={handleUnfollow}>フォロー削除</Button>
-              ) : (
-                <Button onClick={handleFollow}>フォロー</Button>
-              )}
+              <FollowButton />
               {chatRoom && (
                 <motion.div whileHover={{ opacity: 0.7 }}>
                   <Link
