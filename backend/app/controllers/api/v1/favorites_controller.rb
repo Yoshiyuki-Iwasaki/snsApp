@@ -2,31 +2,31 @@ class Api::V1::FavoritesController < ApplicationController
 
     def index
         # いいねしているかどうかをチェック
-        favorite = Favorite.order(created_at: :desc).where(user_id: params[:user_id], post_id: params[:post_id])
+        favoriteData = Favorite.order(created_at: :desc).where(user_id: params[:user_id], post_id: params[:post_id])
         # いいね数をチェック
-        isFavorite = Favorite.where(post_id: params[:post_id]);
-        render json: {favorite: favorite, isFavorite: isFavorite}
+        favoriteNumberData = Favorite.where(post_id: params[:post_id]);
+        render json: {favoriteData: favoriteData, favoriteNumberData: favoriteNumberData}
     end
 
     def replyIndex
         # いいねしているかどうかをチェック
-        favorite = Favorite.order(created_at: :desc).where(user_id: params[:user_id], reply_id: params[:reply_id])
+        favoriteData = Favorite.order(created_at: :desc).where(user_id: params[:user_id], reply_id: params[:reply_id])
         # いいね数をチェック
-        isFavorite = Favorite.where(reply_id: params[:reply_id]);
-        render json: {favorite: favorite, isFavorite: isFavorite}
+        favoriteNumberData = Favorite.where(reply_id: params[:reply_id]);
+        render json: {favoriteData: favoriteData, favoriteNumberData: favoriteNumberData}
     end
 
     def userIndex
-        favorite = Favorite.order(created_at: :desc).where(user_id: params[:id])
-        render json: favorite
+        favoriteData = Favorite.order(created_at: :desc).where(user_id: params[:id])
+        render json: favoriteData
     end
 
     def create
-        favorite = Favorite.new(favorite_params)
-        if favorite.save
-            render json: favorite
+        favoriteData = Favorite.new(favorite_params)
+        if favoriteData.save
+            render json: favoriteData
         else
-            render json: favorite.errors, status: 422
+            render json: favoriteData.errors, status: 422
         end
     end
 

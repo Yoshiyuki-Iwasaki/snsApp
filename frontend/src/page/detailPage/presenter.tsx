@@ -50,7 +50,7 @@ const Presenter: FC<DetailPageType> = ({
           <Text fontSize="15px">{currentPost.content}</Text>
         </Box>
         <HStack mt={3}>
-          {favorite && favorite.favorite.length ? (
+          {favorite && favorite.favoriteData.length ? (
             <Button
               m={0}
               p={0}
@@ -76,7 +76,7 @@ const Presenter: FC<DetailPageType> = ({
           )}
           <Box ml={3}>
             <Text fontSize="13px">
-              {favorite && favorite.isFavorite.length}
+              {favorite && favorite.favoriteNumberData.length}
             </Text>
           </Box>
         </HStack>
