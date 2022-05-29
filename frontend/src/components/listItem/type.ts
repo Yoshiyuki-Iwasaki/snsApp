@@ -18,7 +18,5 @@ export type PresenterType = {
   myUser: MyUserType;
   postedUser: PostedUser;
   replyFrag: boolean;
-  modalOpenFrag: boolean;
-  handleModal: handleModalType;
   deletePost: deletePostType;
 };

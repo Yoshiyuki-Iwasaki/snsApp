@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 import { ListMenuType } from './type';
 import Presenter from './presenter';
+import useModalOpen from '../../hooks/useModalOpen';
 
 const ListMenu: FC<ListMenuType> = ({
   myUser,
   postedUser,
-  modalOpenFrag,
   replyFrag = false,
   val,
-  handleModal,
   deletePost,
 }) => {
+  const { modalOpenFrag, handleModal } = useModalOpen();
   return (
     <>
       <Presenter

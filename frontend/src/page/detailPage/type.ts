@@ -12,17 +12,15 @@ export type DetailPageType = {
     content: string;
   };
   replies: PostsType[];
-  modalOpenFrag: boolean;
   favorite: {
-    favorite: {
+    favoriteNumberData: {
       length: number;
     };
-    isFavorite: {
+    favoriteData: {
       length: number;
     };
   };
   deletePost: deletePostType;
-  handleModal: handleModalType;
   handleInputChange: handleInputChangeType;
   addReply: any;
   handleLike: any;

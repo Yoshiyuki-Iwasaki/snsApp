@@ -7,12 +7,11 @@ import { useFetchReply } from './hooks';
 import useFetchCurrentPost from '../../hooks/useFetchCurrentPost';
 import { useAddReply } from './hooks';
 import useDeletePost from '../../hooks/useDeletePost';
-import useModalOpen from '../../hooks/useModalOpen';
 import {
   useFetchFavorite,
   useHandleLike,
   useHandleUnlike,
-} from '../../components/listItem/hooks';
+} from '../../components/Like/hooks';
 import { initialReplyState } from '../../util/state';
 
 const DetailPage = () => {
@@ -29,7 +28,6 @@ const DetailPage = () => {
     currentPost
   );
   const deletePost = useDeletePost({ id });
-  const { modalOpenFrag, handleModal } = useModalOpen();
   const { favorite, fetchFavorite } = useFetchFavorite(currentPost, false);
   const handleLike = useHandleLike(currentPost, myUser, fetchFavorite, false);
   const handleUnlike = useHandleUnlike(favorite, fetchFavorite);
@@ -41,9 +39,7 @@ const DetailPage = () => {
       reply={inputChange}
       replies={replies}
       favorite={favorite}
-      modalOpenFrag={modalOpenFrag}
       deletePost={deletePost}
-      handleModal={handleModal}
       handleInputChange={handleInputChange}
       addReply={(e) => addReply(e)}
       handleLike={handleLike}

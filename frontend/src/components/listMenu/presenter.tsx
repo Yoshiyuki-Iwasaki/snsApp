@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Box, Button, Link } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { ListMenuType } from './type';
+import { PresenterType } from './type';
 
-const Presenter: FC<ListMenuType> = ({
+const Presenter: FC<PresenterType> = ({
   myUser,
   postedUser,
   modalOpenFrag,

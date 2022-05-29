@@ -10,8 +10,6 @@ const Presenter: FC<PresenterType> = ({
   val,
   myUser,
   postedUser,
-  modalOpenFrag,
-  handleModal,
   deletePost,
   replyFrag,
 }) => {
@@ -21,9 +19,7 @@ const Presenter: FC<PresenterType> = ({
         myUser={myUser}
         postedUser={postedUser}
         replyFrag={replyFrag}
-        modalOpenFrag={modalOpenFrag}
         val={val}
-        handleModal={handleModal}
         deletePost={deletePost}
       />
       {val &&

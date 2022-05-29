@@ -9,6 +9,21 @@ export type ListMenuType = {
     name: string;
   };
   replyFrag?: boolean;
+  val: {
+    id: number;
+    createdAt: string;
+    content: string;
+  };
+  deletePost: deletePostType;
+};
+
+export type PresenterType = {
+  myUser: MyUserType;
+  postedUser: {
+    id: number;
+    name: string;
+  };
+  replyFrag?: boolean;
   modalOpenFrag: boolean;
   val: {
     id: number;

@@ -13,10 +13,8 @@ const Presenter: FC<DetailPageType> = ({
   myUser,
   reply,
   replies,
-  modalOpenFrag,
   favorite,
   deletePost,
-  handleModal,
   handleInputChange,
   addReply,
   handleLike,
@@ -28,9 +26,7 @@ const Presenter: FC<DetailPageType> = ({
         <ListMenu
           myUser={myUser}
           postedUser={currentPost.user}
-          modalOpenFrag={modalOpenFrag}
           val={currentPost}
-          handleModal={handleModal}
           deletePost={deletePost}
         />
         <Flex>
