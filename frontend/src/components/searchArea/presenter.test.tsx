@@ -8,8 +8,8 @@ const dummySearchText = {
   content: 'test',
 };
 
-describe('Input', () => {
-  it('renders correctly', () => {
+describe('SearchArea Presenter', () => {
+  it('レンダリングされているか', () => {
     // レンダリング
     render(
       <Presenter
@@ -30,7 +30,7 @@ describe('Input', () => {
     expect(search_input).toBeTruthy();
   });
 
-  it('update on change', () => {
+  it('問題なく検索フォームにテキストが入力できているか', () => {
     // レンダリング
     render(
       <Presenter
