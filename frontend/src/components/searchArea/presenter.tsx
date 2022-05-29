@@ -19,11 +19,13 @@ const Presenter: FC<PresenterType> = ({
             value={search.content}
             onChange={handleInputChange}
             width={'150px'}
+            data-testid="input"
           />
           <Button
             mt={2}
             disabled={!search.content || /^\s*$/.test(search.content)}
             onClick={handleSearch}
+            data-testid="button"
           >
             <SearchIcon />
           </Button>
