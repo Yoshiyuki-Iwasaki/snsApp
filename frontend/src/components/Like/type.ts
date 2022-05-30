@@ -21,6 +21,6 @@ export type PresenterType = {
       length: number;
     };
   };
-  handleLike: handleLikeType;
-  handleUnlike: handleUnlikeType;
+  handleLike?: handleLikeType;
+  handleUnlike?: handleUnlikeType;
 };
