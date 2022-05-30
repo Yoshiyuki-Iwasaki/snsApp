@@ -15,6 +15,6 @@ export type PresenterType = {
       length: number;
     };
   };
-  handleFollow: handleFollowType;
-  handleUnfollow: handleUnfollowType;
+  handleFollow?: handleFollowType;
+  handleUnfollow?: handleUnfollowType;
 };

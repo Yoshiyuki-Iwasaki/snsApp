@@ -10,9 +10,13 @@ const Presenter: FC<PresenterType> = ({
   return (
     <>
       {follow && follow.relationship.length ? (
-        <Button onClick={handleUnfollow}>フォロー削除</Button>
+        <Button data-testid="unfollowButton" onClick={handleUnfollow}>
+          フォロー削除
+        </Button>
       ) : (
-        <Button onClick={handleFollow}>フォロー</Button>
+        <Button data-testid="followButton" onClick={handleFollow}>
+          フォロー
+        </Button>
       )}
     </>
   );
