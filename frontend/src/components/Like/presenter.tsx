@@ -21,6 +21,7 @@ const Presenter: FC<PresenterType> = ({
           width={30}
           bg="#FF69b4"
           onClick={handleUnlike}
+          data-testid="unlikeButton"
         >
           <StarIcon w={3} h={3} color="#fff" />
         </Button>
@@ -33,12 +34,13 @@ const Presenter: FC<PresenterType> = ({
           height={30}
           width={30}
           onClick={handleLike}
+          data-testid="likeButton"
         >
           <StarIcon w={3} h={3} />
         </Button>
       )}
       <Box ml={3}>
-        <Text fontSize="13px">
+        <Text fontSize="13px" data-testid="likeNumber">
           {/* 投稿のいいね数を表示する */}
           {favorite && favorite.favoriteNumberData.length}
         </Text>
