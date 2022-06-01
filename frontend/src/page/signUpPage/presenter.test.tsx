@@ -16,28 +16,28 @@ describe('SignUp Presenter', () => {
     // レンダリング
     render(<Presenter signUpInfo={dummySignUpText} />);
 
-    // 検索ボタン
+    // ボタン
     const button: any = screen.getByTestId('button');
-    // 検索フォーム
+    // 名前
     const nameInput: any = screen.getByTestId('nameInput');
-    // 検索ボタン
+    // メール
     const emailInput: any = screen.getByTestId('emailInput');
-    // 検索フォーム
+    // パスワード
     const passwordInput: any = screen.getByTestId('passwordInput');
-    // 検索フォーム
+    // 確認パスワード
     const password_confirmationInput: any = screen.getByTestId(
       'password_confirmationInput'
     );
 
-    // 検索ボタンがレンダリングされていることを確認
+    // ボタンがレンダリングされていることを確認
     expect(button).toBeTruthy();
-    // 検索フォームがレンダリングされていることを確認
+    // 名前がレンダリングされていることを確認
     expect(nameInput).toBeTruthy();
-    // 検索ボタンがレンダリングされていることを確認
+    // メールがレンダリングされていることを確認
     expect(emailInput).toBeTruthy();
-    // 検索フォームがレンダリングされていることを確認
+    // パスワードがレンダリングされていることを確認
     expect(passwordInput).toBeTruthy();
-    // 検索フォームがレンダリングされていることを確認
+    // 確認パスワードがレンダリングされていることを確認
     expect(password_confirmationInput).toBeTruthy();
   });
 
