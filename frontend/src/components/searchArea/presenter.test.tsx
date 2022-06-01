@@ -5,7 +5,7 @@ import Presenter from './presenter';
 
 // ダミーデータ
 const dummySearchText = {
-  content: 'test',
+  content: '',
 };
 
 describe('SearchArea Presenter', () => {
@@ -30,20 +30,12 @@ describe('SearchArea Presenter', () => {
     expect(search_input).toBeTruthy();
   });
 
-  it('問題なく検索フォームにテキストが入力できているか', () => {
+  it('ボタンの初期値がdisabledになっているか', () => {
     // レンダリング
-    render(
-      <Presenter
-        search={dummySearchText}
-        handleInputChange={() => {}}
-        handleSearch={() => {}}
-      />
-    );
+    render(<Presenter search={dummySearchText} />);
     // 検索フォーム
-    const search_input: any = screen.getByTestId('input');
-    // 検索フォームにtestの値を入れる
-    userEvent.type(search_input, 'test');
+    const search_button: any = screen.getByTestId('button');
     // 検索フォームのvalue値がtestか確認する
-    expect(search_input.value).toBe('test');
+    expect(search_button).toBeDisabled();
   });
 });
